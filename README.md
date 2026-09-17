@@ -1,9 +1,9 @@
-# PyEXPINT — pre-release TOMS benchmark candidate
+# PyEXPINT — exponential integrators in Python
 
 PyEXPINT is an independent, from-scratch modernization of the mathematical
 framework of EXPINT for exponential general linear integrators.
 
-**Development version:** `0.8.1.dev0`
+**Development version:** `0.8.2.dev0`
 
 ## Current status
 
@@ -20,12 +20,26 @@ framework of EXPINT for exponential general linear integrators.
 - calibrated/automatic backend dispatch;
 - work, matvec and algorithmic-workspace diagnostics;
 - stiff-order/order-reduction, 1-D and 2-D benchmark suites;
-- pre-release CPU/HPC benchmark protocol and Picasso Slurm campaign.
+- reproducible CPU/HPC benchmark protocol with archived three-replica Picasso evidence.
+
+## Installation
+
+PyEXPINT requires Python 3.11 or newer with NumPy and SciPy.
+
+From a source checkout:
+
+    python -m pip install .
+
+For development and testing:
+
+    python -m pip install -e ".[test]"
+
+See `docs/QUICKSTART.md` for a worked example.
 
 ## Validation
 
 ```text
-119 passed
+128 passed
 ```
 
 The current benchmark candidate also passes source compilation and editable offline installation.
@@ -41,6 +55,11 @@ The current benchmark candidate also passes source compilation and editable offl
 - `hpc/README.md`
 - `reproducibility/README.md`
 - `reproducibility/toms/README.md`
+- `docs/QUICKSTART.md`
+- `THIRD_PARTY.md`
+- `CHANGELOG.md`
+- `CITATION.cff`
+- `CONTRIBUTING.md`
 
 ## Canonical reproducibility path
 
@@ -79,13 +98,17 @@ They are not the canonical final TOMS timing evidence.
 
 ## Licensing status
 
-The historical EXPINT package available to this project contains no explicit source
-license. PyEXPINT is therefore being developed independently from published mathematical
-formulas and documentation while clarification from the original authors/rightsholder is
-pending.
+The technical provenance audit found no vendored third-party source that determines
+the PyEXPINT license. PyEXPINT is an independent implementation based on published
+mathematical algorithms and documentation.
 
-This snapshot uses `LicenseRef-Provisional` and should **not** yet be published as a formal
-public release.
+A final open-source license is pending confirmation of the holder of the
+economic/exploitation rights in the PyEXPINT source.
+
+Until that confirmation, the project uses `LicenseRef-Provisional` and should not
+be published as a formal public release.
+
+See `LICENSE-PROVISIONAL.md` and `THIRD_PARTY.md`.
 
 
 ## Picasso v0.8.2 timing workflow
