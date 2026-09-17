@@ -1,0 +1,13 @@
+include LICENSE
+include CONTENT-LICENSE.md
+include README.md
+include CITATION.cff
+include CHANGELOG.md
+include THIRD_PARTY.md
+include CONTRIBUTING.md
+include API_STABILITY.md
+include RELEASE_CHECKLIST.md
+include BENCHMARK_PROTOCOL_TOMS.md
+include TOMS_CLAIMS_MATRIX.md
+include TOMS_MANUSCRIPT_BLUEPRINT.md
+include docs/QUICKSTART.md

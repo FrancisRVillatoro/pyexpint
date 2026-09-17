@@ -16,7 +16,7 @@ authors = [
     {name = "Francisco R. Villatoro"}
 ]
 license = "MIT"
-license-files = ["LICENSE"]
+license-files = ["LICENSE", "CONTENT-LICENSE.md"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
