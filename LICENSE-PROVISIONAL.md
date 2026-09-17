@@ -1,8 +1,16 @@
 # Provisional licensing notice
 
-The original EXPINT MATLAB distribution available to this project does not contain an explicit software license.
-This development snapshot of PyEXPINT is an independent, from-scratch implementation based on published mathematical
-formulas and documentation. No original MATLAB source is included in this archive.
+PyEXPINT is an independent Python implementation based on published
+mathematical algorithms and documentation. No historical EXPINT MATLAB source,
+KIOPS reference source, LeXInt source, or rkstiff source is redistributed in
+this repository.
 
-A final open-source license for PyEXPINT will be selected after the copyright/licensing status of the historical EXPINT
-code has been clarified with its authors/rightsholder. This file is not itself a grant of rights for public redistribution.
+The technical third-party provenance audit found no vendored external source
+that determines the license of PyEXPINT.
+
+A final open-source license has not yet been granted because the holder of the
+economic/exploitation rights in the PyEXPINT source must first be confirmed.
+
+Until that confirmation and the replacement of this notice by a definitive
+LICENSE file, this repository should not be treated as granting general
+redistribution rights.
