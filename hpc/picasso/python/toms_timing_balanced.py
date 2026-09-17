@@ -52,6 +52,28 @@ def cpu_affinity():
         return []
 
 
+def json_safe(value):
+    """Convert backend statistics to strict JSON-compatible objects.
+
+    Unknown object types are rejected rather than silently stringified so
+    benchmark output cannot lose scientific information unnoticed.
+    """
+    if value is None or isinstance(value, (str, bool, int, float)):
+        return value
+    if isinstance(value, np.generic):
+        return value.item()
+    if isinstance(value, np.ndarray):
+        return json_safe(value.tolist())
+    if isinstance(value, dict):
+        return {str(k): json_safe(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [json_safe(v) for v in value]
+    raise TypeError(
+        f"backend statistic is not JSON serializable: "
+        f"{type(value).__name__}: {value!r}"
+    )
+
+
 def make_problem(n, T=0.5, nu=0.02):
     Lx = 2 * np.pi
     dx = Lx / n
@@ -119,7 +141,7 @@ def solve_once(problem, exact, bounds, backend_name, rtol):
     sol = solve_etd34(problem, backend, options=opts)
     elapsed_s = (time.perf_counter_ns() - t0) * 1e-9
     cpu_s = (time.process_time_ns() - cpu0) * 1e-9
-    stats = sol.stats["backend_stats"]
+    stats = json_safe(sol.stats["backend_stats"])
     return {
         "wall_s": float(elapsed_s),
         "cpu_time_s": float(cpu_s),
@@ -131,6 +153,7 @@ def solve_once(problem, exact, bounds, backend_name, rtol):
         "rejected_steps": int(sol.stats["rejected_steps"]),
         "last_selected": stats.get("last_selected"),
         "selection_counts": stats.get("selection_counts"),
+        "backend_stats": stats,
     }
 
 
