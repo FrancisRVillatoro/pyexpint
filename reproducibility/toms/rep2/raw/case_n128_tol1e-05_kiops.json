@@ -1,0 +1,346 @@
+{
+  "schema_version": 3,
+  "campaign_id": "cpu2d_toms_balanced_v082_leja80_rep2_20260904b",
+  "source_manifest_sha256": "ffc203e8eca9e2ad160505f3c10b0bc8fa5e2072ee50ce6a6a4e23c47abe7dda",
+  "runtime_mode": "source",
+  "protocol_id": "balanced-cyclic-6case-4backend-v1",
+  "blocks": 12,
+  "warmups_per_configuration": 1,
+  "measurement_scope": "solve_etd34 only; problem construction and gc.collect outside timer",
+  "slurm": {
+    "job_id": "2206865",
+    "job_nodelist": "sd004",
+    "job_partition": "cpu_partition",
+    "cpus_per_task": "1"
+  },
+  "environment": {
+    "hostname": "sd004",
+    "cpu_model": "Intel(R) Xeon(R) Gold 6230R CPU @ 2.10GHz",
+    "cpu_affinity": [
+      24
+    ],
+    "python": "3.11.4",
+    "numpy": "1.24.3",
+    "scipy": "1.10.1",
+    "platform": "Linux-6.4.0-150600.23.87-default-x86_64-with-glibc2.38",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "n_side": 128,
+  "dimension": 16384,
+  "rtol": 1e-05,
+  "backend": "kiops",
+  "repeats": 12,
+  "wall_runs_s": [
+    0.236743836,
+    0.23545797000000002,
+    0.23496545000000002,
+    0.23621783500000001,
+    0.23721385600000003,
+    0.23612455100000002,
+    0.23735223700000002,
+    0.23635371600000002,
+    0.23635491900000002,
+    0.23634987300000002,
+    0.23543486100000002,
+    0.23297742200000002
+  ],
+  "wall_median_s": 0.23628385400000002,
+  "wall_q1_s": 0.23545219275,
+  "wall_q3_s": 0.23645214825000002,
+  "wall_iqr_s": 0.0009999555000000104,
+  "cpu_time_median_s": 0.23625460750000002,
+  "error_inf_median": 1.455207640638223e-07,
+  "matvecs_median": 226.0,
+  "nonlinear_evals_median": 13.0,
+  "accepted_steps_median": 3.0,
+  "rejected_steps_median": 0.0,
+  "block_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "case_positions": [
+    2,
+    1,
+    0,
+    5,
+    4,
+    3,
+    2,
+    1,
+    0,
+    5,
+    4,
+    3
+  ],
+  "backend_positions": [
+    0,
+    3,
+    2,
+    1,
+    0,
+    3,
+    2,
+    1,
+    0,
+    3,
+    2,
+    1
+  ],
+  "last_selected_runs": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "runs": [
+    {
+      "wall_s": 0.236743836,
+      "cpu_time_s": 0.23671391100000003,
+      "loadavg_before": [
+        35.58984375,
+        33.93994140625,
+        31.50244140625
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 0,
+      "case_position": 2,
+      "backend_position": 0
+    },
+    {
+      "wall_s": 0.23545797000000002,
+      "cpu_time_s": 0.23546338100000003,
+      "loadavg_before": [
+        36.26416015625,
+        34.22216796875,
+        31.66064453125
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 1,
+      "case_position": 1,
+      "backend_position": 3
+    },
+    {
+      "wall_s": 0.23496545000000002,
+      "cpu_time_s": 0.23494595100000001,
+      "loadavg_before": [
+        35.67138671875,
+        34.22265625,
+        31.716796875
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 2,
+      "case_position": 0,
+      "backend_position": 2
+    },
+    {
+      "wall_s": 0.23621783500000001,
+      "cpu_time_s": 0.23618714600000001,
+      "loadavg_before": [
+        36.3662109375,
+        34.62451171875,
+        31.98583984375
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 3,
+      "case_position": 5,
+      "backend_position": 1
+    },
+    {
+      "wall_s": 0.23721385600000003,
+      "cpu_time_s": 0.23721883700000002,
+      "loadavg_before": [
+        36.21533203125,
+        34.71142578125,
+        32.072265625
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 4,
+      "case_position": 4,
+      "backend_position": 0
+    },
+    {
+      "wall_s": 0.23612455100000002,
+      "cpu_time_s": 0.23612902200000002,
+      "loadavg_before": [
+        35.6591796875,
+        34.68115234375,
+        32.11962890625
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 5,
+      "case_position": 3,
+      "backend_position": 3
+    },
+    {
+      "wall_s": 0.23735223700000002,
+      "cpu_time_s": 0.237310608,
+      "loadavg_before": [
+        35.8720703125,
+        34.75830078125,
+        32.17236328125
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 6,
+      "case_position": 2,
+      "backend_position": 2
+    },
+    {
+      "wall_s": 0.23635371600000002,
+      "cpu_time_s": 0.23635865,
+      "loadavg_before": [
+        35.62939453125,
+        34.7939453125,
+        32.25390625
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 7,
+      "case_position": 1,
+      "backend_position": 1
+    },
+    {
+      "wall_s": 0.23635491900000002,
+      "cpu_time_s": 0.23632206900000002,
+      "loadavg_before": [
+        36.0546875,
+        34.939453125,
+        32.3564453125
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 8,
+      "case_position": 0,
+      "backend_position": 0
+    },
+    {
+      "wall_s": 0.23634987300000002,
+      "cpu_time_s": 0.236354585,
+      "loadavg_before": [
+        35.88037109375,
+        35.046875,
+        32.529296875
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 9,
+      "case_position": 5,
+      "backend_position": 3
+    },
+    {
+      "wall_s": 0.23543486100000002,
+      "cpu_time_s": 0.235403208,
+      "loadavg_before": [
+        35.69921875,
+        35.0595703125,
+        32.587890625
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 10,
+      "case_position": 4,
+      "backend_position": 2
+    },
+    {
+      "wall_s": 0.23297742200000002,
+      "cpu_time_s": 0.23294515500000001,
+      "loadavg_before": [
+        36.9189453125,
+        35.392578125,
+        32.751953125
+      ],
+      "error_inf": 1.455207640638223e-07,
+      "matvecs": 226,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": null,
+      "selection_counts": null,
+      "block": 11,
+      "case_position": 3,
+      "backend_position": 1
+    }
+  ]
+}

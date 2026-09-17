@@ -1,0 +1,370 @@
+{
+  "schema_version": 3,
+  "campaign_id": "cpu2d_toms_balanced_v082_leja80_rep3_20260904c",
+  "source_manifest_sha256": "ffc203e8eca9e2ad160505f3c10b0bc8fa5e2072ee50ce6a6a4e23c47abe7dda",
+  "runtime_mode": "source",
+  "protocol_id": "balanced-cyclic-6case-4backend-v1",
+  "blocks": 12,
+  "warmups_per_configuration": 1,
+  "measurement_scope": "solve_etd34 only; problem construction and gc.collect outside timer",
+  "slurm": {
+    "job_id": "2207024",
+    "job_nodelist": "sd004",
+    "job_partition": "cpu_partition",
+    "cpus_per_task": "1"
+  },
+  "environment": {
+    "hostname": "sd004",
+    "cpu_model": "Intel(R) Xeon(R) Gold 6230R CPU @ 2.10GHz",
+    "cpu_affinity": [
+      24
+    ],
+    "python": "3.11.4",
+    "numpy": "1.24.3",
+    "scipy": "1.10.1",
+    "platform": "Linux-6.4.0-150600.23.87-default-x86_64-with-glibc2.38",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "n_side": 64,
+  "dimension": 4096,
+  "rtol": 1e-05,
+  "backend": "auto",
+  "repeats": 12,
+  "wall_runs_s": [
+    0.085896253,
+    0.08631811,
+    0.08649762400000001,
+    0.08619750000000001,
+    0.085005879,
+    0.085987514,
+    0.085342923,
+    0.084523312,
+    0.08662462300000001,
+    0.087097544,
+    0.088016801,
+    0.08473719
+  ],
+  "wall_median_s": 0.08609250700000001,
+  "wall_q1_s": 0.085258662,
+  "wall_q3_s": 0.08652937375000001,
+  "wall_iqr_s": 0.0012707117500000142,
+  "cpu_time_median_s": 0.086098018,
+  "error_inf_median": 1.456638039631919e-07,
+  "matvecs_median": 382.0,
+  "nonlinear_evals_median": 13.0,
+  "accepted_steps_median": 3.0,
+  "rejected_steps_median": 0.0,
+  "block_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "case_positions": [
+    0,
+    5,
+    4,
+    3,
+    2,
+    1,
+    0,
+    5,
+    4,
+    3,
+    2,
+    1
+  ],
+  "backend_positions": [
+    3,
+    2,
+    1,
+    0,
+    3,
+    2,
+    1,
+    0,
+    3,
+    2,
+    1,
+    0
+  ],
+  "last_selected_runs": [
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja"
+  ],
+  "runs": [
+    {
+      "wall_s": 0.085896253,
+      "cpu_time_s": 0.085901457,
+      "loadavg_before": [
+        37.02197265625,
+        36.9794921875,
+        35.77978515625
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 0,
+      "case_position": 0,
+      "backend_position": 3
+    },
+    {
+      "wall_s": 0.08631811,
+      "cpu_time_s": 0.08632405700000001,
+      "loadavg_before": [
+        38.22998046875,
+        37.369140625,
+        35.97412109375
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 1,
+      "case_position": 5,
+      "backend_position": 2
+    },
+    {
+      "wall_s": 0.08649762400000001,
+      "cpu_time_s": 0.08650268,
+      "loadavg_before": [
+        38.03173828125,
+        37.38818359375,
+        36.0185546875
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 2,
+      "case_position": 4,
+      "backend_position": 1
+    },
+    {
+      "wall_s": 0.08619750000000001,
+      "cpu_time_s": 0.086203343,
+      "loadavg_before": [
+        37.2724609375,
+        37.25927734375,
+        36.01171875
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 3,
+      "case_position": 3,
+      "backend_position": 0
+    },
+    {
+      "wall_s": 0.085005879,
+      "cpu_time_s": 0.08499163200000001,
+      "loadavg_before": [
+        37.1435546875,
+        37.22705078125,
+        36.0263671875
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 4,
+      "case_position": 2,
+      "backend_position": 3
+    },
+    {
+      "wall_s": 0.085987514,
+      "cpu_time_s": 0.08599269300000001,
+      "loadavg_before": [
+        37.09326171875,
+        37.21142578125,
+        36.046875
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 5,
+      "case_position": 1,
+      "backend_position": 2
+    },
+    {
+      "wall_s": 0.085342923,
+      "cpu_time_s": 0.085331765,
+      "loadavg_before": [
+        37.0048828125,
+        37.1875,
+        36.0517578125
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 6,
+      "case_position": 0,
+      "backend_position": 1
+    },
+    {
+      "wall_s": 0.084523312,
+      "cpu_time_s": 0.08452868200000001,
+      "loadavg_before": [
+        36.77294921875,
+        37.11962890625,
+        36.0908203125
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 7,
+      "case_position": 5,
+      "backend_position": 0
+    },
+    {
+      "wall_s": 0.08662462300000001,
+      "cpu_time_s": 0.086630049,
+      "loadavg_before": [
+        36.74267578125,
+        37.091796875,
+        36.109375
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 8,
+      "case_position": 4,
+      "backend_position": 3
+    },
+    {
+      "wall_s": 0.087097544,
+      "cpu_time_s": 0.08708083800000001,
+      "loadavg_before": [
+        38.06640625,
+        37.35009765625,
+        36.21337890625
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 9,
+      "case_position": 3,
+      "backend_position": 2
+    },
+    {
+      "wall_s": 0.088016801,
+      "cpu_time_s": 0.088022628,
+      "loadavg_before": [
+        37.14111328125,
+        37.19189453125,
+        36.1904296875
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 10,
+      "case_position": 2,
+      "backend_position": 1
+    },
+    {
+      "wall_s": 0.08473719,
+      "cpu_time_s": 0.08471703100000001,
+      "loadavg_before": [
+        37.12841796875,
+        37.18310546875,
+        36.203125
+      ],
+      "error_inf": 1.456638039631919e-07,
+      "matvecs": 382,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 11,
+      "case_position": 1,
+      "backend_position": 0
+    }
+  ]
+}

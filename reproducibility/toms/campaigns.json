@@ -1,0 +1,42 @@
+{
+  "description": "Three homogeneous Leja80 replicas used as the final PyEXPINT TOMS backend-timing evidence.",
+  "interpretation": "Wall-clock timings are hardware-local demonstrations of the benchmarking infrastructure, not universal backend rankings.",
+  "campaigns": [
+    {
+      "replica": "rep1",
+      "campaign_id": "cpu2d_toms_balanced_v082_leja80_20260904a",
+      "job_id": 2203999,
+      "source_manifest_sha256": "ffc203e8eca9e2ad160505f3c10b0bc8fa5e2072ee50ce6a6a4e23c47abe7dda",
+      "raw_json_count": 24,
+      "analysis_sha256": {
+        "toms_paired_speedups.csv": "fc23c5464f3aee0434c8e255bb875b1d851c28cc9b02ac5871f2f311b82bf1dd",
+        "toms_timing_analysis.json": "d9d6c1cf1cd97564cd328e1349daeced405977e87a40d3611f8d6a5b37fcf677",
+        "toms_timing_summary.csv": "a716d66d897c5b45f6e1c44ed7a83a5d78629e8027da48cbb816d5356912befd"
+      }
+    },
+    {
+      "replica": "rep2",
+      "campaign_id": "cpu2d_toms_balanced_v082_leja80_rep2_20260904b",
+      "job_id": 2206865,
+      "source_manifest_sha256": "ffc203e8eca9e2ad160505f3c10b0bc8fa5e2072ee50ce6a6a4e23c47abe7dda",
+      "raw_json_count": 24,
+      "analysis_sha256": {
+        "toms_paired_speedups.csv": "672ee55aba7c733e0dcc608ff3672853338cd56a2181e3dcdcdff42bdbbc151c",
+        "toms_timing_analysis.json": "215ece4b10635a740cce32f477066345501758a42b201b6f92e891c62fd38f3b",
+        "toms_timing_summary.csv": "13c77b1876d73a2ffae3c42056ec72c200628db523fb6952e19424fad9f1d253"
+      }
+    },
+    {
+      "replica": "rep3",
+      "campaign_id": "cpu2d_toms_balanced_v082_leja80_rep3_20260904c",
+      "job_id": 2207024,
+      "source_manifest_sha256": "ffc203e8eca9e2ad160505f3c10b0bc8fa5e2072ee50ce6a6a4e23c47abe7dda",
+      "raw_json_count": 24,
+      "analysis_sha256": {
+        "toms_paired_speedups.csv": "bc40c13c74fff7b05a1db81de0aaffefec1c1b951fa9ad81a2fa93b089a5816c",
+        "toms_timing_analysis.json": "343c86e206def8115e806ebe6606a6549aa23f70ff7c405888f02d3130db803c",
+        "toms_timing_summary.csv": "dbaf09c640e3bd2cdaa267c994f8378312e83b6bb8a38228869ee1fcba34a4c1"
+      }
+    }
+  ]
+}

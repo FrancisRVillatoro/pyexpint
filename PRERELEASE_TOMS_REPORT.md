@@ -88,6 +88,16 @@ workflow for transferring pinned snapshots to a benchmark machine.
 
 ## 4. Picasso benchmark campaign
 
+> **Release note.** This section documents the original pre-release campaign
+> design and is retained for historical provenance. It has been superseded by
+> the final balanced single-job workflow implemented in
+> `hpc/picasso/slurm/toms_timing_single.slurm` and
+> `hpc/picasso/python/toms_timing_balanced.py`.
+>
+> The canonical release-facing evidence is stored under
+> `reproducibility/toms/` and consists of three homogeneous Leja80 replicas.
+
+
 `hpc/picasso_prerelease_array.slurm` defines a 24-case CPU campaign:
 
 \[

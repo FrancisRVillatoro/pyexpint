@@ -1,0 +1,370 @@
+{
+  "schema_version": 3,
+  "campaign_id": "cpu2d_toms_balanced_v082_leja80_20260904a",
+  "source_manifest_sha256": "ffc203e8eca9e2ad160505f3c10b0bc8fa5e2072ee50ce6a6a4e23c47abe7dda",
+  "runtime_mode": "source",
+  "protocol_id": "balanced-cyclic-6case-4backend-v1",
+  "blocks": 12,
+  "warmups_per_configuration": 1,
+  "measurement_scope": "solve_etd34 only; problem construction and gc.collect outside timer",
+  "slurm": {
+    "job_id": "2203999",
+    "job_nodelist": "sd041",
+    "job_partition": "cpu_partition",
+    "cpus_per_task": "1"
+  },
+  "environment": {
+    "hostname": "sd041",
+    "cpu_model": "Intel(R) Xeon(R) Gold 6230R CPU @ 2.10GHz",
+    "cpu_affinity": [
+      32
+    ],
+    "python": "3.11.4",
+    "numpy": "1.24.3",
+    "scipy": "1.10.1",
+    "platform": "Linux-6.4.0-150600.23.87-default-x86_64-with-glibc2.38",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "n_side": 128,
+  "dimension": 16384,
+  "rtol": 1e-05,
+  "backend": "auto",
+  "repeats": 12,
+  "wall_runs_s": [
+    0.22991561200000002,
+    0.228347617,
+    0.22824972600000001,
+    0.22857026300000002,
+    0.22821916800000003,
+    0.228324029,
+    0.22795478700000002,
+    0.22809326500000002,
+    0.228184513,
+    0.227538601,
+    0.22809772800000003,
+    0.22734071800000002
+  ],
+  "wall_median_s": 0.22820184050000003,
+  "wall_q1_s": 0.22805864550000002,
+  "wall_q3_s": 0.22832992600000002,
+  "wall_iqr_s": 0.0002712804999999985,
+  "cpu_time_median_s": 0.228198215,
+  "error_inf_median": 1.4530000817802868e-07,
+  "matvecs_median": 477.0,
+  "nonlinear_evals_median": 13.0,
+  "accepted_steps_median": 3.0,
+  "rejected_steps_median": 0.0,
+  "block_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "case_positions": [
+    2,
+    1,
+    0,
+    5,
+    4,
+    3,
+    2,
+    1,
+    0,
+    5,
+    4,
+    3
+  ],
+  "backend_positions": [
+    3,
+    2,
+    1,
+    0,
+    3,
+    2,
+    1,
+    0,
+    3,
+    2,
+    1,
+    0
+  ],
+  "last_selected_runs": [
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja",
+    "leja"
+  ],
+  "runs": [
+    {
+      "wall_s": 0.22991561200000002,
+      "cpu_time_s": 0.22990705800000003,
+      "loadavg_before": [
+        0.41552734375,
+        0.09765625,
+        0.0322265625
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 0,
+      "case_position": 2,
+      "backend_position": 3
+    },
+    {
+      "wall_s": 0.228347617,
+      "cpu_time_s": 0.228345281,
+      "loadavg_before": [
+        0.66259765625,
+        0.173828125,
+        0.05908203125
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 1,
+      "case_position": 1,
+      "backend_position": 2
+    },
+    {
+      "wall_s": 0.22824972600000001,
+      "cpu_time_s": 0.22825377700000002,
+      "loadavg_before": [
+        0.73779296875,
+        0.21533203125,
+        0.0751953125
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 2,
+      "case_position": 0,
+      "backend_position": 1
+    },
+    {
+      "wall_s": 0.22857026300000002,
+      "cpu_time_s": 0.22855918700000002,
+      "loadavg_before": [
+        0.8671875,
+        0.3154296875,
+        0.11572265625
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 3,
+      "case_position": 5,
+      "backend_position": 0
+    },
+    {
+      "wall_s": 0.22821916800000003,
+      "cpu_time_s": 0.22822351700000001,
+      "loadavg_before": [
+        0.90576171875,
+        0.36083984375,
+        0.13525390625
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 4,
+      "case_position": 4,
+      "backend_position": 3
+    },
+    {
+      "wall_s": 0.228324029,
+      "cpu_time_s": 0.228314905,
+      "loadavg_before": [
+        0.92724609375,
+        0.39306640625,
+        0.14990234375
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 5,
+      "case_position": 3,
+      "backend_position": 2
+    },
+    {
+      "wall_s": 0.22795478700000002,
+      "cpu_time_s": 0.22795879500000002,
+      "loadavg_before": [
+        0.9384765625,
+        0.41357421875,
+        0.15966796875
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 6,
+      "case_position": 2,
+      "backend_position": 1
+    },
+    {
+      "wall_s": 0.22809326500000002,
+      "cpu_time_s": 0.228097563,
+      "loadavg_before": [
+        0.95703125,
+        0.4521484375,
+        0.17919921875
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 7,
+      "case_position": 1,
+      "backend_position": 0
+    },
+    {
+      "wall_s": 0.228184513,
+      "cpu_time_s": 0.228172913,
+      "loadavg_before": [
+        0.97021484375,
+        0.48828125,
+        0.197265625
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 8,
+      "case_position": 0,
+      "backend_position": 3
+    },
+    {
+      "wall_s": 0.227538601,
+      "cpu_time_s": 0.22754268100000002,
+      "loadavg_before": [
+        1.02783203125,
+        0.56884765625,
+        0.23779296875
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 9,
+      "case_position": 5,
+      "backend_position": 2
+    },
+    {
+      "wall_s": 0.22809772800000003,
+      "cpu_time_s": 0.227851346,
+      "loadavg_before": [
+        1.02099609375,
+        0.5908203125,
+        0.2509765625
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 10,
+      "case_position": 4,
+      "backend_position": 1
+    },
+    {
+      "wall_s": 0.22734071800000002,
+      "cpu_time_s": 0.227326731,
+      "loadavg_before": [
+        1.23828125,
+        0.66064453125,
+        0.2802734375
+      ],
+      "error_inf": 1.4530000817802868e-07,
+      "matvecs": 477,
+      "nonlinear_evals": 13,
+      "accepted_steps": 3,
+      "rejected_steps": 0,
+      "last_selected": "leja",
+      "selection_counts": {
+        "leja": 3
+      },
+      "block": 11,
+      "case_position": 3,
+      "backend_position": 0
+    }
+  ]
+}

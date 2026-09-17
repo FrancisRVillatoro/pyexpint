@@ -55,3 +55,18 @@ The primary external comparisons planned are:
 ## Claim threshold
 
 A performance claim enters the manuscript only if it is reproduced on controlled hardware and the raw JSON data plus scripts are included in the reproducibility repository.
+
+## Canonical release evidence
+
+The release-facing realization of this protocol is stored in
+`reproducibility/toms/`.
+
+The retained timing evidence consists of three independent homogeneous Leja80
+replicas, each with 24 raw JSON configuration files and the corresponding
+analysis products.  All three replicas use the same source manifest:
+
+`ffc203e8eca9e2ad160505f3c10b0bc8fa5e2072ee50ce6a6a4e23c47abe7dda`.
+
+Wall-clock results are reported as hardware-local benchmark observations.
+Portable scientific interpretation should rely primarily on accuracy and work
+metrics rather than on universal timing rankings.

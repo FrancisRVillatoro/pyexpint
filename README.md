@@ -30,39 +30,52 @@ framework of EXPINT for exponential general linear integrators.
 
 The current benchmark candidate also passes source compilation and editable offline installation.
 
-## Key pre-release documents
+## Release and reproducibility documents
 
-- `PRERELEASE_TOMS_REPORT.md`
-- `TOMS_CLAIMS_MATRIX.md`
-- `TOMS_MANUSCRIPT_BLUEPRINT.md`
 - `BENCHMARK_PROTOCOL_TOMS.md`
 - `RELEASE_CHECKLIST.md`
 - `API_STABILITY_PHASE7.md`
+- `TOMS_CLAIMS_MATRIX.md`
+- `TOMS_MANUSCRIPT_BLUEPRINT.md`
 - `external/pinned_comparators.json`
-- `hpc/README_PICASSO.md`
+- `hpc/README.md`
+- `reproducibility/README.md`
+- `reproducibility/toms/README.md`
 
-## Local 2-D benchmark
+## Canonical reproducibility path
 
-`benchmarks/prerelease_2d.py` reproduces the development 2-D reaction-diffusion
-benchmark.  The stored result is `prerelease_2d.json`.
+The canonical release-facing backend benchmark evidence is stored under
+`reproducibility/toms/`.
 
-These timings are diagnostic, not the final paper timing table.  The final paper
-uses the controlled protocol in `BENCHMARK_PROTOCOL_TOMS.md` and the Picasso campaign.
+It contains three independent homogeneous Leja80 replicas, including the raw
+JSON data, analysis products, source manifests, campaign identifiers, and
+Slurm job identifiers.
 
-## Picasso campaign
+The three replicas were generated from the same 132-file source manifest:
 
-From the unpacked repository:
+`ffc203e8eca9e2ad160505f3c10b0bc8fa5e2072ee50ce6a6a4e23c47abe7dda`.
 
-```bash
-mkdir -p logs results/picasso
-sbatch hpc/picasso_prerelease_array.slurm
-```
+Wall-clock timings are machine-local demonstrations of the benchmarking
+infrastructure and are not intended as universal backend rankings.
 
-After completion:
+The canonical Picasso workflow is implemented by:
 
-```bash
-python3 hpc/aggregate_picasso_results.py
-```
+- `hpc/picasso/scripts/02_stage_campaign.sh`
+- `hpc/picasso/scripts/03_submit_toms_timing.sh`
+- `hpc/picasso/scripts/04_status_campaign.sh`
+- `hpc/picasso/scripts/05_collect_campaign.sh`
+- `hpc/picasso/slurm/toms_timing_single.slurm`
+- `hpc/picasso/python/toms_timing_balanced.py`
+- `hpc/picasso/python/analyze_toms_timing.py`
+
+See `BENCHMARK_PROTOCOL_TOMS.md` and
+`reproducibility/toms/README.md`.
+
+## Development and validation benchmarks
+
+The scripts under `benchmarks/` and the root-level `phase*.json` and
+`prerelease*.json` files are retained as development and validation history.
+They are not the canonical final TOMS timing evidence.
 
 ## Licensing status
 
