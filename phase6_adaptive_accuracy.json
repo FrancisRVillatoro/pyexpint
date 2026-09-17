@@ -1,0 +1,113 @@
+{
+  "problem": "y'=-y+y^2, y(0)=0.2, T=2",
+  "rows": [
+    {
+      "method": "ETD2RK",
+      "rtol": 0.001,
+      "error_inf": 9.441292625762127e-05,
+      "accepted_steps": 5,
+      "rejected_steps": 0,
+      "nonlinear_evals": 30,
+      "wall_seconds": 0.007949678000045424
+    },
+    {
+      "method": "ETD2RK",
+      "rtol": 1e-05,
+      "error_inf": 5.29392441621368e-06,
+      "accepted_steps": 20,
+      "rejected_steps": 1,
+      "nonlinear_evals": 126,
+      "wall_seconds": 0.026082175999931678
+    },
+    {
+      "method": "ETD2RK",
+      "rtol": 1e-07,
+      "error_inf": 2.4346929142216034e-07,
+      "accepted_steps": 94,
+      "rejected_steps": 2,
+      "nonlinear_evals": 576,
+      "wall_seconds": 0.10840138200001093
+    },
+    {
+      "method": "ETD4RK",
+      "rtol": 0.001,
+      "error_inf": 7.925404141295722e-08,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "nonlinear_evals": 48,
+      "wall_seconds": 0.021167953000031048
+    },
+    {
+      "method": "ETD4RK",
+      "rtol": 1e-05,
+      "error_inf": 7.925404141295722e-08,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "nonlinear_evals": 48,
+      "wall_seconds": 0.014080676999924435
+    },
+    {
+      "method": "ETD4RK",
+      "rtol": 1e-07,
+      "error_inf": 1.3542205454242229e-08,
+      "accepted_steps": 6,
+      "rejected_steps": 1,
+      "nonlinear_evals": 84,
+      "wall_seconds": 0.020445633000008456
+    },
+    {
+      "method": "Krogstad",
+      "rtol": 0.001,
+      "error_inf": 9.88539093985108e-08,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "nonlinear_evals": 48,
+      "wall_seconds": 0.01955568599998969
+    },
+    {
+      "method": "Krogstad",
+      "rtol": 1e-05,
+      "error_inf": 9.88539093985108e-08,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "nonlinear_evals": 48,
+      "wall_seconds": 0.013228629999957775
+    },
+    {
+      "method": "Krogstad",
+      "rtol": 1e-07,
+      "error_inf": 1.3137717101707747e-08,
+      "accepted_steps": 6,
+      "rejected_steps": 1,
+      "nonlinear_evals": 84,
+      "wall_seconds": 0.021136157999990246
+    },
+    {
+      "method": "HochOst4",
+      "rtol": 0.001,
+      "error_inf": 8.798299864359871e-08,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "nonlinear_evals": 60,
+      "wall_seconds": 0.013980165000020861
+    },
+    {
+      "method": "HochOst4",
+      "rtol": 1e-05,
+      "error_inf": 8.798299864359871e-08,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "nonlinear_evals": 60,
+      "wall_seconds": 0.014430384999968737
+    },
+    {
+      "method": "HochOst4",
+      "rtol": 1e-07,
+      "error_inf": 1.2036692496886214e-08,
+      "accepted_steps": 6,
+      "rejected_steps": 1,
+      "nonlinear_evals": 105,
+      "wall_seconds": 0.023094902000025286
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+# TEMPLATE ONLY — fill exact versions after the release is frozen.
+#
+# The final TOMS/Zenodo SIF must be built from a tagged PyEXPINT source tree,
+# with all versions and hashes recorded in the build manifest.
+#
+# Example skeleton:
+#
+# Bootstrap: docker
+# From: python:<PINNED_PYTHON>-slim
+#
+# %files
+#     . /opt/pyexpint
+#
+# %post
+#     python -m pip install --no-cache-dir \
+#         numpy==<PINNED_NUMPY> \
+#         scipy==<PINNED_SCIPY>
+#     python -m pip install --no-deps /opt/pyexpint
+#
+# %environment
+#     export OMP_NUM_THREADS=1
+#     export MKL_NUM_THREADS=1
+#     export OPENBLAS_NUM_THREADS=1
+#     export NUMEXPR_NUM_THREADS=1
+#
+# %labels
+#     org.opencontainers.image.title PyEXPINT
+#     org.opencontainers.image.version <TAG>
+#     org.opencontainers.image.revision <GIT_COMMIT>
+#
+# %runscript
+#     exec python "$@"

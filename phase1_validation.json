@@ -1,0 +1,28 @@
+{
+  "tests": {
+    "passed": 14,
+    "failed": 0
+  },
+  "order_test": {
+    "problem": "y'=-y+y^2, y(0)=0.2, T=0.8",
+    "slopes": {
+      "LawsonEuler": 0.998324,
+      "NorsettEuler": 1.009915,
+      "ETD2RK": 1.992719,
+      "ETD4RK": 3.96205,
+      "Krogstad": 3.981937,
+      "HochOst4": 4.002884
+    }
+  },
+  "phase1_methods": [
+    "LawsonEuler",
+    "NorsettEuler",
+    "ETD2RK",
+    "ETD4RK",
+    "Krogstad",
+    "HochOst4"
+  ],
+  "known_legacy_regressions": {
+    "ETD2RK": "legacy supplied MATLAB b1=phi1-2phi2; PyEXPINT uses published b1=phi1-phi2"
+  }
+}

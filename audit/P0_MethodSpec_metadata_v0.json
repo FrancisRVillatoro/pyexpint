@@ -1,0 +1,221 @@
+[
+  {
+    "name": "LawsonEuler",
+    "family": "Lawson",
+    "aliases": [],
+    "classical_order": 1,
+    "parabolic_stiff_order": 1,
+    "s_math": 1,
+    "q_history": 1,
+    "r_expint": 1,
+    "stage_order_Q": null,
+    "quadrature_order_P": null,
+    "order_framework": "Lawson/integrating-factor; not certified via OTW P,Q",
+    "provenance": "Lawson transformation + forward Euler; EXPINT documentation.",
+    "status": "closed"
+  },
+  {
+    "name": "NorsettEuler",
+    "family": "Exponential Euler",
+    "aliases": [
+      "ETD-Euler",
+      "ETD1RK"
+    ],
+    "classical_order": 1,
+    "parabolic_stiff_order": 1,
+    "s_math": 1,
+    "q_history": 1,
+    "r_expint": 1,
+    "stage_order_Q": null,
+    "quadrature_order_P": 1,
+    "order_framework": "exponential Euler",
+    "provenance": "Standard variation-of-constants exponential Euler; EXPINT documentation. Nørsett 1969 not required.",
+    "status": "closed"
+  },
+  {
+    "name": "ETD2RK",
+    "family": "Exponential Runge-Kutta",
+    "aliases": [],
+    "classical_order": 2,
+    "parabolic_stiff_order": 2,
+    "s_math": 2,
+    "q_history": 1,
+    "r_expint": 1,
+    "stage_order_Q": 1,
+    "quadrature_order_P": 2,
+    "order_framework": "Cox-Matthews formula + stiff classification",
+    "provenance": "Cox & Matthews (2002), Eq. (22); EXPINT README.",
+    "status": "closed_with_legacy_bug",
+    "audit_note": "The supplied 2005 etd2rk.m uses b1=phi1-2phi2. Published formula and README require b1=phi1-phi2. The legacy line fails first-order consistency at L=0."
+  },
+  {
+    "name": "ETD4RK",
+    "family": "Exponential Runge-Kutta",
+    "aliases": [
+      "CoxMatthewsETD4RK"
+    ],
+    "classical_order": 4,
+    "parabolic_stiff_order": 2,
+    "s_math": 4,
+    "q_history": 1,
+    "r_expint": 1,
+    "stage_order_Q": 1,
+    "quadrature_order_P": 4,
+    "order_framework": "Hochbruck-Ostermann stiff ExpRK conditions; P,Q alone are not sufficient",
+    "provenance": "Cox & Matthews (2002), Eqs. (26)-(29); stiff-order analysis Hochbruck & Ostermann (2005).",
+    "status": "closed"
+  },
+  {
+    "name": "Krogstad",
+    "family": "Exponential Runge-Kutta",
+    "aliases": [
+      "ETDRK4-B"
+    ],
+    "classical_order": 4,
+    "parabolic_stiff_order": 3,
+    "s_math": 4,
+    "q_history": 1,
+    "r_expint": 1,
+    "stage_order_Q": 1,
+    "quadrature_order_P": 4,
+    "order_framework": "Hochbruck-Ostermann stiff ExpRK conditions; P,Q alone are not sufficient",
+    "provenance": "Krogstad (2005), Eq. (51), ETDRK4-B; EXPINT README.",
+    "status": "closed"
+  },
+  {
+    "name": "HochOst4",
+    "family": "Exponential Runge-Kutta",
+    "aliases": [
+      "HO4"
+    ],
+    "classical_order": 4,
+    "parabolic_stiff_order": 4,
+    "s_math": 5,
+    "q_history": 1,
+    "r_expint": 1,
+    "stage_order_Q": 1,
+    "quadrature_order_P": 4,
+    "order_framework": "full fourth-order stiff ExpRK conditions",
+    "provenance": "Hochbruck & Ostermann (2005), five-stage fourth-order construction.",
+    "status": "closed"
+  },
+  {
+    "name": "ABNorsett4",
+    "family": "Exponential multistep",
+    "aliases": [
+      "EGLM414"
+    ],
+    "classical_order": 4,
+    "parabolic_stiff_order": 4,
+    "s_math": 1,
+    "s_expint_encoding": 2,
+    "q_history": 4,
+    "r_expint": 4,
+    "stage_order_Q": "exact first stage",
+    "quadrature_order_P": 4,
+    "order_framework": "OTW 2006 multistep subclass",
+    "provenance": "Ostermann-Thalhammer-Wright (2006) EGLM414; matches EXPINT ABNorsett4 coefficients.",
+    "status": "closed"
+  },
+  {
+    "name": "PEC423",
+    "family": "Exponential GLM / PEC",
+    "aliases": [
+      "EGLM423"
+    ],
+    "classical_order": 4,
+    "parabolic_stiff_order": 4,
+    "s_math": 2,
+    "q_history": 3,
+    "r_expint": 3,
+    "stage_order_Q": 3,
+    "quadrature_order_P": 4,
+    "order_framework": "OTW 2006 Theorem 3.4",
+    "provenance": "Exactly EGLM423 in Ostermann-Thalhammer-Wright (2006), Table 4.2.",
+    "status": "closed",
+    "audit_note": "EXPINT README prose saying stiff order 3 is erroneous."
+  },
+  {
+    "name": "PECEC433",
+    "family": "Exponential GLM / PECEC",
+    "aliases": [],
+    "classical_order": 4,
+    "parabolic_stiff_order": 4,
+    "s_math": 3,
+    "q_history": 3,
+    "r_expint": 3,
+    "stage_order_Q": 3,
+    "quadrature_order_P": 4,
+    "order_framework": "OTW 2006 conditions applied symbolically to documented coefficients",
+    "provenance": "EXPINT published documentation; verified independently against OTW order conditions.",
+    "status": "closed",
+    "audit_note": "EXPINT README prose saying stiff order 3 is erroneous."
+  },
+  {
+    "name": "EGLM332",
+    "family": "Exponential GLM",
+    "aliases": [],
+    "classical_order": 3,
+    "parabolic_stiff_order": 3,
+    "s_math": 3,
+    "q_history": 2,
+    "r_expint": 2,
+    "stage_order_Q": 2,
+    "quadrature_order_P": 4,
+    "order_framework": "OTW 2006 Theorem 3.4: min(P,Q+1)=3",
+    "provenance": "EXPINT published documentation; independently verified with OTW conditions.",
+    "status": "closed",
+    "audit_note": "Legacy MATLAB header 'Order 4, s=2, r=3' is wrong; actual mathematical signature is p=3,s=3,q=2."
+  },
+  {
+    "name": "EGLM433",
+    "family": "Exponential GLM",
+    "aliases": [],
+    "classical_order": 4,
+    "parabolic_stiff_order": 4,
+    "s_math": 3,
+    "q_history": 3,
+    "r_expint": 3,
+    "stage_order_Q": 3,
+    "quadrature_order_P": 5,
+    "order_framework": "OTW 2006 Theorem 3.4: min(P,Q+1)=4",
+    "provenance": "EXPINT published documentation; independently verified with OTW conditions.",
+    "status": "closed",
+    "audit_note": "Distinct from the EGLM432 printed in BIT 2006. Its quadrature order is actually 5."
+  },
+  {
+    "name": "GenLawson43",
+    "family": "Generalized Lawson / exponential GLM",
+    "aliases": [
+      "GLRK34_probable"
+    ],
+    "classical_order": 4,
+    "parabolic_stiff_order": 4,
+    "s_math": 4,
+    "q_history": 3,
+    "r_expint": 3,
+    "stage_order_Q": 3,
+    "quadrature_order_P": 3,
+    "weak_quadrature_order": 4,
+    "order_framework": "OTW 2006 Theorem 3.6",
+    "provenance": "Krogstad generalized-IF construction + EXPINT published coefficients. Order signature exactly matches BIT's GLRK34.",
+    "status": "closed_specification_provenance_partly_unpublished",
+    "audit_note": "Strong P=3; fourth order comes from weak quadrature condition P=4."
+  },
+  {
+    "name": "ModGenLawson43",
+    "family": "Modified generalized Lawson / exponential GLM",
+    "aliases": [],
+    "classical_order": 4,
+    "parabolic_stiff_order": 4,
+    "s_math": 4,
+    "q_history": 3,
+    "r_expint": 3,
+    "stage_order_Q": 3,
+    "quadrature_order_P": 4,
+    "order_framework": "OTW 2006 Theorem 3.4 applied to documented modified output",
+    "provenance": "EXPINT published documentation. Specific Thalhammer-Wright manuscript appears not to have reached identifiable publication.",
+    "status": "closed_specification_provenance_partly_unpublished",
+    "audit_note": "Same A,U,c as GenLawson43, but modified B,V upgrade quadrature from weak order 4 to strong P=4."
+  }
+]

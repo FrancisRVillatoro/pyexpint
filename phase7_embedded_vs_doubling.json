@@ -1,0 +1,146 @@
+{
+  "problem": "periodic manufactured reaction-diffusion",
+  "n": 256,
+  "cases": [
+    {
+      "backend": "kiops",
+      "rtol": 0.0001,
+      "controller": "step-doubling",
+      "wall_seconds": 0.18084064800001443,
+      "error_inf": 2.0104374104379374e-07,
+      "accepted": 3,
+      "rejected": 0,
+      "nonlinear_evals": 36,
+      "matvecs": 731
+    },
+    {
+      "backend": "kiops",
+      "rtol": 0.0001,
+      "controller": "embedded-accuracy",
+      "wall_seconds": 0.038259012999958486,
+      "error_inf": 2.297432512995967e-06,
+      "accepted": 3,
+      "rejected": 0,
+      "nonlinear_evals": 13,
+      "matvecs": 334,
+      "cost_limited_steps": 0
+    },
+    {
+      "backend": "kiops",
+      "rtol": 0.0001,
+      "controller": "embedded-cost",
+      "wall_seconds": 0.1077281220000259,
+      "error_inf": 2.297432512995967e-06,
+      "accepted": 3,
+      "rejected": 0,
+      "nonlinear_evals": 13,
+      "matvecs": 334,
+      "cost_limited_steps": 1
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "controller": "step-doubling",
+      "wall_seconds": 0.504203643999972,
+      "error_inf": 3.9932066167591707e-08,
+      "accepted": 4,
+      "rejected": 0,
+      "nonlinear_evals": 48,
+      "matvecs": 1191
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "controller": "embedded-accuracy",
+      "wall_seconds": 0.06649728999997251,
+      "error_inf": 5.0645825228068375e-08,
+      "accepted": 7,
+      "rejected": 1,
+      "nonlinear_evals": 33,
+      "matvecs": 718,
+      "cost_limited_steps": 0
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "controller": "embedded-cost",
+      "wall_seconds": 0.04350642299999663,
+      "error_inf": 4.5746739091301336e-08,
+      "accepted": 8,
+      "rejected": 1,
+      "nonlinear_evals": 37,
+      "matvecs": 808,
+      "cost_limited_steps": 3
+    },
+    {
+      "backend": "leja",
+      "rtol": 0.0001,
+      "controller": "step-doubling",
+      "wall_seconds": 0.20049498899999207,
+      "error_inf": 2.6307227880675854e-05,
+      "accepted": 3,
+      "rejected": 0,
+      "nonlinear_evals": 36,
+      "matvecs": 3249
+    },
+    {
+      "backend": "leja",
+      "rtol": 0.0001,
+      "controller": "embedded-accuracy",
+      "wall_seconds": 0.05090735900000709,
+      "error_inf": 1.1421816747070324e-05,
+      "accepted": 3,
+      "rejected": 0,
+      "nonlinear_evals": 13,
+      "matvecs": 1375,
+      "cost_limited_steps": 0
+    },
+    {
+      "backend": "leja",
+      "rtol": 0.0001,
+      "controller": "embedded-cost",
+      "wall_seconds": 0.04445344999999179,
+      "error_inf": 1.1421816747070324e-05,
+      "accepted": 3,
+      "rejected": 0,
+      "nonlinear_evals": 13,
+      "matvecs": 1375,
+      "cost_limited_steps": 1
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "controller": "step-doubling",
+      "wall_seconds": 0.19066913899996507,
+      "error_inf": 4.6016121205139093e-08,
+      "accepted": 4,
+      "rejected": 0,
+      "nonlinear_evals": 48,
+      "matvecs": 5387
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "controller": "embedded-accuracy",
+      "wall_seconds": 0.12112927599997647,
+      "error_inf": 5.7094600117157945e-08,
+      "accepted": 7,
+      "rejected": 1,
+      "nonlinear_evals": 33,
+      "matvecs": 3447,
+      "cost_limited_steps": 0
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "controller": "embedded-cost",
+      "wall_seconds": 0.1202894850000007,
+      "error_inf": 5.7094600117157945e-08,
+      "accepted": 7,
+      "rejected": 1,
+      "nonlinear_evals": 33,
+      "matvecs": 3447,
+      "cost_limited_steps": 1
+    }
+  ]
+}

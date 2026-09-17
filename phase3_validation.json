@@ -1,0 +1,76 @@
+{
+  "version": "0.3.0.dev0",
+  "tests": {
+    "passed": 35,
+    "failed": 0
+  },
+  "capabilities": {
+    "sparse": true,
+    "linear_operator": true,
+    "adaptive_arnoldi": true,
+    "same_vector_phi_combination": true,
+    "distinct_rhs_phi_combination": true,
+    "automatic_eglm_sum_fusion": true,
+    "backend_stats": true,
+    "kiops_implementation": false,
+    "phipm_implementation": false
+  },
+  "fusion_benchmark": [
+    {
+      "method": "ETD4RK",
+      "matvec_unfused": 756,
+      "matvec_fused": 594,
+      "reduction_pct": 21.42857142857143
+    },
+    {
+      "method": "Krogstad",
+      "matvec_unfused": 756,
+      "matvec_fused": 486,
+      "reduction_pct": 35.71428571428571
+    },
+    {
+      "method": "HochOst4",
+      "matvec_unfused": 1026,
+      "matvec_fused": 756,
+      "reduction_pct": 26.315789473684216
+    },
+    {
+      "method": "PEC423",
+      "matvec_unfused": 774,
+      "matvec_fused": 522,
+      "reduction_pct": 32.55813953488372
+    },
+    {
+      "method": "EGLM433",
+      "matvec_unfused": 990,
+      "matvec_fused": 621,
+      "reduction_pct": 37.272727272727266
+    },
+    {
+      "method": "GenLawson43",
+      "matvec_unfused": 1206,
+      "matvec_fused": 1044,
+      "reduction_pct": 13.432835820895528
+    },
+    {
+      "method": "ModGenLawson43",
+      "matvec_unfused": 1206,
+      "matvec_fused": 1044,
+      "reduction_pct": 13.432835820895528
+    }
+  ],
+  "large_matrix_free_smoke": {
+    "dimension": 10000,
+    "method": "Krogstad",
+    "steps": 1,
+    "elapsed_s_observed": 0.3970824169999787,
+    "matvecs": 81,
+    "krylov_projections": 9,
+    "mean_krylov_dim": 9.0,
+    "max_krylov_dim_used": 9,
+    "augmented_krylov_projections": 3,
+    "nonconverged_actions": 0,
+    "last_error_estimate": 3.199785853688658e-14,
+    "requested_tolerance": 1e-09
+  }
+}

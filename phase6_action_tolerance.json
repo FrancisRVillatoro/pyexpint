@@ -1,0 +1,116 @@
+{
+  "problem": "periodic manufactured diffusion n=128 T=1",
+  "method": "Krogstad",
+  "rows": [
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "action_fraction": 1.0,
+      "action_tolerance": 1e-06,
+      "error_inf": 8.80286083193571e-08,
+      "wall_seconds": 0.058442885999966165,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "matvecs": 888
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "action_fraction": 0.1,
+      "action_tolerance": 1e-07,
+      "error_inf": 8.80286083193571e-08,
+      "wall_seconds": 0.05491844900006981,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "matvecs": 888
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "action_fraction": 0.03,
+      "action_tolerance": 3e-08,
+      "error_inf": 8.80286083193571e-08,
+      "wall_seconds": 0.07754226599990943,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "matvecs": 888
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "action_fraction": 0.01,
+      "action_tolerance": 1e-08,
+      "error_inf": 8.80286083193571e-08,
+      "wall_seconds": 0.07740947100000994,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "matvecs": 888
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "action_fraction": 0.003,
+      "action_tolerance": 3e-09,
+      "error_inf": 8.80286083193571e-08,
+      "wall_seconds": 0.05388464300006035,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "matvecs": 888
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "action_fraction": 1.0,
+      "action_tolerance": 1e-06,
+      "error_inf": 6.640540890084923e-07,
+      "wall_seconds": 0.20851638500005265,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "matvecs": 1793
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "action_fraction": 0.1,
+      "action_tolerance": 1e-07,
+      "error_inf": 6.393646737046232e-08,
+      "wall_seconds": 0.13399643599996125,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "matvecs": 1991
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "action_fraction": 0.03,
+      "action_tolerance": 3e-08,
+      "error_inf": 9.403321682421861e-08,
+      "wall_seconds": 0.13463386699993407,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "matvecs": 2095
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "action_fraction": 0.01,
+      "action_tolerance": 1e-08,
+      "error_inf": 9.036040149457136e-08,
+      "wall_seconds": 0.14396213800000623,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "matvecs": 2190
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "action_fraction": 0.003,
+      "action_tolerance": 3e-09,
+      "error_inf": 8.85349393103807e-08,
+      "wall_seconds": 0.14384849300006408,
+      "accepted_steps": 4,
+      "rejected_steps": 0,
+      "matvecs": 2266
+    }
+  ]
+}

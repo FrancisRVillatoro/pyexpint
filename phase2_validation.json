@@ -1,0 +1,31 @@
+{
+  "version": "0.2.0.dev0",
+  "tests": {"passed": 26, "failed": 0},
+  "method_count": 13,
+  "new_phase2_methods": [
+    "ABNorsett4", "PEC423", "PECEC433", "EGLM332", "EGLM433", "GenLawson43", "ModGenLawson43"
+  ],
+  "exact_startup_slopes": {
+    "ABNorsett4": 3.93293,
+    "PEC423": 3.92588,
+    "PECEC433": 3.96370,
+    "EGLM332": 2.95890,
+    "EGLM433": 3.92060,
+    "GenLawson43": 4.03973,
+    "ModGenLawson43": 3.97481
+  },
+  "hochost4_startup_slopes": {
+    "ABNorsett4": 3.93295,
+    "PEC423": 3.92588,
+    "PECEC433": 3.96369,
+    "EGLM332": 2.95889,
+    "EGLM433": 3.92060,
+    "GenLawson43": 4.04040,
+    "ModGenLawson43": 3.97454
+  },
+  "packaging": {
+    "compileall": "passed",
+    "editable_install_no_build_isolation": "passed",
+    "registry_method_count": 13
+  }
+}

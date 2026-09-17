@@ -1,0 +1,30 @@
+{
+  "generated": "2026-08-28",
+  "comparators": [
+    {
+      "name": "rkstiff",
+      "repository": "https://github.com/whalenpt/rkstiff",
+      "commit": "ccf11f4c8dac3e0b6f8fd23ac357c633c1623a0f",
+      "commit_date": "2025-11-16T04:21:24Z",
+      "license": "MIT",
+      "role": "ETD34/ETD35 external adaptive ETD comparator",
+      "status_here": "source inspected; runtime not executed because repository cannot be cloned/installed in this offline container"
+    },
+    {
+      "name": "LeXInt",
+      "repository": "https://github.com/Pranab-JD/LeXInt",
+      "commit": "90319e940aec256eec9e340f7469c52054ae33fe",
+      "commit_date": "2024-11-23T12:50:44Z",
+      "license": "MIT",
+      "role": "external Leja action/integrator comparator",
+      "status_here": "source tree inspected; runtime not executed because repository cannot be cloned in this offline container"
+    },
+    {
+      "name": "KIOPS",
+      "repository": "https://gitlab.com/stephane.gaudreault/kiops",
+      "license": "LGPL-2.1",
+      "role": "official MATLAB KIOPS comparator",
+      "status_here": "not run; requires a pinned MATLAB/Octave benchmark environment"
+    }
+  ]
+}

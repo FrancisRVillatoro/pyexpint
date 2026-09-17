@@ -1,0 +1,86 @@
+{
+  "description": "Adaptive Krogstad comparison on Hochbruck-Ostermann 2005 problems",
+  "n": 100,
+  "cases": [
+    {
+      "variant": 1,
+      "rtol": 0.0001,
+      "controller": "embedded-ETD34",
+      "error_inf": 3.775757147350678e-05,
+      "wall_seconds": 0.004796424999994997,
+      "accepted": 5,
+      "rejected": 0,
+      "nonlinear_evals": 21
+    },
+    {
+      "variant": 1,
+      "rtol": 0.0001,
+      "controller": "step-doubling",
+      "error_inf": 2.7296469390369893e-06,
+      "wall_seconds": 0.016262645999972847,
+      "accepted": 5,
+      "rejected": 0,
+      "nonlinear_evals": 60
+    },
+    {
+      "variant": 1,
+      "rtol": 1e-06,
+      "controller": "embedded-ETD34",
+      "error_inf": 7.385481609611944e-07,
+      "wall_seconds": 0.0170024660000081,
+      "accepted": 13,
+      "rejected": 1,
+      "nonlinear_evals": 57
+    },
+    {
+      "variant": 1,
+      "rtol": 1e-06,
+      "controller": "step-doubling",
+      "error_inf": 1.6614930047342824e-06,
+      "wall_seconds": 0.01751617900004021,
+      "accepted": 6,
+      "rejected": 0,
+      "nonlinear_evals": 72
+    },
+    {
+      "variant": 2,
+      "rtol": 0.0001,
+      "controller": "embedded-ETD34",
+      "error_inf": 4.4421780577286185e-06,
+      "wall_seconds": 0.0038064359999907538,
+      "accepted": 5,
+      "rejected": 0,
+      "nonlinear_evals": 21
+    },
+    {
+      "variant": 2,
+      "rtol": 0.0001,
+      "controller": "step-doubling",
+      "error_inf": 2.092530007047344e-07,
+      "wall_seconds": 0.01406068400001459,
+      "accepted": 5,
+      "rejected": 0,
+      "nonlinear_evals": 60
+    },
+    {
+      "variant": 2,
+      "rtol": 1e-06,
+      "controller": "embedded-ETD34",
+      "error_inf": 3.506644910555856e-08,
+      "wall_seconds": 0.028112559000078363,
+      "accepted": 22,
+      "rejected": 2,
+      "nonlinear_evals": 97
+    },
+    {
+      "variant": 2,
+      "rtol": 1e-06,
+      "controller": "step-doubling",
+      "error_inf": 2.6653533591325385e-07,
+      "wall_seconds": 0.02539189300000544,
+      "accepted": 7,
+      "rejected": 0,
+      "nonlinear_evals": 84
+    }
+  ]
+}

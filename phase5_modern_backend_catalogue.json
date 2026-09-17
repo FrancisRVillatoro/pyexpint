@@ -1,0 +1,491 @@
+{
+  "n": 32,
+  "T": 0.35,
+  "h": 0.05,
+  "backends": {
+    "kiops": {
+      "wall_seconds": 1.7451316120000229,
+      "max_error": 2.8083500802633665e-11,
+      "total_matvecs": 30230,
+      "methods": [
+        {
+          "method": "LawsonEuler",
+          "error": 4.718447854656915e-16,
+          "matvecs": 112
+        },
+        {
+          "method": "ABLawson2",
+          "error": 4.787836793695988e-16,
+          "matvecs": 280
+        },
+        {
+          "method": "ABLawson3",
+          "error": 6.591949208711867e-16,
+          "matvecs": 432
+        },
+        {
+          "method": "ABLawson4",
+          "error": 4.579669976578771e-16,
+          "matvecs": 568
+        },
+        {
+          "method": "Lawson2a",
+          "error": 4.926614671774132e-16,
+          "matvecs": 224
+        },
+        {
+          "method": "Lawson2b",
+          "error": 4.926614671774132e-16,
+          "matvecs": 224
+        },
+        {
+          "method": "Lawson4",
+          "error": 4.718447854656915e-16,
+          "matvecs": 504
+        },
+        {
+          "method": "NorsettEuler",
+          "error": 5.204170427930421e-16,
+          "matvecs": 112
+        },
+        {
+          "method": "ABNorsett2",
+          "error": 1.0278930484552973e-13,
+          "matvecs": 232
+        },
+        {
+          "method": "ABNorsett3",
+          "error": 7.334931273472733e-14,
+          "matvecs": 352
+        },
+        {
+          "method": "ABNorsett4",
+          "error": 1.9003722206978324e-13,
+          "matvecs": 472
+        },
+        {
+          "method": "PEC322",
+          "error": 1.387154280330094e-13,
+          "matvecs": 328
+        },
+        {
+          "method": "PEC423",
+          "error": 3.914923940584458e-13,
+          "matvecs": 432
+        },
+        {
+          "method": "PEC524",
+          "error": 1.7622431291997032e-12,
+          "matvecs": 536
+        },
+        {
+          "method": "PEC625",
+          "error": 9.967564967849896e-13,
+          "matvecs": 640
+        },
+        {
+          "method": "PEC726",
+          "error": 1.3023870176764873e-12,
+          "matvecs": 744
+        },
+        {
+          "method": "PECEC332",
+          "error": 1.3875012250252894e-13,
+          "matvecs": 424
+        },
+        {
+          "method": "PECEC433",
+          "error": 3.9153402742186927e-13,
+          "matvecs": 512
+        },
+        {
+          "method": "PECEC534",
+          "error": 1.762555379425379e-12,
+          "matvecs": 600
+        },
+        {
+          "method": "PECEC635",
+          "error": 9.967478231676097e-13,
+          "matvecs": 688
+        },
+        {
+          "method": "PECEC736",
+          "error": 1.3024008954642952e-12,
+          "matvecs": 776
+        },
+        {
+          "method": "EGLM332",
+          "error": 5.252066143102141e-13,
+          "matvecs": 424
+        },
+        {
+          "method": "EGLM433",
+          "error": 8.132099160729211e-12,
+          "matvecs": 512
+        },
+        {
+          "method": "ETD2RK",
+          "error": 5.134781488891349e-16,
+          "matvecs": 224
+        },
+        {
+          "method": "ETD3RK",
+          "error": 4.579669976578771e-16,
+          "matvecs": 336
+        },
+        {
+          "method": "EhleLawson",
+          "error": 4.718447854656915e-16,
+          "matvecs": 448
+        },
+        {
+          "method": "ETD4RK",
+          "error": 4.996003610813204e-16,
+          "matvecs": 560
+        },
+        {
+          "method": "Krogstad",
+          "error": 4.579669976578771e-16,
+          "matvecs": 448
+        },
+        {
+          "method": "StrehmelWeiner",
+          "error": 4.787836793695988e-16,
+          "matvecs": 448
+        },
+        {
+          "method": "Friedli",
+          "error": 4.510281037539698e-16,
+          "matvecs": 448
+        },
+        {
+          "method": "HochOst4",
+          "error": 4.718447854656915e-16,
+          "matvecs": 952
+        },
+        {
+          "method": "ETD5RKF",
+          "error": 4.85722573273506e-16,
+          "matvecs": 2072
+        },
+        {
+          "method": "RKMK2e",
+          "error": 5.204170427930421e-16,
+          "matvecs": 224
+        },
+        {
+          "method": "ETD2CF3",
+          "error": 4.579669976578771e-16,
+          "matvecs": 336
+        },
+        {
+          "method": "Cfree4",
+          "error": 4.718447854656915e-16,
+          "matvecs": 840
+        },
+        {
+          "method": "RKMK4t",
+          "error": 4.926614671774132e-16,
+          "matvecs": 672
+        },
+        {
+          "method": "GenLawson41",
+          "error": 4.787836793695988e-16,
+          "matvecs": 728
+        },
+        {
+          "method": "GenLawson42",
+          "error": 4.579669976578771e-16,
+          "matvecs": 1000
+        },
+        {
+          "method": "GenLawson43",
+          "error": 4.440892098500626e-16,
+          "matvecs": 1192
+        },
+        {
+          "method": "GenLawson44",
+          "error": 6.522560269672795e-16,
+          "matvecs": 1304
+        },
+        {
+          "method": "GenLawson45",
+          "error": 1.0200174038743626e-15,
+          "matvecs": 1336
+        },
+        {
+          "method": "ModGenLawson41",
+          "error": 4.649058915617843e-16,
+          "matvecs": 840
+        },
+        {
+          "method": "ModGenLawson42",
+          "error": 4.2327252813834093e-16,
+          "matvecs": 1096
+        },
+        {
+          "method": "ModGenLawson43",
+          "error": 6.591949208711867e-16,
+          "matvecs": 1272
+        },
+        {
+          "method": "ModGenLawson44",
+          "error": 1.2628786905111156e-15,
+          "matvecs": 1368
+        },
+        {
+          "method": "ModGenLawson45",
+          "error": 4.9855952699573436e-15,
+          "matvecs": 1384
+        },
+        {
+          "method": "CrankNicolson",
+          "error": 2.8083500802633665e-11,
+          "matvecs": 574
+        }
+      ]
+    },
+    "leja": {
+      "wall_seconds": 2.8933743950000235,
+      "max_error": 2.8083500802633665e-11,
+      "total_matvecs": 43864,
+      "methods": [
+        {
+          "method": "LawsonEuler",
+          "error": 9.020562075079397e-17,
+          "matvecs": 189
+        },
+        {
+          "method": "ABLawson2",
+          "error": 7.632783294297951e-17,
+          "matvecs": 441
+        },
+        {
+          "method": "ABLawson3",
+          "error": 1.1102230246251565e-16,
+          "matvecs": 657
+        },
+        {
+          "method": "ABLawson4",
+          "error": 1.3877787807814457e-16,
+          "matvecs": 837
+        },
+        {
+          "method": "Lawson2a",
+          "error": 9.020562075079397e-17,
+          "matvecs": 315
+        },
+        {
+          "method": "Lawson2b",
+          "error": 9.71445146547012e-17,
+          "matvecs": 378
+        },
+        {
+          "method": "Lawson4",
+          "error": 9.71445146547012e-17,
+          "matvecs": 756
+        },
+        {
+          "method": "NorsettEuler",
+          "error": 1.1102230246251565e-16,
+          "matvecs": 189
+        },
+        {
+          "method": "ABNorsett2",
+          "error": 1.1102230246251565e-16,
+          "matvecs": 441
+        },
+        {
+          "method": "ABNorsett3",
+          "error": 9.020562075079397e-17,
+          "matvecs": 657
+        },
+        {
+          "method": "ABNorsett4",
+          "error": 1.1796119636642288e-16,
+          "matvecs": 837
+        },
+        {
+          "method": "PEC322",
+          "error": 9.020562075079397e-17,
+          "matvecs": 657
+        },
+        {
+          "method": "PEC423",
+          "error": 8.326672684688674e-17,
+          "matvecs": 882
+        },
+        {
+          "method": "PEC524",
+          "error": 1.0408340855860843e-16,
+          "matvecs": 1053
+        },
+        {
+          "method": "PEC625",
+          "error": 1.1102230246251565e-16,
+          "matvecs": 1170
+        },
+        {
+          "method": "PEC726",
+          "error": 1.1102230246251565e-16,
+          "matvecs": 1233
+        },
+        {
+          "method": "PECEC332",
+          "error": 1.249000902703301e-16,
+          "matvecs": 873
+        },
+        {
+          "method": "PECEC433",
+          "error": 1.0408340855860843e-16,
+          "matvecs": 1107
+        },
+        {
+          "method": "PECEC534",
+          "error": 1.1796119636642288e-16,
+          "matvecs": 1269
+        },
+        {
+          "method": "PECEC635",
+          "error": 1.249000902703301e-16,
+          "matvecs": 1359
+        },
+        {
+          "method": "PECEC736",
+          "error": 1.1102230246251565e-16,
+          "matvecs": 1377
+        },
+        {
+          "method": "EGLM332",
+          "error": 1.1796119636642288e-16,
+          "matvecs": 927
+        },
+        {
+          "method": "EGLM433",
+          "error": 9.020562075079397e-17,
+          "matvecs": 1152
+        },
+        {
+          "method": "ETD2RK",
+          "error": 8.326672684688674e-17,
+          "matvecs": 378
+        },
+        {
+          "method": "ETD3RK",
+          "error": 1.1796119636642288e-16,
+          "matvecs": 630
+        },
+        {
+          "method": "EhleLawson",
+          "error": 1.1796119636642288e-16,
+          "matvecs": 756
+        },
+        {
+          "method": "ETD4RK",
+          "error": 1.1102230246251565e-16,
+          "matvecs": 882
+        },
+        {
+          "method": "Krogstad",
+          "error": 1.1102230246251565e-16,
+          "matvecs": 882
+        },
+        {
+          "method": "StrehmelWeiner",
+          "error": 1.1796119636642288e-16,
+          "matvecs": 882
+        },
+        {
+          "method": "Friedli",
+          "error": 1.1796119636642288e-16,
+          "matvecs": 882
+        },
+        {
+          "method": "HochOst4",
+          "error": 1.0408340855860843e-16,
+          "matvecs": 1197
+        },
+        {
+          "method": "ETD5RKF",
+          "error": 9.71445146547012e-17,
+          "matvecs": 1701
+        },
+        {
+          "method": "RKMK2e",
+          "error": 9.020562075079397e-17,
+          "matvecs": 378
+        },
+        {
+          "method": "ETD2CF3",
+          "error": 9.020562075079397e-17,
+          "matvecs": 630
+        },
+        {
+          "method": "Cfree4",
+          "error": 1.0408340855860843e-16,
+          "matvecs": 882
+        },
+        {
+          "method": "RKMK4t",
+          "error": 9.71445146547012e-17,
+          "matvecs": 819
+        },
+        {
+          "method": "GenLawson41",
+          "error": 8.326672684688674e-17,
+          "matvecs": 882
+        },
+        {
+          "method": "GenLawson42",
+          "error": 9.71445146547012e-17,
+          "matvecs": 1197
+        },
+        {
+          "method": "GenLawson43",
+          "error": 1.0408340855860843e-16,
+          "matvecs": 1422
+        },
+        {
+          "method": "GenLawson44",
+          "error": 1.1796119636642288e-16,
+          "matvecs": 1557
+        },
+        {
+          "method": "GenLawson45",
+          "error": 1.1796119636642288e-16,
+          "matvecs": 1602
+        },
+        {
+          "method": "ModGenLawson41",
+          "error": 1.0408340855860843e-16,
+          "matvecs": 882
+        },
+        {
+          "method": "ModGenLawson42",
+          "error": 1.1102230246251565e-16,
+          "matvecs": 1197
+        },
+        {
+          "method": "ModGenLawson43",
+          "error": 9.71445146547012e-17,
+          "matvecs": 1422
+        },
+        {
+          "method": "ModGenLawson44",
+          "error": 1.249000902703301e-16,
+          "matvecs": 1557
+        },
+        {
+          "method": "ModGenLawson45",
+          "error": 1.249000902703301e-16,
+          "matvecs": 1602
+        },
+        {
+          "method": "CrankNicolson",
+          "error": 2.8083500802633665e-11,
+          "matvecs": 889
+        }
+      ]
+    }
+  }
+}

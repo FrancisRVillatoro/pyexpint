@@ -1,0 +1,287 @@
+{
+  "method": "Krogstad",
+  "cases": [
+    {
+      "n": 256,
+      "sigma": 50.0,
+      "h": 0.05,
+      "scaled_spectral_width": 10.0,
+      "fastest": "auto",
+      "rows": [
+        {
+          "backend": "arnoldi",
+          "median_seconds": 0.015105905999973857,
+          "matvecs": 162,
+          "selection_counts": null,
+          "mean_krylov_dim": 9.0,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 6.749668532424202e-12
+        },
+        {
+          "backend": "kiops",
+          "median_seconds": 0.006466384500015465,
+          "matvecs": 124,
+          "selection_counts": null,
+          "mean_krylov_dim": 7.75,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 0.0
+        },
+        {
+          "backend": "leja",
+          "median_seconds": 0.02293956049999224,
+          "matvecs": 292,
+          "selection_counts": null,
+          "mean_krylov_dim": null,
+          "mean_degree": 10.428571428571429,
+          "max_abs_difference_vs_kiops": 6.619060854973213e-11
+        },
+        {
+          "backend": "auto",
+          "median_seconds": 0.0061888734999797634,
+          "matvecs": 148,
+          "selection_counts": {
+            "kiops": 2
+          },
+          "mean_krylov_dim": 9.25,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 1.5116432411366176e-12
+        }
+      ]
+    },
+    {
+      "n": 256,
+      "sigma": 200.0,
+      "h": 0.05,
+      "scaled_spectral_width": 40.0,
+      "fastest": "auto",
+      "rows": [
+        {
+          "backend": "arnoldi",
+          "median_seconds": 0.02477767249996532,
+          "matvecs": 216,
+          "selection_counts": null,
+          "mean_krylov_dim": 12.0,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 1.583165404328568e-10
+        },
+        {
+          "backend": "kiops",
+          "median_seconds": 0.008508583000036651,
+          "matvecs": 202,
+          "selection_counts": null,
+          "mean_krylov_dim": 9.181818181818182,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 0.0
+        },
+        {
+          "backend": "leja",
+          "median_seconds": 0.03490534650001109,
+          "matvecs": 462,
+          "selection_counts": null,
+          "mean_krylov_dim": null,
+          "mean_degree": 16.5,
+          "max_abs_difference_vs_kiops": 9.537177991791879e-10
+        },
+        {
+          "backend": "auto",
+          "median_seconds": 0.007298637000019426,
+          "matvecs": 148,
+          "selection_counts": {
+            "kiops": 2
+          },
+          "mean_krylov_dim": 9.25,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 3.1558145853483044e-10
+        }
+      ]
+    },
+    {
+      "n": 1024,
+      "sigma": 50.0,
+      "h": 0.05,
+      "scaled_spectral_width": 10.0,
+      "fastest": "leja",
+      "rows": [
+        {
+          "backend": "arnoldi",
+          "median_seconds": 0.44271581999998944,
+          "matvecs": 162,
+          "selection_counts": null,
+          "mean_krylov_dim": 9.0,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 3.9483390515404615e-13
+        },
+        {
+          "backend": "kiops",
+          "median_seconds": 0.14789176900001166,
+          "matvecs": 124,
+          "selection_counts": null,
+          "mean_krylov_dim": 7.75,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 0.0
+        },
+        {
+          "backend": "leja",
+          "median_seconds": 0.023743946000024607,
+          "matvecs": 272,
+          "selection_counts": null,
+          "mean_krylov_dim": null,
+          "mean_degree": 9.714285714285714,
+          "max_abs_difference_vs_kiops": 2.2953319800400607e-11
+        },
+        {
+          "backend": "auto",
+          "median_seconds": 0.03295062249998182,
+          "matvecs": 272,
+          "selection_counts": {
+            "leja": 2
+          },
+          "mean_krylov_dim": null,
+          "mean_degree": 9.714285714285714,
+          "max_abs_difference_vs_kiops": 2.2953319800400607e-11
+        }
+      ]
+    },
+    {
+      "n": 1024,
+      "sigma": 200.0,
+      "h": 0.05,
+      "scaled_spectral_width": 40.0,
+      "fastest": "auto",
+      "rows": [
+        {
+          "backend": "arnoldi",
+          "median_seconds": 0.4030071910000288,
+          "matvecs": 174,
+          "selection_counts": null,
+          "mean_krylov_dim": 9.666666666666666,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 6.671778841199627e-11
+        },
+        {
+          "backend": "kiops",
+          "median_seconds": 0.11993615650004585,
+          "matvecs": 124,
+          "selection_counts": null,
+          "mean_krylov_dim": 7.75,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 0.0
+        },
+        {
+          "backend": "leja",
+          "median_seconds": 0.04115367099996092,
+          "matvecs": 384,
+          "selection_counts": null,
+          "mean_krylov_dim": null,
+          "mean_degree": 13.714285714285714,
+          "max_abs_difference_vs_kiops": 1.1818875045310762e-10
+        },
+        {
+          "backend": "auto",
+          "median_seconds": 0.02885069699993892,
+          "matvecs": 384,
+          "selection_counts": {
+            "leja": 2
+          },
+          "mean_krylov_dim": null,
+          "mean_degree": 13.714285714285714,
+          "max_abs_difference_vs_kiops": 1.1818875045310762e-10
+        }
+      ]
+    },
+    {
+      "n": 4096,
+      "sigma": 50.0,
+      "h": 0.05,
+      "scaled_spectral_width": 10.0,
+      "fastest": "auto",
+      "rows": [
+        {
+          "backend": "arnoldi",
+          "median_seconds": 0.365703996499974,
+          "matvecs": 162,
+          "selection_counts": null,
+          "mean_krylov_dim": 9.0,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 2.457094857438724e-14
+        },
+        {
+          "backend": "kiops",
+          "median_seconds": 0.1399369535000119,
+          "matvecs": 124,
+          "selection_counts": null,
+          "mean_krylov_dim": 7.75,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 0.0
+        },
+        {
+          "backend": "leja",
+          "median_seconds": 0.04706600999998045,
+          "matvecs": 264,
+          "selection_counts": null,
+          "mean_krylov_dim": null,
+          "mean_degree": 9.428571428571429,
+          "max_abs_difference_vs_kiops": 3.508290880027687e-12
+        },
+        {
+          "backend": "auto",
+          "median_seconds": 0.03302197349995595,
+          "matvecs": 264,
+          "selection_counts": {
+            "leja": 2
+          },
+          "mean_krylov_dim": null,
+          "mean_degree": 9.428571428571429,
+          "max_abs_difference_vs_kiops": 3.508290880027687e-12
+        }
+      ]
+    },
+    {
+      "n": 4096,
+      "sigma": 200.0,
+      "h": 0.05,
+      "scaled_spectral_width": 40.0,
+      "fastest": "auto",
+      "rows": [
+        {
+          "backend": "arnoldi",
+          "median_seconds": 0.3435426314999859,
+          "matvecs": 162,
+          "selection_counts": null,
+          "mean_krylov_dim": 9.0,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 1.4334163738784211e-11
+        },
+        {
+          "backend": "kiops",
+          "median_seconds": 0.13394053799999028,
+          "matvecs": 124,
+          "selection_counts": null,
+          "mean_krylov_dim": 7.75,
+          "mean_degree": null,
+          "max_abs_difference_vs_kiops": 0.0
+        },
+        {
+          "backend": "leja",
+          "median_seconds": 0.05483682449994376,
+          "matvecs": 320,
+          "selection_counts": null,
+          "mean_krylov_dim": null,
+          "mean_degree": 11.428571428571429,
+          "max_abs_difference_vs_kiops": 4.275289705590879e-10
+        },
+        {
+          "backend": "auto",
+          "median_seconds": 0.03468278750000309,
+          "matvecs": 320,
+          "selection_counts": {
+            "leja": 2
+          },
+          "mean_krylov_dim": null,
+          "mean_degree": 11.428571428571429,
+          "max_abs_difference_vs_kiops": 4.275289705590879e-10
+        }
+      ]
+    }
+  ]
+}

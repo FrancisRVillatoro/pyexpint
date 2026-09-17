@@ -1,0 +1,804 @@
+{
+  "version": "0.6.0.dev0",
+  "tests": {
+    "passed": 115,
+    "failed": 0
+  },
+  "catalogue_count": 47,
+  "selector_calibration": {
+    "leja_min_size": 512,
+    "leja_width_threshold": 60.0,
+    "dense_cutoff": 96,
+    "objective": "log-regret",
+    "training_cases": 30,
+    "mean_log_regret": 0.08389975398881208,
+    "max_slowdown": 2.7978841182865595,
+    "machine_label": "Linux-x86_64-Python3.13.5"
+  },
+  "adaptive_accuracy": {
+    "problem": "y'=-y+y^2, y(0)=0.2, T=2",
+    "rows": [
+      {
+        "method": "ETD2RK",
+        "rtol": 0.001,
+        "error_inf": 9.441292625762127e-05,
+        "accepted_steps": 5,
+        "rejected_steps": 0,
+        "nonlinear_evals": 30,
+        "wall_seconds": 0.007949678000045424
+      },
+      {
+        "method": "ETD2RK",
+        "rtol": 1e-05,
+        "error_inf": 5.29392441621368e-06,
+        "accepted_steps": 20,
+        "rejected_steps": 1,
+        "nonlinear_evals": 126,
+        "wall_seconds": 0.026082175999931678
+      },
+      {
+        "method": "ETD2RK",
+        "rtol": 1e-07,
+        "error_inf": 2.4346929142216034e-07,
+        "accepted_steps": 94,
+        "rejected_steps": 2,
+        "nonlinear_evals": 576,
+        "wall_seconds": 0.10840138200001093
+      },
+      {
+        "method": "ETD4RK",
+        "rtol": 0.001,
+        "error_inf": 7.925404141295722e-08,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "nonlinear_evals": 48,
+        "wall_seconds": 0.021167953000031048
+      },
+      {
+        "method": "ETD4RK",
+        "rtol": 1e-05,
+        "error_inf": 7.925404141295722e-08,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "nonlinear_evals": 48,
+        "wall_seconds": 0.014080676999924435
+      },
+      {
+        "method": "ETD4RK",
+        "rtol": 1e-07,
+        "error_inf": 1.3542205454242229e-08,
+        "accepted_steps": 6,
+        "rejected_steps": 1,
+        "nonlinear_evals": 84,
+        "wall_seconds": 0.020445633000008456
+      },
+      {
+        "method": "Krogstad",
+        "rtol": 0.001,
+        "error_inf": 9.88539093985108e-08,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "nonlinear_evals": 48,
+        "wall_seconds": 0.01955568599998969
+      },
+      {
+        "method": "Krogstad",
+        "rtol": 1e-05,
+        "error_inf": 9.88539093985108e-08,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "nonlinear_evals": 48,
+        "wall_seconds": 0.013228629999957775
+      },
+      {
+        "method": "Krogstad",
+        "rtol": 1e-07,
+        "error_inf": 1.3137717101707747e-08,
+        "accepted_steps": 6,
+        "rejected_steps": 1,
+        "nonlinear_evals": 84,
+        "wall_seconds": 0.021136157999990246
+      },
+      {
+        "method": "HochOst4",
+        "rtol": 0.001,
+        "error_inf": 8.798299864359871e-08,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "nonlinear_evals": 60,
+        "wall_seconds": 0.013980165000020861
+      },
+      {
+        "method": "HochOst4",
+        "rtol": 1e-05,
+        "error_inf": 8.798299864359871e-08,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "nonlinear_evals": 60,
+        "wall_seconds": 0.014430384999968737
+      },
+      {
+        "method": "HochOst4",
+        "rtol": 1e-07,
+        "error_inf": 1.2036692496886214e-08,
+        "accepted_steps": 6,
+        "rejected_steps": 1,
+        "nonlinear_evals": 105,
+        "wall_seconds": 0.023094902000025286
+      }
+    ]
+  },
+  "action_tolerance_coupling": {
+    "problem": "periodic manufactured diffusion n=128 T=1",
+    "method": "Krogstad",
+    "rows": [
+      {
+        "backend": "kiops",
+        "rtol": 1e-06,
+        "action_fraction": 1.0,
+        "action_tolerance": 1e-06,
+        "error_inf": 8.80286083193571e-08,
+        "wall_seconds": 0.058442885999966165,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "matvecs": 888
+      },
+      {
+        "backend": "kiops",
+        "rtol": 1e-06,
+        "action_fraction": 0.1,
+        "action_tolerance": 1e-07,
+        "error_inf": 8.80286083193571e-08,
+        "wall_seconds": 0.05491844900006981,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "matvecs": 888
+      },
+      {
+        "backend": "kiops",
+        "rtol": 1e-06,
+        "action_fraction": 0.03,
+        "action_tolerance": 3e-08,
+        "error_inf": 8.80286083193571e-08,
+        "wall_seconds": 0.07754226599990943,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "matvecs": 888
+      },
+      {
+        "backend": "kiops",
+        "rtol": 1e-06,
+        "action_fraction": 0.01,
+        "action_tolerance": 1e-08,
+        "error_inf": 8.80286083193571e-08,
+        "wall_seconds": 0.07740947100000994,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "matvecs": 888
+      },
+      {
+        "backend": "kiops",
+        "rtol": 1e-06,
+        "action_fraction": 0.003,
+        "action_tolerance": 3e-09,
+        "error_inf": 8.80286083193571e-08,
+        "wall_seconds": 0.05388464300006035,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "matvecs": 888
+      },
+      {
+        "backend": "leja",
+        "rtol": 1e-06,
+        "action_fraction": 1.0,
+        "action_tolerance": 1e-06,
+        "error_inf": 6.640540890084923e-07,
+        "wall_seconds": 0.20851638500005265,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "matvecs": 1793
+      },
+      {
+        "backend": "leja",
+        "rtol": 1e-06,
+        "action_fraction": 0.1,
+        "action_tolerance": 1e-07,
+        "error_inf": 6.393646737046232e-08,
+        "wall_seconds": 0.13399643599996125,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "matvecs": 1991
+      },
+      {
+        "backend": "leja",
+        "rtol": 1e-06,
+        "action_fraction": 0.03,
+        "action_tolerance": 3e-08,
+        "error_inf": 9.403321682421861e-08,
+        "wall_seconds": 0.13463386699993407,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "matvecs": 2095
+      },
+      {
+        "backend": "leja",
+        "rtol": 1e-06,
+        "action_fraction": 0.01,
+        "action_tolerance": 1e-08,
+        "error_inf": 9.036040149457136e-08,
+        "wall_seconds": 0.14396213800000623,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "matvecs": 2190
+      },
+      {
+        "backend": "leja",
+        "rtol": 1e-06,
+        "action_fraction": 0.003,
+        "action_tolerance": 3e-09,
+        "error_inf": 8.85349393103807e-08,
+        "wall_seconds": 0.14384849300006408,
+        "accepted_steps": 4,
+        "rejected_steps": 0,
+        "matvecs": 2266
+      }
+    ]
+  },
+  "work_precision_workspace": {
+    "description": "Phase-6 adaptive work-precision-workspace benchmark",
+    "cases": [
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "kiops",
+        "rtol": 0.0001,
+        "error_inf": 1.2941237161057106e-07,
+        "wall_seconds": 0.05356829499999094,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 36,
+        "matvecs": 648,
+        "workspace_bytes_estimate": 26880,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": null
+      },
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "leja",
+        "rtol": 0.0001,
+        "error_inf": 1.7401734279942627e-07,
+        "wall_seconds": 0.12775892100000874,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 36,
+        "matvecs": 1452,
+        "workspace_bytes_estimate": 6144,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": null
+      },
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "auto-calibrated",
+        "rtol": 0.0001,
+        "error_inf": 1.2941237113872628e-07,
+        "wall_seconds": 0.07728486000002022,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 36,
+        "matvecs": 776,
+        "workspace_bytes_estimate": 31808,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": {
+          "kiops": 9
+        }
+      },
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "kiops",
+        "rtol": 1e-07,
+        "error_inf": 2.2370654703673942e-08,
+        "wall_seconds": 0.15847110100003192,
+        "accepted_steps": 5,
+        "rejected_steps": 1,
+        "nonlinear_evals": 72,
+        "matvecs": 1296,
+        "workspace_bytes_estimate": 26880,
+        "action_tolerance": 1e-09,
+        "selection_counts": null
+      },
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "leja",
+        "rtol": 1e-07,
+        "error_inf": 2.2414662972924937e-08,
+        "wall_seconds": 0.24658051199998,
+        "accepted_steps": 5,
+        "rejected_steps": 1,
+        "nonlinear_evals": 72,
+        "matvecs": 3332,
+        "workspace_bytes_estimate": 6144,
+        "action_tolerance": 1e-09,
+        "selection_counts": null
+      },
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "auto-calibrated",
+        "rtol": 1e-07,
+        "error_inf": 2.23706578261762e-08,
+        "wall_seconds": 0.08237987100000055,
+        "accepted_steps": 5,
+        "rejected_steps": 1,
+        "nonlinear_evals": 72,
+        "matvecs": 1552,
+        "workspace_bytes_estimate": 31808,
+        "action_tolerance": 1e-09,
+        "selection_counts": {
+          "kiops": 18
+        }
+      },
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "kiops",
+        "rtol": 0.0001,
+        "error_inf": 2.1958546371492194e-07,
+        "wall_seconds": 0.10678695899997592,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 45,
+        "matvecs": 1440,
+        "workspace_bytes_estimate": 26880,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": null
+      },
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "leja",
+        "rtol": 0.0001,
+        "error_inf": 3.244008104780205e-07,
+        "wall_seconds": 0.2218321519999904,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 45,
+        "matvecs": 1898,
+        "workspace_bytes_estimate": 6144,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": null
+      },
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "auto-calibrated",
+        "rtol": 0.0001,
+        "error_inf": 2.1958546315981042e-07,
+        "wall_seconds": 0.15661588000000393,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 45,
+        "matvecs": 1726,
+        "workspace_bytes_estimate": 31808,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": {
+          "kiops": 9
+        }
+      },
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "kiops",
+        "rtol": 1e-07,
+        "error_inf": 2.8917417890794717e-08,
+        "wall_seconds": 0.33690257399996426,
+        "accepted_steps": 5,
+        "rejected_steps": 1,
+        "nonlinear_evals": 90,
+        "matvecs": 2880,
+        "workspace_bytes_estimate": 26880,
+        "action_tolerance": 1e-09,
+        "selection_counts": null
+      },
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "leja",
+        "rtol": 1e-07,
+        "error_inf": 2.8970184612342464e-08,
+        "wall_seconds": 0.9301236570000242,
+        "accepted_steps": 5,
+        "rejected_steps": 1,
+        "nonlinear_evals": 90,
+        "matvecs": 4499,
+        "workspace_bytes_estimate": 6144,
+        "action_tolerance": 1e-09,
+        "selection_counts": null
+      },
+      {
+        "problem": "periodic",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "auto-calibrated",
+        "rtol": 1e-07,
+        "error_inf": 2.891741977817386e-08,
+        "wall_seconds": 0.5325980800000139,
+        "accepted_steps": 5,
+        "rejected_steps": 1,
+        "nonlinear_evals": 90,
+        "matvecs": 3452,
+        "workspace_bytes_estimate": 31808,
+        "action_tolerance": 1e-09,
+        "selection_counts": {
+          "kiops": 18
+        }
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "kiops",
+        "rtol": 0.0001,
+        "error_inf": 2.025796643323474e-06,
+        "wall_seconds": 0.20819871800000556,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 36,
+        "matvecs": 746,
+        "workspace_bytes_estimate": 34320,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": null
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "leja",
+        "rtol": 0.0001,
+        "error_inf": 2.1279654230932366e-06,
+        "wall_seconds": 0.10666623200000913,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 36,
+        "matvecs": 1173,
+        "workspace_bytes_estimate": 6144,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": null
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "auto-calibrated",
+        "rtol": 0.0001,
+        "error_inf": 2.0282238532010055e-06,
+        "wall_seconds": 0.08918616900001552,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 36,
+        "matvecs": 864,
+        "workspace_bytes_estimate": 31808,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": {
+          "kiops": 9
+        }
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "kiops",
+        "rtol": 1e-07,
+        "error_inf": 1.5187216328982345e-07,
+        "wall_seconds": 0.12436246200002188,
+        "accepted_steps": 6,
+        "rejected_steps": 1,
+        "nonlinear_evals": 84,
+        "matvecs": 1862,
+        "workspace_bytes_estimate": 34320,
+        "action_tolerance": 1e-09,
+        "selection_counts": null
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "leja",
+        "rtol": 1e-07,
+        "error_inf": 1.5189768198808906e-07,
+        "wall_seconds": 0.27155231799997637,
+        "accepted_steps": 6,
+        "rejected_steps": 1,
+        "nonlinear_evals": 84,
+        "matvecs": 2910,
+        "workspace_bytes_estimate": 6144,
+        "action_tolerance": 1e-09,
+        "selection_counts": null
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "Krogstad",
+        "backend": "auto-calibrated",
+        "rtol": 1e-07,
+        "error_inf": 1.5187617286027688e-07,
+        "wall_seconds": 0.0879338080000025,
+        "accepted_steps": 6,
+        "rejected_steps": 1,
+        "nonlinear_evals": 84,
+        "matvecs": 2031,
+        "workspace_bytes_estimate": 39440,
+        "action_tolerance": 1e-09,
+        "selection_counts": {
+          "kiops": 21
+        }
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "kiops",
+        "rtol": 0.0001,
+        "error_inf": 2.0523815635886677e-06,
+        "wall_seconds": 0.08864959699997144,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 45,
+        "matvecs": 1556,
+        "workspace_bytes_estimate": 34320,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": null
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "leja",
+        "rtol": 0.0001,
+        "error_inf": 2.154514783470063e-06,
+        "wall_seconds": 0.16826541600005385,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 45,
+        "matvecs": 1580,
+        "workspace_bytes_estimate": 6144,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": null
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "auto-calibrated",
+        "rtol": 0.0001,
+        "error_inf": 2.054770117165816e-06,
+        "wall_seconds": 0.08584823600000391,
+        "accepted_steps": 3,
+        "rejected_steps": 0,
+        "nonlinear_evals": 45,
+        "matvecs": 1836,
+        "workspace_bytes_estimate": 31808,
+        "action_tolerance": 1.0000000000000002e-06,
+        "selection_counts": {
+          "kiops": 9
+        }
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "kiops",
+        "rtol": 1e-07,
+        "error_inf": 1.4753893473606894e-07,
+        "wall_seconds": 0.29726428300000407,
+        "accepted_steps": 6,
+        "rejected_steps": 1,
+        "nonlinear_evals": 105,
+        "matvecs": 4129,
+        "workspace_bytes_estimate": 34320,
+        "action_tolerance": 1e-09,
+        "selection_counts": null
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "leja",
+        "rtol": 1e-07,
+        "error_inf": 1.4756102206803234e-07,
+        "wall_seconds": 0.43311373199998116,
+        "accepted_steps": 6,
+        "rejected_steps": 1,
+        "nonlinear_evals": 105,
+        "matvecs": 3901,
+        "workspace_bytes_estimate": 6144,
+        "action_tolerance": 1e-09,
+        "selection_counts": null
+      },
+      {
+        "problem": "dirichlet",
+        "n": 128,
+        "method": "HochOst4",
+        "backend": "auto-calibrated",
+        "rtol": 1e-07,
+        "error_inf": 1.4754219024304405e-07,
+        "wall_seconds": 0.4465293039999665,
+        "accepted_steps": 6,
+        "rejected_steps": 1,
+        "nonlinear_evals": 105,
+        "matvecs": 4299,
+        "workspace_bytes_estimate": 39440,
+        "action_tolerance": 1e-09,
+        "selection_counts": {
+          "kiops": 21
+        }
+      }
+    ]
+  },
+  "scipy_exp_action": {
+    "scipy_version": "1.17.0",
+    "operation": "exp(hA)v",
+    "rows": [
+      {
+        "n": 256,
+        "backend": "kiops",
+        "seconds": 0.03197326800000155,
+        "scipy_seconds": 0.0016172800000049392,
+        "max_abs_error_vs_scipy": 4.7128967395337895e-14
+      },
+      {
+        "n": 256,
+        "backend": "leja",
+        "seconds": 0.0017416660000435513,
+        "scipy_seconds": 0.0016172800000049392,
+        "max_abs_error_vs_scipy": 5.485056853160586e-12
+      },
+      {
+        "n": 1024,
+        "backend": "kiops",
+        "seconds": 0.06809711899995818,
+        "scipy_seconds": 0.002234864000001835,
+        "max_abs_error_vs_scipy": 6.682154829462661e-14
+      },
+      {
+        "n": 1024,
+        "backend": "leja",
+        "seconds": 0.0025189039999986562,
+        "scipy_seconds": 0.002234864000001835,
+        "max_abs_error_vs_scipy": 4.589231772378355e-12
+      }
+    ]
+  },
+  "hybrid_backend": {
+    "rows": [
+      {
+        "n": 256,
+        "method": "Krogstad",
+        "backend": "kiops",
+        "seconds": 0.01283377099991867,
+        "matvecs_counted": 124,
+        "scipy_expm_calls": 0,
+        "max_abs_difference_vs_kiops": 0.0
+      },
+      {
+        "n": 256,
+        "method": "Krogstad",
+        "backend": "leja",
+        "seconds": 0.054448306999915985,
+        "matvecs_counted": 350,
+        "scipy_expm_calls": 0,
+        "max_abs_difference_vs_kiops": 1.6873259386929185e-10
+      },
+      {
+        "n": 256,
+        "method": "Krogstad",
+        "backend": "scipy-kiops",
+        "seconds": 0.020041020000007848,
+        "matvecs_counted": 80,
+        "scipy_expm_calls": 10,
+        "max_abs_difference_vs_kiops": 2.284730390988976e-11
+      },
+      {
+        "n": 256,
+        "method": "HochOst4",
+        "backend": "kiops",
+        "seconds": 0.021466662999955588,
+        "matvecs_counted": 295,
+        "scipy_expm_calls": 0,
+        "max_abs_difference_vs_kiops": 0.0
+      },
+      {
+        "n": 256,
+        "method": "HochOst4",
+        "backend": "leja",
+        "seconds": 0.04862478999996256,
+        "matvecs_counted": 454,
+        "scipy_expm_calls": 0,
+        "max_abs_difference_vs_kiops": 1.6873262509431441e-10
+      },
+      {
+        "n": 256,
+        "method": "HochOst4",
+        "backend": "scipy-kiops",
+        "seconds": 0.039068120000024464,
+        "matvecs_counted": 240,
+        "scipy_expm_calls": 12,
+        "max_abs_difference_vs_kiops": 2.2847302175166284e-11
+      },
+      {
+        "n": 1024,
+        "method": "Krogstad",
+        "backend": "kiops",
+        "seconds": 0.15202890600005503,
+        "matvecs_counted": 124,
+        "scipy_expm_calls": 0,
+        "max_abs_difference_vs_kiops": 0.0
+      },
+      {
+        "n": 1024,
+        "method": "Krogstad",
+        "backend": "leja",
+        "seconds": 0.09229941099999905,
+        "matvecs_counted": 308,
+        "scipy_expm_calls": 0,
+        "max_abs_difference_vs_kiops": 1.9989709887369145e-10
+      },
+      {
+        "n": 1024,
+        "method": "Krogstad",
+        "backend": "scipy-kiops",
+        "seconds": 0.11409214399998291,
+        "matvecs_counted": 80,
+        "scipy_expm_calls": 10,
+        "max_abs_difference_vs_kiops": 1.5046804947849157e-12
+      },
+      {
+        "n": 1024,
+        "method": "HochOst4",
+        "backend": "kiops",
+        "seconds": 0.5083462210000107,
+        "matvecs_counted": 295,
+        "scipy_expm_calls": 0,
+        "max_abs_difference_vs_kiops": 0.0
+      },
+      {
+        "n": 1024,
+        "method": "HochOst4",
+        "backend": "leja",
+        "seconds": 0.04817252400005145,
+        "matvecs_counted": 406,
+        "scipy_expm_calls": 0,
+        "max_abs_difference_vs_kiops": 1.9989727928493295e-10
+      },
+      {
+        "n": 1024,
+        "method": "HochOst4",
+        "backend": "scipy-kiops",
+        "seconds": 0.3128583840000374,
+        "matvecs_counted": 240,
+        "scipy_expm_calls": 12,
+        "max_abs_difference_vs_kiops": 1.5046687854014529e-12
+      }
+    ]
+  },
+  "limitations": [
+    "adaptive stepping is one-step only",
+    "step doubling is a baseline rather than a cost-optimal embedded controller",
+    "no direct official MATLAB KIOPS runtime comparison in this environment",
+    "no distributed-memory/low-synchronization benchmark yet"
+  ]
+}

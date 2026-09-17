@@ -1,0 +1,10 @@
+{
+  "leja_min_size": 512,
+  "leja_width_threshold": 60.0,
+  "dense_cutoff": 96,
+  "objective": "log-regret",
+  "training_cases": 30,
+  "mean_log_regret": 0.08389975398881208,
+  "max_slowdown": 2.7978841182865595,
+  "machine_label": "Linux-x86_64-Python3.13.5"
+}

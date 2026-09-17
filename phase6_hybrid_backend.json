@@ -1,0 +1,112 @@
+{
+  "rows": [
+    {
+      "n": 256,
+      "method": "Krogstad",
+      "backend": "kiops",
+      "seconds": 0.01283377099991867,
+      "matvecs_counted": 124,
+      "scipy_expm_calls": 0,
+      "max_abs_difference_vs_kiops": 0.0
+    },
+    {
+      "n": 256,
+      "method": "Krogstad",
+      "backend": "leja",
+      "seconds": 0.054448306999915985,
+      "matvecs_counted": 350,
+      "scipy_expm_calls": 0,
+      "max_abs_difference_vs_kiops": 1.6873259386929185e-10
+    },
+    {
+      "n": 256,
+      "method": "Krogstad",
+      "backend": "scipy-kiops",
+      "seconds": 0.020041020000007848,
+      "matvecs_counted": 80,
+      "scipy_expm_calls": 10,
+      "max_abs_difference_vs_kiops": 2.284730390988976e-11
+    },
+    {
+      "n": 256,
+      "method": "HochOst4",
+      "backend": "kiops",
+      "seconds": 0.021466662999955588,
+      "matvecs_counted": 295,
+      "scipy_expm_calls": 0,
+      "max_abs_difference_vs_kiops": 0.0
+    },
+    {
+      "n": 256,
+      "method": "HochOst4",
+      "backend": "leja",
+      "seconds": 0.04862478999996256,
+      "matvecs_counted": 454,
+      "scipy_expm_calls": 0,
+      "max_abs_difference_vs_kiops": 1.6873262509431441e-10
+    },
+    {
+      "n": 256,
+      "method": "HochOst4",
+      "backend": "scipy-kiops",
+      "seconds": 0.039068120000024464,
+      "matvecs_counted": 240,
+      "scipy_expm_calls": 12,
+      "max_abs_difference_vs_kiops": 2.2847302175166284e-11
+    },
+    {
+      "n": 1024,
+      "method": "Krogstad",
+      "backend": "kiops",
+      "seconds": 0.15202890600005503,
+      "matvecs_counted": 124,
+      "scipy_expm_calls": 0,
+      "max_abs_difference_vs_kiops": 0.0
+    },
+    {
+      "n": 1024,
+      "method": "Krogstad",
+      "backend": "leja",
+      "seconds": 0.09229941099999905,
+      "matvecs_counted": 308,
+      "scipy_expm_calls": 0,
+      "max_abs_difference_vs_kiops": 1.9989709887369145e-10
+    },
+    {
+      "n": 1024,
+      "method": "Krogstad",
+      "backend": "scipy-kiops",
+      "seconds": 0.11409214399998291,
+      "matvecs_counted": 80,
+      "scipy_expm_calls": 10,
+      "max_abs_difference_vs_kiops": 1.5046804947849157e-12
+    },
+    {
+      "n": 1024,
+      "method": "HochOst4",
+      "backend": "kiops",
+      "seconds": 0.5083462210000107,
+      "matvecs_counted": 295,
+      "scipy_expm_calls": 0,
+      "max_abs_difference_vs_kiops": 0.0
+    },
+    {
+      "n": 1024,
+      "method": "HochOst4",
+      "backend": "leja",
+      "seconds": 0.04817252400005145,
+      "matvecs_counted": 406,
+      "scipy_expm_calls": 0,
+      "max_abs_difference_vs_kiops": 1.9989727928493295e-10
+    },
+    {
+      "n": 1024,
+      "method": "HochOst4",
+      "backend": "scipy-kiops",
+      "seconds": 0.3128583840000374,
+      "matvecs_counted": 240,
+      "scipy_expm_calls": 12,
+      "max_abs_difference_vs_kiops": 1.5046687854014529e-12
+    }
+  ]
+}

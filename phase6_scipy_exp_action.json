@@ -1,0 +1,34 @@
+{
+  "scipy_version": "1.17.0",
+  "operation": "exp(hA)v",
+  "rows": [
+    {
+      "n": 256,
+      "backend": "kiops",
+      "seconds": 0.03197326800000155,
+      "scipy_seconds": 0.0016172800000049392,
+      "max_abs_error_vs_scipy": 4.7128967395337895e-14
+    },
+    {
+      "n": 256,
+      "backend": "leja",
+      "seconds": 0.0017416660000435513,
+      "scipy_seconds": 0.0016172800000049392,
+      "max_abs_error_vs_scipy": 5.485056853160586e-12
+    },
+    {
+      "n": 1024,
+      "backend": "kiops",
+      "seconds": 0.06809711899995818,
+      "scipy_seconds": 0.002234864000001835,
+      "max_abs_error_vs_scipy": 6.682154829462661e-14
+    },
+    {
+      "n": 1024,
+      "backend": "leja",
+      "seconds": 0.0025189039999986562,
+      "scipy_seconds": 0.002234864000001835,
+      "max_abs_error_vs_scipy": 4.589231772378355e-12
+    }
+  ]
+}

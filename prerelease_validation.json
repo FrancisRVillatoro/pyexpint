@@ -1,0 +1,433 @@
+{
+  "version": "0.8.0.dev0",
+  "tests_passed": 119,
+  "local_2d": {
+    "description": "PyEXPINT pre-release controlled 2D reaction-diffusion benchmark",
+    "problem": "u_t = nu Delta u + N(t,u), periodic 2D manufactured solution 0.2 exp(-t) sin(x) sin(y)",
+    "T": 0.5,
+    "nu": 0.02,
+    "environment": {
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+      "machine": "x86_64",
+      "processor": "",
+      "cpu_count": 5
+    },
+    "timing_protocol": "one warm-up + 3 measured repetitions; report median and IQR",
+    "cases": [
+      {
+        "n_side": 32,
+        "dimension": 1024,
+        "rtol": 1e-05,
+        "backend": "kiops",
+        "repeats": 3,
+        "wall_median_s": 0.24790213299999664,
+        "wall_q1_s": 0.24192956099999208,
+        "wall_q3_s": 0.24992912599999784,
+        "wall_iqr_s": 0.00799956500000576,
+        "wall_runs_s": [
+          0.24790213299999664,
+          0.25195611899999903,
+          0.23595698899998752
+        ],
+        "error_inf_median": 1.4589062126424412e-07,
+        "matvecs_median": 226.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 198912,
+        "selection_counts": null
+      },
+      {
+        "n_side": 32,
+        "dimension": 1024,
+        "rtol": 1e-05,
+        "backend": "leja",
+        "repeats": 3,
+        "wall_median_s": 0.035999027999991995,
+        "wall_q1_s": 0.03501728650000757,
+        "wall_q3_s": 0.04250650950000079,
+        "wall_iqr_s": 0.007489222999993217,
+        "wall_runs_s": [
+          0.04901399100000958,
+          0.03403554500002315,
+          0.035999027999991995
+        ],
+        "error_inf_median": 1.4589056178404558e-07,
+        "matvecs_median": 378.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 49152,
+        "selection_counts": null
+      },
+      {
+        "n_side": 32,
+        "dimension": 1024,
+        "rtol": 1e-05,
+        "backend": "hybrid",
+        "repeats": 3,
+        "wall_median_s": 0.15601151100000266,
+        "wall_q1_s": 0.1499705364999926,
+        "wall_q3_s": 0.19667152900001383,
+        "wall_iqr_s": 0.04670099250002124,
+        "wall_runs_s": [
+          0.15601151100000266,
+          0.14392956199998252,
+          0.237331547000025
+        ],
+        "error_inf_median": 1.4589062137526643e-07,
+        "matvecs_median": 170.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 232512,
+        "selection_counts": null
+      },
+      {
+        "n_side": 32,
+        "dimension": 1024,
+        "rtol": 1e-05,
+        "backend": "auto",
+        "repeats": 3,
+        "wall_median_s": 0.029557877999991433,
+        "wall_q1_s": 0.028486251499998616,
+        "wall_q3_s": 0.0704832124999939,
+        "wall_iqr_s": 0.04199696099999528,
+        "wall_runs_s": [
+          0.11140854699999636,
+          0.0274146250000058,
+          0.029557877999991433
+        ],
+        "error_inf_median": 1.4589056178404558e-07,
+        "matvecs_median": 378.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 49152,
+        "selection_counts": {
+          "leja": 3
+        }
+      },
+      {
+        "n_side": 64,
+        "dimension": 4096,
+        "rtol": 1e-05,
+        "backend": "kiops",
+        "repeats": 3,
+        "wall_median_s": 0.27186438199998975,
+        "wall_q1_s": 0.2559651179999918,
+        "wall_q3_s": 0.2758171094999966,
+        "wall_iqr_s": 0.01985199150000483,
+        "wall_runs_s": [
+          0.27976983700000346,
+          0.2400658539999938,
+          0.27186438199998975
+        ],
+        "error_inf_median": 1.4559524023904924e-07,
+        "matvecs_median": 226.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 788736,
+        "selection_counts": null
+      },
+      {
+        "n_side": 64,
+        "dimension": 4096,
+        "rtol": 1e-05,
+        "backend": "leja",
+        "repeats": 3,
+        "wall_median_s": 0.05909524599999827,
+        "wall_q1_s": 0.05723127000000261,
+        "wall_q3_s": 0.060104859500000885,
+        "wall_iqr_s": 0.0028735894999982747,
+        "wall_runs_s": [
+          0.05909524599999827,
+          0.0611144730000035,
+          0.05536729400000695
+        ],
+        "error_inf_median": 1.4566380400482526e-07,
+        "matvecs_median": 382.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 196608,
+        "selection_counts": null
+      },
+      {
+        "n_side": 64,
+        "dimension": 4096,
+        "rtol": 1e-05,
+        "backend": "hybrid",
+        "repeats": 3,
+        "wall_median_s": 0.1719872310000028,
+        "wall_q1_s": 0.1632978654999988,
+        "wall_q3_s": 0.1746510419999936,
+        "wall_iqr_s": 0.011353176499994788,
+        "wall_runs_s": [
+          0.1719872310000028,
+          0.1773148529999844,
+          0.15460849999999482
+        ],
+        "error_inf_median": 1.4559524043333827e-07,
+        "matvecs_median": 170.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 920640,
+        "selection_counts": null
+      },
+      {
+        "n_side": 64,
+        "dimension": 4096,
+        "rtol": 1e-05,
+        "backend": "auto",
+        "repeats": 3,
+        "wall_median_s": 0.05309857800000373,
+        "wall_q1_s": 0.051527389499995024,
+        "wall_q3_s": 0.053828755500006764,
+        "wall_iqr_s": 0.0023013660000117397,
+        "wall_runs_s": [
+          0.05309857800000373,
+          0.0545589330000098,
+          0.04995620099998632
+        ],
+        "error_inf_median": 1.4566380400482526e-07,
+        "matvecs_median": 382.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 196608,
+        "selection_counts": {
+          "leja": 3
+        }
+      },
+      {
+        "n_side": 128,
+        "dimension": 16384,
+        "rtol": 1e-05,
+        "backend": "kiops",
+        "repeats": 3,
+        "wall_median_s": 1.212439513999982,
+        "wall_q1_s": 1.1499958360000164,
+        "wall_q3_s": 1.648186698499984,
+        "wall_iqr_s": 0.4981908624999676,
+        "wall_runs_s": [
+          1.212439513999982,
+          1.087552158000051,
+          2.083933882999986
+        ],
+        "error_inf_median": 1.4552076239848777e-07,
+        "matvecs_median": 226.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 3148032,
+        "selection_counts": null
+      },
+      {
+        "n_side": 128,
+        "dimension": 16384,
+        "rtol": 1e-05,
+        "backend": "leja",
+        "repeats": 3,
+        "wall_median_s": 0.24299406799997314,
+        "wall_q1_s": 0.24178344949999087,
+        "wall_q3_s": 0.2519742624999992,
+        "wall_iqr_s": 0.010190813000008347,
+        "wall_runs_s": [
+          0.2405728310000086,
+          0.2609544570000253,
+          0.24299406799997314
+        ],
+        "error_inf_median": 1.4530000819190647e-07,
+        "matvecs_median": 477.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 786432,
+        "selection_counts": null
+      },
+      {
+        "n_side": 128,
+        "dimension": 16384,
+        "rtol": 1e-05,
+        "backend": "hybrid",
+        "repeats": 3,
+        "wall_median_s": 1.280191919999993,
+        "wall_q1_s": 1.2460589094999932,
+        "wall_q3_s": 1.3820136940000225,
+        "wall_iqr_s": 0.1359547845000293,
+        "wall_runs_s": [
+          1.2119258989999935,
+          1.280191919999993,
+          1.483835468000052
+        ],
+        "error_inf_median": 1.4552078085594555e-07,
+        "matvecs_median": 170.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 3673152,
+        "selection_counts": null
+      },
+      {
+        "n_side": 128,
+        "dimension": 16384,
+        "rtol": 1e-05,
+        "backend": "auto",
+        "repeats": 3,
+        "wall_median_s": 0.25577093800001194,
+        "wall_q1_s": 0.2537618709999947,
+        "wall_q3_s": 0.27384650849998593,
+        "wall_iqr_s": 0.02008463749999123,
+        "wall_runs_s": [
+          0.25175280399997746,
+          0.2919220789999599,
+          0.25577093800001194
+        ],
+        "error_inf_median": 1.4530000819190647e-07,
+        "matvecs_median": 477.0,
+        "nonlinear_evals_median": 13.0,
+        "accepted_steps_median": 3.0,
+        "rejected_steps_median": 0.0,
+        "workspace_bytes_estimate": 786432,
+        "selection_counts": {
+          "leja": 3
+        }
+      },
+      {
+        "n_side": 64,
+        "dimension": 4096,
+        "rtol": 1e-07,
+        "backend": "kiops",
+        "repeats": 3,
+        "wall_median_s": 0.6479040329999748,
+        "wall_q1_s": 0.6078020189999904,
+        "wall_q3_s": 0.6480802035000011,
+        "wall_iqr_s": 0.04027818450001064,
+        "wall_runs_s": [
+          0.6482563740000273,
+          0.5677000050000061,
+          0.6479040329999748
+        ],
+        "error_inf_median": 7.005017149674941e-09,
+        "matvecs_median": 542.0,
+        "nonlinear_evals_median": 29.0,
+        "accepted_steps_median": 6.0,
+        "rejected_steps_median": 1.0,
+        "workspace_bytes_estimate": 788736,
+        "selection_counts": null
+      },
+      {
+        "n_side": 64,
+        "dimension": 4096,
+        "rtol": 1e-07,
+        "backend": "leja",
+        "repeats": 3,
+        "wall_median_s": 0.12895751100001007,
+        "wall_q1_s": 0.12737511599999607,
+        "wall_q3_s": 0.13042024150001907,
+        "wall_iqr_s": 0.003045125500023005,
+        "wall_runs_s": [
+          0.13188297200002808,
+          0.12895751100001007,
+          0.12579272099998207
+        ],
+        "error_inf_median": 6.99744022447657e-09,
+        "matvecs_median": 884.0,
+        "nonlinear_evals_median": 29.0,
+        "accepted_steps_median": 6.0,
+        "rejected_steps_median": 1.0,
+        "workspace_bytes_estimate": 196608,
+        "selection_counts": null
+      },
+      {
+        "n_side": 64,
+        "dimension": 4096,
+        "rtol": 1e-07,
+        "backend": "hybrid",
+        "repeats": 3,
+        "wall_median_s": 0.403822875000003,
+        "wall_q1_s": 0.4000188355000205,
+        "wall_q3_s": 0.44605521599999065,
+        "wall_iqr_s": 0.046036380499970164,
+        "wall_runs_s": [
+          0.39621479600003795,
+          0.403822875000003,
+          0.4882875569999783
+        ],
+        "error_inf_median": 7.005017330086183e-09,
+        "matvecs_median": 400.0,
+        "nonlinear_evals_median": 29.0,
+        "accepted_steps_median": 6.0,
+        "rejected_steps_median": 1.0,
+        "workspace_bytes_estimate": 920640,
+        "selection_counts": null
+      },
+      {
+        "n_side": 64,
+        "dimension": 4096,
+        "rtol": 1e-07,
+        "backend": "auto",
+        "repeats": 3,
+        "wall_median_s": 0.11702793899996777,
+        "wall_q1_s": 0.11558184649999248,
+        "wall_q3_s": 0.12065282049996995,
+        "wall_iqr_s": 0.005070973999977468,
+        "wall_runs_s": [
+          0.12427770199997212,
+          0.11413575400001719,
+          0.11702793899996777
+        ],
+        "error_inf_median": 6.99744022447657e-09,
+        "matvecs_median": 884.0,
+        "nonlinear_evals_median": 29.0,
+        "accepted_steps_median": 6.0,
+        "rejected_steps_median": 1.0,
+        "workspace_bytes_estimate": 196608,
+        "selection_counts": {
+          "leja": 7
+        }
+      }
+    ]
+  },
+  "external_pins": {
+    "generated": "2026-08-28",
+    "comparators": [
+      {
+        "name": "rkstiff",
+        "repository": "https://github.com/whalenpt/rkstiff",
+        "commit": "ccf11f4c8dac3e0b6f8fd23ac357c633c1623a0f",
+        "commit_date": "2025-11-16T04:21:24Z",
+        "license": "MIT",
+        "role": "ETD34/ETD35 external adaptive ETD comparator",
+        "status_here": "source inspected; runtime not executed because repository cannot be cloned/installed in this offline container"
+      },
+      {
+        "name": "LeXInt",
+        "repository": "https://github.com/Pranab-JD/LeXInt",
+        "commit": "90319e940aec256eec9e340f7469c52054ae33fe",
+        "commit_date": "2024-11-23T12:50:44Z",
+        "license": "MIT",
+        "role": "external Leja action/integrator comparator",
+        "status_here": "source tree inspected; runtime not executed because repository cannot be cloned in this offline container"
+      },
+      {
+        "name": "KIOPS",
+        "repository": "https://gitlab.com/stephane.gaudreault/kiops",
+        "license": "LGPL-2.1",
+        "role": "official MATLAB KIOPS comparator",
+        "status_here": "not run; requires a pinned MATLAB/Octave benchmark environment"
+      }
+    ]
+  },
+  "release_status": {
+    "public_release_blocked_by_license_clarification": true,
+    "external_runtime_benchmarks_complete": false,
+    "picasso_campaign_complete": false
+  }
+}
