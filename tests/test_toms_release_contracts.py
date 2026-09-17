@@ -135,3 +135,34 @@ def test_toms_slurm_uses_explicit_failure_propagation():
     assert 'return "$ANALYZE_RC"' in text
 
     assert 'main "$@"' in text
+
+
+def test_toms_explicit_leja_and_auto_use_matching_leja_configuration():
+    runner = load_runner()
+
+    bounds = (-100.0, 0.0)
+    tol = 1.0e-8
+
+    explicit = runner.make_backend(
+        "leja",
+        tol,
+        bounds,
+    )
+
+    auto = runner.make_backend(
+        "auto",
+        tol,
+        bounds,
+    )
+
+    assert explicit.options.max_degree == 80
+    assert auto.leja.options.max_degree == 80
+
+    assert explicit.options.max_degree == auto.leja.options.max_degree
+    assert explicit.options.target_width == auto.leja.options.target_width
+
+    assert explicit.options.target_width == 10.0
+    assert auto.leja.options.target_width == 10.0
+
+    assert explicit.options.min_degree == auto.leja.options.min_degree
+    assert explicit.options.candidate_count == auto.leja.options.candidate_count
