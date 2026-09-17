@@ -105,7 +105,7 @@ def solve_fixed(
     span = tf - t0
     nsteps = int(round(span / h))
     if not math.isclose(nsteps*h, span, rel_tol=2e-13, abs_tol=2e-14):
-        raise ValueError("Phase 2 requires h to divide the integration interval exactly.")
+        raise ValueError("solve_fixed requires h to divide the integration interval exactly.")
 
     required = method.history_length
     policy = _select_startup(problem, method, startup)

@@ -34,7 +34,7 @@ The current benchmark candidate also passes source compilation and editable offl
 
 - `BENCHMARK_PROTOCOL_TOMS.md`
 - `RELEASE_CHECKLIST.md`
-- `API_STABILITY_PHASE7.md`
+- `API_STABILITY.md`
 - `TOMS_CLAIMS_MATRIX.md`
 - `TOMS_MANUSCRIPT_BLUEPRINT.md`
 - `external/pinned_comparators.json`

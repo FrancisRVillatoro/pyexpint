@@ -18,11 +18,11 @@ class KrylovConvergenceError(RuntimeError):
 
 @dataclass(frozen=True)
 class KrylovOptions:
-    """Parameters for the Phase-3 adaptive Arnoldi evaluator.
+    """Parameters for the adaptive Arnoldi evaluator.
 
     The convergence estimator is the relative difference between projected
     approximations at successive Krylov dimensions.  This is a practical
-    prototype estimator, not a rigorous a-posteriori bound.
+    heuristic estimator, not a rigorous a-posteriori bound.
     """
 
     tol: float = 1e-10
@@ -460,7 +460,7 @@ class _KrylovContext:
 class KrylovBackend(Backend):
     """Matrix-free Arnoldi backend for phi-actions and phi-combinations.
 
-    This Phase-3 backend is deliberately *not* branded KIOPS/phipm.  It uses a
+    This backend is deliberately *not* branded KIOPS/phipm.  It uses a
     clean independent Arnoldi projection and a successive-projection convergence
     estimator.  Sparse matrices and scipy.sparse.linalg.LinearOperator are both
     accepted through ``aslinearoperator``.

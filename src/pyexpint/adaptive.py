@@ -2,7 +2,7 @@ from __future__ import annotations
 
 """Adaptive time integration for one-step exponential methods.
 
-Phase 6 deliberately restricts variable time stepping to methods whose external
+Adaptive integration currently restricts variable time stepping to methods whose external
 state contains only the physical solution.  Variable-step multistep/EGLM methods
 require ratio-dependent coefficients and a transformed external state; restarting
 those methods at every accepted step would hide rather than solve that problem.
@@ -155,7 +155,7 @@ def solve_adaptive(
     """
     if method.outputs != 1 or method.history_length != 0:
         raise NotImplementedError(
-            "Phase-6 adaptive stepping currently supports one-step methods only. "
+            "Adaptive stepping currently supports one-step methods only. "
             "Variable-step multistep/EGLM methods require ratio-dependent coefficients."
         )
     if method.historical_comparator:

@@ -37,7 +37,7 @@ class ExternalState:
 
     ``values[j]`` is the j-th external vector.  The first component is always
     the physical numerical solution in the current PyEXPINT method catalogue.
-    Auxiliary components are method-defined; Phase 2 uses nonlinear-history
+    Auxiliary components are method-defined; multistep methods may use nonlinear-history
     components for all r>1 P0 methods.
     """
 

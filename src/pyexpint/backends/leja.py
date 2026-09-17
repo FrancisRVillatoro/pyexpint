@@ -225,7 +225,7 @@ class _LejaContext:
 
         Leja interpolation is applied separately to each distinct right-hand side.
         This intentionally trades more matvecs for robustness on high-order phi
-        combinations; unlike the Krylov backends, Phase-5 Leja does not fuse RHSs.
+        combinations; unlike the Krylov backends, this Leja implementation does not fuse RHSs.
         """
         clean = {int(k): np.asarray(v) for k, v in vectors_by_k.items() if np.linalg.norm(v) != 0.0}
         if not clean:
@@ -246,7 +246,7 @@ class _LejaContext:
         return self._function_action(((1.0, int(k), float(scale)),), np.asarray(v))
 
     def sum_operator_actions(self, exprs, vectors):
-        # Do not fuse distinct right-hand sides in the Phase-5 real-Leja backend.
+        # Do not fuse distinct right-hand sides in the real-Leja backend.
         # The solver will apply each analytic coefficient independently.
         return None
 

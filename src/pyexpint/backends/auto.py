@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-"""Rule-based backend selector calibrated by Phase-5 crossover benchmarks."""
+"""Rule-based backend selector calibrated by backend crossover benchmarks."""
 
 import numpy as np
 from scipy.sparse import issparse
@@ -15,13 +15,13 @@ from .leja import LejaBackend
 class AutoBackend(Backend):
     """Select a matrix-function engine from operator structure.
 
-    Current Phase-5 policy:
+    Current selection policy:
       * 1-D ndarray -> DiagonalBackend;
       * small dense matrix -> DenseBackend;
       * Hermitian sparse operator with moderate scaled spectral width -> LejaBackend;
       * otherwise -> KiopsBackend.
 
-    The Leja/KIOPS crossover threshold is deliberately exposed; Phase-5
+    The Leja/KIOPS crossover threshold is deliberately exposed; calibration
     benchmarks record the machine-dependent crossover rather than pretending
     that one universal value is optimal.
     """
