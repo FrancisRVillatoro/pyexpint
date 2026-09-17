@@ -25,7 +25,7 @@
 - [x] Third-party provenance document.
 - [x] User installation and quickstart documentation.
 - [x] GitHub Actions CI workflow for Python 3.11--3.14.
-- [ ] Confirm that the CI matrix passes after publication/push.
+- [x] Confirm that the CI matrix passes after publication/push.
 
 ## Packaging
 
@@ -33,6 +33,7 @@
 - [x] Source distribution builds successfully.
 - [x] Wheel installs and imports in an isolated environment.
 - [x] Set release-candidate version to `0.9.0rc1`.
+- [x] Set final package version metadata to `0.9.0`.
 - [x] Replace provisional license metadata with MIT.
 - [x] Review final package classifiers.
 

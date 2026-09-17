@@ -1,10 +1,24 @@
 cff-version: 1.2.0
-message: "If you use PyEXPINT in research, please cite the software and its associated publication when available."
+message: "If you use PyEXPINT in research, please cite this software release and its associated publication when available."
 title: "PyEXPINT: backend-independent exponential integrators in Python"
 type: software
 license: MIT
-version: "0.9.0rc1"
+version: "0.9.0"
 date-released: 2026-09-17
+repository-code: "https://github.com/FrancisRVillatoro/pyexpint"
+abstract: >-
+  PyEXPINT is a Python framework for exponential Runge--Kutta, multistep,
+  and general-linear integrators with interchangeable matrix-function-action
+  backends, backend-aware work instrumentation, and reproducible benchmarking
+  tools for problem- and hardware-specific method selection.
+keywords:
+  - exponential integrators
+  - exponential Runge-Kutta methods
+  - general linear methods
+  - matrix functions
+  - Krylov methods
+  - Leja interpolation
+  - scientific computing
 authors:
   - family-names: "Villatoro"
     given-names: "Francisco R."

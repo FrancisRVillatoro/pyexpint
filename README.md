@@ -3,7 +3,7 @@
 PyEXPINT is an independent, from-scratch modernization of the mathematical
 framework of EXPINT for exponential general linear integrators.
 
-**Release candidate:** `0.9.0rc1`
+**Current release:** `0.9.0`
 
 ## Current status
 
@@ -36,13 +36,20 @@ For development and testing:
 
 See `docs/QUICKSTART.md` for a worked example.
 
+## Citation
+
+PyEXPINT has the Zenodo concept DOI
+`10.5281/zenodo.22820009`, which represents all versions of the software.
+For reproducible work, cite the version-specific DOI corresponding to the
+release actually used. See `CITATION.cff` for citation metadata.
+
 ## Validation
 
 ```text
 128 passed
 ```
 
-The current benchmark candidate also passes source compilation and editable offline installation.
+The 0.9.0 release passes source compilation and isolated installation; the GitHub Actions matrix validates Python 3.11--3.14.
 
 ## Release and reproducibility documents
 

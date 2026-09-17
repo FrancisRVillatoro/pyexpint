@@ -2,6 +2,19 @@
 
 All notable changes to PyEXPINT are documented in this file.
 
+## 0.9.0 - 2026-09-17
+
+### Changed
+
+- Promoted the fully audited `0.9.0rc1` release candidate to the final
+  PyEXPINT 0.9.0 release.
+- Added final citation and Zenodo concept-DOI metadata.
+- Confirmed the public GitHub Actions matrix on Python 3.11--3.14 and the
+  distribution build/install job.
+
+There are no numerical-method, backend, or public-API changes relative to
+`0.9.0rc1`.
+
 ## 0.9.0rc1 - 2026-09-17
 
 ### Added
