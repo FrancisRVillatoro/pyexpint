@@ -2,6 +2,12 @@
 
 PyEXPINT does not vendor source code from the external projects listed below.
 
+## PyEXPINT licensing
+
+PyEXPINT software is licensed under MIT. Original non-software content is
+licensed under CC BY 4.0 as described in `CONTENT-LICENSE.md`. These licenses
+do not relicense third-party material.
+
 ## Runtime dependencies
 
 ### NumPy

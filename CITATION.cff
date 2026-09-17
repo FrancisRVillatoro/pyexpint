@@ -2,6 +2,9 @@ cff-version: 1.2.0
 message: "If you use PyEXPINT in research, please cite the software and its associated publication when available."
 title: "PyEXPINT: backend-independent exponential integrators in Python"
 type: software
+license: MIT
+version: "0.9.0rc1"
+date-released: 2026-09-17
 authors:
   - family-names: "Villatoro"
     given-names: "Francisco R."

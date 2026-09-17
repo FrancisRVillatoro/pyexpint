@@ -7,8 +7,8 @@
 - [x] Freeze the PyEXPINT 0.9 public API contract.
 - [x] Validate wheel/sdist build and isolated wheel installation.
 - [x] Run the full automated test suite: 128 tests passed.
-- [ ] Confirm the holder of the economic/exploitation rights in PyEXPINT.
-- [ ] Replace `LicenseRef-Provisional` with the authorized final license.
+- [x] Adopt MIT as the PyEXPINT software license.
+- [x] Adopt CC BY 4.0 for original non-software repository content.
 
 ## Software quality
 
@@ -32,9 +32,9 @@
 - [x] Wheel builds successfully.
 - [x] Source distribution builds successfully.
 - [x] Wheel installs and imports in an isolated environment.
-- [ ] Set release-candidate version.
-- [ ] Replace provisional license metadata.
-- [ ] Review final package classifiers.
+- [x] Set release-candidate version to `0.9.0rc1`.
+- [x] Replace provisional license metadata with MIT.
+- [x] Review final package classifiers.
 
 ## Paper-quality reproducibility
 

@@ -3,7 +3,7 @@
 PyEXPINT is an independent, from-scratch modernization of the mathematical
 framework of EXPINT for exponential general linear integrators.
 
-**Development version:** `0.8.2.dev0`
+**Release candidate:** `0.9.0rc1`
 
 ## Current status
 
@@ -96,19 +96,16 @@ The scripts under `benchmarks/` and the root-level `phase*.json` and
 `prerelease*.json` files are retained as development and validation history.
 They are not the canonical final TOMS timing evidence.
 
-## Licensing status
+## Licensing
 
-The technical provenance audit found no vendored third-party source that determines
-the PyEXPINT license. PyEXPINT is an independent implementation based on published
-mathematical algorithms and documentation.
+PyEXPINT software is distributed under the MIT License; see `LICENSE`.
 
-A final open-source license is pending confirmation of the holder of the
-economic/exploitation rights in the PyEXPINT source.
+Original non-software repository content, including documentation, figures,
+tables, benchmark reports, and retained numerical reproducibility data, is
+licensed under CC BY 4.0; see `CONTENT-LICENSE.md`.
 
-Until that confirmation, the project uses `LicenseRef-Provisional` and should not
-be published as a formal public release.
-
-See `LICENSE-PROVISIONAL.md` and `THIRD_PARTY.md`.
+External software and third-party provenance are documented in
+`THIRD_PARTY.md`.
 
 
 ## Picasso v0.8.2 timing workflow

@@ -2,7 +2,7 @@
 
 All notable changes to PyEXPINT are documented in this file.
 
-## Unreleased
+## 0.9.0rc1 - 2026-09-17
 
 ### Added
 
@@ -19,6 +19,8 @@ All notable changes to PyEXPINT are documented in this file.
 
 ### Changed
 
+- Adopted the MIT License for PyEXPINT software and CC BY 4.0 for original
+  non-software repository content.
 - Final TOMS backend benchmark uses homogeneous Leja settings for explicit
   Leja and Auto-selected Leja.
 - Release-facing documentation separates canonical reproducibility evidence
