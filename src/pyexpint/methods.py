@@ -231,7 +231,10 @@ def _ab_lawson(p: int):
         classical_order=p, stiff_order=1,
         external_layout="nonlinear_history", nonlinear_evals_per_step=1,
         references=("Classical Adams-Bashforth after Lawson transform", "EXPINT published documentation"),
-        notes=("Efficient one-stage mathematical form; legacy EXPINT used a redundant predictor stage.",),
+        notes=("Efficient one-stage mathematical form; legacy EXPINT used a redundant predictor stage.",)
+        + (("Legacy ablawson2.m weights the history value hN_{n-1} by exp(z/2) (variable ez2) in its output row "
+           "where exp(2z) (e2z) is required, which reduces the file to first order; PyEXPINT uses exp(2z) "
+           "(see tools/expint_crosscheck).",) if p == 2 else ()),
         legacy_file=f"ablawson{p}.m",
     )
 
@@ -668,7 +671,12 @@ def _genlawson(q: int, *, modified: bool):
         stiff=P; classical=max(4, P); weak=None
         name=f"ModGenLawson4{q}"
         references=("Krogstad (2005) internal stages; OTW quadrature conditions", "EXPINT modified generalized Lawson documentation")
-        notes=("Output B,V generated uniquely from strong quadrature order P=q+1; no translation of unlisted legacy coefficients.",)
+        notes=(("Output B,V generated uniquely from strong quadrature order P=q+1; no translation of unlisted legacy coefficients.",)
+               if q != 5 else
+               ("Output B,V generated uniquely from strong quadrature order P=q+1; no translation of unlisted legacy coefficients.",
+                "The 2005 modgenlawson45.m converges with order five on the scalar tests of tools/expint_crosscheck; "
+                "the regenerated output coefficients give the recorded sixth order and differ from the file in "
+                "V[1,2..5], B[1,1] and B[1,4]."))
 
     V,B=_history_output(first_v, first_b, r, s)
     return _make(

@@ -1,0 +1,131 @@
+\section{Matrix-function-action backends}\label{sec:backends}
+
+The common engine reduces a time step to analytic operator actions.  A backend
+implements those actions for a particular representation of $L$ and may expose
+additional operations such as a native combination action, a fused sum across
+distinct right-hand sides, or a shifted solve.  Table~\ref{tab:backends}
+summarizes the release realizations and the scope of their work diagnostics.
+
+\input{table02_backends.tex}
+
+\subsection{Reference realizations}
+
+\textbf{DiagonalBackend} evaluates each analytic function on supplied diagonal
+entries and is useful when the linear operator is already diagonalized.  It is
+used in the stiff-order experiments to remove iterative matrix-action error from
+temporal refinement.  \textbf{DenseBackend} materializes small dense
+matrix-function calculations and serves as a reference path; it is not intended
+as the large-scale default.
+
+A \textbf{full-Arnoldi} backend constructs an orthonormal Krylov basis and
+approximates the action through the projected problem.  Its role is both
+numerical and diagnostic: because it retains full orthogonalization, it gives a
+transparent reference against which the more specialized Krylov backend and the
+fusion transformation can be exercised.
+
+\subsection{KIOPS-type actions}
+
+The KIOPS-type backend follows the augmented-Krylov philosophy of evaluating
+linear combinations of $\varphi$ functions through a projected exponential,
+with adaptive substepping and incomplete
+orthogonalization~\cite{GaudreaultRainwaterTokman2018}.  It is an independent
+implementation from the published algorithmic description; the reference KIOPS
+MATLAB source is not vendored or translated, which is why the backend is not
+called KIOPS.  It records matrix-vector products, accepted and rejected internal
+substeps, projected dimensions and action failures.  These diagnostics are used
+as algorithmic work observables, not as a claim that one product has identical
+wall cost across all backends.  Algorithm~919 is an important predecessor for
+this action-centric view: a polynomial inhomogeneous linear problem can be
+recast as the action of a combination of the exponential and $\varphi$
+functions, precisely the operation required repeatedly by exponential
+integrators~\cite{NiesenWright2012}.
+
+\subsection{Real-Leja interpolation}
+
+The real-Leja backend interpolates the coefficient function $C(z)$ of an action
+directly on the scaled spectral interval $[ha,hb]$ by Newton interpolation at a
+real Leja sequence~\cite{CaliariVianelloBergamaschi2004}, with the spectral
+bounds supplied by the user or estimated by a Lanczos eigenvalue solver, a
+stopping rule on the Newton increments, and a maximum degree of 80 by default.
+There is no substepping in this path.  When the maximum degree is reached
+before the stopping rule is met, the backend raises a convergence error, which
+the adaptive solvers treat as a rejected step.  With tolerance $10^{-10}$ the
+default degree covers scaled spectral widths of a few hundred: degree 69 is
+used at width 240 on a dissipative operator and the cap is reached near width
+300, while the canonical problem of Section~\ref{sec:timing} reaches width 53
+and the broadband problem of Section~\ref{sec:broadband} width 210.  The
+option \texttt{target\_width} belongs to an experimental augmented-exponential
+path with substepping that the public coefficient action does not use, so the
+target width recorded in the canonical campaign had no effect on its
+computations.  The practical attraction of the realization is different from
+Krylov: with reliable real spectral bounds, repeated sparse products and vector
+recurrences avoid the growing orthogonalization cost of a Krylov basis, at the
+price of a degree that grows with the spectral width.  Leja-based exponential
+integration is also the basis of LeXInt~\cite{DekaEinkemmerTokman2023}; \pkg{}
+does not import or copy LeXInt source.
+
+The manuscript does not state that Leja is intrinsically faster than Krylov,
+or vice versa.  The canonical timing experiment favours the KIOPS-type backend
+in all six tested configurations, the broadband experiment of
+Section~\ref{sec:broadband} shows the ordering reversing with the tolerance,
+and the development records of the supplement contain further crossovers with
+problem size and spectral width.
+
+\subsection{SciPy hybrid and pure exponential actions}
+
+The SciPy/KIOPS hybrid delegates suitable pure exponential actions to SciPy's
+\texttt{expm\_multiply} path and uses the KIOPS-type machinery for the remaining
+$\varphi$ combinations.  The SciPy exponential-action algorithm is itself based
+on norm estimation and scaling ideas that avoid forming
+$e^A$~\cite{AlMohyHigham2011}.  This backend is reported with a counting
+caveat: the \pkg{} counter does not include the internal products performed by
+SciPy.  For that reason hybrid counts are not used as a total-work ranking in
+the canonical timing discussion.
+
+\subsection{Automatic and calibrated dispatch}
+
+\texttt{AutoBackend} is a dispatch policy, not another matrix-function
+algorithm.  Its rule-based policy selects a diagonal realization for a
+one-dimensional diagonal array, a dense realization for sufficiently small
+dense matrices, real Leja for sufficiently large Hermitian sparse problems with
+a moderate scaled spectral width, and the KIOPS-type backend otherwise.  The
+size and spectral-width thresholds are exposed because the crossover is
+machine-dependent.
+
+The release also contains a calibrated selector interface that can be fitted to
+benchmark data for a defined problem class, and the adaptive solvers preserve
+its calibration record when they clone it.  This is intentionally a moderate
+claim: calibration can encode a useful local decision rule, but the current
+experiments do not establish universal optimality.  The canonical timing
+campaign in Section~\ref{sec:timing} is a counterweight to any interpretation
+that the selector must win because it is automatic: there it chooses real Leja
+in every configuration, and Leja is the slower realization.
+
+\subsection{Fusion of compatible actions}\label{sec:fusion}
+
+Two fusion levels are useful.  First, multiple $\varphi$ terms acting on the
+same vector can be represented as one \texttt{PhiCombination}.  Second, the
+EGLM engine may need a sum
+\begin{equation}
+  \sum_{j=1}^{q} C_j(hL)v_j,
+  \label{eq:distinct-rhs}
+\end{equation}
+with distinct right-hand sides.  The fused operation is defined when all terms
+share one scale $c$: with $C_j(z)=\sum_k a_{jk}\varphi_k(cz)$,
+\begin{equation}
+  \sum_{j=1}^{q} C_j(hL)v_j=\sum_k \varphi_k(chL)\,b_k,\qquad b_k=\sum_{j=1}^{q} a_{jk}v_j,
+  \label{eq:fusion-grouping}
+\end{equation}
+and a Krylov backend evaluates the right-hand side with one augmented
+projection of the vectors $b_k$.  When the scales differ, or when a backend
+offers no fused operation, the engine evaluates the terms independently
+without changing method semantics.  The two paths are algebraically identical,
+but their approximate realizations need not agree bitwise; the ablation of
+Section~\ref{sec:fusionexperiment} reports the agreement actually obtained,
+below $1.3\times10^{-15}$ in relative terms.
+
+Fusion is therefore an optimization of the common action boundary rather than
+a special Krogstad or PEC code path.  The ablation demonstrates a substantial
+reduction in recorded products with both Krylov realizations, while also
+showing why that reduction should not be relabelled as an equal wall-time
+speedup.

@@ -1,0 +1,25 @@
+n= 64 rtol=1e-05 kiops  mv=  226 N= 13 (exact  13) acc/rej=3/0 err=1.455952e-07 work_sum=226 OK
+n= 64 rtol=1e-05 leja   mv=  382 N= 13 (exact  13) acc/rej=3/0 err=1.456638e-07 work_sum=382 OK
+n= 64 rtol=1e-05 hybrid mv=  170 N= 13 (exact  13) acc/rej=3/0 err=1.455952e-07 work_sum=170 OK
+n= 64 rtol=1e-05 auto   mv=  382 N= 13 (exact  13) acc/rej=3/0 err=1.456638e-07 work_sum=382 OK
+n= 64 rtol=1e-07 kiops  mv=  542 N= 29 (exact  29) acc/rej=6/1 err=7.005017e-09 work_sum=542 OK
+n= 64 rtol=1e-07 leja   mv=  884 N= 29 (exact  29) acc/rej=6/1 err=6.997440e-09 work_sum=884 OK
+n= 64 rtol=1e-07 hybrid mv=  400 N= 29 (exact  29) acc/rej=6/1 err=7.005017e-09 work_sum=400 OK
+n= 64 rtol=1e-07 auto   mv=  884 N= 29 (exact  29) acc/rej=6/1 err=6.997440e-09 work_sum=884 OK
+n=128 rtol=1e-05 kiops  mv=  226 N= 13 (exact  13) acc/rej=3/0 err=1.455208e-07 work_sum=226 OK
+n=128 rtol=1e-05 leja   mv=  477 N= 13 (exact  13) acc/rej=3/0 err=1.453000e-07 work_sum=477 OK
+n=128 rtol=1e-05 hybrid mv=  170 N= 13 (exact  13) acc/rej=3/0 err=1.455208e-07 work_sum=170 OK
+n=128 rtol=1e-05 auto   mv=  477 N= 13 (exact  13) acc/rej=3/0 err=1.453000e-07 work_sum=477 OK
+n=128 rtol=1e-07 kiops  mv=  542 N= 29 (exact  29) acc/rej=6/1 err=7.001451e-09 work_sum=542 OK
+n=128 rtol=1e-07 leja   mv= 1109 N= 29 (exact  29) acc/rej=6/1 err=6.963055e-09 work_sum=1109 OK
+n=128 rtol=1e-07 hybrid mv=  400 N= 29 (exact  29) acc/rej=6/1 err=7.001451e-09 work_sum=400 OK
+n=128 rtol=1e-07 auto   mv= 1109 N= 29 (exact  29) acc/rej=6/1 err=6.963055e-09 work_sum=1109 OK
+n=256 rtol=1e-05 kiops  mv=  247 N= 13 (exact  13) acc/rej=3/0 err=1.456042e-07 work_sum=247 OK
+n=256 rtol=1e-05 leja   mv=  768 N= 13 (exact  13) acc/rej=3/0 err=1.397227e-07 work_sum=768 OK
+n=256 rtol=1e-05 hybrid mv=  180 N= 13 (exact  13) acc/rej=3/0 err=1.455627e-07 work_sum=180 OK
+n=256 rtol=1e-05 auto   mv=  768 N= 13 (exact  13) acc/rej=3/0 err=1.397227e-07 work_sum=768 OK
+n=256 rtol=1e-07 kiops  mv=  558 N= 29 (exact  29) acc/rej=6/1 err=7.000550e-09 work_sum=558 OK
+n=256 rtol=1e-07 leja   mv= 1720 N= 29 (exact  29) acc/rej=6/1 err=6.991665e-09 work_sum=1720 OK
+n=256 rtol=1e-07 hybrid mv=  420 N= 29 (exact  29) acc/rej=6/1 err=7.000558e-09 work_sum=420 OK
+n=256 rtol=1e-07 auto   mv= 1720 N= 29 (exact  29) acc/rej=6/1 err=6.991665e-09 work_sum=1720 OK
+configurations x replicas compared: 72; mismatches: 0; largest error difference / tolerance: 0.0e+00

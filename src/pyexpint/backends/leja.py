@@ -4,9 +4,15 @@ from __future__ import annotations
 
 The implementation is independent and deliberately conservative: it targets
 operators with a real spectral interval (especially symmetric dissipative PDE
-operators).  Phi combinations are converted to one augmented exponential and
-evaluated by Newton interpolation at a real Leja sequence.  Large spectral
-intervals are handled by semigroup substepping of the augmented exponential.
+operators).  The public path (``phi_combination_action``) interpolates the
+scalar coefficient function directly on the scaled spectral interval by Newton
+interpolation at a real Leja sequence, up to ``max_degree`` (default 80), and
+raises ``LejaConvergenceError`` when that degree is not enough; the adaptive
+solvers treat that failure as a rejected step.  With ``tol=1e-10`` the default
+degree covers scaled spectral widths up to about 300 (degree 69 is used at
+width 240 on a dissipative operator).  The augmented-exponential substepping
+routine ``_adaptive_exp_action`` and the ``target_width`` option belong to an
+experimental path that the public coefficient action does not use.
 """
 
 from dataclasses import dataclass
@@ -104,10 +110,25 @@ class _LejaContext:
         opts = self.backend.options
         center = 0.5 * (lo + hi)
         radius = 0.5 * (hi - lo)
-        if radius <= 100 * np.finfo(float).eps * max(1.0, abs(center)):
-            # Only safe for a genuinely scalar operator; augmented nilpotent zero-spectrum
-            # cases are handled exactly before reaching here.
-            return np.exp(center) * np.asarray(x), 0
+        if radius == 0.0:
+            # A zero-width spectral interval does not by itself imply that the
+            # operator is center*I (a nonnormal Jordan block is the simplest
+            # counterexample).  Scalarize only when the current vector is
+            # numerically an eigenvector associated with center.
+            xx = np.asarray(x)
+            xnorm = float(np.linalg.norm(xx))
+            if xnorm == 0.0:
+                return np.zeros_like(xx), 0
+            ax = np.asarray(matvec(xx))
+            rel_resid = float(np.linalg.norm(ax - center * xx)) / xnorm
+            threshold = 100 * np.finfo(float).eps * max(1.0, abs(center))
+            if rel_resid > threshold:
+                self.backend._stats["nonconverged_actions"] += 1
+                raise LejaConvergenceError(
+                    "Zero-width Leja interval cannot be safely scalarized "
+                    "on the supplied vector."
+                )
+            return np.exp(center) * xx, 0
 
         nodes = _real_leja_nodes(opts.max_degree + 1, opts.candidate_count)
         values = np.exp(center + radius * nodes)
@@ -173,12 +194,44 @@ class _LejaContext:
         a, b = self.bounds
         center = 0.5 * (a + b)
         radius = 0.5 * (b - a)
-        if radius <= 100*np.finfo(float).eps*max(1.0, abs(center)):
+        if radius == 0.0:
+            # Width zero is sufficient for scalarization only if the supplied
+            # vector lies numerically in the center eigenspace.  This check is
+            # performed in the effective matrix-function argument, so it is
+            # invariant under reciprocal rescaling of A and h.
+            vv = np.asarray(v)
+            vnorm = float(np.linalg.norm(vv))
+            if vnorm == 0.0:
+                return np.zeros_like(vv)
+
+            argument_scale = max(
+                abs(float(scale) * self.h)
+                for _, _, scale in terms
+            )
+
+            if argument_scale != 0.0:
+                av = self.op.matvec(vv)
+                rel_resid = float(np.linalg.norm(av - center * vv)) / vnorm
+                effective_resid = argument_scale * rel_resid
+                threshold = (
+                    100 * np.finfo(float).eps
+                    * max(1.0, argument_scale * abs(center))
+                )
+                if effective_resid > threshold:
+                    self.backend._stats["nonconverged_actions"] += 1
+                    raise LejaConvergenceError(
+                        "Zero-width Leja interval cannot be safely scalarized "
+                        "on the supplied vector."
+                    )
+
             val = 0.0 + 0.0j
             for alpha, k, scale in terms:
-                z = np.array([scale*self.h*center], dtype=np.complex128)
+                z = np.array(
+                    [scale * self.h * center],
+                    dtype=np.complex128,
+                )
                 val += alpha * _phi_scalar_array(k, z)[0]
-            return np.real_if_close(val * v)
+            return np.real_if_close(val * vv)
 
         nodes = _real_leja_nodes(opts.max_degree + 1, opts.candidate_count)
         lambdas = center + radius * nodes
@@ -265,7 +318,14 @@ class _LejaContext:
 
 
 class LejaBackend(Backend):
-    """Matrix-free real-Leja backend for operators with a real spectral interval."""
+    """Matrix-free real-Leja backend for operators with a real spectral interval.
+
+    ``tol`` is the stopping tolerance of the Newton increments, ``spectral_bounds``
+    the real interval (estimated with ``eigsh`` when omitted), ``min_degree`` and
+    ``max_degree`` bound the interpolation degree.  ``target_width`` only affects
+    the experimental augmented-exponential path and has no effect on the public
+    coefficient actions.
+    """
 
     name = "leja"
 

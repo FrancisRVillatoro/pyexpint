@@ -1,0 +1,9 @@
+\begin{table}[htbp]\centering\small
+\caption{Periodic manufactured problem ($n=256$): step doubling (SD) versus ETD34 with accuracy control. Arrows indicate SD $\to$ ETD34. Comparisons use the same requested tolerance but explicitly retain the different achieved errors. Counts are registered quantities; the historical file does not contain a separate backend-failure count.}\label{tab:etd34}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Backend & rtol & Error SD & Error ETD34 & Matvecs & $N$ calls\\\midrule
+KIOPS-type & $1\times10^{-4}$ & $2.01\times10^{-7}$ & $2.30\times10^{-6}$ & $731\to334$ & $36\to13$ \\
+KIOPS-type & $1\times10^{-6}$ & $3.99\times10^{-8}$ & $5.06\times10^{-8}$ & $1191\to718$ & $48\to33$ \\
+Leja & $1\times10^{-4}$ & $2.63\times10^{-5}$ & $1.14\times10^{-5}$ & $3249\to1375$ & $36\to13$ \\
+Leja & $1\times10^{-6}$ & $4.60\times10^{-8}$ & $5.71\times10^{-8}$ & $5387\to3447$ & $48\to33$ \\
+\bottomrule\end{tabular}\end{table}

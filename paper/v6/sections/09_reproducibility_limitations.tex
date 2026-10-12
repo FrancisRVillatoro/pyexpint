@@ -1,0 +1,170 @@
+\section{Reproducibility, availability and limitations}\label{sec:repro}
+
+\subsection{Identified private software snapshot}
+
+The accompanying archive \path{pyexpint_review_package_20261011.zip}
+contains the software, original experiment records, distribution artifacts
+and validation logs.  Its source tree, excluding the packaging-only
+\texttt{SNAPSHOT.txt}, has the Git tree identifier
+\begin{center}\small\ttfamily
+9f62cbf6a6455868e358386ccff824507287aeb3.
+\end{center}
+This identifier can be reconstructed from the supplied contents and file
+modes.  The recorded preparation commit is
+\texttt{0ad4b3c4786086a04cf22be33375cc9997ff1344}.  The manifest covers
+317 payload files.  Both distributions contain package version metadata
+\releaseversion{}, retained from development; this label is not the identity
+of the corrected snapshot and is not a claim that it is the earlier public
+release.  The 20 Python source files in the supplied wheel match those in
+\path{software/src/pyexpint}.  The source distribution likewise matches the
+corresponding supplied source files apart from generated build metadata.
+No new public release is implied here.  The earlier public 0.9.0 archive,
+DOI \path{10.5281/zenodo.22820595}~\cite{VillatoroPyEXPINT090}, remains a
+separate historical artifact.  Software licensing is MIT and original
+non-software content is CC BY~4.0; original EXPINT MATLAB sources are not
+redistributed.
+
+The detailed preparation-environment JUnit records report 275 passing tests
+from the snapshot and the same 275 identifiers against the installed wheel.
+The logged environment is Python 3.11.15, NumPy 1.24.3, SciPy 1.10.1 and
+pytest 7.1.2.  Four examples ran outside the repository; the source
+distribution was also built and installed and ran the no-exact-history
+example.  Scripts print a fixed ``WSL'' label, but the package explicitly
+identifies these detailed logs as preparation-container runs.  An additional
+author-workstation summary concerns Python 3.11.16 and earlier commits; it
+is not substituted for those detailed logs.  A Python 3.11--3.14 workflow is
+configured in the source, but execution of that entire matrix is not
+established by the supplied candidate records.
+
+\subsection{Experiment and manuscript reconstruction}
+
+Table~\ref{tab:protocol} distinguishes original records, candidate
+comparisons and historical results.  The full original Allen--Cahn JSON
+replaces the provisional transcription and records 90 individual times,
+step sequences, construction coefficients and initial/reference states.
+Its source identifier and environment remain those of the workstation run.
+The driver and original records are in the private companion, and the JSON
+used by Figure~\ref{fig:broadband} is byte-identical to that original.
+Reference-comparison scalars and per-solve error scalars retain their status
+as driver outputs when both compared final states are not archived.
+
+The 72 original canonical JSON files are now supplied under
+\path{software/reproducibility/toms/rep1/raw} and the corresponding
+\texttt{rep2} and \texttt{rep3} directories.  They contain 864 complete-solve
+timing records.  Matching block identifiers produces the 54 paired
+summaries used in this article.  Those times remain measurements of the
+historical implementation, identified by its retained source manifest.
+The candidate's \path{tools/differential_canonical.py} has a separate log
+with 72 comparisons against the three campaigns and no recorded
+mismatches under its stated error/count criteria.  Its accepted-step
+sequences are outputs of the candidate run, not reconstructed historical
+sequences.  This check neither establishes equal runtime nor reexecutes the
+108-case fixed-step method campaign, which remains historical evidence.
+No new cluster timing of the private snapshot is claimed.
+
+The cross-check companion provides the two drivers, 102 original/corrected
+scheme output rows, coefficient values, refinement output, correction diffs
+and selected original-file hashes.  Supplementary Table~S6 still reproduces
+the unchanged summary; the additional files make its test configuration and
+source boundaries inspectable.  The supplied coverage index connects all
+47 catalogue entries with source definitions and concrete test identifiers;
+it distinguishes structural, coefficient, scalar-order and linear tests
+from declared order metadata.
+
+For manuscript reconstruction,
+\path{figure_sources/make_figures.py} regenerates the numerical panels and
+shared legend from the selected records.
+\path{tables/make_tables.py} generates four tables (startup, catalogue,
+Lawson and development step doubling), and
+\path{tables/make_crosscheck_table.py} generates Table~S6 from the preserved
+summary.  Other tables are supplied LaTeX compositions.  The figure and
+table transformations are separate from integrator execution and from the
+recorded installation tests.  An evidence index identifies the private
+archive and the paths of its logs without replacing historical identifiers.
+
+\subsection{AI-assisted research and manuscript workflow}\label{sec:ai-use}
+
+Generative-AI tools were used during the research lifecycle as interactive
+assistants: ChatGPT (OpenAI) for proposing diagnostic experiments, drafting and
+checking shell and Python snippets, organizing software-release audits and
+assembling an earlier draft of this manuscript, and Claude (Anthropic, model
+Claude Fable 5.1) for the independent review of that draft, the correction
+blocks of the software, the cross-check against the original EXPINT sources
+and the revision of the text.  The tools did not generate the numerical values
+reported as experimental results; those come from archived \pkg{} executions
+and campaign records.  Checks described in the manuscript include code execution, regression
+tests, comparison of preserved sources and algebraic deductions.  These
+forms of evidence are identified separately; the algebraic ETD34 example
+is not represented as a new numerical execution, and execution logs are distinguished from AI-generated descriptions.  The experimental scope, the scientific
+interpretation, the code admitted to the release and the claims of the
+manuscript are the responsibility of the human author.  This section is
+included because the assistance covered experiment design, coding, analysis,
+validation and reproducibility, not only editing.
+
+\subsection{Threats to validity and claim boundaries}
+
+\paragraph{Wall time is local evidence.}
+The canonical timing campaigns are replicated executions on a specified
+cluster environment, not a cross-machine performance study.  Two of the three
+ran on the same node, and the between-replica spread of the paired ratios is
+several times their within-replica interquartile range.  The paper uses timing
+ratios as a demonstration of the benchmarking infrastructure and relies on
+achieved error and work counters for portable interpretation.
+
+\paragraph{The canonical problem is a single Fourier mode.}
+Its manufactured solution is an eigenvector of the periodic operator, so the
+vectors acted upon are dominated by a few modes and the Krylov counts depend
+weakly on the grid in the measured cases.  The campaign says nothing about
+operators with broadband data, which the problem of Section~\ref{sec:broadband}
+addresses through the supplied original workstation record; half of the
+canonical campaign is maximum-step-limited.
+
+\paragraph{A work counter is not total cost.}
+A matrix-vector product in Arnoldi, Leja or a hybrid path has different
+associated vector and projected-matrix work, which is why the Leja backend
+costs 1.08 to 1.47 times the KIOPS-type time with 1.63 to 3.11 times its
+products.  The hybrid counter omits the internal SciPy products.  Estimated
+algorithmic workspace is not peak resident memory.
+
+\paragraph{The public Leja path has no substepping.}
+The real-Leja backend interpolates on the whole scaled spectral interval with
+a maximum degree of 80: degree 69 is used at width 240 on a dissipative
+operator and the cap is reached near width 300 at tolerance $10^{-10}$; the
+canonical problem reaches width 53 and the broadband problem 210.  Wider
+intervals require a larger degree or a smaller step, and the failure is
+reported as a rejected step by the adaptive solvers.
+
+\paragraph{Tolerance semantics are not automatically equivalent.}
+Temporal tolerances, matrix-action tolerances and stopping criteria play
+different roles across realizations.  The canonical timing campaign records an
+action fraction of 0.01; the package default is 0.05.  The work--precision
+experiments either fix the action backend and tolerance or display achieved
+error, rather than treating a requested tolerance as an accuracy identity.
+
+\paragraph{The ETD34 estimator is blind to state-independent forcing.}
+Section~\ref{sec:adaptivity} documents that the published pair estimates no
+error for $N(t,y)=g(t)$, and the adaptive comparisons of
+Section~\ref{sec:adaptivework} are read with that confound in mind.
+
+\paragraph{Exact-history experiments isolate method bodies.}
+The fixed-window method work--precision experiment uses exact nonlinear
+history before the common numerical interval.  This isolates the body of
+multistep and general linear schemes; with the default numerical startup the
+guaranteed end-to-end order is $\min(p,5)$ and the observed slopes for the selected
+order six and seven entries between $h=0.05$ and $h=0.025$ lie between
+4.55 and 4.80
+(Section~\ref{sec:startup}).
+
+\paragraph{Automatic selection is heuristic.}
+The rule-based selector uses operator structure, problem size and a scaled
+spectral-width threshold.  On the canonical problem it chose the slower
+backend in every configuration.  Its thresholds are exposed, a calibrated
+selector interface exists, and the current evidence does not support a
+globally optimal selector.
+
+\paragraph{No external-speed or distributed-scaling claim.}
+The relationship to other packages is established functionally in
+Section~\ref{sec:related} and, for the historical catalogue, by execution of
+the original EXPINT sources; no controlled runtime comparison against external
+packages is part of this article, and the release has no distributed backend
+contract.

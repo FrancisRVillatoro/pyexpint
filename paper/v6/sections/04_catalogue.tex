@@ -1,0 +1,117 @@
+\section{Validated reconstruction of the historical catalogue}\label{sec:catalogue}
+
+\subsection{Scope and provenance}
+
+The release contains 47 catalogue entries associated with the historical
+EXPINT method set~\cite{BerlandSkaflestadWright2007}, including Runge--Kutta,
+Lawson, exponential Adams, predictor--corrector and general linear, affine
+Lie-group and generalized Lawson schemes, and the retained Crank--Nicolson
+comparator.  The full metadata table appears in Supplementary Table~S1.  The
+objective of the reconstruction was not to copy the historical MATLAB routines
+line for line, but to encode the method intended by the published construction
+and to retain enough provenance to explain every canonical decision.
+
+For families that can be generated from interpolation or moment conditions,
+the construction uses exact rational arithmetic for polynomial coefficients
+and converts only the final scalar multipliers of analytic operator expressions
+to floating point.  This reduces the transcription surface and makes
+neighbouring members of a family share one derivation.  The generalized and
+modified Lawson families of Krogstad~\cite{Krogstad2005} and Ostermann,
+Thalhammer and Wright~\cite{OstermannThalhammerWright2006}, for example, are
+generated from one construction rather than maintained as ten unrelated
+coefficient tables.
+
+\subsection{Verification hierarchy}
+
+A historical conflict was not resolved by choosing whichever version produced
+the most attractive convergence plot.  The audit used a hierarchy of evidence:
+structural dimensions and explicitness; coefficient identities and zero-operator
+limits; published stage nodes and quadrature constructions; strong and weak
+operator-valued order conditions when available; numerical regressions; and,
+finally, execution of the original MATLAB files.  The resulting record
+separates an executable discrepancy from a metadata or semantic discrepancy.
+Table~\ref{tab:reconciliation} lists the five executable or regenerated cases
+and Table~\ref{tab:reconciliation-meta} the six metadata cases retained in the
+main paper.
+
+\input{table01_reconciliation.tex}
+
+\subsection{Cross-check against the original sources}\label{sec:crosscheck}
+
+The private companion supplies the drivers, archived numerical outputs and
+summary of the comparison with the 2005 EXPINT files.  The original MATLAB
+sources are not redistributed; seven source-file SHA-256 values identify the
+five discrepant scheme files and the two common routines listed in the
+cross-check record.  The recorded interpreter is GNU Octave 8.4.0.  The script
+\path{software/tools/expint_crosscheck/crosscheck_expint.m} specifies both
+problems: $y'=-y+y^2$, $y(0)=0.4$, with exact startup, and a two-dimensional
+system with
+\[
+ L=\begin{pmatrix}-1&0.3\\0.2&-2\end{pmatrix},\qquad
+ N(y)=y^2,\qquad y_0=(0.4,0.3)^T,
+\]
+where squaring is componentwise and startup is numerical.  Both use
+$[0,1.6]$ and $h=0.1$.  The CSV contains 102 output rows: two problems for
+47 original schemes and four corrected variants.  The Python comparison
+driver specifies the matching PyEXPINT computations and its $10^{-12}$
+comparison criterion.
+
+The archived comparison reports agreement within that criterion on both
+problems for 42 entries, with largest relative differences
+$1.3\times10^{-15}$ and $5.9\times10^{-15}$.  ABLawson2, ETD2RK,
+ETD5RKF and ETD2CF3 agree after the four documented one-line corrections;
+the largest of their eight reported corrected differences is
+$2.3\times10^{-14}$.  ETD5RKF already agrees on the matrix problem to
+$8.5\times10^{-15}$ while its uncorrected scalar difference is
+$6.5\times10^{-3}$.  Unified diffs of the four changes accompany the outputs.
+ModGenLawson45 remains distinct: its output coefficients are regenerated
+from the published construction.  Six differing coefficient pairs at
+$z=-0.3$ are tabulated, but no agreement of a corrected final-state
+implementation is inferred for that entry.
+
+Supplementary Table~S6 reproduces the unchanged summary.  Its coefficient
+indices are one-based, as specified by the supplied drivers.  Refinement
+outputs and an ETD5RKF storage-representation comparison are also archived
+separately.  These numerical comparisons support the stated reconstruction;
+they are neither new convergence theorems nor certification of all inputs
+admitted by the software.
+
+\subsection{Catalogue-wide regression}
+
+The private validation records contain 275 passing tests on the source
+snapshot and the same 275 test identifiers against the installed wheel,
+under Python 3.11.15, NumPy 1.24.3, SciPy 1.10.1 and pytest 7.1.2.  Of these,
+80 exercise the C2--C4 work, adaptive and cloning contracts; the supplied
+negative-control log records 53 failures and 27 passes when those tests are
+applied to the earlier C1 baseline.  These logs are from the preparation
+environment; they are not cluster timing records.  The repository contains
+a Python 3.11--3.14 CI configuration, but the supplied candidate logs do not
+establish execution of the entire version matrix.
+
+The evidence map \path{reproducibility/coverage/catalogue_test_map.csv}
+connects all 47 entries to source definitions, structural validation,
+named scalar-order regressions and the linear tests, and lists dedicated
+coefficient or moment tests where they exist.  Its README identifies the
+JUnit record and the scope of each evidence category.  Moment residuals
+evaluated at selected arguments are numerical checks, not proofs of a
+functional identity.  The scalar regression accepts the best eligible
+adjacent slope; it is not a universal convergence result.  Additional
+symbolic constructions are present in the source, but no execution of the
+symbolic audit is inferred from the pytest log.
+
+Supplementary Table~S1 records the coefficient provenance, order metadata
+and cross-check classification.  The evidence map complements that table
+without promoting metadata or the total number of tests into a proof of
+all stiff-order assertions.
+
+\subsection{What ``validated'' means here}
+
+Throughout this article, \emph{validated catalogue} means that the release has
+a traceable canonical specification, machine-checkable structural and algebraic
+checks where implemented, numerical regressions consistent with the recorded
+interpretation, and agreement to roundoff with the original implementation
+wherever the two are meant to coincide.  It does not mean formal verification
+in a proof assistant, nor does it certify every stiff-order assertion for every
+infinite-dimensional problem class.  This narrower meaning is the one relevant
+to a software artifact intended to preserve and execute a heterogeneous
+historical method collection.

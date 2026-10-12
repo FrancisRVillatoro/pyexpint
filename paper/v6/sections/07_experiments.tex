@@ -1,0 +1,426 @@
+\section{Numerical experiments}\label{sec:experiments}
+
+The experiments distinguish three questions: whether the recorded method is
+implemented consistently, how algebraic execution choices change its work, and
+what a specified execution environment reports about elapsed time.  These
+questions require different controls.  Classical and stiff-order experiments
+use analytic or directly diagonalized references.  The fusion experiment
+changes only one execution option.  The method comparison fixes the action
+backend and the numerical integration window.  The canonical timing experiment
+retains separate campaigns and paired measurement blocks instead of pooling
+all observations into a single ranking.
+
+The supplied numerical records have heterogeneous provenance.
+Table~\ref{tab:protocol} distinguishes historical data, author-reported
+candidate runs and postprocessing.  Classical and stiff-order regeneration,
+the new fusion and generalized Lawson runs, the numerical-startup study and
+a differential check of 24 timing configurations are reported in the
+candidate description.  Their execution logs and candidate snapshot are
+now supplied in the private companion for software-level verification.  The 108-case fixed-step
+campaign, canonical timings and forced adaptive comparisons retain their
+historical identity; a check of the 24 timing configurations is not a check of
+the 108 fixed-step cases.  All plots in this package are generated from the
+supplied records.  Regeneration of a plot establishes the data-to-plot
+transformation, not reexecution of the underlying integrator.  The original Allen--Cahn record is supplied with the driver and
+configuration described in Section~\ref{sec:broadband}.
+\input{table04_protocol.tex}
+
+\subsection{Classical convergence and stiff-order diagnostics}\label{sec:orders}
+
+The classical scalar problem is
+\begin{equation}
+ y'=-y+y^2,\qquad y(0)=0.4,\qquad
+ y(t)=\frac{1}{1+1.5e^t},\qquad 0\le t\le1.6.
+\end{equation}
+The four step sizes are $0.2,0.1,0.05,0.025$.  The top panel of
+Figure~\ref{fig:order} selects ETD4RK, Krogstad, HochOst4 and ETD5RKF.  The
+first three exhibit the expected fourth-order refinement, while ETD5RKF
+exhibits fifth-order refinement on this example.  The separate final-state
+comparison in Section~\ref{sec:crosscheck} does not supply the complete
+EXPINT refinement sequence used to compare convergence orders.  This comparison also illustrates why an order
+label alone does not rank errors at a specified step: the fifth-order method
+need not have the smallest error in the displayed range.  The full catalogue
+metadata and a generic convergence test of the generalized Lawson families on
+a six-dimensional system are retained in Supplementary Tables~S1 and~S2.
+
+For the stiff tests, the manufactured solution is
+$u_*(x,t)=x(1-x)e^t$ on $(0,1)$ with homogeneous Dirichlet boundary values, as
+in Hochbruck and Ostermann~\cite{HochbruckOstermann2005}.  The two nonlinear
+terms are, respectively, $1/(1+u^2)$ and the spatial integral of $u$, together
+with the manufactured source.  The source is formed at the semidiscrete level.
+A centred second-difference Laplacian on 200 interior points is diagonalized
+by the discrete sine transform of type I, and its $\varphi$-actions are
+evaluated with DiagonalBackend.  Thus an iterative Krylov or Leja stopping
+tolerance is not part of these temporal refinement curves.  The steps range
+from $1/20$ to $1/640$ by successive halving.
+
+The middle and bottom panels of Figure~\ref{fig:order} show that the
+classical order does not by itself predict the observed stiff behaviour.  In
+the nonlocal test the last adjacent slope of ETD4RK is about 2.50; the
+corresponding Krogstad slope is about 3.36, whereas HochOst4 retains
+approximately fourth-order behaviour.  These numbers are finite-grid,
+finite-step diagnostics, not new order theorems.  Some of the finest errors are
+already of order $10^{-13}$, so their last differences should not be used to
+upgrade a method classification.  RKMK2e and RKMK4t show approximately
+second-order decay in these tests without thereby satisfying the strong
+second-order moment condition away from $z=0$.  Their recorded strong and weak
+distinction is retained in Table~\ref{tab:reconciliation-meta}.  All plotted points
+are preserved; the reference slopes drawn in the panels are guides, not fits.
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=.86\linewidth]{fig02a_classical_order.pdf}\\[2pt]
+\includegraphics[width=.86\linewidth]{fig02b_stiff_local.pdf}\\[2pt]
+\includegraphics[width=.86\linewidth]{fig02c_stiff_nonlocal.pdf}
+\caption{Classical and stiff temporal refinement.  Top: classical scalar test,
+four one-step methods.  Middle and bottom: local and nonlocal manufactured
+problems of Hochbruck--Ostermann type with 200 interior points and exact
+diagonal actions.  Each marker is a final error; connecting segments identify a
+refinement sequence and the short straight lines are reference slopes.  Finest
+errors approaching $10^{-13}$ are retained as data.}
+\Description{Three log-log refinement panels. The first compares four methods on a scalar exact problem. The second and third compare six methods on local and nonlocal semidiscrete stiff tests, showing different observed slopes and small-error floors.}
+\label{fig:order}
+\end{figure}
+
+\subsection{Ablation of algebraic action fusion}\label{sec:fusionexperiment}
+
+The fusion experiment compares one realization with compatible action sums
+evaluated independently or jointly.  It uses the unit tridiagonal operator
+$\mathrm{tridiag}(1,-2,1)$ of dimension 256, the reaction $N(u)=0.08u^2$, the
+initial state $u_0=0.05+0.01\sin s$ with $s$ uniform on $[0,\pi]$, final time
+$T=0.3$, step $h=0.05$ and action tolerance $10^{-10}$.  The seven retained
+methods include one-step and general linear specifications; their definitions
+and the time grid are unchanged by the fusion switch.  Full Arnoldi is switched
+with its own fusion flag; the KIOPS-type backend has no switch, and its unfused
+path is obtained by hiding the fused operation from the bound context.
+
+Figure~\ref{fig:fusion} reports the counts.  With full Arnoldi, Krogstad
+decreases from 756 to 486 products, PEC423 from 774 to 510 and EGLM433 from
+990 to 609; across the seven methods the reductions range from 13.4\% to
+38.5\%.  With the KIOPS-type backend the reductions range from 11.8\% to
+44.2\%.  In every case the fused and unfused final states agree to a relative
+difference below $1.3\times10^{-15}$.  The selection contains three methods without history, ETD4RK,
+Krogstad and HochOst4, and four with nonlinear history, PEC423, EGLM433,
+GenLawson43 and ModGenLawson43.  The archived record supplies aggregate
+counts and final-state differences, not projected dimensions for every
+action or trials with different initial states.  Equal totals therefore do
+not establish vector-independent Krylov dimensions or isolate the cause of
+a difference from an earlier run.
+
+The outcome is deliberately stated in terms of the measured work component.  A
+smaller count does not imply the same percentage reduction in runtime: forming
+and evaluating a larger augmented projected problem has its own cost, and the
+development records contain cases in which fusion did not reduce elapsed time.
+The portable conclusion is that the generic action boundary can exploit a
+semantics-preserving transformation whose computational benefit must be
+assessed with more than one observable.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=\linewidth]{fig03_fusion_ablation.pdf}
+\caption{Fusion ablation.  Bars are matrix-vector counts without and with
+fusion for full Arnoldi and for the KIOPS-type backend; annotations give the
+percentage reduction.  The bars are not wall-clock speedups.}
+\Description{Grouped bars for seven methods compare unfused and fused matrix-vector counts for two backends. Every fused bar is lower than its unfused bar, with annotated reductions between about 12 and 44 percent.}
+\label{fig:fusion}
+\end{figure}
+
+\subsection{Method work--precision with a fixed action backend}\label{sec:methodwp}
+
+The method comparison uses 511 interior points and the nonseparable
+manufactured solution
+\begin{equation}
+ u_*(x,t)=e^t q_1(x)+\tfrac14 e^{2t}q_2(x),\qquad
+ q_1=x(1-x),\qquad q_2=x^2(1-x)^2.
+\end{equation}
+For the discrete Laplacian $L$, the forcing is computed as
+$u_*'(t)-Lu_*(t)-1/(1+u_*(t)^2)$, rather than by substituting the continuous
+second derivative.  The KIOPS-type action tolerance is fixed at $10^{-13}$.
+All methods use exact history and the same numerical integration window
+$[0.5,1]$.  Startup history lies before this window and is not presented as
+the cost of a practical numerical startup; Section~\ref{sec:startup} shows what
+the default numerical startup does to the high-order entries.  The four steps
+are $0.1,0.05,0.025,0.0125$.  The campaign reports a semidiscrete residual of
+$1.22\times10^{-15}$ and no nonconverged matrix-function action in any of its
+108 method--step cases.
+
+Figure~\ref{fig:methodwp} selects ETD4RK, Krogstad, HochOst4, ABNorsett4,
+PEC625, PEC726, PECEC635 and PECEC736 from the 27 methods of the campaign.
+Every displayed curve contains the four step sizes.  Open enlarged markers
+identify points at or below the precision cutoff $5\times10^{-12}$, which is
+tied to the action tolerance; these points remain visible but are excluded
+from the non-dominated curves.  The cutoff is a diagnostic for this data set,
+not a solver tolerance or accuracy guarantee.
+
+The result depends materially on the chosen work observable.  In the
+error--matvec plane, the non-dominated subset of the eight displayed methods
+starts with the four ABNorsett4 refinements and then contains PEC625 at
+$h=0.05$, PEC726 at $h=0.05$, PEC625 at $h=0.025$ and PECEC635 at $h=0.025$.
+In the error--nonlinear-evaluation plane, the corresponding sequence contains
+ABNorsett4 at $h=0.1$, PEC726 and PECEC736 at $h=0.1$, PEC726 and PECEC736 at
+$h=0.05$, and PEC625 and PECEC635 at $h=0.025$.  Thus a method that is
+efficient in one recorded component need not be efficient in another.  The
+figure is a work decomposition under one fixed matrix-action realization, not
+a universal ranking of the time integrators.  Two further observations from
+the same campaign are instructive.  ETD5RKF, of classical order five, converges
+with adjacent slopes 4.66, 3.27 and 2.97 on this stiff problem, the clearest
+illustration in the catalogue of why classical and stiff orders are recorded
+separately.  The generalized Lawson entries GenLawson44 and GenLawson45 show
+slopes rising towards 5 and 6 here, one above their recorded orders, whereas on
+the generic six-dimensional test of Supplementary Table~S2 their slopes
+decrease towards the recorded 4 and 5; the recorded orders are kept, and the
+parabolic behaviour is reported as a problem-dependent observation.
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=.91\linewidth]{fig04a_method_matvecs.pdf}\\[4pt]
+\includegraphics[width=.91\linewidth]{fig04b_method_nonlinear.pdf}
+\caption{Method work--precision on the nonseparable semidiscrete problem
+with exact history and a fixed KIOPS-type realization.  Top: final error
+versus matrix-vector products.  Bottom: final error versus nonlinear
+evaluations.  Eight methods and four step sizes are shown.  The dotted curve
+is the non-dominated set for the displayed methods and the corresponding work
+observable.  Enlarged open markers lie at or below the precision cutoff and
+are not used to extend that curve.}
+\Description{Two log-log work-precision panels for eight methods and four step sizes. One panel uses matrix-vector products and the other nonlinear evaluations. The non-dominated curves contain different method-step points, showing dependence on the chosen work observable.}
+\label{fig:methodwp}
+\end{figure}
+
+\subsection{Replicated paired timing}\label{sec:timing}
+
+The canonical timing problem is a periodic two-dimensional manufactured
+reaction--diffusion system on $[0,2\pi)^2$, with $\nu=0.02$, $T=0.5$ and
+\begin{equation}
+ u_*(x,y,t)=0.2e^{-t}\sin(x)\sin(y).
+\end{equation}
+The spatial operator is the Kronecker-sum second-difference Laplacian; the
+nonlinear part is $u^2$ plus the semidiscrete source required by $u_*$.  The
+measured operation is the ETD34 solve only: problem construction and explicit
+garbage collection are outside the timer.  Each configuration has one warmup
+and 12 timed blocks, and the backend order is balanced cyclically.
+
+The grids have $64^2$, $128^2$ and $256^2$ unknowns, and the requested
+tolerances are $10^{-5}$ and $10^{-7}$.  The four choices are KIOPS-type, real
+Leja, the SciPy/KIOPS hybrid and the rule-based selector.  The absolute
+tolerance is $10^{-3}$ times the relative one; the action-tolerance fraction
+is 0.01, with the documented clipping rule; the initial step is 0.1 and the
+maximum step is 0.2.  Explicit Leja and the Leja realization chosen by the
+selector use a maximum degree of 80 without substepping, which covers the
+scaled spectral widths of this problem, at most 53 with $h=0.2$ on the finest
+grid.  These are experiment settings, not inferred defaults.
+
+The campaigns ran on the Picasso cluster of the University of M\'alaga, as
+job 2203999 on node sd041 and jobs 2206865 and 2207024 on node sd004, each on
+one allocated core of an Intel Xeon Gold 6230R at 2.10\,GHz with thread counts
+set to one, under Python 3.11.4, NumPy 1.24.3 and SciPy 1.10.1.  They are three
+separate campaigns, not three independent machine types, and no exclusive node
+occupancy is asserted.  For backend $B$, replica $r$, case $c$ and paired
+block $b$, the timing observable is
+\begin{equation}
+ R_{r,c,b}(B)=t_{r,c,b}(B)/t_{r,c,b}(\mathrm{KIOPS}).
+\end{equation}
+Figure~\ref{fig:timing} preserves the three per-replica medians and the
+within-replica first and third quartiles for every case.  The 54 medians all
+exceed one, between 1.044 and 1.484, so the KIOPS-type backend was faster than
+each alternative in these configurations and on this machine.
+
+Three facts qualify that statement.  First, the comparison is at closely
+comparable accuracy: the final errors of the four realizations differ from the
+KIOPS-type error by ratios between 0.960 and 1.0005 in every configuration,
+with the same numbers of nonlinear evaluations, 13 at $10^{-5}$ and 29 at
+$10^{-7}$, and of accepted and rejected steps.  The re-run with the submitted
+version shows that the step sequences are identical at $10^{-5}$, namely
+$0.1,0.2,0.2$, and agree to five decimal places at $10^{-7}$.  Second, the work
+counters explain the ordering.  Real Leja performs 1.63 to 3.11 times as many
+matrix-vector products as the KIOPS-type backend but takes only 1.08 to 1.47
+times as long, so the amortized solve time per recorded product is 0.45 to
+0.81 times that of the Krylov realization; this amortized ratio contains all
+the work of a solve, not the cost of one product.  The KIOPS-type counts
+depend weakly on the grid, 542, 542 and 558 products at $10^{-7}$, whereas the
+Leja counts grow with it, 884, 1109 and 1720.  This is consistent with the
+nature of the manufactured solution, an eigenvector of the periodic
+second-difference Laplacian whose square adds only the Fourier modes of
+wavenumber 0 and 2, so that the vectors acted upon are dominated by a few
+modes, a situation in which a Krylov space of small dimension captures the
+action while a polynomial interpolant on the whole spectral interval must
+still resolve the width of the interval.  The campaign therefore does not
+inform about operators with broadband data, which is why
+Section~\ref{sec:broadband} adds one.  Third, at the looser tolerance the
+controller is maximum-step-limited: thirteen evaluations are three attempts,
+and with the initial step 0.1 and the maximum step 0.2 the only possible
+sequence is $0.1,0.2,0.2$, so half of the campaign exercises the error control
+only through the acceptance of those steps.
+
+The selector chose real Leja in all 18 configurations and its medians exceed
+those of explicit Leja by 0.3\% to 3.7\% in ratios of unpaired medians; the
+bottom panel of Figure~\ref{fig:timing} therefore measures Leja plus whatever
+the dispatch adds, without a paired isolation of that overhead.  The
+rule-based thresholds are a counterweight to any reading in which automatic
+selection must win: on this problem the rule picks the slower backend, and the
+calibrated selector of Section~\ref{sec:backends} is not evaluated here.  The
+replicas are informative about variability.  Within a replica the interquartile
+ranges of the paired ratios are 0.13\% to 2.63\% of the median, but between
+replicas the medians differ by 2.6\% to 5.6\%, with the sd041 replica lowest in
+14 of 18 cases, while the absolute medians differ by 17\% to 30\% between the
+two nodes.  Three campaigns on two nodes do not support a causal attribution
+of these differences, but the between-replica spread is a better indication of
+the variability of a paired ratio than the within-replica quartiles, and the
+conclusion survives it because the smallest median is 1.044.
+The complete 72 configuration summaries appear in Supplementary Table~S3 with
+errors and work counters beside time.  Hybrid matvecs are not used as a
+total-work competitor because the counter omits the internal SciPy work.
+Development crossovers measured under other protocols remain in Supplementary
+Figure~S1.
+
+\begin{figure}[!htbp]\centering
+\includegraphics[width=.86\linewidth]{fig05a_picasso_leja.pdf}\\[2pt]
+\includegraphics[width=.86\linewidth]{fig05b_picasso_hybrid.pdf}\\[2pt]
+\includegraphics[width=.86\linewidth]{fig05c_picasso_auto.pdf}
+\caption{Canonical paired timing summaries.  Top: real Leja.  Middle:
+SciPy/KIOPS hybrid.  Bottom: rule-based selector, which chose Leja in every
+case.  Every marker is one replica's median of 12 within-case paired ratios;
+bars span its first to third quartile.  Ratios above one mean a longer solve
+time than the KIOPS-type backend.  Within-replica quartiles are not confidence
+bounds; the between-replica spread is reported in the text.}
+\Description{Three panels show paired timing ratios relative to the KIOPS-type backend for Leja, hybrid and selector across six grid-and-tolerance cases and three replicas. All median ratios lie above one, with narrow within-replica interquartile bars.}
+\label{fig:timing}
+\end{figure}
+
+\subsection{Adaptive work and achieved accuracy}\label{sec:adaptivework}
+
+The structural comparison in Table~\ref{tab:adaptivity} is complemented by
+the four periodic pairs in Table~\ref{tab:etd34}.  The record contains two
+requested tolerances per backend and controller.  It does not support a smooth
+work--precision curve or a fixed percentage advantage at matched final error.
+At rtol $10^{-4}$ the KIOPS-type runs use 731 and 334 matvecs, but their final
+errors are approximately $2.01\times10^{-7}$ and $2.30\times10^{-6}$.
+\input{table05_etd34.tex}
+
+These comparisons are also exposed to the limitation that
+Section~\ref{sec:adaptivity} makes explicit.  The problems are manufactured,
+so their source terms are part of $N$.  The direct additive source
+cancels from the same-time nonlinear difference used by ETD34, but its
+influence through the stage states does not generally cancel, as
+Eq.~\eqref{eq:forcing-indirect} shows.  Step doubling compares two complete
+step constructions instead.  The records do not isolate the effect: ETD34
+reaches larger final errors than step doubling in the KIOPS-type periodic
+cases, but smaller ones in the Leja case at $10^{-4}$ and in the nonlocal stiff
+test, so an underestimate of the error is a possible contribution to its lower
+work, not an established cause.  The broadband problem of
+Section~\ref{sec:broadband}, where $N$ depends on the state only, shows the
+pair without an additive manufactured source, but does not by itself
+prove a robustness property for every autonomous nonlinearity.  The stiff adaptive tests supply a further
+qualification.  In the nonlocal problem at rtol $10^{-6}$,
+ETD34 records 97 nonlinear evaluations versus 84 for step doubling, while
+attaining errors $3.51\times10^{-8}$ and $2.67\times10^{-7}$.  Thus the lower
+work per completed trial is not a theorem about total solve work.
+Supplementary Table~S4 retains both local and nonlocal tests, including this
+less favourable count comparison.
+
+The cost-aware stress test reinforces the same distinction.  Its matvec proxy
+decreases by approximately 8.0\% and 21.4\%, yet the recorded wall times
+increase by approximately 9.7\% and 3.8\%.  This is not promoted to a
+replicated performance result.  It demonstrates why one counter is insufficient
+for a cost model that also contains nonlinear evaluations, projected work,
+vector operations and implementation overhead.
+
+\subsection{A broadband problem without manufactured forcing}\label{sec:broadband}
+
+The Allen--Cahn equation $u_t=\varepsilon u_{xx}+u-u^3$ on the periodic
+interval $[0,1)$ is discretized by second differences on 1024 points, with
+$\varepsilon=2.5\times10^{-4}$ and $T=1$.  The initial state is
+$u_{0,j}=\tanh(4f_j/\max_k|f_k|)$, where $f$ is a sum of six sine and cosine
+modes.  The original record specifies seed 7, all twelve coefficients,
+the construction rule and the full initial vector.  The driver is
+\path{software/benchmarks/broadband_allen_cahn.py} in the private companion.
+The initial and reference-final vectors have six sign changes and require
+27 and 18 positive-frequency bins, respectively, to accumulate 99.99\% of
+the recorded nonconstant spectral energy.  Thus this experiment is not
+confined to the single Fourier mode of the canonical timing problem.
+
+The reference record stores the 1024-component result of fixed-step
+HochOst4 with 4096 steps and KIOPS-type action tolerance $10^{-13}$.
+It reports an infinity-norm difference of $3.897\times10^{-14}$ from the
+2048-step comparison and final maximum amplitude $0.9995349106$.
+The finer reference state is supplied; the coarser reference state is not,
+so the comparison difference is a retained diagnostic, not independently
+recomputed from the two states in this package.  Similarly, per-solve final
+errors are outputs of the driver; the record does not retain all 18 final
+solution vectors.
+
+ETD34 with KIOPS-type and real-Leja actions is compared with Krogstad step
+doubling with KIOPS-type actions, at six relative tolerances from $10^{-4}$
+to $10^{-9}$.  The settings are $\mathrm{atol}=10^{-3}\mathrm{rtol}$,
+$h_0=0.01$, $h_{\max}=0.2$ and action fraction 0.01.  The original JSON
+contains the options, achieved errors, counts, accepted step sequences and
+five individual wall times for all 18 configurations.  The five times are
+measurements of each complete solve, not paired observations across
+configurations.  The recorded execution used Python 3.11.16, NumPy 1.24.3
+and SciPy 1.10.1 with single-threaded BLAS on an Intel Core Ultra 9 185H
+workstation.  The recorded source commit is
+\texttt{f6ef3de1a85005d93f8a3e3744514dce65b9f68a}; it precedes the final
+review snapshot, and no new timing of that snapshot is claimed.
+
+Figure~\ref{fig:broadband} uses the full original record rather than its
+previous provisional transcription.  At $10^{-4}$, Leja takes 0.631 times
+the KIOPS-type time but reaches an error 4.723 times larger: that point is
+not a matched-accuracy speed comparison.  At $10^{-5}$, the error and time
+ratios are 0.973 and 0.655, while at $10^{-9}$ they are 0.997 and 2.081.
+The latter pairs show a change of the faster realization at closely
+comparable achieved accuracy within this experiment.  At $10^{-6}$ the
+counts are close but not equal, 4891 for Leja and 4954 for KIOPS-type.
+Counts, errors and times are distinct observables; the curves do not imply
+monotonic changes at every refinement or a universal backend ordering.
+
+\begin{figure}[htbp]\centering
+\includegraphics[width=.86\linewidth]{fig06a_broadband_matvecs.pdf}\\[2pt]
+\includegraphics[width=.86\linewidth]{fig06b_broadband_time.pdf}
+\caption{Broadband Allen--Cahn comparison from the original workstation
+record.  Top: final error versus recorded matrix-vector products.  Bottom:
+final error versus the median of five complete-solve wall times; all 90
+individual times are archived.  Segments connect the six requested
+tolerances without asserting monotonicity.  Ratios at equal requested
+tolerance are not automatically comparisons at equal achieved accuracy.}
+\Description{Two log-log panels show the original Allen--Cahn records for
+ETD34 with KIOPS-type or real-Leja actions and Krogstad step doubling.
+The horizontal axes are recorded products and median complete-solve time.}
+\label{fig:broadband}
+\end{figure}
+
+\subsection{End-to-end order with numerical startup}\label{sec:startup}
+
+The high-order history entries of Section~\ref{sec:methodwp} were run with
+exact history.  Table~\ref{tab:startup} reports what the default numerical
+startup does to them on the classical scalar problem of
+Section~\ref{sec:orders}, integrated to $t=1$ with exact diagonal actions and
+steps from $0.1$ to $0.0125$.  With one HochOst4 step per startup interval, the
+selected entries of order six and seven have slopes between 4.55 and
+4.80 with numerical startup, compared with 5.86 to 6.84 for exact history,
+on the intermediate pair $h=0.05$ to $h=0.025$.  The table also shows both
+errors at $h=0.0125$.  For PECEC635 these are $8.33\times10^{-13}$ with
+numerical startup and $9.44\times10^{-16}$ with exact history.  Their ratio
+is arithmetically about 882, but the denominator is close to machine precision;
+it is not a stable quantitative factor of startup degradation.  Reporting the
+errors separately avoids that interpretation.  The three displayed fourth-order
+controls have very similar intermediate slopes, while the fifth-order cases
+show method-dependent error constants.  These slopes are finite
+observations consistent with the bound $\min(p,q+1)$ of
+Section~\ref{sec:architecture}; they do not prove the asymptotic order, and
+the bound itself allows a higher observed order when the leading startup term
+vanishes for a particular problem.  They do show that the default startup
+does not in general deliver the nominal orders six and seven, and that more
+accurate starting values are needed for that.
+\input{table06_startup.tex}
+
+\subsection{Reproducibility and limits of interpretation}\label{sec:reprolimits}
+
+The supplied figure generator rebuilds the plotted numerical panels.
+The table generator rebuilds four specified tables, and a separate parser
+builds Supplementary Table~S6 from the cross-check summary.  Other tables
+are supplied as LaTeX with their associated records where available.  These
+postprocessing operations are distinct from software execution.  The
+supplied private snapshot and validation logs provide the latter evidence
+within the environments and configurations identified in Section~\ref{sec:repro}.  The evidence
+supports a common validated execution framework, a measurable action-fusion
+transformation and reproducible, environment-specific work and timing
+diagnostics.  It does not support superiority over external packages,
+distributed-memory scalability, certified action-error bounds for every
+stopping criterion, globally optimal automatic selection or a universal ETD34
+efficiency factor.

@@ -53,7 +53,15 @@ class ExactStartup:
 
 @dataclass(frozen=True)
 class OneStepStartup:
-    """Build nonlinear history with an arbitrary one-step MethodSpec."""
+    """Build nonlinear history with an arbitrary one-step MethodSpec.
+
+    Each startup interval is advanced with a single step of the starter.  The
+    starting values therefore carry the starter's local error O(h^(q+1)), q its
+    classical order, which bounds the end-to-end order of a history method by q+1
+    (five with the default HochOst4 starter).  Methods of order six and seven reach
+    their nominal order only with more accurate starting values, for instance
+    ExactStartup in verification studies.
+    """
     starter: object
     name: str = "one_step"
 

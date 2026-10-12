@@ -1,0 +1,20 @@
+{
+  "software_release": "1.0.0",
+  "tag": "v1.0.0",
+  "prepared_date": "2026-10-12",
+  "github_repository": "FrancisRVillatoro/pyexpint",
+  "expected_public_base_commit": "4bba03b89e97f7a83525bbfdea228e1ed8d9d033",
+  "reviewed_tree": "9f62cbf6a6455868e358386ccff824507287aeb3",
+  "reviewed_internal_version": "0.9.0",
+  "reviewed_reported_commit": "0ad4b3c4786086a04cf22be33375cc9997ff1344",
+  "manuscript_revision": "v6",
+  "publication_type": "software and author-approved manuscript materials; not journal acceptance",
+  "original_review_archive_sha256": "84982a576f0fc694ae665a504af38aa302d2992794dee0c270b527e0fb2b9cb6",
+  "approved_manuscript_zip_sha256": "34c75375e07e57cac33a97f7e9562a4c063d6294ee8fee9780d783bc7fd90780",
+  "scientific_python_sources_modified": false,
+  "tests_modified": false,
+  "new_scientific_integrations": 0,
+  "zenodo_concept_doi": "10.5281/zenodo.22820009",
+  "zenodo_version_doi": null,
+  "version_doi_status": "assigned and checked only after publication"
+}

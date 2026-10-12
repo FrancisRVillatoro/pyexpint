@@ -2,6 +2,22 @@
 
 All notable changes to PyEXPINT are documented in this file.
 
+## 1.0.0 - 2026-10-12
+
+### Publication of the reviewed candidate
+
+- Publishes the exact executable Python sources and tests of reviewed tree
+  `9f62cbf6a6455868e358386ccff824507287aeb3`, with distribution metadata 1.0.0.
+- Includes the reviewed corrections to Leja degeneracy handling, work accounting,
+  adaptive failure handling, and backend cloning, plus the corresponding tests.
+- Documents the ETD34 estimator limitation and numerical-startup order boundary.
+- Includes author-approved manuscript v6, its reproducibility materials, original
+  Allen–Cahn records, historical paired timings, cross-check and recorded tests.
+- New wheel/sdist are packaging rebuilds; archived scientific results and validation
+  logs are not relabelled as new numerical executions.
+
+No executable numerical source is modified during this publication step.
+
 ## 0.9.0 - 2026-09-17
 
 ### Changed

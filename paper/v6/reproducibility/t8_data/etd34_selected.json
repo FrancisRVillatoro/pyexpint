@@ -1,0 +1,94 @@
+{
+  "n": 256,
+  "problem": "periodic manufactured reaction-diffusion",
+  "cases": [
+    {
+      "backend": "kiops",
+      "rtol": 0.0001,
+      "controller": "step-doubling",
+      "error_inf": 2.0104374104379374e-07,
+      "matvecs": 731,
+      "nonlinear_evals": 36,
+      "accepted": 3,
+      "rejected": 0,
+      "backend_failure_rejections": null
+    },
+    {
+      "backend": "kiops",
+      "rtol": 0.0001,
+      "controller": "embedded-accuracy",
+      "error_inf": 2.297432512995967e-06,
+      "matvecs": 334,
+      "nonlinear_evals": 13,
+      "accepted": 3,
+      "rejected": 0,
+      "backend_failure_rejections": null
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "controller": "step-doubling",
+      "error_inf": 3.9932066167591707e-08,
+      "matvecs": 1191,
+      "nonlinear_evals": 48,
+      "accepted": 4,
+      "rejected": 0,
+      "backend_failure_rejections": null
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "controller": "embedded-accuracy",
+      "error_inf": 5.0645825228068375e-08,
+      "matvecs": 718,
+      "nonlinear_evals": 33,
+      "accepted": 7,
+      "rejected": 1,
+      "backend_failure_rejections": null
+    },
+    {
+      "backend": "leja",
+      "rtol": 0.0001,
+      "controller": "step-doubling",
+      "error_inf": 2.6307227880675854e-05,
+      "matvecs": 3249,
+      "nonlinear_evals": 36,
+      "accepted": 3,
+      "rejected": 0,
+      "backend_failure_rejections": null
+    },
+    {
+      "backend": "leja",
+      "rtol": 0.0001,
+      "controller": "embedded-accuracy",
+      "error_inf": 1.1421816747070324e-05,
+      "matvecs": 1375,
+      "nonlinear_evals": 13,
+      "accepted": 3,
+      "rejected": 0,
+      "backend_failure_rejections": null
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "controller": "step-doubling",
+      "error_inf": 4.6016121205139093e-08,
+      "matvecs": 5387,
+      "nonlinear_evals": 48,
+      "accepted": 4,
+      "rejected": 0,
+      "backend_failure_rejections": null
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "controller": "embedded-accuracy",
+      "error_inf": 5.7094600117157945e-08,
+      "matvecs": 3447,
+      "nonlinear_evals": 33,
+      "accepted": 7,
+      "rejected": 1,
+      "backend_failure_rejections": null
+    }
+  ]
+}

@@ -1,0 +1,1050 @@
+{
+  "rows": [
+    {
+      "seed": 1729,
+      "method": "Krogstad",
+      "h": 0.2,
+      "error_inf": 1.585703105711e-06,
+      "matvecs": 696,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 276
+    },
+    {
+      "seed": 1729,
+      "method": "Krogstad",
+      "h": 0.1,
+      "error_inf": 9.572974274397e-08,
+      "matvecs": 1056,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 277
+    },
+    {
+      "seed": 1729,
+      "method": "Krogstad",
+      "h": 0.05,
+      "error_inf": 5.962678795157e-09,
+      "matvecs": 1568,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 278
+    },
+    {
+      "seed": 1729,
+      "method": "Krogstad",
+      "h": 0.025,
+      "error_inf": 3.723439889747e-10,
+      "matvecs": 2048,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 279
+    },
+    {
+      "seed": 1729,
+      "method": "HochOst4",
+      "h": 0.2,
+      "error_inf": 1.548175480481e-06,
+      "matvecs": 1568,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 280
+    },
+    {
+      "seed": 1729,
+      "method": "HochOst4",
+      "h": 0.1,
+      "error_inf": 9.355040980763e-08,
+      "matvecs": 2704,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 281
+    },
+    {
+      "seed": 1729,
+      "method": "HochOst4",
+      "h": 0.05,
+      "error_inf": 5.844016714995e-09,
+      "matvecs": 3616,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 282
+    },
+    {
+      "seed": 1729,
+      "method": "HochOst4",
+      "h": 0.025,
+      "error_inf": 3.65015739856e-10,
+      "matvecs": 5824,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 283
+    },
+    {
+      "seed": 1729,
+      "method": "ETD5RKF",
+      "h": 0.2,
+      "error_inf": 4.673041095554e-05,
+      "matvecs": 3448,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 284
+    },
+    {
+      "seed": 1729,
+      "method": "ETD5RKF",
+      "h": 0.1,
+      "error_inf": 1.509144069378e-06,
+      "matvecs": 5316,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 285
+    },
+    {
+      "seed": 1729,
+      "method": "ETD5RKF",
+      "h": 0.05,
+      "error_inf": 4.760693933514e-08,
+      "matvecs": 8272,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 286
+    },
+    {
+      "seed": 1729,
+      "method": "ETD5RKF",
+      "h": 0.025,
+      "error_inf": 1.501701318851e-09,
+      "matvecs": 14784,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 287
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson41",
+      "h": 0.2,
+      "error_inf": 4.559313705133e-06,
+      "matvecs": 888,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 288
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson41",
+      "h": 0.1,
+      "error_inf": 2.976448763015e-07,
+      "matvecs": 1192,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 289
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson41",
+      "h": 0.05,
+      "error_inf": 1.894613904652e-08,
+      "matvecs": 1760,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 290
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson41",
+      "h": 0.025,
+      "error_inf": 1.194141729943e-09,
+      "matvecs": 2496,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 291
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson42",
+      "h": 0.2,
+      "error_inf": 1.202160390024e-05,
+      "matvecs": 1368,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 292
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson42",
+      "h": 0.1,
+      "error_inf": 6.830836841165e-07,
+      "matvecs": 2028,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 293
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson42",
+      "h": 0.05,
+      "error_inf": 4.014511889583e-08,
+      "matvecs": 3168,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 294
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson42",
+      "h": 0.025,
+      "error_inf": 2.425445233545e-09,
+      "matvecs": 4736,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 295
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson43",
+      "h": 0.2,
+      "error_inf": 8.527369261158e-06,
+      "matvecs": 2224,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 296
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson43",
+      "h": 0.1,
+      "error_inf": 2.357423143917e-07,
+      "matvecs": 3136,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 297
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson43",
+      "h": 0.05,
+      "error_inf": 8.513599825122e-09,
+      "matvecs": 5132,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 298
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson43",
+      "h": 0.025,
+      "error_inf": 4.437626932585e-10,
+      "matvecs": 8192,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 299
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson44",
+      "h": 0.2,
+      "error_inf": 7.622651122974e-06,
+      "matvecs": 4160,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 300
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson44",
+      "h": 0.1,
+      "error_inf": 3.463774380652e-07,
+      "matvecs": 5976,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 301
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson44",
+      "h": 0.05,
+      "error_inf": 1.421269385515e-08,
+      "matvecs": 8128,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 302
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson44",
+      "h": 0.025,
+      "error_inf": 6.549119579979e-10,
+      "matvecs": 12248,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 303
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson45",
+      "h": 0.2,
+      "error_inf": 1.087338690769e-05,
+      "matvecs": 6960,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 304
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson45",
+      "h": 0.1,
+      "error_inf": 1.464309661858e-07,
+      "matvecs": 9836,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 305
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson45",
+      "h": 0.05,
+      "error_inf": 2.409626942423e-09,
+      "matvecs": 14472,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 306
+    },
+    {
+      "seed": 1729,
+      "method": "GenLawson45",
+      "h": 0.025,
+      "error_inf": 5.076261633263e-11,
+      "matvecs": 20044,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 307
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson41",
+      "h": 0.2,
+      "error_inf": 8.652260652164e-06,
+      "matvecs": 1040,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 308
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson41",
+      "h": 0.1,
+      "error_inf": 5.404821486477e-07,
+      "matvecs": 1472,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 309
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson41",
+      "h": 0.05,
+      "error_inf": 3.37868233391e-08,
+      "matvecs": 2080,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 310
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson41",
+      "h": 0.025,
+      "error_inf": 2.112185149006e-09,
+      "matvecs": 3392,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 311
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson42",
+      "h": 0.2,
+      "error_inf": 3.249502520397e-06,
+      "matvecs": 1728,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 312
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson42",
+      "h": 0.1,
+      "error_inf": 1.414138039446e-07,
+      "matvecs": 2362,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 313
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson42",
+      "h": 0.05,
+      "error_inf": 7.272215940546e-09,
+      "matvecs": 3908,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 314
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson42",
+      "h": 0.025,
+      "error_inf": 4.115479623756e-10,
+      "matvecs": 5696,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 315
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson43",
+      "h": 0.2,
+      "error_inf": 4.274745078081e-06,
+      "matvecs": 2874,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 316
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson43",
+      "h": 0.1,
+      "error_inf": 1.975375359398e-07,
+      "matvecs": 3592,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 317
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson43",
+      "h": 0.05,
+      "error_inf": 9.50401002342e-09,
+      "matvecs": 6086,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 318
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson43",
+      "h": 0.025,
+      "error_inf": 5.004241465656e-10,
+      "matvecs": 9792,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 319
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson44",
+      "h": 0.2,
+      "error_inf": 3.007242415698e-06,
+      "matvecs": 4856,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 320
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson44",
+      "h": 0.1,
+      "error_inf": 5.443578748876e-08,
+      "matvecs": 6304,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 321
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson44",
+      "h": 0.05,
+      "error_inf": 1.171598207339e-09,
+      "matvecs": 8800,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 322
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson44",
+      "h": 0.025,
+      "error_inf": 2.946831667572e-11,
+      "matvecs": 13772,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 323
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson45",
+      "h": 0.2,
+      "error_inf": 4.303448875587e-07,
+      "matvecs": 7602,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 324
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson45",
+      "h": 0.1,
+      "error_inf": 1.174517832991e-08,
+      "matvecs": 10936,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 325
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson45",
+      "h": 0.05,
+      "error_inf": 2.017607192428e-10,
+      "matvecs": 16480,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 326
+    },
+    {
+      "seed": 1729,
+      "method": "ModGenLawson45",
+      "h": 0.025,
+      "error_inf": 3.134159598517e-12,
+      "matvecs": 24806,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 327
+    },
+    {
+      "seed": 2718,
+      "method": "Krogstad",
+      "h": 0.2,
+      "error_inf": 7.510433735855e-06,
+      "matvecs": 606,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 340
+    },
+    {
+      "seed": 2718,
+      "method": "Krogstad",
+      "h": 0.1,
+      "error_inf": 4.681959404063e-07,
+      "matvecs": 936,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 341
+    },
+    {
+      "seed": 2718,
+      "method": "Krogstad",
+      "h": 0.05,
+      "error_inf": 2.926320301355e-08,
+      "matvecs": 1392,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 342
+    },
+    {
+      "seed": 2718,
+      "method": "Krogstad",
+      "h": 0.025,
+      "error_inf": 1.829576656842e-09,
+      "matvecs": 2048,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 343
+    },
+    {
+      "seed": 2718,
+      "method": "HochOst4",
+      "h": 0.2,
+      "error_inf": 7.117759512953e-06,
+      "matvecs": 1478,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 344
+    },
+    {
+      "seed": 2718,
+      "method": "HochOst4",
+      "h": 0.1,
+      "error_inf": 4.398175777187e-07,
+      "matvecs": 2304,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 345
+    },
+    {
+      "seed": 2718,
+      "method": "HochOst4",
+      "h": 0.05,
+      "error_inf": 2.737223651905e-08,
+      "matvecs": 3440,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 346
+    },
+    {
+      "seed": 2718,
+      "method": "HochOst4",
+      "h": 0.025,
+      "error_inf": 1.707793517713e-09,
+      "matvecs": 5824,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 347
+    },
+    {
+      "seed": 2718,
+      "method": "ETD5RKF",
+      "h": 0.2,
+      "error_inf": 6.438503933179e-05,
+      "matvecs": 3118,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 348
+    },
+    {
+      "seed": 2718,
+      "method": "ETD5RKF",
+      "h": 0.1,
+      "error_inf": 2.05321270183e-06,
+      "matvecs": 4556,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 349
+    },
+    {
+      "seed": 2718,
+      "method": "ETD5RKF",
+      "h": 0.05,
+      "error_inf": 6.475499619851e-08,
+      "matvecs": 7760,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 350
+    },
+    {
+      "seed": 2718,
+      "method": "ETD5RKF",
+      "h": 0.025,
+      "error_inf": 2.029819284877e-09,
+      "matvecs": 13584,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 351
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson41",
+      "h": 0.2,
+      "error_inf": 6.303357041715e-06,
+      "matvecs": 748,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 352
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson41",
+      "h": 0.1,
+      "error_inf": 4.039066018313e-07,
+      "matvecs": 1056,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 353
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson41",
+      "h": 0.05,
+      "error_inf": 2.549429772847e-08,
+      "matvecs": 1584,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 354
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson41",
+      "h": 0.025,
+      "error_inf": 1.600304333493e-09,
+      "matvecs": 2496,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 355
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson42",
+      "h": 0.2,
+      "error_inf": 1.232191215433e-05,
+      "matvecs": 1208,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 356
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson42",
+      "h": 0.1,
+      "error_inf": 7.537949448938e-07,
+      "matvecs": 1648,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 357
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson42",
+      "h": 0.05,
+      "error_inf": 4.571059127045e-08,
+      "matvecs": 2992,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 358
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson42",
+      "h": 0.025,
+      "error_inf": 2.801199452951e-09,
+      "matvecs": 4736,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 359
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson43",
+      "h": 0.2,
+      "error_inf": 1.578462493082e-05,
+      "matvecs": 2144,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 360
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson43",
+      "h": 0.1,
+      "error_inf": 6.253233527098e-07,
+      "matvecs": 2872,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 361
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson43",
+      "h": 0.05,
+      "error_inf": 2.947192244418e-08,
+      "matvecs": 4516,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 362
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson43",
+      "h": 0.025,
+      "error_inf": 1.576342251175e-09,
+      "matvecs": 7872,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 363
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson44",
+      "h": 0.2,
+      "error_inf": 8.453974500444e-06,
+      "matvecs": 4416,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 364
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson44",
+      "h": 0.1,
+      "error_inf": 3.621139824661e-07,
+      "matvecs": 5988,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 365
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson44",
+      "h": 0.05,
+      "error_inf": 1.497530405237e-08,
+      "matvecs": 7792,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 366
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson44",
+      "h": 0.025,
+      "error_inf": 7.016501268886e-10,
+      "matvecs": 12608,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 367
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson45",
+      "h": 0.2,
+      "error_inf": 9.21400578785e-06,
+      "matvecs": 6620,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 368
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson45",
+      "h": 0.1,
+      "error_inf": 1.452510761113e-07,
+      "matvecs": 10832,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 369
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson45",
+      "h": 0.05,
+      "error_inf": 2.826577139015e-09,
+      "matvecs": 14096,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 370
+    },
+    {
+      "seed": 2718,
+      "method": "GenLawson45",
+      "h": 0.025,
+      "error_inf": 6.959022247344e-11,
+      "matvecs": 21056,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 371
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson41",
+      "h": 0.2,
+      "error_inf": 9.096581256654e-06,
+      "matvecs": 930,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 372
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson41",
+      "h": 0.1,
+      "error_inf": 5.777328065809e-07,
+      "matvecs": 1246,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 373
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson41",
+      "h": 0.05,
+      "error_inf": 3.625942776586e-08,
+      "matvecs": 1904,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 374
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson41",
+      "h": 0.025,
+      "error_inf": 2.268832954844e-09,
+      "matvecs": 3392,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 375
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson42",
+      "h": 0.2,
+      "error_inf": 1.038881799928e-05,
+      "matvecs": 1536,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 376
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson42",
+      "h": 0.1,
+      "error_inf": 5.635201699716e-07,
+      "matvecs": 2124,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 377
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson42",
+      "h": 0.05,
+      "error_inf": 3.244515664469e-08,
+      "matvecs": 3472,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 378
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson42",
+      "h": 0.025,
+      "error_inf": 1.940726468419e-09,
+      "matvecs": 5696,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 379
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson43",
+      "h": 0.2,
+      "error_inf": 2.06279789268e-06,
+      "matvecs": 2822,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 380
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson43",
+      "h": 0.1,
+      "error_inf": 9.322617816609e-08,
+      "matvecs": 3400,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 381
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson43",
+      "h": 0.05,
+      "error_inf": 5.231844457665e-09,
+      "matvecs": 5670,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 382
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson43",
+      "h": 0.025,
+      "error_inf": 2.973180035504e-10,
+      "matvecs": 9472,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 383
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson44",
+      "h": 0.2,
+      "error_inf": 3.10592932995e-06,
+      "matvecs": 4844,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 384
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson44",
+      "h": 0.1,
+      "error_inf": 7.146042282913e-08,
+      "matvecs": 6278,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 385
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson44",
+      "h": 0.05,
+      "error_inf": 1.895887280501e-09,
+      "matvecs": 8464,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 386
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson44",
+      "h": 0.025,
+      "error_inf": 5.325402618883e-11,
+      "matvecs": 13952,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 387
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson45",
+      "h": 0.2,
+      "error_inf": 1.566917589901e-06,
+      "matvecs": 7370,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 388
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson45",
+      "h": 0.1,
+      "error_inf": 1.30638198037e-08,
+      "matvecs": 11692,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 389
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson45",
+      "h": 0.05,
+      "error_inf": 1.243836561526e-10,
+      "matvecs": 17604,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 390
+    },
+    {
+      "seed": 2718,
+      "method": "ModGenLawson45",
+      "h": 0.025,
+      "error_inf": 1.825706252845e-12,
+      "matvecs": 25344,
+      "nonconverged_actions": 0,
+      "status": "ok",
+      "source_line": 391
+    }
+  ],
+  "numerical_window": [
+    0.8,
+    1.6
+  ],
+  "dimension": 6,
+  "backend_tol": 1e-14
+}

@@ -11,3 +11,6 @@ include BENCHMARK_PROTOCOL_TOMS.md
 include TOMS_CLAIMS_MATRIX.md
 include TOMS_MANUSCRIPT_BLUEPRINT.md
 include docs/QUICKSTART.md
+graft examples
+global-exclude *.py[cod]
+prune **/__pycache__

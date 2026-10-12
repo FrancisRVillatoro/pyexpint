@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering\small
+\caption{Experimental protocols and provenance.  Candidate reproduction,
+recorded historical execution and data-to-figure regeneration are distinct.
+The private companion supplies the sources and validation records referred
+to below; its 24-case differential check is not a rerun of the 108-case
+fixed-step campaign.}\label{tab:protocol}
+\begin{tabularx}{\linewidth}{@{}p{2.0cm}X X@{}}\toprule
+Block & Protocol and manuscript record & Execution status\\\midrule
+Classical order & Scalar Riccati; four steps; \texttt{classical\_selected.json}. & Candidate comparison: 16 errors, log under \texttt{evidence/cheap\_*}. Fig.~\ref{fig:order}.\\\addlinespace
+Stiff order & Two problems; 200 points, DST-I; \texttt{stiff\_order.json}. & Candidate comparison of 72 errors in the same recorded run. Fig.~\ref{fig:order}.\\\addlinespace
+Fusion & Two Krylov backends; $n=256$, $T=0.3$, $h=0.05$. & Original record and candidate rerun retained; totals and state comparisons, not every action's dimension. Fig.~\ref{fig:fusion}.\\\addlinespace
+Method work--precision & $n=511$, 27 methods, four steps, exact history. & Historical 108-case record, reanalysed; no separate candidate-rerun log is supplied. Fig.~\ref{fig:methodwp}.\\\addlinespace
+Canonical timing & Three campaigns; six cases, four backends; 72 raw files. & Historical elapsed times. Candidate error/count comparison has 72 replica checks, not new timings. Fig.~\ref{fig:timing}.\\\addlinespace
+Forced adaptivity & Periodic/stiff manufactured problems; two controllers. & Historical records, reanalysed, not relabelled as candidate runs. Table~\ref{tab:etd34}.\\\addlinespace
+Broadband & Allen--Cahn, $n=1024$, six tolerances, 18 configurations. & Original workstation JSON, driver, initial/reference states and five times per configuration. Fig.~\ref{fig:broadband}.\\\addlinespace
+Startup & Scalar problem on $[0,1]$; exact/numerical history. & Supplied error arrays and candidate log under \texttt{evidence/c2c4\_*}. Table~\ref{tab:startup}.\\\addlinespace
+Generalized Lawson & Two six-dimensional problems, four steps. & Supplied data and candidate run under \texttt{evidence/cheap\_*}. Supplementary Table~S2.\\
+\bottomrule\end{tabularx}
+\end{table}

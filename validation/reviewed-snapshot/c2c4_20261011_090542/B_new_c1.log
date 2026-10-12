@@ -1,0 +1,1580 @@
+.FFFFFF..F.F.FF.FFFFFFFF.FFF..FFFF..F.F.FF......F.F..FFFF.FFFFFFFFFF..FF [ 90%]
+.FFFFFF.                                                                 [100%]
+=================================== FAILURES ===================================
+_________ test_auto_alternating_between_kiops_and_leja_is_counted_once _________
+
+    def test_auto_alternating_between_kiops_and_leja_is_counted_once():
+        auto = AutoBackend(tol=1e-10, leja_min_size=64, leja_width_threshold=20.0)
+        sol = solve_etd34(heat_problem(), auto, options=ETD34Options(rtol=1e-4, atol=1e-8, h0=0.05))
+        selections = sol.stats["backend_stats"]["selection_counts"]
+        assert selections.get("kiops", 0) > 0 and selections.get("leja", 0) > 0
+        works = sol.stats["work_per_attempt"]
+>       assert all(w >= 0 and float(w).is_integer() for w in works)
+E       assert False
+E        +  where False = all(<generator object test_auto_alternating_between_kiops_and_leja_is_counted_once.<locals>.<genexpr> at 0x7fc5b9a2d620>)
+
+tests/test_c2_work_accounting.py:45: AssertionError
+___ test_auto_counter_is_authoritative_and_monotone_under_manual_alternation ___
+
+    def test_auto_counter_is_authoritative_and_monotone_under_manual_alternation():
+>       from pyexpint.embedded import _backend_matvecs
+E       ImportError: cannot import name '_backend_matvecs' from 'pyexpint.embedded' (/tmp/tmp.ZpQWPG5PGl/c1/src/pyexpint/embedded.py)
+
+tests/test_c2_work_accounting.py:50: ImportError
+________ test_backend_without_counter_records_missing_work_not_seconds _________
+
+    def test_backend_without_counter_records_missing_work_not_seconds():
+        p = SemilinearProblem(np.array([-1.0, -2.0]), lambda t, y: y * y, np.array([0.2, 0.1]), (0.0, 1.0))
+        sol = solve_etd34(p, DiagonalBackend(), options=ETD34Options(rtol=1e-6, atol=1e-9))
+>       assert sol.stats["work_unit"] == "matvecs"
+E       KeyError: 'work_unit'
+
+tests/test_c2_work_accounting.py:76: KeyError
+_________ test_cost_controller_on_matvecs_requires_a_counting_backend __________
+
+    def test_cost_controller_on_matvecs_requires_a_counting_backend():
+        p = SemilinearProblem(np.array([-1.0]), lambda t, y: y * y, np.array([0.2]), (0.0, 1.0))
+>       with pytest.raises(ValueError, match="matvecs"):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c2_work_accounting.py:83: Failed
+______________ test_startup_work_estimate_uses_the_actual_starter ______________
+
+    def test_startup_work_estimate_uses_the_actual_starter():
+        p = SemilinearProblem(np.array([-1.0]), lambda t, y: y * y, np.array([0.4]), (0.0, 1.0))
+        sol = solve_fixed(p, ABNORSETT3, 0.1, DiagonalBackend(), startup=OneStepStartup(KROGSTAD))
+        # Two startup intervals with Krogstad (4 evaluations each) and eight main steps (1 each).
+>       assert sol.stats["nonlinear_evals_estimate"] == 2 * 4 + 8 * 1
+E       assert 18 == ((2 * 4) + (8 * 1))
+
+tests/test_c2_work_accounting.py:94: AssertionError
+______________ test_etd34_options_reject_invalid_values[kwargs0] _______________
+
+kwargs = {'rtol': nan}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs3] _______________
+
+kwargs = {'atol': inf}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs5] _______________
+
+kwargs = {'h0': nan}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs7] _______________
+
+kwargs = {'h_min': nan}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs8] _______________
+
+kwargs = {'h_max': nan}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs10] ______________
+
+kwargs = {'safety': 0.0}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs11] ______________
+
+kwargs = {'safety': nan}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs12] ______________
+
+kwargs = {'min_factor': 0.0}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs13] ______________
+
+kwargs = {'min_factor': 1.5}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs14] ______________
+
+kwargs = {'max_factor': 0.5}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs15] ______________
+
+kwargs = {'max_factor': inf}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs16] ______________
+
+kwargs = {'max_steps': 0}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs17] ______________
+
+kwargs = {'max_steps': 2.5}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs19] ______________
+
+kwargs = {'action_rtol_fraction': 0.0}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs20] ______________
+
+kwargs = {'action_tol_floor': 0.0}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs21] ______________
+
+kwargs = {'action_tol_ceiling': 1e-06, 'action_tol_floor': 0.0001}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs24] ______________
+
+kwargs = {'cost_alpha': nan}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs25] ______________
+
+kwargs = {'cost_lambda': 0.5}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+______________ test_etd34_options_reject_invalid_values[kwargs26] ______________
+
+kwargs = {'cost_delta': 1.5}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [
+        dict(controller="other"), dict(cost_metric="other"), dict(cost_alpha=float("nan")),
+        dict(cost_lambda=0.5), dict(cost_delta=1.5)])
+    def test_etd34_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:52: Failed
+_____________ test_adaptive_options_reject_invalid_values[kwargs0] _____________
+
+kwargs = {'rtol': nan}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [dict(effective_order=0.0), dict(effective_order=float("nan"))])
+    def test_adaptive_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:58: Failed
+_____________ test_adaptive_options_reject_invalid_values[kwargs3] _____________
+
+kwargs = {'atol': inf}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [dict(effective_order=0.0), dict(effective_order=float("nan"))])
+    def test_adaptive_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:58: Failed
+_____________ test_adaptive_options_reject_invalid_values[kwargs5] _____________
+
+kwargs = {'h0': nan}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [dict(effective_order=0.0), dict(effective_order=float("nan"))])
+    def test_adaptive_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:58: Failed
+_____________ test_adaptive_options_reject_invalid_values[kwargs7] _____________
+
+kwargs = {'h_min': nan}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [dict(effective_order=0.0), dict(effective_order=float("nan"))])
+    def test_adaptive_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:58: Failed
+_____________ test_adaptive_options_reject_invalid_values[kwargs8] _____________
+
+kwargs = {'h_max': nan}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [dict(effective_order=0.0), dict(effective_order=float("nan"))])
+    def test_adaptive_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:58: Failed
+____________ test_adaptive_options_reject_invalid_values[kwargs15] _____________
+
+kwargs = {'max_factor': inf}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [dict(effective_order=0.0), dict(effective_order=float("nan"))])
+    def test_adaptive_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:58: Failed
+____________ test_adaptive_options_reject_invalid_values[kwargs17] _____________
+
+kwargs = {'max_steps': 2.5}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [dict(effective_order=0.0), dict(effective_order=float("nan"))])
+    def test_adaptive_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:58: Failed
+____________ test_adaptive_options_reject_invalid_values[kwargs20] _____________
+
+kwargs = {'action_tol_floor': 0.0}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [dict(effective_order=0.0), dict(effective_order=float("nan"))])
+    def test_adaptive_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:58: Failed
+____________ test_adaptive_options_reject_invalid_values[kwargs21] _____________
+
+kwargs = {'action_tol_ceiling': 1e-06, 'action_tol_floor': 0.0001}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [dict(effective_order=0.0), dict(effective_order=float("nan"))])
+    def test_adaptive_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:58: Failed
+____________ test_adaptive_options_reject_invalid_values[kwargs22] _____________
+
+kwargs = {'effective_order': 0.0}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [dict(effective_order=0.0), dict(effective_order=float("nan"))])
+    def test_adaptive_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:58: Failed
+____________ test_adaptive_options_reject_invalid_values[kwargs23] _____________
+
+kwargs = {'effective_order': nan}
+
+    @pytest.mark.parametrize("kwargs", COMMON_INVALID + [dict(effective_order=0.0), dict(effective_order=float("nan"))])
+    def test_adaptive_options_reject_invalid_values(kwargs):
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_c3_adaptive_contract.py:58: Failed
+_________ test_backend_failures_are_rejections_followed_by_acceptance __________
+
+    def test_backend_failures_are_rejections_followed_by_acceptance():
+        lam = np.linspace(-200.0, 0.0, 50)
+        problem = SemilinearProblem(sp.diags(lam, format="csr"), lambda t, y: -0.5 * y**3,
+                                    np.linspace(1.0, 0.5, 50), (0.0, 1.0))
+        backend = LejaBackend(spectral_bounds=(-200.0, 0.0), max_degree=16, min_degree=2)
+        sol = run_etd34(problem, backend, rtol=1e-6, atol=1e-9, h0=0.1)
+        st = sol.stats
+        assert st["backend_failure_rejections"] > 0 and st["accepted_steps"] > 0
+        assert sol.t[-1] == pytest.approx(1.0, abs=1e-14)
+>       assert st["nonlinear_evals"] >= st["nonlinear_evals_estimate"]
+E       KeyError: 'nonlinear_evals'
+
+tests/test_c3_adaptive_contract.py:76: KeyError
+____ test_persistent_backend_failure_terminates_at_the_minimum_step[0.001] _____
+
+h_min = 0.001
+
+    @pytest.mark.parametrize("h_min", [1e-3, 0.0])
+    def test_persistent_backend_failure_terminates_at_the_minimum_step(h_min):
+        problem, calls = jordan_problem()
+        with pytest.raises(RuntimeError, match="minimum step|max_steps"):
+>           run_etd34(problem, LejaBackend(spectral_bounds=(0.0, 0.0)), h_min=h_min, max_steps=2000)
+
+tests/test_c3_adaptive_contract.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=<2x2 _CustomLinearOperator with dtype=float64>, nonlinear=<function jordan_problem.<locals>.<lambda> at 0x7fc5b9931580>, y0=array([0., 1.]), t_span=(0.0, 1.0), exact_solution=None)
+backend = <pyexpint.backends.leja.LejaBackend object at 0x7fc5b986c290>
+opts = {'h_min': 0.001, 'max_steps': 2000}
+
+    def run_etd34(problem, backend=None, **opts):
+>       return solve_etd34(problem, backend or DiagonalBackend(), options=ETD34Options(**opts))
+
+tests/test_c3_adaptive_contract.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=<2x2 _CustomLinearOperator with dtype=float64>, nonlinear=<function jordan_problem.<locals>.<lambda> at 0x7fc5b9931580>, y0=array([0., 1.]), t_span=(0.0, 1.0), exact_solution=None)
+backend = <pyexpint.backends.leja.LejaBackend object at 0x7fc5b986c290>
+options = ETD34Options(rtol=1e-06, atol=1e-09, h0=None, h_min=0.001, h_max=inf, safety=0.9, min_factor=0.2, max_factor=4.0, max_...cy', cost_metric='matvecs', cost_alpha=0.65241444, cost_beta=0.26862269, cost_lambda=1.37412002, cost_delta=0.64446017)
+overrides = {}, t0 = 0.0, tf = 1.0, span = 1.0, h = 0.001, action_tol = 5e-08
+work_backend = <pyexpint.backends.leja.LejaBackend object at 0x7fc5b986ea50>
+
+    def solve_etd34(problem: SemilinearProblem, backend, *, options: ETD34Options | None = None, **overrides) -> Solution:
+        """Adaptive Krogstad fourth-order ETD with embedded third-order estimator."""
+        if options is None:
+            options = ETD34Options(**overrides)
+        elif overrides:
+            raise ValueError("pass either ETD34Options or keyword overrides, not both")
+    
+        t0, tf = map(float, problem.t_span)
+        span = tf - t0
+        h = options.h0 if options.h0 is not None else span / 16.0
+        h = min(h, options.h_max, span)
+    
+        action_tol = min(
+            options.action_tol_ceiling,
+            max(options.action_tol_floor, options.action_rtol_fraction * options.rtol),
+        )
+        work_backend = _clone_backend_with_tol(backend, action_tol)
+        if hasattr(work_backend, "reset_stats"):
+            work_backend.reset_stats()
+    
+        t, y = t0, np.array(problem.y0, copy=True)
+        n1 = np.asarray(problem.nonlinear(t, y))
+        nonlinear_evals = 1
+        ts, ys, hs, errs = [t], [y.copy()], [], []
+        work_attempt, work_accept, modes = [], [], []
+        rejected = attempts = backend_failures = 0
+        prev_h = prev_work = None
+    
+        while t < tf:
+            if attempts >= options.max_steps:
+>               raise RuntimeError("maximum number of ETD34 attempts exceeded")
+E               RuntimeError: maximum number of ETD34 attempts exceeded
+
+src/pyexpint/embedded.py:131: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+h_min = 0.001
+
+    @pytest.mark.parametrize("h_min", [1e-3, 0.0])
+    def test_persistent_backend_failure_terminates_at_the_minimum_step(h_min):
+        problem, calls = jordan_problem()
+>       with pytest.raises(RuntimeError, match="minimum step|max_steps"):
+E       AssertionError: Regex pattern 'minimum step|max_steps' does not match 'maximum number of ETD34 attempts exceeded'.
+
+tests/test_c3_adaptive_contract.py:99: AssertionError
+_____ test_persistent_backend_failure_terminates_at_the_minimum_step[0.0] ______
+
+h_min = 0.0
+
+    @pytest.mark.parametrize("h_min", [1e-3, 0.0])
+    def test_persistent_backend_failure_terminates_at_the_minimum_step(h_min):
+        problem, calls = jordan_problem()
+        with pytest.raises(RuntimeError, match="minimum step|max_steps"):
+>           run_etd34(problem, LejaBackend(spectral_bounds=(0.0, 0.0)), h_min=h_min, max_steps=2000)
+
+tests/test_c3_adaptive_contract.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=<2x2 _CustomLinearOperator with dtype=float64>, nonlinear=<function jordan_problem.<locals>.<lambda> at 0x7fc5b9891940>, y0=array([0., 1.]), t_span=(0.0, 1.0), exact_solution=None)
+backend = <pyexpint.backends.leja.LejaBackend object at 0x7fc5b9a31010>
+opts = {'h_min': 0.0, 'max_steps': 2000}
+
+    def run_etd34(problem, backend=None, **opts):
+>       return solve_etd34(problem, backend or DiagonalBackend(), options=ETD34Options(**opts))
+
+tests/test_c3_adaptive_contract.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=<2x2 _CustomLinearOperator with dtype=float64>, nonlinear=<function jordan_problem.<locals>.<lambda> at 0x7fc5b9891940>, y0=array([0., 1.]), t_span=(0.0, 1.0), exact_solution=None)
+backend = <pyexpint.backends.leja.LejaBackend object at 0x7fc5b9a31010>
+options = ETD34Options(rtol=1e-06, atol=1e-09, h0=None, h_min=0.0, h_max=inf, safety=0.9, min_factor=0.2, max_factor=4.0, max_st...cy', cost_metric='matvecs', cost_alpha=0.65241444, cost_beta=0.26862269, cost_lambda=1.37412002, cost_delta=0.64446017)
+overrides = {}, t0 = 0.0, tf = 1.0, span = 1.0, h = 2.842170943040401e-14
+action_tol = 5e-08
+work_backend = <pyexpint.backends.leja.LejaBackend object at 0x7fc5b989a390>
+
+    def solve_etd34(problem: SemilinearProblem, backend, *, options: ETD34Options | None = None, **overrides) -> Solution:
+        """Adaptive Krogstad fourth-order ETD with embedded third-order estimator."""
+        if options is None:
+            options = ETD34Options(**overrides)
+        elif overrides:
+            raise ValueError("pass either ETD34Options or keyword overrides, not both")
+    
+        t0, tf = map(float, problem.t_span)
+        span = tf - t0
+        h = options.h0 if options.h0 is not None else span / 16.0
+        h = min(h, options.h_max, span)
+    
+        action_tol = min(
+            options.action_tol_ceiling,
+            max(options.action_tol_floor, options.action_rtol_fraction * options.rtol),
+        )
+        work_backend = _clone_backend_with_tol(backend, action_tol)
+        if hasattr(work_backend, "reset_stats"):
+            work_backend.reset_stats()
+    
+        t, y = t0, np.array(problem.y0, copy=True)
+        n1 = np.asarray(problem.nonlinear(t, y))
+        nonlinear_evals = 1
+        ts, ys, hs, errs = [t], [y.copy()], [], []
+        work_attempt, work_accept, modes = [], [], []
+        rejected = attempts = backend_failures = 0
+        prev_h = prev_work = None
+    
+        while t < tf:
+            if attempts >= options.max_steps:
+>               raise RuntimeError("maximum number of ETD34 attempts exceeded")
+E               RuntimeError: maximum number of ETD34 attempts exceeded
+
+src/pyexpint/embedded.py:131: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+h_min = 0.0
+
+    @pytest.mark.parametrize("h_min", [1e-3, 0.0])
+    def test_persistent_backend_failure_terminates_at_the_minimum_step(h_min):
+        problem, calls = jordan_problem()
+>       with pytest.raises(RuntimeError, match="minimum step|max_steps"):
+E       AssertionError: Regex pattern 'minimum step|max_steps' does not match 'maximum number of ETD34 attempts exceeded'.
+
+tests/test_c3_adaptive_contract.py:99: AssertionError
+______________ test_error_test_failure_at_h_min_terminates[etd34] ______________
+
+solver = <function run_etd34 at 0x7fc5b995e8e0>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_error_test_failure_at_h_min_terminates(solver):
+        problem, _ = logistic()
+        with pytest.raises(RuntimeError, match="error test failed at the minimum step"):
+>           solver(problem, rtol=1e-14, atol=1e-16, h0=0.1, h_min=0.1, max_steps=2000)
+
+tests/test_c3_adaptive_contract.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function logistic.<locals>.<lambda> at 0x7fc5b9931800>, y0=array([0.4]), t_span=(0.0, 1.0), exact_solution=<function logistic.<locals>.<lambda> at 0x7fc5b9931120>)
+backend = None
+opts = {'atol': 1e-16, 'h0': 0.1, 'h_min': 0.1, 'max_steps': 2000, ...}
+
+    def run_etd34(problem, backend=None, **opts):
+>       return solve_etd34(problem, backend or DiagonalBackend(), options=ETD34Options(**opts))
+
+tests/test_c3_adaptive_contract.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function logistic.<locals>.<lambda> at 0x7fc5b9931800>, y0=array([0.4]), t_span=(0.0, 1.0), exact_solution=<function logistic.<locals>.<lambda> at 0x7fc5b9931120>)
+backend = <pyexpint.backends.diagonal.DiagonalBackend object at 0x7fc5b570d550>
+options = ETD34Options(rtol=1e-14, atol=1e-16, h0=0.1, h_min=0.1, h_max=inf, safety=0.9, min_factor=0.2, max_factor=4.0, max_ste...cy', cost_metric='matvecs', cost_alpha=0.65241444, cost_beta=0.26862269, cost_lambda=1.37412002, cost_delta=0.64446017)
+overrides = {}, t0 = 0.0, tf = 1.0, span = 1.0, h = 0.1, action_tol = 1e-13
+work_backend = <pyexpint.backends.diagonal.DiagonalBackend object at 0x7fc5b570c090>
+
+    def solve_etd34(problem: SemilinearProblem, backend, *, options: ETD34Options | None = None, **overrides) -> Solution:
+        """Adaptive Krogstad fourth-order ETD with embedded third-order estimator."""
+        if options is None:
+            options = ETD34Options(**overrides)
+        elif overrides:
+            raise ValueError("pass either ETD34Options or keyword overrides, not both")
+    
+        t0, tf = map(float, problem.t_span)
+        span = tf - t0
+        h = options.h0 if options.h0 is not None else span / 16.0
+        h = min(h, options.h_max, span)
+    
+        action_tol = min(
+            options.action_tol_ceiling,
+            max(options.action_tol_floor, options.action_rtol_fraction * options.rtol),
+        )
+        work_backend = _clone_backend_with_tol(backend, action_tol)
+        if hasattr(work_backend, "reset_stats"):
+            work_backend.reset_stats()
+    
+        t, y = t0, np.array(problem.y0, copy=True)
+        n1 = np.asarray(problem.nonlinear(t, y))
+        nonlinear_evals = 1
+        ts, ys, hs, errs = [t], [y.copy()], [], []
+        work_attempt, work_accept, modes = [], [], []
+        rejected = attempts = backend_failures = 0
+        prev_h = prev_work = None
+    
+        while t < tf:
+            if attempts >= options.max_steps:
+>               raise RuntimeError("maximum number of ETD34 attempts exceeded")
+E               RuntimeError: maximum number of ETD34 attempts exceeded
+
+src/pyexpint/embedded.py:131: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+solver = <function run_etd34 at 0x7fc5b995e8e0>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_error_test_failure_at_h_min_terminates(solver):
+        problem, _ = logistic()
+>       with pytest.raises(RuntimeError, match="error test failed at the minimum step"):
+E       AssertionError: Regex pattern 'error test failed at the minimum step' does not match 'maximum number of ETD34 attempts exceeded'.
+
+tests/test_c3_adaptive_contract.py:107: AssertionError
+____________ test_error_test_failure_at_h_min_terminates[doubling] _____________
+
+solver = <function run_doubling at 0x7fc5b995e980>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_error_test_failure_at_h_min_terminates(solver):
+        problem, _ = logistic()
+        with pytest.raises(RuntimeError, match="error test failed at the minimum step"):
+>           solver(problem, rtol=1e-14, atol=1e-16, h0=0.1, h_min=0.1, max_steps=2000)
+
+tests/test_c3_adaptive_contract.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function logistic.<locals>.<lambda> at 0x7fc5b99313a0>, y0=array([0.4]), t_span=(0.0, 1.0), exact_solution=<function logistic.<locals>.<lambda> at 0x7fc5b99300e0>)
+backend = None
+opts = {'atol': 1e-16, 'h0': 0.1, 'h_min': 0.1, 'max_steps': 2000, ...}
+
+    def run_doubling(problem, backend=None, **opts):
+>       return solve_adaptive(problem, KROGSTAD, backend or DiagonalBackend(), options=AdaptiveOptions(**opts))
+
+tests/test_c3_adaptive_contract.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function logistic.<locals>.<lambda> at 0x7fc5b99313a0>, y0=array([0.4]), t_span=(0.0, 1.0), exact_solution=<function logistic.<locals>.<lambda> at 0x7fc5b99300e0>)
+method = MethodSpec(name='Krogstad', family='Exponential Runge-Kutta', c=(0.0, 0.5, 0.5, 1.0), U=((PhiCombination(terms=(PhiTer... Eq. (51), ETDRK4-B',), notes=(), legacy_file='krogstad.m', provenance_status='published', historical_comparator=False)
+backend = <pyexpint.backends.diagonal.DiagonalBackend object at 0x7fc5b98edd90>
+options = AdaptiveOptions(rtol=1e-14, atol=1e-16, h0=0.1, h_min=0.1, h_max=inf, safety=0.9, min_factor=0.2, max_factor=5.0, max_...ction_rtol_fraction=0.05, action_tol_floor=1e-13, action_tol_ceiling=1e-05, use_richardson=False, effective_order=None)
+option_overrides = {}, t0 = 0.0, tf = 1.0, span = 1.0, order = 4.0, denom = 15.0
+h = 0.1
+
+    def solve_adaptive(
+        problem: SemilinearProblem,
+        method,
+        backend,
+        *,
+        options: AdaptiveOptions | None = None,
+        **option_overrides,
+    ) -> Solution:
+        """Adaptive one-step integration using step doubling.
+    
+        The accepted solution is the two-half-step result.  Optional Richardson
+        extrapolation is available, but disabled by default because stiff order
+        reduction can invalidate use of the classical order in the correction.
+        """
+        if method.outputs != 1 or method.history_length != 0:
+            raise NotImplementedError(
+                "Adaptive stepping currently supports one-step methods only. "
+                "Variable-step multistep/EGLM methods require ratio-dependent coefficients."
+            )
+        if method.historical_comparator:
+            # The algorithm still works, but this keeps the intended API explicit.
+            pass
+    
+        if options is None:
+            options = AdaptiveOptions(**option_overrides)
+        elif option_overrides:
+            raise ValueError("pass either AdaptiveOptions or keyword overrides, not both")
+    
+        t0, tf = map(float, problem.t_span)
+        span = tf - t0
+        order = float(options.effective_order or method.classical_order)
+        if order <= 0:
+            raise ValueError("effective method order must be positive")
+        denom = max(1.0, 2.0**order - 1.0)
+    
+        if options.h0 is None:
+            h = min(options.h_max, span / 16.0)
+        else:
+            h = min(options.h_max, options.h0)
+        h = min(h, span)
+        if options.h_min > 0:
+            h = max(h, options.h_min)
+    
+        action_tol = options.action_rtol_fraction * options.rtol
+        action_tol = min(options.action_tol_ceiling, max(options.action_tol_floor, action_tol))
+        work_backend = _clone_backend_with_tol(backend, action_tol)
+        reset = getattr(work_backend, "reset_stats", None)
+        if reset is not None:
+            reset()
+    
+        t = t0
+        y = np.array(problem.y0, copy=True)
+        ts = [t]
+        ys = [y.copy()]
+        hs = []
+        errs = []
+        rejected = 0
+        attempts = 0
+        nonlinear_evals = 0
+    
+        while t < tf:
+            if attempts >= options.max_steps:
+>               raise RuntimeError("maximum number of adaptive step attempts exceeded")
+E               RuntimeError: maximum number of adaptive step attempts exceeded
+
+src/pyexpint/adaptive.py:204: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+solver = <function run_doubling at 0x7fc5b995e980>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_error_test_failure_at_h_min_terminates(solver):
+        problem, _ = logistic()
+>       with pytest.raises(RuntimeError, match="error test failed at the minimum step"):
+E       AssertionError: Regex pattern 'error test failed at the minimum step' does not match 'maximum number of adaptive step attempts exceeded'.
+
+tests/test_c3_adaptive_contract.py:107: AssertionError
+______________ test_persistent_nonfinite_trials_terminate[etd34] _______________
+
+solver = <function run_etd34 at 0x7fc5b995e8e0>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_persistent_nonfinite_trials_terminate(solver):
+        problem = SemilinearProblem(np.array([-1.0]),
+                                    lambda t, y: y * y if t < 0.3 else np.array([np.nan]),
+                                    np.array([0.4]), (0.0, 1.0))
+        with pytest.raises(RuntimeError, match="non-finite"):
+>           solver(problem, rtol=1e-6, atol=1e-9, h_min=1e-3, max_steps=2000)
+
+tests/test_c3_adaptive_contract.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function test_persistent_nonfinite_trials_terminate.<locals>.<lambda> at 0x7fc5b9931b20>, y0=array([0.4]), t_span=(0.0, 1.0), exact_solution=None)
+backend = None
+opts = {'atol': 1e-09, 'h_min': 0.001, 'max_steps': 2000, 'rtol': 1e-06}
+
+    def run_etd34(problem, backend=None, **opts):
+>       return solve_etd34(problem, backend or DiagonalBackend(), options=ETD34Options(**opts))
+
+tests/test_c3_adaptive_contract.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function test_persistent_nonfinite_trials_terminate.<locals>.<lambda> at 0x7fc5b9931b20>, y0=array([0.4]), t_span=(0.0, 1.0), exact_solution=None)
+backend = <pyexpint.backends.diagonal.DiagonalBackend object at 0x7fc5b9922cd0>
+options = ETD34Options(rtol=1e-06, atol=1e-09, h0=None, h_min=0.001, h_max=inf, safety=0.9, min_factor=0.2, max_factor=4.0, max_...cy', cost_metric='matvecs', cost_alpha=0.65241444, cost_beta=0.26862269, cost_lambda=1.37412002, cost_delta=0.64446017)
+overrides = {}, t0 = 0.0, tf = 1.0, span = 1.0, h = 0.001, action_tol = 5e-08
+work_backend = <pyexpint.backends.diagonal.DiagonalBackend object at 0x7fc5b9922a90>
+
+    def solve_etd34(problem: SemilinearProblem, backend, *, options: ETD34Options | None = None, **overrides) -> Solution:
+        """Adaptive Krogstad fourth-order ETD with embedded third-order estimator."""
+        if options is None:
+            options = ETD34Options(**overrides)
+        elif overrides:
+            raise ValueError("pass either ETD34Options or keyword overrides, not both")
+    
+        t0, tf = map(float, problem.t_span)
+        span = tf - t0
+        h = options.h0 if options.h0 is not None else span / 16.0
+        h = min(h, options.h_max, span)
+    
+        action_tol = min(
+            options.action_tol_ceiling,
+            max(options.action_tol_floor, options.action_rtol_fraction * options.rtol),
+        )
+        work_backend = _clone_backend_with_tol(backend, action_tol)
+        if hasattr(work_backend, "reset_stats"):
+            work_backend.reset_stats()
+    
+        t, y = t0, np.array(problem.y0, copy=True)
+        n1 = np.asarray(problem.nonlinear(t, y))
+        nonlinear_evals = 1
+        ts, ys, hs, errs = [t], [y.copy()], [], []
+        work_attempt, work_accept, modes = [], [], []
+        rejected = attempts = backend_failures = 0
+        prev_h = prev_work = None
+    
+        while t < tf:
+            if attempts >= options.max_steps:
+>               raise RuntimeError("maximum number of ETD34 attempts exceeded")
+E               RuntimeError: maximum number of ETD34 attempts exceeded
+
+src/pyexpint/embedded.py:131: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+solver = <function run_etd34 at 0x7fc5b995e8e0>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_persistent_nonfinite_trials_terminate(solver):
+        problem = SemilinearProblem(np.array([-1.0]),
+                                    lambda t, y: y * y if t < 0.3 else np.array([np.nan]),
+                                    np.array([0.4]), (0.0, 1.0))
+>       with pytest.raises(RuntimeError, match="non-finite"):
+E       AssertionError: Regex pattern 'non-finite' does not match 'maximum number of ETD34 attempts exceeded'.
+
+tests/test_c3_adaptive_contract.py:116: AssertionError
+_____________ test_persistent_nonfinite_trials_terminate[doubling] _____________
+
+solver = <function run_doubling at 0x7fc5b995e980>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_persistent_nonfinite_trials_terminate(solver):
+        problem = SemilinearProblem(np.array([-1.0]),
+                                    lambda t, y: y * y if t < 0.3 else np.array([np.nan]),
+                                    np.array([0.4]), (0.0, 1.0))
+        with pytest.raises(RuntimeError, match="non-finite"):
+>           solver(problem, rtol=1e-6, atol=1e-9, h_min=1e-3, max_steps=2000)
+
+tests/test_c3_adaptive_contract.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function test_persistent_nonfinite_trials_terminate.<locals>.<lambda> at 0x7fc5b9932020>, y0=array([0.4]), t_span=(0.0, 1.0), exact_solution=None)
+backend = None
+opts = {'atol': 1e-09, 'h_min': 0.001, 'max_steps': 2000, 'rtol': 1e-06}
+
+    def run_doubling(problem, backend=None, **opts):
+>       return solve_adaptive(problem, KROGSTAD, backend or DiagonalBackend(), options=AdaptiveOptions(**opts))
+
+tests/test_c3_adaptive_contract.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function test_persistent_nonfinite_trials_terminate.<locals>.<lambda> at 0x7fc5b9932020>, y0=array([0.4]), t_span=(0.0, 1.0), exact_solution=None)
+method = MethodSpec(name='Krogstad', family='Exponential Runge-Kutta', c=(0.0, 0.5, 0.5, 1.0), U=((PhiCombination(terms=(PhiTer... Eq. (51), ETDRK4-B',), notes=(), legacy_file='krogstad.m', provenance_status='published', historical_comparator=False)
+backend = <pyexpint.backends.diagonal.DiagonalBackend object at 0x7fc5b5755910>
+options = AdaptiveOptions(rtol=1e-06, atol=1e-09, h0=None, h_min=0.001, h_max=inf, safety=0.9, min_factor=0.2, max_factor=5.0, m...ction_rtol_fraction=0.05, action_tol_floor=1e-13, action_tol_ceiling=1e-05, use_richardson=False, effective_order=None)
+option_overrides = {}, t0 = 0.0, tf = 1.0, span = 1.0, order = 4.0, denom = 15.0
+h = 0.001
+
+    def solve_adaptive(
+        problem: SemilinearProblem,
+        method,
+        backend,
+        *,
+        options: AdaptiveOptions | None = None,
+        **option_overrides,
+    ) -> Solution:
+        """Adaptive one-step integration using step doubling.
+    
+        The accepted solution is the two-half-step result.  Optional Richardson
+        extrapolation is available, but disabled by default because stiff order
+        reduction can invalidate use of the classical order in the correction.
+        """
+        if method.outputs != 1 or method.history_length != 0:
+            raise NotImplementedError(
+                "Adaptive stepping currently supports one-step methods only. "
+                "Variable-step multistep/EGLM methods require ratio-dependent coefficients."
+            )
+        if method.historical_comparator:
+            # The algorithm still works, but this keeps the intended API explicit.
+            pass
+    
+        if options is None:
+            options = AdaptiveOptions(**option_overrides)
+        elif option_overrides:
+            raise ValueError("pass either AdaptiveOptions or keyword overrides, not both")
+    
+        t0, tf = map(float, problem.t_span)
+        span = tf - t0
+        order = float(options.effective_order or method.classical_order)
+        if order <= 0:
+            raise ValueError("effective method order must be positive")
+        denom = max(1.0, 2.0**order - 1.0)
+    
+        if options.h0 is None:
+            h = min(options.h_max, span / 16.0)
+        else:
+            h = min(options.h_max, options.h0)
+        h = min(h, span)
+        if options.h_min > 0:
+            h = max(h, options.h_min)
+    
+        action_tol = options.action_rtol_fraction * options.rtol
+        action_tol = min(options.action_tol_ceiling, max(options.action_tol_floor, action_tol))
+        work_backend = _clone_backend_with_tol(backend, action_tol)
+        reset = getattr(work_backend, "reset_stats", None)
+        if reset is not None:
+            reset()
+    
+        t = t0
+        y = np.array(problem.y0, copy=True)
+        ts = [t]
+        ys = [y.copy()]
+        hs = []
+        errs = []
+        rejected = 0
+        attempts = 0
+        nonlinear_evals = 0
+    
+        while t < tf:
+            if attempts >= options.max_steps:
+>               raise RuntimeError("maximum number of adaptive step attempts exceeded")
+E               RuntimeError: maximum number of adaptive step attempts exceeded
+
+src/pyexpint/adaptive.py:204: RuntimeError
+
+During handling of the above exception, another exception occurred:
+
+solver = <function run_doubling at 0x7fc5b995e980>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_persistent_nonfinite_trials_terminate(solver):
+        problem = SemilinearProblem(np.array([-1.0]),
+                                    lambda t, y: y * y if t < 0.3 else np.array([np.nan]),
+                                    np.array([0.4]), (0.0, 1.0))
+>       with pytest.raises(RuntimeError, match="non-finite"):
+E       AssertionError: Regex pattern 'non-finite' does not match 'maximum number of adaptive step attempts exceeded'.
+
+tests/test_c3_adaptive_contract.py:116: AssertionError
+______________ test_nonfinite_initial_nonlinear_term_is_rejected _______________
+
+    def test_nonfinite_initial_nonlinear_term_is_rejected():
+        problem = SemilinearProblem(np.array([-1.0]), lambda t, y: np.array([np.inf]), np.array([0.4]), (0.0, 1.0))
+        with pytest.raises(ValueError, match="non-finite"):
+>           run_etd34(problem, max_steps=2000)
+
+tests/test_c3_adaptive_contract.py:123: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_c3_adaptive_contract.py:29: in run_etd34
+    return solve_etd34(problem, backend or DiagonalBackend(), options=ETD34Options(**opts))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function test_nonfinite_initial_nonlinear_term_is_rejected.<locals>.<lambda> at 0x7fc5b9932160>, y0=array([0.4]), t_span=(0.0, 1.0), exact_solution=None)
+backend = <pyexpint.backends.diagonal.DiagonalBackend object at 0x7fc5b9997bd0>
+options = ETD34Options(rtol=1e-06, atol=1e-09, h0=None, h_min=0.0, h_max=inf, safety=0.9, min_factor=0.2, max_factor=4.0, max_st...cy', cost_metric='matvecs', cost_alpha=0.65241444, cost_beta=0.26862269, cost_lambda=1.37412002, cost_delta=0.64446017)
+overrides = {}, t0 = 0.0, tf = 1.0, span = 1.0, h = 0.0, action_tol = 5e-08
+work_backend = <pyexpint.backends.diagonal.DiagonalBackend object at 0x7fc5b9997c10>
+
+    def solve_etd34(problem: SemilinearProblem, backend, *, options: ETD34Options | None = None, **overrides) -> Solution:
+        """Adaptive Krogstad fourth-order ETD with embedded third-order estimator."""
+        if options is None:
+            options = ETD34Options(**overrides)
+        elif overrides:
+            raise ValueError("pass either ETD34Options or keyword overrides, not both")
+    
+        t0, tf = map(float, problem.t_span)
+        span = tf - t0
+        h = options.h0 if options.h0 is not None else span / 16.0
+        h = min(h, options.h_max, span)
+    
+        action_tol = min(
+            options.action_tol_ceiling,
+            max(options.action_tol_floor, options.action_rtol_fraction * options.rtol),
+        )
+        work_backend = _clone_backend_with_tol(backend, action_tol)
+        if hasattr(work_backend, "reset_stats"):
+            work_backend.reset_stats()
+    
+        t, y = t0, np.array(problem.y0, copy=True)
+        n1 = np.asarray(problem.nonlinear(t, y))
+        nonlinear_evals = 1
+        ts, ys, hs, errs = [t], [y.copy()], [], []
+        work_attempt, work_accept, modes = [], [], []
+        rejected = attempts = backend_failures = 0
+        prev_h = prev_work = None
+    
+        while t < tf:
+            if attempts >= options.max_steps:
+>               raise RuntimeError("maximum number of ETD34 attempts exceeded")
+E               RuntimeError: maximum number of ETD34 attempts exceeded
+
+src/pyexpint/embedded.py:131: RuntimeError
+______ test_unresolvable_step_size_is_reported_before_integrating[etd34] _______
+
+solver = <function run_etd34 at 0x7fc5b995e8e0>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_unresolvable_step_size_is_reported_before_integrating(solver):
+        t0 = 1e16
+        problem = SemilinearProblem(np.array([-1.0]), lambda t, y: 0.0 * y, np.array([1.0]), (t0, t0 + 64.0))
+        with pytest.raises(ValueError, match="smallest resolvable step"):
+>           solver(problem, h_max=0.5, max_steps=2000)
+
+tests/test_c3_adaptive_contract.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_c3_adaptive_contract.py:29: in run_etd34
+    return solve_etd34(problem, backend or DiagonalBackend(), options=ETD34Options(**opts))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function test_unresolvable_step_size_is_reported_before_int...ting.<locals>.<lambda> at 0x7fc5b9930cc0>, y0=array([1.]), t_span=(1e+16, 1.0000000000000064e+16), exact_solution=None)
+backend = <pyexpint.backends.diagonal.DiagonalBackend object at 0x7fc5b98ee790>
+options = ETD34Options(rtol=1e-06, atol=1e-09, h0=None, h_min=0.0, h_max=0.5, safety=0.9, min_factor=0.2, max_factor=4.0, max_st...cy', cost_metric='matvecs', cost_alpha=0.65241444, cost_beta=0.26862269, cost_lambda=1.37412002, cost_delta=0.64446017)
+overrides = {}, t0 = 1e+16, tf = 1.0000000000000064e+16, span = 64.0, h = 0.5
+action_tol = 5e-08
+work_backend = <pyexpint.backends.diagonal.DiagonalBackend object at 0x7fc5b98eeb10>
+
+    def solve_etd34(problem: SemilinearProblem, backend, *, options: ETD34Options | None = None, **overrides) -> Solution:
+        """Adaptive Krogstad fourth-order ETD with embedded third-order estimator."""
+        if options is None:
+            options = ETD34Options(**overrides)
+        elif overrides:
+            raise ValueError("pass either ETD34Options or keyword overrides, not both")
+    
+        t0, tf = map(float, problem.t_span)
+        span = tf - t0
+        h = options.h0 if options.h0 is not None else span / 16.0
+        h = min(h, options.h_max, span)
+    
+        action_tol = min(
+            options.action_tol_ceiling,
+            max(options.action_tol_floor, options.action_rtol_fraction * options.rtol),
+        )
+        work_backend = _clone_backend_with_tol(backend, action_tol)
+        if hasattr(work_backend, "reset_stats"):
+            work_backend.reset_stats()
+    
+        t, y = t0, np.array(problem.y0, copy=True)
+        n1 = np.asarray(problem.nonlinear(t, y))
+        nonlinear_evals = 1
+        ts, ys, hs, errs = [t], [y.copy()], [], []
+        work_attempt, work_accept, modes = [], [], []
+        rejected = attempts = backend_failures = 0
+        prev_h = prev_work = None
+    
+        while t < tf:
+            if attempts >= options.max_steps:
+>               raise RuntimeError("maximum number of ETD34 attempts exceeded")
+E               RuntimeError: maximum number of ETD34 attempts exceeded
+
+src/pyexpint/embedded.py:131: RuntimeError
+_____ test_unresolvable_step_size_is_reported_before_integrating[doubling] _____
+
+solver = <function run_doubling at 0x7fc5b995e980>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_unresolvable_step_size_is_reported_before_integrating(solver):
+        t0 = 1e16
+        problem = SemilinearProblem(np.array([-1.0]), lambda t, y: 0.0 * y, np.array([1.0]), (t0, t0 + 64.0))
+        with pytest.raises(ValueError, match="smallest resolvable step"):
+>           solver(problem, h_max=0.5, max_steps=2000)
+
+tests/test_c3_adaptive_contract.py:131: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_c3_adaptive_contract.py:33: in run_doubling
+    return solve_adaptive(problem, KROGSTAD, backend or DiagonalBackend(), options=AdaptiveOptions(**opts))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function test_unresolvable_step_size_is_reported_before_int...ting.<locals>.<lambda> at 0x7fc5b99328e0>, y0=array([1.]), t_span=(1e+16, 1.0000000000000064e+16), exact_solution=None)
+method = MethodSpec(name='Krogstad', family='Exponential Runge-Kutta', c=(0.0, 0.5, 0.5, 1.0), U=((PhiCombination(terms=(PhiTer... Eq. (51), ETDRK4-B',), notes=(), legacy_file='krogstad.m', provenance_status='published', historical_comparator=False)
+backend = <pyexpint.backends.diagonal.DiagonalBackend object at 0x7fc5b57a5cd0>
+options = AdaptiveOptions(rtol=1e-06, atol=1e-09, h0=None, h_min=0.0, h_max=0.5, safety=0.9, min_factor=0.2, max_factor=5.0, max...ction_rtol_fraction=0.05, action_tol_floor=1e-13, action_tol_ceiling=1e-05, use_richardson=False, effective_order=None)
+option_overrides = {}, t0 = 1e+16, tf = 1.0000000000000064e+16, span = 64.0
+order = 4.0, denom = 15.0, h = 0.5
+
+    def solve_adaptive(
+        problem: SemilinearProblem,
+        method,
+        backend,
+        *,
+        options: AdaptiveOptions | None = None,
+        **option_overrides,
+    ) -> Solution:
+        """Adaptive one-step integration using step doubling.
+    
+        The accepted solution is the two-half-step result.  Optional Richardson
+        extrapolation is available, but disabled by default because stiff order
+        reduction can invalidate use of the classical order in the correction.
+        """
+        if method.outputs != 1 or method.history_length != 0:
+            raise NotImplementedError(
+                "Adaptive stepping currently supports one-step methods only. "
+                "Variable-step multistep/EGLM methods require ratio-dependent coefficients."
+            )
+        if method.historical_comparator:
+            # The algorithm still works, but this keeps the intended API explicit.
+            pass
+    
+        if options is None:
+            options = AdaptiveOptions(**option_overrides)
+        elif option_overrides:
+            raise ValueError("pass either AdaptiveOptions or keyword overrides, not both")
+    
+        t0, tf = map(float, problem.t_span)
+        span = tf - t0
+        order = float(options.effective_order or method.classical_order)
+        if order <= 0:
+            raise ValueError("effective method order must be positive")
+        denom = max(1.0, 2.0**order - 1.0)
+    
+        if options.h0 is None:
+            h = min(options.h_max, span / 16.0)
+        else:
+            h = min(options.h_max, options.h0)
+        h = min(h, span)
+        if options.h_min > 0:
+            h = max(h, options.h_min)
+    
+        action_tol = options.action_rtol_fraction * options.rtol
+        action_tol = min(options.action_tol_ceiling, max(options.action_tol_floor, action_tol))
+        work_backend = _clone_backend_with_tol(backend, action_tol)
+        reset = getattr(work_backend, "reset_stats", None)
+        if reset is not None:
+            reset()
+    
+        t = t0
+        y = np.array(problem.y0, copy=True)
+        ts = [t]
+        ys = [y.copy()]
+        hs = []
+        errs = []
+        rejected = 0
+        attempts = 0
+        nonlinear_evals = 0
+    
+        while t < tf:
+            if attempts >= options.max_steps:
+>               raise RuntimeError("maximum number of adaptive step attempts exceeded")
+E               RuntimeError: maximum number of adaptive step attempts exceeded
+
+src/pyexpint/adaptive.py:204: RuntimeError
+____________ test_nonlinear_evaluations_are_counted_exactly[etd34] _____________
+
+solver = <function run_etd34 at 0x7fc5b995e8e0>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_nonlinear_evaluations_are_counted_exactly(solver):
+        problem, _ = logistic()
+        sol = solver(problem, rtol=1e-8, atol=1e-11)
+>       assert sol.stats["nonlinear_evals"] == sol.stats["nonlinear_evals_estimate"]
+E       KeyError: 'nonlinear_evals'
+
+tests/test_c3_adaptive_contract.py:148: KeyError
+___________ test_nonlinear_evaluations_are_counted_exactly[doubling] ___________
+
+solver = <function run_doubling at 0x7fc5b995e980>
+
+    @pytest.mark.parametrize("solver", SOLVERS)
+    def test_nonlinear_evaluations_are_counted_exactly(solver):
+        problem, _ = logistic()
+        sol = solver(problem, rtol=1e-8, atol=1e-11)
+>       assert sol.stats["nonlinear_evals"] == sol.stats["nonlinear_evals_estimate"]
+E       KeyError: 'nonlinear_evals'
+
+tests/test_c3_adaptive_contract.py:148: KeyError
+____ test_calibrated_auto_keeps_type_calibration_and_thresholds_when_cloned ____
+
+    def test_calibrated_auto_keeps_type_calibration_and_thresholds_when_cloned():
+        backend = CalibratedAutoBackend(CALIBRATION, tol=1e-8, leja_target_width=10.0)
+        backend.leja_width_threshold = 60.0          # a later manual adjustment must survive
+        clone = _clone_backend_with_tol(backend, 1e-11)
+>       assert type(clone) is CalibratedAutoBackend and clone.name == "auto-calibrated"
+E       AssertionError: assert (<class 'pyexpint.backends.auto.AutoBackend'> is CalibratedAutoBackend)
+E        +  where <class 'pyexpint.backends.auto.AutoBackend'> = type(<pyexpint.backends.auto.AutoBackend object at 0x7fc5b57a9110>)
+
+tests/test_c4_cloning_and_startup.py:30: AssertionError
+_______ test_calibrated_auto_provenance_reaches_the_solution_statistics ________
+
+    def test_calibrated_auto_provenance_reaches_the_solution_statistics():
+        p, _ = logistic()
+        sol = solve_etd34(p, CalibratedAutoBackend(CALIBRATION), options=ETD34Options(rtol=1e-6))
+        assert sol.backend == "adaptive-etd34:auto-calibrated"
+>       assert sol.stats["backend_stats"]["calibration"]["machine_label"] == "test-machine"
+E       KeyError: 'calibration'
+
+tests/test_c4_cloning_and_startup.py:40: KeyError
+_________ test_external_backend_with_tolerance_hook_is_admitted[etd34] _________
+
+solver = 'etd34'
+
+    @pytest.mark.parametrize("solver", ["etd34", "doubling"])
+    def test_external_backend_with_tolerance_hook_is_admitted(solver):
+        p, _ = logistic()
+        external = ExternalDiagonal()
+        if solver == "etd34":
+            run = lambda b: solve_etd34(p, b, options=ETD34Options(rtol=1e-7, action_rtol_fraction=0.01))
+        else:
+            run = lambda b: solve_adaptive(p, KROGSTAD, b, options=AdaptiveOptions(rtol=1e-7, action_rtol_fraction=0.01))
+>       got, ref = run(external), run(DiagonalBackend())
+
+tests/test_c4_cloning_and_startup.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_c4_cloning_and_startup.py:72: in <lambda>
+    run = lambda b: solve_etd34(p, b, options=ETD34Options(rtol=1e-7, action_rtol_fraction=0.01))
+src/pyexpint/embedded.py:117: in solve_etd34
+    work_backend = _clone_backend_with_tol(backend, action_tol)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+backend = <test_c4_cloning_and_startup.ExternalDiagonal object at 0x7fc5b98d9790>
+tol = 1e-09
+
+    def _clone_backend_with_tol(backend, tol: float):
+        """Clone a backend while preserving non-tolerance tuning parameters."""
+        if isinstance(backend, DiagonalBackend):
+            return DiagonalBackend()
+        if isinstance(backend, DenseBackend):
+            return DenseBackend()
+        if isinstance(backend, KiopsBackend):
+            o = backend.options
+            return KiopsBackend(
+                tol=tol, m_init=o.m_init, m_min=o.m_min, m_max=o.m_max,
+                orth_len=o.orth_len, delta=o.delta,
+            )
+        if isinstance(backend, ScipyKiopsBackend):
+            o = backend.kiops.options
+            return ScipyKiopsBackend(
+                tol=tol, m_init=o.m_init, m_min=o.m_min, m_max=o.m_max,
+                orth_len=o.orth_len, delta=o.delta,
+            )
+        if isinstance(backend, KrylovBackend):
+            o = backend.options
+            return KrylovBackend(
+                tol=tol, min_dim=o.min_dim, max_dim=o.max_dim,
+                check_every=o.check_every,
+                breakdown_tol=o.breakdown_tol,
+                reorthogonalize=o.reorthogonalize,
+                fail_on_nonconvergence=backend.fail_on_nonconvergence,
+                fuse_sums=backend.fuse_sums,
+            )
+        if isinstance(backend, LejaBackend):
+            o = backend.options
+            return LejaBackend(
+                tol=tol, spectral_bounds=backend.spectral_bounds,
+                min_degree=o.min_degree, max_degree=o.max_degree,
+                target_width=o.target_width, candidate_count=o.candidate_count,
+            )
+        if isinstance(backend, AutoBackend):
+            return AutoBackend(
+                tol=tol,
+                dense_cutoff=backend.dense_cutoff,
+                leja_min_size=backend.leja_min_size,
+                leja_width_threshold=backend.leja_width_threshold,
+                leja_target_width=backend.leja.options.target_width,
+            )
+>       raise TypeError(
+            f"Adaptive tolerance coupling is not implemented for backend {type(backend).__name__}."
+        )
+E       TypeError: Adaptive tolerance coupling is not implemented for backend ExternalDiagonal.
+
+src/pyexpint/adaptive.py:113: TypeError
+_______ test_external_backend_with_tolerance_hook_is_admitted[doubling] ________
+
+solver = 'doubling'
+
+    @pytest.mark.parametrize("solver", ["etd34", "doubling"])
+    def test_external_backend_with_tolerance_hook_is_admitted(solver):
+        p, _ = logistic()
+        external = ExternalDiagonal()
+        if solver == "etd34":
+            run = lambda b: solve_etd34(p, b, options=ETD34Options(rtol=1e-7, action_rtol_fraction=0.01))
+        else:
+            run = lambda b: solve_adaptive(p, KROGSTAD, b, options=AdaptiveOptions(rtol=1e-7, action_rtol_fraction=0.01))
+>       got, ref = run(external), run(DiagonalBackend())
+
+tests/test_c4_cloning_and_startup.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_c4_cloning_and_startup.py:74: in <lambda>
+    run = lambda b: solve_adaptive(p, KROGSTAD, b, options=AdaptiveOptions(rtol=1e-7, action_rtol_fraction=0.01))
+src/pyexpint/adaptive.py:187: in solve_adaptive
+    work_backend = _clone_backend_with_tol(backend, action_tol)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+backend = <test_c4_cloning_and_startup.ExternalDiagonal object at 0x7fc5b57cfa50>
+tol = 1e-09
+
+    def _clone_backend_with_tol(backend, tol: float):
+        """Clone a backend while preserving non-tolerance tuning parameters."""
+        if isinstance(backend, DiagonalBackend):
+            return DiagonalBackend()
+        if isinstance(backend, DenseBackend):
+            return DenseBackend()
+        if isinstance(backend, KiopsBackend):
+            o = backend.options
+            return KiopsBackend(
+                tol=tol, m_init=o.m_init, m_min=o.m_min, m_max=o.m_max,
+                orth_len=o.orth_len, delta=o.delta,
+            )
+        if isinstance(backend, ScipyKiopsBackend):
+            o = backend.kiops.options
+            return ScipyKiopsBackend(
+                tol=tol, m_init=o.m_init, m_min=o.m_min, m_max=o.m_max,
+                orth_len=o.orth_len, delta=o.delta,
+            )
+        if isinstance(backend, KrylovBackend):
+            o = backend.options
+            return KrylovBackend(
+                tol=tol, min_dim=o.min_dim, max_dim=o.max_dim,
+                check_every=o.check_every,
+                breakdown_tol=o.breakdown_tol,
+                reorthogonalize=o.reorthogonalize,
+                fail_on_nonconvergence=backend.fail_on_nonconvergence,
+                fuse_sums=backend.fuse_sums,
+            )
+        if isinstance(backend, LejaBackend):
+            o = backend.options
+            return LejaBackend(
+                tol=tol, spectral_bounds=backend.spectral_bounds,
+                min_degree=o.min_degree, max_degree=o.max_degree,
+                target_width=o.target_width, candidate_count=o.candidate_count,
+            )
+        if isinstance(backend, AutoBackend):
+            return AutoBackend(
+                tol=tol,
+                dense_cutoff=backend.dense_cutoff,
+                leja_min_size=backend.leja_min_size,
+                leja_width_threshold=backend.leja_width_threshold,
+                leja_target_width=backend.leja.options.target_width,
+            )
+>       raise TypeError(
+            f"Adaptive tolerance coupling is not implemented for backend {type(backend).__name__}."
+        )
+E       TypeError: Adaptive tolerance coupling is not implemented for backend ExternalDiagonal.
+
+src/pyexpint/adaptive.py:113: TypeError
+_____________ test_backend_without_hook_is_rejected_with_guidance ______________
+
+    def test_backend_without_hook_is_rejected_with_guidance():
+        class Bare:
+            name = "bare"
+    
+            def bind(self, linear_operator, h):
+                return DiagonalBackend().bind(linear_operator, h)
+    
+        p, _ = logistic()
+        with pytest.raises(TypeError, match="with_tolerance"):
+>           solve_etd34(p, Bare())
+
+tests/test_c4_cloning_and_startup.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+problem = SemilinearProblem(linear_operator=array([-1.]), nonlinear=<function logistic.<locals>.<lambda> at 0x7fc5b56684a0>, y0=array([0.4]), t_span=(0.0, 1.0), exact_solution=<function logistic.<locals>.<lambda> at 0x7fc5b5668540>)
+backend = <test_c4_cloning_and_startup.test_backend_without_hook_is_rejected_with_guidance.<locals>.Bare object at 0x7fc5b570cdd0>
+options = ETD34Options(rtol=1e-06, atol=1e-09, h0=None, h_min=0.0, h_max=inf, safety=0.9, min_factor=0.2, max_factor=4.0, max_st...cy', cost_metric='matvecs', cost_alpha=0.65241444, cost_beta=0.26862269, cost_lambda=1.37412002, cost_delta=0.64446017)
+overrides = {}, t0 = 0.0, tf = 1.0, span = 1.0, h = 0.0625, action_tol = 5e-08
+
+    def solve_etd34(problem: SemilinearProblem, backend, *, options: ETD34Options | None = None, **overrides) -> Solution:
+        """Adaptive Krogstad fourth-order ETD with embedded third-order estimator."""
+        if options is None:
+            options = ETD34Options(**overrides)
+        elif overrides:
+            raise ValueError("pass either ETD34Options or keyword overrides, not both")
+    
+        t0, tf = map(float, problem.t_span)
+        span = tf - t0
+        h = options.h0 if options.h0 is not None else span / 16.0
+        h = min(h, options.h_max, span)
+    
+        action_tol = min(
+            options.action_tol_ceiling,
+            max(options.action_tol_floor, options.action_rtol_fraction * options.rtol),
+        )
+>       work_backend = _clone_backend_with_tol(backend, action_tol)
+
+src/pyexpint/embedded.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+backend = <test_c4_cloning_and_startup.test_backend_without_hook_is_rejected_with_guidance.<locals>.Bare object at 0x7fc5b570cdd0>
+tol = 5e-08
+
+    def _clone_backend_with_tol(backend, tol: float):
+        """Clone a backend while preserving non-tolerance tuning parameters."""
+        if isinstance(backend, DiagonalBackend):
+            return DiagonalBackend()
+        if isinstance(backend, DenseBackend):
+            return DenseBackend()
+        if isinstance(backend, KiopsBackend):
+            o = backend.options
+            return KiopsBackend(
+                tol=tol, m_init=o.m_init, m_min=o.m_min, m_max=o.m_max,
+                orth_len=o.orth_len, delta=o.delta,
+            )
+        if isinstance(backend, ScipyKiopsBackend):
+            o = backend.kiops.options
+            return ScipyKiopsBackend(
+                tol=tol, m_init=o.m_init, m_min=o.m_min, m_max=o.m_max,
+                orth_len=o.orth_len, delta=o.delta,
+            )
+        if isinstance(backend, KrylovBackend):
+            o = backend.options
+            return KrylovBackend(
+                tol=tol, min_dim=o.min_dim, max_dim=o.max_dim,
+                check_every=o.check_every,
+                breakdown_tol=o.breakdown_tol,
+                reorthogonalize=o.reorthogonalize,
+                fail_on_nonconvergence=backend.fail_on_nonconvergence,
+                fuse_sums=backend.fuse_sums,
+            )
+        if isinstance(backend, LejaBackend):
+            o = backend.options
+            return LejaBackend(
+                tol=tol, spectral_bounds=backend.spectral_bounds,
+                min_degree=o.min_degree, max_degree=o.max_degree,
+                target_width=o.target_width, candidate_count=o.candidate_count,
+            )
+        if isinstance(backend, AutoBackend):
+            return AutoBackend(
+                tol=tol,
+                dense_cutoff=backend.dense_cutoff,
+                leja_min_size=backend.leja_min_size,
+                leja_width_threshold=backend.leja_width_threshold,
+                leja_target_width=backend.leja.options.target_width,
+            )
+>       raise TypeError(
+            f"Adaptive tolerance coupling is not implemented for backend {type(backend).__name__}."
+        )
+E       TypeError: Adaptive tolerance coupling is not implemented for backend Bare.
+
+src/pyexpint/adaptive.py:113: TypeError
+
+During handling of the above exception, another exception occurred:
+
+    def test_backend_without_hook_is_rejected_with_guidance():
+        class Bare:
+            name = "bare"
+    
+            def bind(self, linear_operator, h):
+                return DiagonalBackend().bind(linear_operator, h)
+    
+        p, _ = logistic()
+>       with pytest.raises(TypeError, match="with_tolerance"):
+E       AssertionError: Regex pattern 'with_tolerance' does not match 'Adaptive tolerance coupling is not implemented for backend Bare.'.
+
+tests/test_c4_cloning_and_startup.py:88: AssertionError
+__________________ test_decreasing_matvec_counter_is_reported __________________
+
+    def test_decreasing_matvec_counter_is_reported():
+        class Decreasing(ExternalDiagonal):
+            count = 10**6
+    
+            def stats(self):
+                Decreasing.count -= 1
+                return {"matvecs": Decreasing.count}
+    
+            def with_tolerance(self, tol):
+                return Decreasing(tol)
+    
+        p, _ = logistic()
+        with pytest.raises(RuntimeError, match="counter decreased"):
+>           solve_etd34(p, Decreasing())
+
+tests/test_c4_cloning_and_startup.py:105: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/pyexpint/embedded.py:117: in solve_etd34
+    work_backend = _clone_backend_with_tol(backend, action_tol)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+backend = <test_c4_cloning_and_startup.test_decreasing_matvec_counter_is_reported.<locals>.Decreasing object at 0x7fc5b9874c10>
+tol = 5e-08
+
+    def _clone_backend_with_tol(backend, tol: float):
+        """Clone a backend while preserving non-tolerance tuning parameters."""
+        if isinstance(backend, DiagonalBackend):
+            return DiagonalBackend()
+        if isinstance(backend, DenseBackend):
+            return DenseBackend()
+        if isinstance(backend, KiopsBackend):
+            o = backend.options
+            return KiopsBackend(
+                tol=tol, m_init=o.m_init, m_min=o.m_min, m_max=o.m_max,
+                orth_len=o.orth_len, delta=o.delta,
+            )
+        if isinstance(backend, ScipyKiopsBackend):
+            o = backend.kiops.options
+            return ScipyKiopsBackend(
+                tol=tol, m_init=o.m_init, m_min=o.m_min, m_max=o.m_max,
+                orth_len=o.orth_len, delta=o.delta,
+            )
+        if isinstance(backend, KrylovBackend):
+            o = backend.options
+            return KrylovBackend(
+                tol=tol, min_dim=o.min_dim, max_dim=o.max_dim,
+                check_every=o.check_every,
+                breakdown_tol=o.breakdown_tol,
+                reorthogonalize=o.reorthogonalize,
+                fail_on_nonconvergence=backend.fail_on_nonconvergence,
+                fuse_sums=backend.fuse_sums,
+            )
+        if isinstance(backend, LejaBackend):
+            o = backend.options
+            return LejaBackend(
+                tol=tol, spectral_bounds=backend.spectral_bounds,
+                min_degree=o.min_degree, max_degree=o.max_degree,
+                target_width=o.target_width, candidate_count=o.candidate_count,
+            )
+        if isinstance(backend, AutoBackend):
+            return AutoBackend(
+                tol=tol,
+                dense_cutoff=backend.dense_cutoff,
+                leja_min_size=backend.leja_min_size,
+                leja_width_threshold=backend.leja_width_threshold,
+                leja_target_width=backend.leja.options.target_width,
+            )
+>       raise TypeError(
+            f"Adaptive tolerance coupling is not implemented for backend {type(backend).__name__}."
+        )
+E       TypeError: Adaptive tolerance coupling is not implemented for backend Decreasing.
+
+src/pyexpint/adaptive.py:113: TypeError
+=============================== warnings summary ===============================
+tests/test_c3_adaptive_contract.py::test_nonfinite_initial_nonlinear_term_is_rejected
+  /tmp/tmp.ZpQWPG5PGl/c1/src/pyexpint/expressions.py:84: RuntimeWarning: invalid value encountered in add
+    out = out + term.alpha * ctx.phi_action(term.k, term.scale, v)
+
+tests/test_c3_adaptive_contract.py::test_nonfinite_initial_nonlinear_term_is_rejected
+  /tmp/tmp.ZpQWPG5PGl/c1/src/pyexpint/embedded.py:97: RuntimeWarning: invalid value encountered in subtract
+    err = h * method.B[0][3].apply(ctx, (G[3] / h) - n5)
+
+tests/test_c3_adaptive_contract.py::test_nonfinite_initial_nonlinear_term_is_rejected
+  /tmp/tmp.ZpQWPG5PGl/c1/src/pyexpint/embedded.py:87: RuntimeWarning: invalid value encountered in multiply
+    G = [h * np.asarray(n1)]
+
+tests/test_c3_adaptive_contract.py::test_nonfinite_initial_nonlinear_term_is_rejected
+  /tmp/tmp.ZpQWPG5PGl/c1/src/pyexpint/embedded.py:92: RuntimeWarning: invalid value encountered in multiply
+    G.append(h * Ni)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+-- generated xml file: /root/pyexpint_audit/c2c4_20261011_090542/B_new_c1.xml --
+=========================== short test summary info ============================
+FAILED tests/test_c2_work_accounting.py::test_auto_alternating_between_kiops_and_leja_is_counted_once
+FAILED tests/test_c2_work_accounting.py::test_auto_counter_is_authoritative_and_monotone_under_manual_alternation
+FAILED tests/test_c2_work_accounting.py::test_backend_without_counter_records_missing_work_not_seconds
+FAILED tests/test_c2_work_accounting.py::test_cost_controller_on_matvecs_requires_a_counting_backend
+FAILED tests/test_c2_work_accounting.py::test_startup_work_estimate_uses_the_actual_starter
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs0]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs3]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs5]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs7]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs8]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs10]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs11]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs12]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs13]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs14]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs15]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs16]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs17]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs19]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs20]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs21]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs24]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs25]
+FAILED tests/test_c3_adaptive_contract.py::test_etd34_options_reject_invalid_values[kwargs26]
+FAILED tests/test_c3_adaptive_contract.py::test_adaptive_options_reject_invalid_values[kwargs0]
+FAILED tests/test_c3_adaptive_contract.py::test_adaptive_options_reject_invalid_values[kwargs3]
+FAILED tests/test_c3_adaptive_contract.py::test_adaptive_options_reject_invalid_values[kwargs5]
+FAILED tests/test_c3_adaptive_contract.py::test_adaptive_options_reject_invalid_values[kwargs7]
+FAILED tests/test_c3_adaptive_contract.py::test_adaptive_options_reject_invalid_values[kwargs8]
+FAILED tests/test_c3_adaptive_contract.py::test_adaptive_options_reject_invalid_values[kwargs15]
+FAILED tests/test_c3_adaptive_contract.py::test_adaptive_options_reject_invalid_values[kwargs17]
+FAILED tests/test_c3_adaptive_contract.py::test_adaptive_options_reject_invalid_values[kwargs20]
+FAILED tests/test_c3_adaptive_contract.py::test_adaptive_options_reject_invalid_values[kwargs21]
+FAILED tests/test_c3_adaptive_contract.py::test_adaptive_options_reject_invalid_values[kwargs22]
+FAILED tests/test_c3_adaptive_contract.py::test_adaptive_options_reject_invalid_values[kwargs23]
+FAILED tests/test_c3_adaptive_contract.py::test_backend_failures_are_rejections_followed_by_acceptance
+FAILED tests/test_c3_adaptive_contract.py::test_persistent_backend_failure_terminates_at_the_minimum_step[0.001]
+FAILED tests/test_c3_adaptive_contract.py::test_persistent_backend_failure_terminates_at_the_minimum_step[0.0]
+FAILED tests/test_c3_adaptive_contract.py::test_error_test_failure_at_h_min_terminates[etd34]
+FAILED tests/test_c3_adaptive_contract.py::test_error_test_failure_at_h_min_terminates[doubling]
+FAILED tests/test_c3_adaptive_contract.py::test_persistent_nonfinite_trials_terminate[etd34]
+FAILED tests/test_c3_adaptive_contract.py::test_persistent_nonfinite_trials_terminate[doubling]
+FAILED tests/test_c3_adaptive_contract.py::test_nonfinite_initial_nonlinear_term_is_rejected
+FAILED tests/test_c3_adaptive_contract.py::test_unresolvable_step_size_is_reported_before_integrating[etd34]
+FAILED tests/test_c3_adaptive_contract.py::test_unresolvable_step_size_is_reported_before_integrating[doubling]
+FAILED tests/test_c3_adaptive_contract.py::test_nonlinear_evaluations_are_counted_exactly[etd34]
+FAILED tests/test_c3_adaptive_contract.py::test_nonlinear_evaluations_are_counted_exactly[doubling]
+FAILED tests/test_c4_cloning_and_startup.py::test_calibrated_auto_keeps_type_calibration_and_thresholds_when_cloned
+FAILED tests/test_c4_cloning_and_startup.py::test_calibrated_auto_provenance_reaches_the_solution_statistics
+FAILED tests/test_c4_cloning_and_startup.py::test_external_backend_with_tolerance_hook_is_admitted[etd34]
+FAILED tests/test_c4_cloning_and_startup.py::test_external_backend_with_tolerance_hook_is_admitted[doubling]
+FAILED tests/test_c4_cloning_and_startup.py::test_backend_without_hook_is_rejected_with_guidance
+FAILED tests/test_c4_cloning_and_startup.py::test_decreasing_matvec_counter_is_reported
+53 failed, 27 passed, 4 warnings in 39.80s

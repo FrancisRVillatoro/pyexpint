@@ -1,0 +1,103 @@
+{
+  "schema": "pyexpint-crosscheck-summary-transcription-1",
+  "source_file": "reproducibility/expint_crosscheck/crosscheck_report.txt",
+  "source_sha256": "9011e3e0f69fc6dd396c37978f1785a2b90c451728250aa866beea73626e746d",
+  "hash_scope": "supplied bytes; not a historical-execution or software-candidate hash",
+  "methods_compared": 47,
+  "agreeing_group": {
+    "count": 42,
+    "threshold_as_printed": "1e-12",
+    "largest_scalar_relative_difference_as_printed": "1.3e-15",
+    "largest_matrix_relative_difference_as_printed": "5.9e-15",
+    "individual_rows_supplied": false
+  },
+  "one_line_corrections": [
+    {
+      "method": "ABLawson2",
+      "original_scalar": "3.6e-02",
+      "original_matrix": "3.7e-02",
+      "corrected_scalar": "2.3e-16",
+      "corrected_matrix": "6.2e-15",
+      "reported_status": "OK",
+      "kind": "one_line_correction"
+    },
+    {
+      "method": "ETD2RK",
+      "original_scalar": "2.5e-01",
+      "original_matrix": "2.8e-01",
+      "corrected_scalar": "0.0e+00",
+      "corrected_matrix": "5.0e-15",
+      "reported_status": "OK",
+      "kind": "one_line_correction"
+    },
+    {
+      "method": "ETD5RKF",
+      "original_scalar": "6.5e-03",
+      "original_matrix": "8.5e-15",
+      "corrected_scalar": "2.3e-14",
+      "corrected_matrix": "8.5e-15",
+      "reported_status": "OK",
+      "kind": "one_line_correction"
+    },
+    {
+      "method": "ETD2CF3",
+      "original_scalar": "3.4e-07",
+      "original_matrix": "5.3e-07",
+      "corrected_scalar": "2.7e-15",
+      "corrected_matrix": "1.7e-15",
+      "reported_status": "OK",
+      "kind": "one_line_correction"
+    }
+  ],
+  "regenerated_entry": {
+    "method": "ModGenLawson45",
+    "original_scalar": "7.7e-09",
+    "original_matrix": "2.5e-08",
+    "corrected_final_state_comparison_supplied": false,
+    "coefficient_argument_as_printed": "-0.3",
+    "index_convention": "not specified; reproduced verbatim",
+    "coefficient_pairs": [
+      {
+        "entry_as_printed": "V[1,2]",
+        "pyexpint_as_printed": "-0.013806254694738",
+        "expint_2005_as_printed": "-0.008445356126745"
+      },
+      {
+        "entry_as_printed": "V[1,3]",
+        "pyexpint_as_printed": "+0.011344865515137",
+        "expint_2005_as_printed": "+0.005983966947144"
+      },
+      {
+        "entry_as_printed": "V[1,4]",
+        "pyexpint_as_printed": "-0.004742475054817",
+        "expint_2005_as_printed": "-0.002062025770820"
+      },
+      {
+        "entry_as_printed": "V[1,5]",
+        "pyexpint_as_printed": "+0.000806499599604",
+        "expint_2005_as_printed": "+0.000270409742804"
+      },
+      {
+        "entry_as_printed": "B[1,1]",
+        "pyexpint_as_printed": "+0.132016135298815",
+        "expint_2005_as_printed": "+0.129335686014818"
+      },
+      {
+        "entry_as_printed": "B[1,4]",
+        "pyexpint_as_printed": "+0.164515176113568",
+        "expint_2005_as_printed": "+0.165051265970368"
+      }
+    ]
+  },
+  "reported_result": "OK",
+  "not_supplied_by_this_report": [
+    "individual results for the 42 agreeing entries",
+    "full problem definitions and options",
+    "step-size refinement sequences",
+    "historical source hashes and correction diffs",
+    "software-candidate identity",
+    "execution environment",
+    "275-test or clean-installation logs"
+  ],
+  "scope": "parsing and internal consistency of an author-supplied summary; no numerical rerun"
+}

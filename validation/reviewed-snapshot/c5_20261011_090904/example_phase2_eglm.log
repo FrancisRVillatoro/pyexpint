@@ -1,0 +1,2 @@
+EGLM433 error= 2.0065099581856316e-10 stats= {'steps': 32, 'main_steps': 30, 'startup_steps': 2, 'startup_policy': 'exact', 'starter_method': None, 'nonlinear_evals_estimate': 90, 'external_outputs': 3, 'backend_stats': {}}
+GenLawson43 error= 1.0175610354323794e-11 stats= {'steps': 32, 'main_steps': 30, 'startup_steps': 2, 'startup_policy': 'exact', 'starter_method': None, 'nonlinear_evals_estimate': 120, 'external_outputs': 3, 'backend_stats': {}}

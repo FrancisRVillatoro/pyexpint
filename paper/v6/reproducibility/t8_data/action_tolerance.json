@@ -1,0 +1,77 @@
+{
+  "n": 128,
+  "T": 1.0,
+  "method": "Krogstad",
+  "rows": [
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "action_fraction": 1.0,
+      "error_inf": 8.80286083193571e-08,
+      "matvecs": 888
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "action_fraction": 0.1,
+      "error_inf": 8.80286083193571e-08,
+      "matvecs": 888
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "action_fraction": 0.03,
+      "error_inf": 8.80286083193571e-08,
+      "matvecs": 888
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "action_fraction": 0.01,
+      "error_inf": 8.80286083193571e-08,
+      "matvecs": 888
+    },
+    {
+      "backend": "kiops",
+      "rtol": 1e-06,
+      "action_fraction": 0.003,
+      "error_inf": 8.80286083193571e-08,
+      "matvecs": 888
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "action_fraction": 1.0,
+      "error_inf": 6.640540890084923e-07,
+      "matvecs": 1793
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "action_fraction": 0.1,
+      "error_inf": 6.393646737046232e-08,
+      "matvecs": 1991
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "action_fraction": 0.03,
+      "error_inf": 9.403321682421861e-08,
+      "matvecs": 2095
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "action_fraction": 0.01,
+      "error_inf": 9.036040149457136e-08,
+      "matvecs": 2190
+    },
+    {
+      "backend": "leja",
+      "rtol": 1e-06,
+      "action_fraction": 0.003,
+      "error_inf": 8.85349393103807e-08,
+      "matvecs": 2266
+    }
+  ]
+}

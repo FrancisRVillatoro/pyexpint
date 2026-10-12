@@ -1,0 +1,86 @@
+\documentclass[acmsmall,review]{acmart}
+
+\settopmatter{printacmref=true,printfolios=true}
+\acmJournal{TOMS}
+\acmYear{2026}
+\copyrightyear{2026}
+\acmDOI{}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{placeins}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+\graphicspath{{figures/}}
+\makeatletter
+\def\input@path{{sections/}{tables/}{figures/}}
+\makeatother
+
+\newcommand{\pkg}{\textsc{PyEXPINT}}
+\newcommand{\releaseversion}{0.9.0}  % retained package metadata; the private candidate is identified by its source-tree hash
+\newcommand{\phik}{\varphi_k}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+
+\title{PyEXPINT: A Validated Backend-Independent Framework for Exponential General Linear Integrators}
+
+\author{Francisco R. Villatoro}
+\orcid{0000-0003-4314-6213}
+\affiliation{%
+  \institution{Escuela de Ingenier\'ias Industriales, Universidad de M\'alaga}
+  \city{M\'alaga}
+  \country{Spain}}
+\email{frvillatoro@uma.es}  % correspondence address recorded in the project history
+
+\begin{abstract}
+Exponential integrators treat a dominant linear operator exactly and the remaining nonlinear dynamics explicitly, but a usable implementation must also fix how method coefficients, matrix-function actions, history, adaptivity and diagnostics interact. \pkg{} is a Python framework that expresses exponential Runge--Kutta, multistep and general linear schemes in a single explicit exponential general linear form and executes the same method definitions through interchangeable realizations of the action of phi-functions. The release reconstructs the 47-entry catalogue of the EXPINT package. The archived cross-check of two specified problems reports near-roundoff agreement with the original 2005 implementation for 42 entries, agreement after a one-line correction for four further entries, and regenerated output coefficients for the remaining entry. The framework provides an operator-expression layer for combinations of phi-functions, dense, diagonal, full-Arnoldi, KIOPS-type, real-Leja and hybrid realizations, a rule-based selector, algebraic fusion of compatible actions, fixed-step integration with explicit startup policies, step-doubling control and the embedded ETD34 pair, whose error estimate is shown to vanish for state-independent forcing. Work-precision experiments show that method rankings depend on the work observable, and paired timing campaigns show that backend conclusions are configuration and hardware dependent, so algorithmic work and achieved accuracy are reported as primary evidence. The manuscript package preserves comparison records and data-to-figure and data-to-table transformations; the software candidate and its execution-level validation are identified separately.
+\end{abstract}
+
+\ccsdesc[500]{Mathematics of computing~Numerical analysis}
+\ccsdesc[300]{Software and its engineering~Software libraries and repositories}
+\ccsdesc[300]{Computing methodologies~Modeling and simulation}
+
+\keywords{exponential integrators, general linear methods, matrix functions, Krylov methods, KIOPS, Leja interpolation, scientific software, reproducible benchmarking}
+
+\begin{document}
+\maketitle
+
+\input{01_introduction.tex}
+\FloatBarrier
+\input{02_mathematical_framework.tex}
+\FloatBarrier
+\input{03_architecture.tex}
+\FloatBarrier
+\input{04_catalogue.tex}
+\FloatBarrier
+\input{05_backends.tex}
+\FloatBarrier
+\input{06_adaptivity.tex}
+\FloatBarrier
+\input{07_experiments.tex}
+\FloatBarrier
+\clearpage
+\input{08_related_work.tex}
+\FloatBarrier
+\input{09_reproducibility_limitations.tex}
+\FloatBarrier
+\input{10_conclusions.tex}
+
+\begin{acks}
+This work was supported by the Universidad de M\'alaga through project PPRO-B4-2026-004 of its Plan Propio de Investigaci\'on, Transferencia y Divulgaci\'on Cient\'ifica. The computations of the canonical timing campaigns were carried out on the Picasso supercomputer of the Supercomputing and Bioinnovation Center (SCBI) of the Universidad de M\'alaga. The use of AI-assisted tools is described in Section~\ref{sec:ai-use}.
+\end{acks}
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}

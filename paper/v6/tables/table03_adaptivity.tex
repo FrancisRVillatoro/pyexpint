@@ -1,0 +1,20 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{Structural comparison of the generic step-doubling controller and the embedded ETD34 pair, as implemented in the submitted version. Counts refer to completed trials, not to equal numbers of accepted steps or equal final errors.}\label{tab:adaptivity}
+\begin{tabularx}{\linewidth}{@{}p{3.05cm}X X@{}}\toprule
+Property & Generic step doubling & Embedded ETD34\\\midrule
+Applicability & Any one-step MethodSpec & Krogstad fourth-order candidate\\\addlinespace
+Error indicator & $(y_{h/2,h/2}-y_h)/(2^p-1)$ & $h[-\varphi_2(hL)+4\varphi_3(hL)](N_4-N_5)$; vanishes for state-independent $N$\\\addlinespace
+Classical local scaling & $O(h^{p+1})$ & $O(h^4)$\\\addlinespace
+Accepted state & Two-half-step solution; no default Richardson extrapolation & Fourth-order Krogstad candidate\\\addlinespace
+Nonlinear evaluations & Twelve per completed Krogstad trial (eleven would suffice) & Four per completed trial after one initial evaluation\\\addlinespace
+Evaluation count & Exact, by wrapping the nonlinear function; failed attempts included & Exact, by wrapping the nonlinear function; failed attempts included\\\addlinespace
+Matrix-action work & $K(h)+2K(h/2)$ & $K(h)$ plus the estimator coefficient action\\\addlinespace
+Endpoint reuse & Not used by this generic implementation & Endpoint FSAL; retain old $N_1$ on rejection\\\addlinespace
+Action accuracy & Separate solver-level tolerance & Separate solver-level tolerance\\\addlinespace
+Action failure or non-finite trial & Rejected step, retried with half the step & Rejected step, retried with half the step; recorded separately\\\addlinespace
+Termination & Explicit minimum step $\max(h_{\min},16\varepsilon T)$; failure there ends the run with a named cause & Same\\\bottomrule
+\end{tabularx}
+\par\smallskip\footnotesize
+No guarantee equating requested local tolerance to global solution error is implied.
+\end{table}

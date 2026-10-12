@@ -1,0 +1,201 @@
+{
+ "n": 256,
+ "T": 0.3,
+ "h": 0.05,
+ "reaction": "0.08 u^2",
+ "u0": "0.05 + 0.01 sin(s), s uniform on [0, pi]",
+ "action_tol": 1e-10,
+ "rows": [
+  {
+   "method": "ETD4RK",
+   "arnoldi_matvecs_unfused": 756,
+   "arnoldi_matvecs_fused": 594,
+   "arnoldi_final_state_rel_diff": 1.1548294160016985e-16,
+   "kiops_matvecs_unfused": 936,
+   "kiops_matvecs_fused": 720,
+   "kiops_final_state_rel_diff": 0.0
+  },
+  {
+   "method": "Krogstad",
+   "arnoldi_matvecs_unfused": 756,
+   "arnoldi_matvecs_fused": 486,
+   "arnoldi_final_state_rel_diff": 0.0,
+   "kiops_matvecs_unfused": 936,
+   "kiops_matvecs_fused": 576,
+   "kiops_final_state_rel_diff": 0.0
+  },
+  {
+   "method": "HochOst4",
+   "arnoldi_matvecs_unfused": 1026,
+   "arnoldi_matvecs_fused": 756,
+   "arnoldi_final_state_rel_diff": 1.1548294160016983e-16,
+   "kiops_matvecs_unfused": 1584,
+   "kiops_matvecs_fused": 1224,
+   "kiops_final_state_rel_diff": 0.0
+  },
+  {
+   "method": "PEC423",
+   "arnoldi_matvecs_unfused": 774,
+   "arnoldi_matvecs_fused": 510,
+   "arnoldi_final_state_rel_diff": 9.238635328013588e-16,
+   "kiops_matvecs_unfused": 960,
+   "kiops_matvecs_fused": 600,
+   "kiops_final_state_rel_diff": 9.238635328013588e-16
+  },
+  {
+   "method": "EGLM433",
+   "arnoldi_matvecs_unfused": 990,
+   "arnoldi_matvecs_fused": 609,
+   "arnoldi_final_state_rel_diff": 1.1548294160016987e-15,
+   "kiops_matvecs_unfused": 1248,
+   "kiops_matvecs_fused": 696,
+   "kiops_final_state_rel_diff": 8.083805912011891e-16
+  },
+  {
+   "method": "GenLawson43",
+   "arnoldi_matvecs_unfused": 1206,
+   "arnoldi_matvecs_fused": 1044,
+   "arnoldi_final_state_rel_diff": 0.0,
+   "kiops_matvecs_unfused": 1728,
+   "kiops_matvecs_fused": 1512,
+   "kiops_final_state_rel_diff": 0.0
+  },
+  {
+   "method": "ModGenLawson43",
+   "arnoldi_matvecs_unfused": 1206,
+   "arnoldi_matvecs_fused": 1044,
+   "arnoldi_final_state_rel_diff": 0.0,
+   "kiops_matvecs_unfused": 1824,
+   "kiops_matvecs_fused": 1608,
+   "kiops_final_state_rel_diff": 0.0
+  }
+ ],
+ "initial_state_sensitivity_arnoldi": [
+  {
+   "u0": "0.04 + 0.01 sin(s)",
+   "method": "ETD4RK",
+   "unfused": 756,
+   "fused": 594
+  },
+  {
+   "u0": "0.04 + 0.01 sin(s)",
+   "method": "Krogstad",
+   "unfused": 756,
+   "fused": 486
+  },
+  {
+   "u0": "0.04 + 0.01 sin(s)",
+   "method": "HochOst4",
+   "unfused": 1026,
+   "fused": 756
+  },
+  {
+   "u0": "0.04 + 0.01 sin(s)",
+   "method": "PEC423",
+   "unfused": 774,
+   "fused": 504
+  },
+  {
+   "u0": "0.04 + 0.01 sin(s)",
+   "method": "EGLM433",
+   "unfused": 990,
+   "fused": 603
+  },
+  {
+   "u0": "0.04 + 0.01 sin(s)",
+   "method": "GenLawson43",
+   "unfused": 1206,
+   "fused": 1044
+  },
+  {
+   "u0": "0.04 + 0.01 sin(s)",
+   "method": "ModGenLawson43",
+   "unfused": 1206,
+   "fused": 1044
+  },
+  {
+   "u0": "sin(s)",
+   "method": "ETD4RK",
+   "unfused": 756,
+   "fused": 594
+  },
+  {
+   "u0": "sin(s)",
+   "method": "Krogstad",
+   "unfused": 756,
+   "fused": 486
+  },
+  {
+   "u0": "sin(s)",
+   "method": "HochOst4",
+   "unfused": 1026,
+   "fused": 756
+  },
+  {
+   "u0": "sin(s)",
+   "method": "PEC423",
+   "unfused": 774,
+   "fused": 504
+  },
+  {
+   "u0": "sin(s)",
+   "method": "EGLM433",
+   "unfused": 990,
+   "fused": 600
+  },
+  {
+   "u0": "sin(s)",
+   "method": "GenLawson43",
+   "unfused": 1206,
+   "fused": 1044
+  },
+  {
+   "u0": "sin(s)",
+   "method": "ModGenLawson43",
+   "unfused": 1206,
+   "fused": 1044
+  },
+  {
+   "u0": "0.1 exp(-50 (x - 0.5)^2), x uniform on [0, 1]",
+   "method": "ETD4RK",
+   "unfused": 756,
+   "fused": 594
+  },
+  {
+   "u0": "0.1 exp(-50 (x - 0.5)^2), x uniform on [0, 1]",
+   "method": "Krogstad",
+   "unfused": 756,
+   "fused": 486
+  },
+  {
+   "u0": "0.1 exp(-50 (x - 0.5)^2), x uniform on [0, 1]",
+   "method": "HochOst4",
+   "unfused": 1026,
+   "fused": 756
+  },
+  {
+   "u0": "0.1 exp(-50 (x - 0.5)^2), x uniform on [0, 1]",
+   "method": "PEC423",
+   "unfused": 774,
+   "fused": 504
+  },
+  {
+   "u0": "0.1 exp(-50 (x - 0.5)^2), x uniform on [0, 1]",
+   "method": "EGLM433",
+   "unfused": 990,
+   "fused": 600
+  },
+  {
+   "u0": "0.1 exp(-50 (x - 0.5)^2), x uniform on [0, 1]",
+   "method": "GenLawson43",
+   "unfused": 1206,
+   "fused": 1044
+  },
+  {
+   "u0": "0.1 exp(-50 (x - 0.5)^2), x uniform on [0, 1]",
+   "method": "ModGenLawson43",
+   "unfused": 1206,
+   "fused": 1044
+  }
+ ]
+}

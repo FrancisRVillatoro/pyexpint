@@ -1,0 +1,77 @@
+\section{Relationship to existing exponential-integrator software}\label{sec:related}
+
+Table~\ref{tab:comparison} summarizes the functional position of \pkg{} with
+respect to the packages discussed below.  The comparison is deliberately not a
+runtime ranking.
+\input{table07_comparison.tex}
+
+The most direct historical reference is EXPINT
+itself~\cite{BerlandSkaflestadWright2007}.  EXPINT was designed to make a broad
+set of exponential Runge--Kutta, multistep and general linear formulas easy to
+deploy and test in MATLAB, with the matrix-function technology of its period,
+Pad\'e approximants of the $\varphi$ functions~\cite{SkaflestadWright2009}.
+\pkg{} preserves the value of the broad catalogue but changes the software
+decomposition: method coefficients become backend-independent analytic
+expressions, all explicit methods pass through one external-state engine, and
+large-scale matrix-function-vector algorithms are interchangeable realizations
+rather than embedded method code.  The relationship is established by
+execution: Section~\ref{sec:crosscheck} runs the original package against the
+reconstruction, method by method.
+
+EXPODE pursued another broad-toolbox design in MATLAB and supports several
+classes of exponential integrators together with direct and Krylov-based
+matrix-function evaluation, including adaptivity for some
+methods~\cite{Jansing2014}.  The overlap is conceptual: both projects treat
+experimentation across integrator classes as a software goal.  \pkg{} differs
+in the unification around an explicit EGLM registry, the reconstructed and
+cross-checked EXPINT catalogue, its action algebra, and the work and provenance
+instrumentation.
+
+At the matrix-function level, Expokit~\cite{Sidje1998}, Algorithm~919 and
+KIOPS are not competitors to the \pkg{} architecture so much as exemplars of
+why the action boundary is needed.  Algorithm~919 develops an adaptive Krylov
+procedure for combinations of the exponential and $\varphi$
+functions~\cite{NiesenWright2012}; KIOPS extends the augmented-Krylov strategy
+with adaptive incomplete orthogonalization and substepping for
+exponential-integrator workloads~\cite{GaudreaultRainwaterTokman2018}.  The
+\pkg{} KIOPS-type backend is an independent implementation derived from the
+published algorithmic ideas, which is why it is not called KIOPS, and it is not
+claimed to outperform the reference implementation.  The real-Leja backend
+follows the interpolation of Caliari, Vianello and
+Bergamaschi~\cite{CaliariVianelloBergamaschi2004} with the backward-error view
+of Caliari, Kandolf, Ostermann and Rainer~\cite{CaliariKandolfOstermannRainer2016};
+LeXInt provides Leja-based exponential Rosenbrock and EPIRK integrators in
+Python and a later C++/CUDA
+version~\cite{DekaEinkemmerTokman2023,DekaMorigglEinkemmer2023}, and shows that
+polynomial actions can be competitive with Krylov methods.  In \pkg{} Leja is
+one realization available to the same historical method definitions rather
+than the defining representation of the library.
+
+The closest Python neighbour of the adaptive solver is \texttt{rkstiff}, which
+implements the ETD34 pair of Whalen, Brio and
+Moloney~\cite{WhalenBrioMoloney2015} together with ETD35, IF34 and IF45DP for
+diagonal or dense matrix linear operators~\cite{rkstiff}.  \pkg{} implements the same ETD34
+estimator for general operators and documents its blindness to
+state-independent forcing, which the robustness analysis of Zoto and
+Bowman~\cite{ZotoBowman2023} addresses with new pairs.
+
+SciPy provides a widely used exponential-action implementation through
+\texttt{expm\_multiply}~\cite{AlMohyHigham2011,VirtanenEtAl2020}.  \pkg{} uses
+that functionality in its hybrid realization instead of replacing the
+scientific Python ecosystem's mature pure-exponential path.  NumPy and SciPy
+also provide the array, dense and sparse, transform and linear-algebra
+substrate for the package~\cite{HarrisEtAl2020,VirtanenEtAl2020}.
+
+The Julia ecosystem separates reusable matrix-function actions from
+time-integration packages in a way that is closest to the design adopted
+here.  ExponentialUtilities.jl supplies matrix exponential and $\varphi$-action
+utilities, including KIOPS, for the SciML
+integrators~\cite{ExponentialUtilities2026}, and OrdinaryDiffEq.jl offers
+Lawson, N{\o}rsett, ETDRK, HochOst4, Exp4, EPIRK and adaptive Exprb schemes
+whose actions are either cached dense functions or Krylov evaluations
+selected by one option~\cite{OrdinaryDiffEqExponential}.  That switch is the
+same separation of method and realization pursued here with six realizations,
+an explicit algebra of combinations, fusion and an extension hook.  The niche
+of \pkg{} is the combination of a validated historical EGLM registry, one
+execution engine, multiple action realizations, startup and history semantics,
+and benchmark instrumentation in a Python package.

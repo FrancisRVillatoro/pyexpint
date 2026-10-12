@@ -1,0 +1,146 @@
+\section{Adaptive integration}\label{sec:adaptivity}
+
+\pkg{} provides two complementary adaptive interfaces.  A generic step-doubling
+controller supplies a reference mechanism applicable to one-step
+\texttt{MethodSpec} objects.  A specialized solver implements the embedded
+ETD34 pair of Whalen, Brio and Moloney~\cite{WhalenBrioMoloney2015}, built on
+the scheme of Krogstad~\cite{Krogstad2005}, and adds backend-aware rejection
+behaviour.  Their structural contracts are compared in
+Table~\ref{tab:adaptivity}.
+
+\input{table03_adaptivity.tex}
+
+\subsection{Generic step doubling}
+
+For a one-step method of order $p$, the generic controller compares a full step
+of length $h$ with two steps of length $h/2$.  Its error indicator is
+\begin{equation}
+  e_n=\frac{y_{h/2,h/2}-y_h}{2^p-1}.
+\end{equation}
+The implementation accepts the two-half-step state; Richardson extrapolation is
+not the default.  This route is deliberately simple and broad: it provides an
+adaptive reference for any one-step catalogue entry without requiring a bespoke
+embedded formula.  Its cost is correspondingly high.  A completed Krogstad
+trial evaluates three complete method steps and twelve nonlinear values; the
+first stage of the full step and of the first half step coincide, so eleven
+would suffice, and the generic implementation does not exploit this.  The
+step-doubling results of Section~\ref{sec:experiments} should be read with this
+unoptimized baseline in mind.
+
+Variable-step history methods are not silently routed through this controller.
+The published interface excludes variable-step multistep and general linear
+methods, because changing the step size also changes the representation and
+transport of history data.  Fixed-step history methods remain fully supported.
+
+\subsection{Embedded ETD34}
+
+The specialized solver advances with the fourth-order Krogstad candidate, whose
+stiff order is three in the sense of Hochbruck and
+Ostermann~\cite{HochbruckOstermann2005}, and uses an embedded third-order
+estimator.  With $N_4$ the nonlinear value at the last internal Krogstad stage
+and $N_5=N(t_n+h,y_{n+1})$ evaluated at the fourth-order candidate, the
+indicator is
+\begin{equation}
+  e_n=h\left[-\varphi_2(hL)+4\varphi_3(hL)\right](N_4-N_5),
+  \label{eq:etd34-estimator}
+\end{equation}
+which is the same expression used by the \texttt{rkstiff} implementation of the
+pair by its first author.  A completed trial requires four new nonlinear
+evaluations after the initial endpoint value.  On acceptance, $N_5$ is reused
+at the next step; on rejection, the old endpoint value is retained.  The scaled
+error norm uses user-specified relative and absolute tolerances, a fourth-root
+controller reflects the $O(h^4)$ local scaling of the estimate, and the
+accepted state remains the fourth-order candidate.
+
+The estimator has a precise limitation.  Both nonlinear values in
+Eq.~\eqref{eq:etd34-estimator} are evaluated at $t_n+h$.  If
+$N(t,y)=g(t)$ is independent of the state, their difference is zero even when
+the step has nonzero error.  A self-contained example is $L=0$,
+$y'=(1+t)^4$, $y(0)=0$.  Here the Krogstad step reduces to classical RK4,
+so the first step and the exact solution satisfy
+\begin{equation}
+\begin{aligned}
+y_1^{[4]}&=\frac h6\bigl[1+4(1+h/2)^4+(1+h)^4\bigr],\\
+y(h)&=\frac{(1+h)^5-1}{5},\qquad
+y_1^{[4]}-y(h)=\frac{h^5}{120},\qquad e_0=0.
+\end{aligned}\label{eq:etd34-forcing-counterexample}
+\end{equation}
+This is an algebraic counterexample, not a new time-integration run.  It
+exhibits the estimator degeneracy relevant to the robustness discussion of
+Zoto and Bowman~\cite{ZotoBowman2023}.
+
+For the more general form $N(t,y)=g(t)+F(y)$, only the direct additive value
+$g(t_n+h)$ cancels.  The indicator still contains
+$F(Y_4)-F(y_{n+1})$.  With $d=Y_4-y_{n+1}$ and $F$ differentiable along the
+segment between the states,
+\begin{equation}
+ F(Y_4)-F(y_{n+1})=
+ \left[\int_0^1 DF(y_{n+1}+\theta d)\,d\theta\right]d.
+ \label{eq:forcing-indirect}
+\end{equation}
+The forcing affects the states and their difference and can therefore affect
+the indicator indirectly.  Exact cancellation of the direct forcing term is
+not a proof that the estimator is blind to all forcing-induced errors when
+$F$ is nonconstant.  Conversely, state dependence alone does not establish
+robust error detection.  The forced comparisons in
+Section~\ref{sec:adaptivework} and the autonomous example in
+Section~\ref{sec:broadband} are interpreted case by case.  Step doubling is the
+documented alternative when the embedded indicator is unsuitable; replacing
+the published pair is not a contribution of this article.
+
+\subsection{Temporal and matrix-action tolerances}
+
+An exponential integrator has two distinct accuracy mechanisms: temporal error
+control and numerical approximation of matrix-function actions.  ETD34
+therefore creates a work backend whose action tolerance is
+\begin{equation}
+ \tau_{\mathrm{act}}
+ =\min(\tau_{\max},\max(\tau_{\min},f_{\mathrm{act}}\,\mathrm{rtol})),
+ \label{eq:actiontol}
+\end{equation}
+where $f_{\mathrm{act}}$ is an explicit action-tolerance fraction.  The package
+default is 0.05; the canonical timing campaign deliberately uses 0.01 and
+records that value as part of the experiment configuration.  Neither number is
+claimed to be universally optimal.  Supplementary Figure~S3 retains the
+tolerance-coupling sweep that motivated this separation.  The work backend is
+obtained from the user's backend through a single hook, \texttt{with\_tolerance},
+so that external backends participate in the adaptive solvers on the same
+footing as the built-in ones, and a calibrated selector keeps its calibration
+record when cloned.
+
+\subsection{Failed actions, non-finite trials and termination}
+
+Iterative matrix-function algorithms can fail to meet their stopping criterion
+for a particular trial step.  In ETD34, convergence exceptions from Leja,
+KIOPS-type or Krylov actions, and trials that produce non-finite values, are
+treated as rejected time steps: the solver halves the step and retries rather
+than terminating the integration.  Both kinds of rejection are recorded
+separately from ordinary error-estimator rejections, and the nonlinear
+evaluations and matrix-vector products spent on failed attempts are counted,
+not estimated.
+
+Termination is explicit.  Both adaptive solvers use the minimum step
+$\max(h_{\min},16\varepsilon T)$ with $T=\max(|t_0|,|t_f|,t_f-t_0)$, and an
+attempt that fails or is rejected at that minimum ends the integration with an
+error that names the cause.  A maximum step below the smallest resolvable step
+of the interval is rejected before integrating, a step that would not advance
+the floating-point time is reported, and a failure that leaves a step too
+small to reach $t_f$ within the attempt budget stops the integration
+immediately instead of exhausting the budget.  All option values are validated,
+including finiteness.  These rules replace the behaviour of the first release,
+in which a persistent failure at the minimum step consumed the whole attempt
+budget.
+
+\subsection{Cost-aware control is experimental}
+
+The implementation also contains a cost-aware proposal based on observed work
+per unit simulated time.  It can constrain the accuracy-based step proposal
+when a local log--log cost gradient suggests a cheaper step size.  The work of
+an attempt is the increment of the backend's own matrix-vector counter, and
+the controller refuses to run in matvec units with a backend that reports no
+counter; it never substitutes wall-clock time for a missing count.  The stress
+test of Section~\ref{sec:experiments} shows why this feature is not a headline
+performance claim: the matvec proxy decreases while recorded wall time can
+increase, because the controller takes more steps and nonlinear evaluations.
+We therefore retain it as an instrumented diagnostic, not as evidence of lower
+solve time.

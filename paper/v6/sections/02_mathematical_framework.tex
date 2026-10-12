@@ -1,0 +1,109 @@
+\section{Mathematical framework}\label{sec:math}
+
+\subsection{Semilinear problems and \texorpdfstring{$\varphi$}{phi} functions}
+
+We consider finite-dimensional semidiscretizations of the form
+\begin{equation}
+  y'(t)=Ly(t)+N(t,y(t)),\qquad y(t_0)=y_0,
+  \label{eq:semilinear}
+\end{equation}
+where $L$ is a linear operator and $N$ contains the remaining dynamics.  The
+implementation does not require $L$ to be stored as a dense matrix: depending
+on the backend, it may be diagonal data, a dense or sparse matrix, or an object
+that supplies matrix-vector products.
+
+The analytic coefficient functions are expressed through
+\begin{equation}
+ \varphi_0(z)=e^z,
+ \qquad
+ \varphi_k(z)=\int_0^1 e^{(1-\theta)z}
+               \frac{\theta^{k-1}}{(k-1)!}\,d\theta,
+ \quad k\ge1.
+ \label{eq:phi}
+\end{equation}
+A method never needs a materialized matrix $\varphi_k(hL)$ as part of the
+public execution contract.  It needs the \emph{action} of an analytic
+coefficient, often a linear combination of several $\varphi_k(c hL)$, on one
+or more vectors.  This distinction is central for large-scale problems and
+for comparing Krylov and polynomial realizations.
+
+\subsection{One explicit exponential GLM representation}
+
+Let $X_n=(X_{n,1},\ldots,X_{n,r})^T$ denote the external state at time $t_n$.
+The first component is the physical numerical solution.  For the historical
+multistep methods represented in \pkg{}, the remaining components store scaled
+nonlinear history.  The representation is the exponential general linear form
+of Berland, Skaflestad and Wright~\cite{BerlandSkaflestadWright2007}, with the
+order theory of Ostermann, Thalhammer and
+Wright~\cite{OstermannThalhammerWright2006} and the B-series order conditions
+of Berland, Owren and Skaflestad~\cite{BerlandOwrenSkaflestad2005} behind the
+metadata; exponential Runge--Kutta schemes such as those of Cox and
+Matthews~\cite{CoxMatthews2002} and Krogstad~\cite{Krogstad2005}, Lawson's
+integrating-factor methods~\cite{Lawson1967} and the exponential Adams methods
+of N{\o}rsett and of Hochbruck and Ostermann~\cite{HochbruckOstermann2011}
+are its special cases.  A \texttt{MethodSpec} contains nodes $c$, analytic
+operator-coefficient arrays $U,A,V,B$, and order/provenance metadata.  With
+\begin{equation}
+ G_j=hN(t_n+c_jh,Y_j),
+\end{equation}
+the common explicit engine evaluates
+\begin{align}
+ Y_i
+   &=\sum_{j=1}^{r}U_{ij}(hL)X_{n,j}
+     +\sum_{j<i}A_{ij}(hL)G_j,                        \label{eq:eglm-stage}\\
+ X_{n+1,i}
+   &=\sum_{j=1}^{r}V_{ij}(hL)X_{n,j}
+     +\sum_{j=1}^{s}B_{ij}(hL)G_j.                   \label{eq:eglm-output}
+\end{align}
+The strict lower-triangular condition on $A$ encodes explicit stage ordering.
+For $r>1$ the catalogue uses a nonlinear-history layout: after the physical
+output row, the engine inserts $hN(t_n,y_n)$ and shifts older history.  This
+makes multistep and general-linear schemes an external-state specialization of
+the same step function rather than separate solver families.
+
+The representation is deliberately descriptive.  Besides the coefficient
+arrays, a method records its family, classical order, stiff order when known,
+weak or conditional stiff order when distinct, stage order, quadrature order,
+number of nonlinear evaluations, references, historical filename, notes and a
+provenance status.  Consequently an executable method need not collapse
+classical, stiff and weak-order statements into one integer.
+
+\subsection{Order metadata are not interchangeable}
+
+For nonstiff problems, the usual classical convergence order describes the
+asymptotic temporal error under appropriate smoothness.  In semilinear stiff
+problems, stronger operator-valued order conditions can determine whether the
+same order is retained uniformly; failure of those conditions can produce
+order reduction~\cite{HochbruckOstermann2005,HochbruckOstermann2010}.  Several
+historical affine Lie-group entries additionally satisfy useful conditions at
+$z=0$ without satisfying the corresponding strong identity for general $z$.
+\pkg{} stores these as separate strong and weak or conditional metadata
+rather than resolving a textual discrepancy by choosing the larger label.
+
+The distinction matters experimentally.  A finite-grid manufactured problem
+may show a higher apparent slope because a leading defect vanishes for that
+problem.  Such a slope is useful validation evidence but does not by itself
+change the catalogue's algebraic order metadata.  Section~\ref{sec:experiments}
+therefore displays both ordinary classical tests and semidiscrete stiff-order
+diagnostics.
+
+\subsection{Analytic operator expressions}
+
+Method coefficients are represented as analytic expression trees rather than
+backend-specific arrays.  The basic object
+\begin{equation}
+  C(z)=\sum_{\ell} \alpha_\ell\varphi_{k_\ell}(c_\ell z)
+  \label{eq:phi-combination}
+\end{equation}
+is a \texttt{PhiCombination}.  Sums of such expressions are canonicalized so
+that a backend with native combination support can construct one numerical
+action rather than evaluate every term independently.  Products represent
+composition of analytic operator coefficients.  A shifted-resolvent expression
+is kept separate from the $\varphi$ algebra and is used only by the retained
+historical Crank--Nicolson comparator.
+
+This symbolic layer is small but consequential.  It allows the catalogue to
+state \emph{what} operator function a coefficient represents, while the backend
+decides \emph{how} its action is approximated.  It is also the point at which
+algebraic fusion becomes a semantics-level transformation rather than a
+method-specific optimization.

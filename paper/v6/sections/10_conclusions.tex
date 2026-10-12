@@ -1,0 +1,53 @@
+\section{Conclusions}\label{sec:conclusions}
+
+\pkg{} demonstrates that a broad historical exponential-integrator catalogue
+can be represented as mathematical data and executed through a small number of
+well-defined software boundaries.  The 47 reconstructed entries share one
+explicit exponential general linear engine; analytic $\varphi$ expressions are
+separated from their numerical realization; history and startup are explicit;
+and work instrumentation is collected at the backend boundary.  This
+architecture makes dense, diagonal, Krylov, KIOPS-type, real-Leja, hybrid and
+automatic realizations available without duplicating the time integrators
+themselves, and admits external realizations through one hook.
+
+The validation work is as important as the abstraction.  The supplied comparison summary reports near-roundoff agreement
+with the original EXPINT implementation for 42 entries, agreement after
+one-line corrections for four entries, and regenerated output coefficients
+for one entry.  Its aggregate and named results, comparison drivers and detailed original
+outputs are now archived with the identified private software companion.  Coefficient and metadata inconsistencies are
+reconciled by structural and algebraic diagnostics, confirmed by execution and
+guarded by regressions.  The fusion ablation shows a concrete benefit of
+representing action algebra explicitly, with both Krylov realizations, while
+the work--precision and timing experiments show why performance should not be
+reduced to a single counter or backend ranking.  The canonical paired timing
+experiment favours the KIOPS-type backend for every tested configuration, but
+its manufactured solution favours Krylov realizations by construction and the
+rule-based selector chooses the slower backend throughout; the appropriate
+conclusion is problem- and environment-dependent selection, not a universal
+winner.
+
+The embedded ETD34 solver shows how the action boundary serves an adaptive
+integrator: matrix-action tolerance is distinct from temporal tolerance,
+failed iterative actions and non-finite trials become rejected steps,
+termination is explicit, and endpoint nonlinear values are reused.  It also
+inherits a limitation of the published pair, an error estimate that vanishes
+for state-independent forcing, which is documented rather than hidden, and
+the default numerical startup does not in general deliver the nominal orders
+of the high-order history methods.  The original broadband record shows a change in the faster realization at
+closely comparable accuracy for selected tolerance pairs.  Its workstation
+environment, initial/reference states and individual timings are preserved;
+the least accurate setting is not a matched-error speed comparison.
+
+The manuscript package makes the supplied numerical summaries and
+their postprocessing inspectable.  The identified private candidate, validation and installation logs,
+original experiment records and a family-to-test evidence map accompany it.
+The claims distinguish recorded software execution, independently
+checkable data transformations and limitations that remain outside
+those tests.  The next
+technical directions are outside the present claims: variable-step history
+methods, order-matched numerical startup, robust embedded pairs, data-driven
+backend selection, cost models that include orthogonalization and nonlinear
+work, and communication-aware distributed action backends.  The catalogue and
+the common execution layer provide a controlled platform on which those
+extensions can be studied without reopening the mathematical definition of
+every method.

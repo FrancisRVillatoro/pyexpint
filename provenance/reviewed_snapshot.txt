@@ -1,0 +1,5 @@
+commit (preparation environment): 0ad4b3c4786086a04cf22be33375cc9997ff1344
+tree: 9f62cbf6a6455868e358386ccff824507287aeb3
+branch: toms-revision
+version (pyproject): version = "0.9.0"
+date: 2026-10-11T09:13:40Z

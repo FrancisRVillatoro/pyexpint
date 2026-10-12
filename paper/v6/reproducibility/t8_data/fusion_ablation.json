@@ -1,0 +1,73 @@
+{
+ "n": 256,
+ "T": 0.3,
+ "h": 0.05,
+ "reaction": "0.08 u^2",
+ "u0": "0.05 + 0.01 sin(s), s uniform on [0, pi]",
+ "action_tol": 1e-10,
+ "rows": [
+  {
+   "method": "ETD4RK",
+   "arnoldi_matvecs_unfused": 756,
+   "arnoldi_matvecs_fused": 594,
+   "arnoldi_final_state_rel_diff": 0.0,
+   "kiops_matvecs_unfused": 936,
+   "kiops_matvecs_fused": 720,
+   "kiops_final_state_rel_diff": 0.0
+  },
+  {
+   "method": "Krogstad",
+   "arnoldi_matvecs_unfused": 756,
+   "arnoldi_matvecs_fused": 486,
+   "arnoldi_final_state_rel_diff": 1.154829416001698e-16,
+   "kiops_matvecs_unfused": 936,
+   "kiops_matvecs_fused": 576,
+   "kiops_final_state_rel_diff": 1.154829416001698e-16
+  },
+  {
+   "method": "HochOst4",
+   "arnoldi_matvecs_unfused": 1026,
+   "arnoldi_matvecs_fused": 756,
+   "arnoldi_final_state_rel_diff": 1.1548294160016983e-16,
+   "kiops_matvecs_unfused": 1584,
+   "kiops_matvecs_fused": 1224,
+   "kiops_final_state_rel_diff": 0.0
+  },
+  {
+   "method": "PEC423",
+   "arnoldi_matvecs_unfused": 774,
+   "arnoldi_matvecs_fused": 510,
+   "arnoldi_final_state_rel_diff": 1.0393464744015288e-15,
+   "kiops_matvecs_unfused": 960,
+   "kiops_matvecs_fused": 600,
+   "kiops_final_state_rel_diff": 1.2703123576018683e-15
+  },
+  {
+   "method": "EGLM433",
+   "arnoldi_matvecs_unfused": 990,
+   "arnoldi_matvecs_fused": 609,
+   "arnoldi_final_state_rel_diff": 1.1548294160016987e-15,
+   "kiops_matvecs_unfused": 1248,
+   "kiops_matvecs_fused": 696,
+   "kiops_final_state_rel_diff": 1.1548294160016991e-15
+  },
+  {
+   "method": "GenLawson43",
+   "arnoldi_matvecs_unfused": 1206,
+   "arnoldi_matvecs_fused": 1044,
+   "arnoldi_final_state_rel_diff": 0.0,
+   "kiops_matvecs_unfused": 1728,
+   "kiops_matvecs_fused": 1512,
+   "kiops_final_state_rel_diff": 0.0
+  },
+  {
+   "method": "ModGenLawson43",
+   "arnoldi_matvecs_unfused": 1206,
+   "arnoldi_matvecs_fused": 1044,
+   "arnoldi_final_state_rel_diff": 0.0,
+   "kiops_matvecs_unfused": 1824,
+   "kiops_matvecs_fused": 1608,
+   "kiops_final_state_rel_diff": 0.0
+  }
+ ]
+}

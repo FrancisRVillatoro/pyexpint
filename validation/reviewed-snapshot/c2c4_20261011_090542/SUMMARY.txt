@@ -1,0 +1,12 @@
+C2-C4 | 2026-10-11 09:08 | WSL
+Branch toms-revision | HEAD 0ad4b3c47860 | C1 6c9c1db
+Environment: Python 3.11.15, NumPy 1.24.3, SciPy 1.10.1, pytest 7.1.2; audited
+A  C2-C4 tests, branch:       80 passed, 0 failed, 0 errors, 0 skipped
+B  C2-C4 tests, C1 commit:    27 passed, 53 failed, 0 errors, 0 skipped   (must fail)
+C  full suite, branch:        275 passed, 0 failed, 0 errors, 0 skipped
+D  full suite, C1 commit:     195 passed, 0 failed, 0 errors, 0 skipped
+Failures in C absent from D:  0
+E  canonical counters:        configurations x replicas compared: 72; mismatches: 0; largest error difference / tolerance: 0.0e+00
+F  startup study:             order 6-7 methods with HochOst4 startup: last slopes 4.79-4.90, error ratio to exact history 15-882
+VERDICT C2-C4: OK
+Logs: /root/pyexpint_audit/c2c4_20261011_090542

@@ -1,0 +1,13 @@
+\begin{table}[t]
+\centering\small
+\caption{Functional comparison with related exponential-integrator software, from the cited documentation and sources; no runtime comparison is implied.}\label{tab:comparison}
+\begin{tabularx}{\linewidth}{@{}p{2.75cm}p{1.45cm}X X X@{}}\toprule
+Package & Language & Integrators & Matrix-function actions & Step control and instrumentation\\\midrule
+EXPINT~\cite{BerlandSkaflestadWright2007} & MATLAB & 47 exponential RK, Lawson, Adams, predictor--corrector, general linear and Lie-group schemes in one GLM format & Pad\'e approximants and dense or diagonal exponentials, computed per step & Fixed step; no work counters\\\addlinespace
+EXPODE~\cite{Jansing2014} & MATLAB & Several classes of exponential integrators & Direct and Krylov evaluation & Adaptivity for some methods\\\addlinespace
+LeXInt~\cite{DekaEinkemmerTokman2023,DekaMorigglEinkemmer2023} & Python, C++/CUDA & Exponential Rosenbrock and EPIRK schemes & Leja interpolation & Adaptive variants; GPU version\\\addlinespace
+rkstiff~\cite{rkstiff} & Python & ETD and integrating-factor Runge--Kutta pairs ETD34, ETD35, IF34, IF45DP & Diagonal or dense matrix operators & Embedded adaptive pairs\\\addlinespace
+OrdinaryDiffEq.jl \cite{OrdinaryDiffEqExponential} & Julia & Lawson, N{\o}rsett, ETDRK2--4, HochOst4, Exp4, EPIRK and adaptive Exprb schemes & Cached dense functions or Krylov actions switched by one option & Adaptive for the Exprb pairs; ecosystem instrumentation\\\addlinespace
+\pkg{} & Python & The 47-entry EXPINT catalogue as one explicit EGLM form, with classical, stiff and weak order metadata & Dense, diagonal, full Arnoldi, KIOPS-type, real Leja and hybrid realizations behind one action contract, with algebraic fusion and an extension hook & Fixed step with explicit startup, step doubling, ETD34 with action-tolerance coupling and failure rejection; authoritative work counters and provenance\\\bottomrule
+\end{tabularx}
+\end{table}

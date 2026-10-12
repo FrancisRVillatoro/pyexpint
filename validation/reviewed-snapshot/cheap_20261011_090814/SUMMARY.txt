@@ -1,0 +1,9 @@
+Cheap experiments | 2026-10-11 09:09 | WSL
+Environment: Python 3.11.15, NumPy 1.24.3, SciPy 1.10.1, pytest 7.1.2; audited
+1  classical order (Fig. 2a):  16 errors; largest difference / tolerance: 0.0e+00
+2  stiff order (Fig. 2b,c):    72 errors; largest difference / tolerance: 1.1e-02
+3  fusion, full Arnoldi:       unfused 7/7 as archived; fused 5/7 as archived (PEC423 510 vs 522; EGLM433 609 vs 621); reductions 13.4-38.5%
+   fusion, KIOPS-type:         reductions 11.8-44.2%; fused and unfused final states agree to 1.2e-15
+4  generalized Lawson (new):   26 rows; largest |last slope - recorded order|: 0.39
+VERDICT: OK
+Logs: /root/pyexpint_audit/cheap_20261011_090814

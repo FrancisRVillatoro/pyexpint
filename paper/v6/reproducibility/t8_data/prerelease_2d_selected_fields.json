@@ -1,0 +1,85 @@
+{
+  "T": 0.5,
+  "nu": 0.02,
+  "repeats": 3,
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41"
+  },
+  "rows": [
+    {
+      "n_side": 32,
+      "rtol": 1e-05,
+      "backend": "kiops",
+      "median_s": 0.24790213299999664
+    },
+    {
+      "n_side": 32,
+      "rtol": 1e-05,
+      "backend": "leja",
+      "median_s": 0.035999027999991995
+    },
+    {
+      "n_side": 32,
+      "rtol": 1e-05,
+      "backend": "hybrid",
+      "median_s": 0.15601151100000266
+    },
+    {
+      "n_side": 64,
+      "rtol": 1e-05,
+      "backend": "kiops",
+      "median_s": 0.27186438199998975
+    },
+    {
+      "n_side": 64,
+      "rtol": 1e-05,
+      "backend": "leja",
+      "median_s": 0.05909524599999827
+    },
+    {
+      "n_side": 64,
+      "rtol": 1e-05,
+      "backend": "hybrid",
+      "median_s": 0.1719872310000028
+    },
+    {
+      "n_side": 128,
+      "rtol": 1e-05,
+      "backend": "kiops",
+      "median_s": 1.212439513999982
+    },
+    {
+      "n_side": 128,
+      "rtol": 1e-05,
+      "backend": "leja",
+      "median_s": 0.24299406799997314
+    },
+    {
+      "n_side": 128,
+      "rtol": 1e-05,
+      "backend": "hybrid",
+      "median_s": 1.280191919999993
+    },
+    {
+      "n_side": 64,
+      "rtol": 1e-07,
+      "backend": "kiops",
+      "median_s": 0.6479040329999748
+    },
+    {
+      "n_side": 64,
+      "rtol": 1e-07,
+      "backend": "leja",
+      "median_s": 0.12895751100001007
+    },
+    {
+      "n_side": 64,
+      "rtol": 1e-07,
+      "backend": "hybrid",
+      "median_s": 0.403822875000003
+    }
+  ]
+}

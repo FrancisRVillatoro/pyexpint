@@ -1,0 +1,43 @@
+% Generated from the unchanged supplied summary; do not edit by hand.
+\begin{table}[htbp]
+\centering\small
+\caption{Numerical statements in the supplied cross-check summary. Top:
+relative final-state differences on the scalar and matrix problems, before
+and after the four reported one-line corrections. The first row gives the
+reported aggregate maxima for 42 entries, not individually reconstructed
+results. Dashes denote comparisons not supplied or not applicable, not zero.
+Bottom: the six coefficient pairs reported for ModGenLawson45 at $z=-0.3$;
+decimal values are reproduced verbatim, and the companion drivers use one-based indices.}\label{tab:crosscheck-summary}
+\begin{tabular}{@{}lcccc@{}}\toprule
+ & \multicolumn{2}{c}{Original 2005 file} & \multicolumn{2}{c}{One-line correction}\\
+Entry & Scalar & Matrix & Scalar & Matrix\\\midrule
+42 entries (reported maxima) & $1.3\times10^{-15}$ & $5.9\times10^{-15}$ & \textemdash & \textemdash\\
+ABLawson2 & $3.6\times10^{-2}$ & $3.7\times10^{-2}$ & $2.3\times10^{-16}$ & $6.2\times10^{-15}$\\
+ETD2RK & $2.5\times10^{-1}$ & $2.8\times10^{-1}$ & $0.0$ & $5.0\times10^{-15}$\\
+ETD5RKF & $6.5\times10^{-3}$ & $8.5\times10^{-15}$ & $2.3\times10^{-14}$ & $8.5\times10^{-15}$\\
+ETD2CF3 & $3.4\times10^{-7}$ & $5.3\times10^{-7}$ & $2.7\times10^{-15}$ & $1.7\times10^{-15}$\\
+ModGenLawson45 & $7.7\times10^{-9}$ & $2.5\times10^{-8}$ & \textemdash & \textemdash\\
+\bottomrule\end{tabular}
+
+\medskip
+\begin{tabular}{@{}lrr@{}}\toprule
+Coefficient & PyEXPINT & EXPINT 2005\\\midrule
+\texttt{V[1,2]} & \texttt{-0.013806254694738} & \texttt{-0.008445356126745}\\
+\texttt{V[1,3]} & \texttt{+0.011344865515137} & \texttt{+0.005983966947144}\\
+\texttt{V[1,4]} & \texttt{-0.004742475054817} & \texttt{-0.002062025770820}\\
+\texttt{V[1,5]} & \texttt{+0.000806499599604} & \texttt{+0.000270409742804}\\
+\texttt{B[1,1]} & \texttt{+0.132016135298815} & \texttt{+0.129335686014818}\\
+\texttt{B[1,4]} & \texttt{+0.164515176113568} & \texttt{+0.165051265970368}\\
+\bottomrule\end{tabular}
+
+\medskip
+\begin{minipage}{.96\linewidth}\footnotesize
+The summary reports 47 compared entries, 42 agreeing within $10^{-12}$ on
+both problems, four agreeing after a one-line correction, and one
+regenerated entry. Its final status is \texttt{RESULT: OK}. This summary table
+is complemented by the separately archived refinement outputs, problem
+definitions, correction diffs and execution-environment record. The regenerated
+entry has no separate corrected final-state result in the report. This table
+is a transcription, not a new Octave or PyEXPINT execution.
+\end{minipage}
+\end{table}

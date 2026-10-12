@@ -1,0 +1,9 @@
+C5 clean install | 2026-10-11 09:10 | WSL
+Distributions: pyexpint-0.9.0.tar.gz (72 KB, 70 files, 24 test modules, 4 examples, 0 compiled), pyexpint-0.9.0-py3-none-any.whl (52 KB)
+Wheel environment: Python 3.11.15, NumPy 1.24.3, SciPy 1.10.1, pytest 7.1.2; pyexpint imported from the environment
+Full suite against the installed wheel: 275 passed in 25.50s
+Examples: 4/4 examples ran from outside the repository
+Example without exact history: ABNorsett4, h = 2/128, numerical startup: max difference 6.53e-09 ETD34, rtol = 1e-8: max difference 7.39e-09, 56 accepted and 1 rejected steps 
+Sdist: built from source, installed and ran the example
+VERDICT C5: OK
+Logs: /root/pyexpint_audit/c5_20261011_090904

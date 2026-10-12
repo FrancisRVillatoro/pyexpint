@@ -1,0 +1,241 @@
+
+[notice] A new release of pip is available: 24.0 -> 26.2.1
+[notice] To update, run: /tmp/tmp.fOP2OHZWDj/build/bin/python -m pip install --upgrade pip
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=77
+  - wheel
+* Getting build dependencies for sdist...
+running egg_info
+creating src/pyexpint.egg-info
+writing src/pyexpint.egg-info/PKG-INFO
+writing dependency_links to src/pyexpint.egg-info/dependency_links.txt
+writing requirements to src/pyexpint.egg-info/requires.txt
+writing top-level names to src/pyexpint.egg-info/top_level.txt
+writing manifest file 'src/pyexpint.egg-info/SOURCES.txt'
+reading manifest file 'src/pyexpint.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+no previously-included directories found matching '**/__pycache__'
+adding license file 'LICENSE'
+adding license file 'CONTENT-LICENSE.md'
+writing manifest file 'src/pyexpint.egg-info/SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.0.0
+  - wheel==0.48.0
+* Building sdist...
+running sdist
+running egg_info
+writing src/pyexpint.egg-info/PKG-INFO
+writing dependency_links to src/pyexpint.egg-info/dependency_links.txt
+writing requirements to src/pyexpint.egg-info/requires.txt
+writing top-level names to src/pyexpint.egg-info/top_level.txt
+reading manifest file 'src/pyexpint.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+no previously-included directories found matching '**/__pycache__'
+adding license file 'LICENSE'
+adding license file 'CONTENT-LICENSE.md'
+writing manifest file 'src/pyexpint.egg-info/SOURCES.txt'
+running check
+creating pyexpint-0.9.0
+creating pyexpint-0.9.0/docs
+creating pyexpint-0.9.0/examples
+creating pyexpint-0.9.0/src/pyexpint
+creating pyexpint-0.9.0/src/pyexpint.egg-info
+creating pyexpint-0.9.0/src/pyexpint/backends
+creating pyexpint-0.9.0/tests
+copying files to pyexpint-0.9.0...
+copying API_STABILITY.md -> pyexpint-0.9.0
+copying BENCHMARK_PROTOCOL_TOMS.md -> pyexpint-0.9.0
+copying CHANGELOG.md -> pyexpint-0.9.0
+copying CITATION.cff -> pyexpint-0.9.0
+copying CONTENT-LICENSE.md -> pyexpint-0.9.0
+copying CONTRIBUTING.md -> pyexpint-0.9.0
+copying LICENSE -> pyexpint-0.9.0
+copying MANIFEST.in -> pyexpint-0.9.0
+copying README.md -> pyexpint-0.9.0
+copying RELEASE_CHECKLIST.md -> pyexpint-0.9.0
+copying THIRD_PARTY.md -> pyexpint-0.9.0
+copying TOMS_CLAIMS_MATRIX.md -> pyexpint-0.9.0
+copying TOMS_MANUSCRIPT_BLUEPRINT.md -> pyexpint-0.9.0
+copying pyproject.toml -> pyexpint-0.9.0
+copying docs/QUICKSTART.md -> pyexpint-0.9.0/docs
+copying examples/no_exact_history.py -> pyexpint-0.9.0/examples
+copying examples/phase1_smoke.py -> pyexpint-0.9.0/examples
+copying examples/phase2_eglm.py -> pyexpint-0.9.0/examples
+copying examples/phase3_matrix_free.py -> pyexpint-0.9.0/examples
+copying src/pyexpint/__init__.py -> pyexpint-0.9.0/src/pyexpint
+copying src/pyexpint/adaptive.py -> pyexpint-0.9.0/src/pyexpint
+copying src/pyexpint/core.py -> pyexpint-0.9.0/src/pyexpint
+copying src/pyexpint/embedded.py -> pyexpint-0.9.0/src/pyexpint
+copying src/pyexpint/expressions.py -> pyexpint-0.9.0/src/pyexpint
+copying src/pyexpint/methods.py -> pyexpint-0.9.0/src/pyexpint
+copying src/pyexpint/metrics.py -> pyexpint-0.9.0/src/pyexpint
+copying src/pyexpint/solve.py -> pyexpint-0.9.0/src/pyexpint
+copying src/pyexpint/startup.py -> pyexpint-0.9.0/src/pyexpint
+copying src/pyexpint.egg-info/PKG-INFO -> pyexpint-0.9.0/src/pyexpint.egg-info
+copying src/pyexpint.egg-info/SOURCES.txt -> pyexpint-0.9.0/src/pyexpint.egg-info
+copying src/pyexpint.egg-info/dependency_links.txt -> pyexpint-0.9.0/src/pyexpint.egg-info
+copying src/pyexpint.egg-info/requires.txt -> pyexpint-0.9.0/src/pyexpint.egg-info
+copying src/pyexpint.egg-info/top_level.txt -> pyexpint-0.9.0/src/pyexpint.egg-info
+copying src/pyexpint/backends/__init__.py -> pyexpint-0.9.0/src/pyexpint/backends
+copying src/pyexpint/backends/_scipy_compat.py -> pyexpint-0.9.0/src/pyexpint/backends
+copying src/pyexpint/backends/auto.py -> pyexpint-0.9.0/src/pyexpint/backends
+copying src/pyexpint/backends/base.py -> pyexpint-0.9.0/src/pyexpint/backends
+copying src/pyexpint/backends/calibrated.py -> pyexpint-0.9.0/src/pyexpint/backends
+copying src/pyexpint/backends/dense.py -> pyexpint-0.9.0/src/pyexpint/backends
+copying src/pyexpint/backends/diagonal.py -> pyexpint-0.9.0/src/pyexpint/backends
+copying src/pyexpint/backends/kiops.py -> pyexpint-0.9.0/src/pyexpint/backends
+copying src/pyexpint/backends/krylov.py -> pyexpint-0.9.0/src/pyexpint/backends
+copying src/pyexpint/backends/leja.py -> pyexpint-0.9.0/src/pyexpint/backends
+copying src/pyexpint/backends/scipy_kiops.py -> pyexpint-0.9.0/src/pyexpint/backends
+copying tests/test_c2_work_accounting.py -> pyexpint-0.9.0/tests
+copying tests/test_c3_adaptive_contract.py -> pyexpint-0.9.0/tests
+copying tests/test_c4_cloning_and_startup.py -> pyexpint-0.9.0/tests
+copying tests/test_expressions_and_backends.py -> pyexpint-0.9.0/tests
+copying tests/test_krylov_backend.py -> pyexpint-0.9.0/tests
+copying tests/test_krylov_tolerance.py -> pyexpint-0.9.0/tests
+copying tests/test_leja_c1_phi.py -> pyexpint-0.9.0/tests
+copying tests/test_leja_edge_cases.py -> pyexpint-0.9.0/tests
+copying tests/test_linear_exactness.py -> pyexpint-0.9.0/tests
+copying tests/test_metadata_phase0.py -> pyexpint-0.9.0/tests
+copying tests/test_method_specs.py -> pyexpint-0.9.0/tests
+copying tests/test_observed_order.py -> pyexpint-0.9.0/tests
+copying tests/test_phase4_catalogue_audit.py -> pyexpint-0.9.0/tests
+copying tests/test_phase5_backends.py -> pyexpint-0.9.0/tests
+copying tests/test_phase5_stiff_order.py -> pyexpint-0.9.0/tests
+copying tests/test_phase6_adaptive.py -> pyexpint-0.9.0/tests
+copying tests/test_phase6_calibration.py -> pyexpint-0.9.0/tests
+copying tests/test_phase6_scipy_hybrid.py -> pyexpint-0.9.0/tests
+copying tests/test_phase7_embedded.py -> pyexpint-0.9.0/tests
+copying tests/test_phi_stability.py -> pyexpint-0.9.0/tests
+copying tests/test_public_api_contract.py -> pyexpint-0.9.0/tests
+copying tests/test_scipy_compat.py -> pyexpint-0.9.0/tests
+copying tests/test_startup_and_external_state.py -> pyexpint-0.9.0/tests
+copying tests/test_toms_release_contracts.py -> pyexpint-0.9.0/tests
+Writing pyexpint-0.9.0/setup.cfg
+Creating tar archive
+removing 'pyexpint-0.9.0' (and everything under it)
+* Building wheel from sdist
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=77
+  - wheel
+* Getting build dependencies for wheel...
+running egg_info
+writing src/pyexpint.egg-info/PKG-INFO
+writing dependency_links to src/pyexpint.egg-info/dependency_links.txt
+writing requirements to src/pyexpint.egg-info/requires.txt
+writing top-level names to src/pyexpint.egg-info/top_level.txt
+reading manifest file 'src/pyexpint.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+no previously-included directories found matching '**/__pycache__'
+adding license file 'LICENSE'
+adding license file 'CONTENT-LICENSE.md'
+writing manifest file 'src/pyexpint.egg-info/SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.0.0
+  - wheel==0.48.0
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build/lib/pyexpint
+copying src/pyexpint/startup.py -> build/lib/pyexpint
+copying src/pyexpint/__init__.py -> build/lib/pyexpint
+copying src/pyexpint/metrics.py -> build/lib/pyexpint
+copying src/pyexpint/solve.py -> build/lib/pyexpint
+copying src/pyexpint/core.py -> build/lib/pyexpint
+copying src/pyexpint/adaptive.py -> build/lib/pyexpint
+copying src/pyexpint/embedded.py -> build/lib/pyexpint
+copying src/pyexpint/methods.py -> build/lib/pyexpint
+copying src/pyexpint/expressions.py -> build/lib/pyexpint
+creating build/lib/pyexpint/backends
+copying src/pyexpint/backends/base.py -> build/lib/pyexpint/backends
+copying src/pyexpint/backends/__init__.py -> build/lib/pyexpint/backends
+copying src/pyexpint/backends/scipy_kiops.py -> build/lib/pyexpint/backends
+copying src/pyexpint/backends/calibrated.py -> build/lib/pyexpint/backends
+copying src/pyexpint/backends/leja.py -> build/lib/pyexpint/backends
+copying src/pyexpint/backends/krylov.py -> build/lib/pyexpint/backends
+copying src/pyexpint/backends/dense.py -> build/lib/pyexpint/backends
+copying src/pyexpint/backends/_scipy_compat.py -> build/lib/pyexpint/backends
+copying src/pyexpint/backends/diagonal.py -> build/lib/pyexpint/backends
+copying src/pyexpint/backends/auto.py -> build/lib/pyexpint/backends
+copying src/pyexpint/backends/kiops.py -> build/lib/pyexpint/backends
+running egg_info
+writing src/pyexpint.egg-info/PKG-INFO
+writing dependency_links to src/pyexpint.egg-info/dependency_links.txt
+writing requirements to src/pyexpint.egg-info/requires.txt
+writing top-level names to src/pyexpint.egg-info/top_level.txt
+reading manifest file 'src/pyexpint.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+no previously-included directories found matching '**/__pycache__'
+adding license file 'LICENSE'
+adding license file 'CONTENT-LICENSE.md'
+writing manifest file 'src/pyexpint.egg-info/SOURCES.txt'
+warning: build_py: byte-compiling is disabled, skipping.
+
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/pyexpint
+copying build/lib/pyexpint/startup.py -> build/bdist.linux-x86_64/wheel/./pyexpint
+copying build/lib/pyexpint/__init__.py -> build/bdist.linux-x86_64/wheel/./pyexpint
+copying build/lib/pyexpint/metrics.py -> build/bdist.linux-x86_64/wheel/./pyexpint
+copying build/lib/pyexpint/solve.py -> build/bdist.linux-x86_64/wheel/./pyexpint
+copying build/lib/pyexpint/core.py -> build/bdist.linux-x86_64/wheel/./pyexpint
+copying build/lib/pyexpint/adaptive.py -> build/bdist.linux-x86_64/wheel/./pyexpint
+copying build/lib/pyexpint/embedded.py -> build/bdist.linux-x86_64/wheel/./pyexpint
+copying build/lib/pyexpint/methods.py -> build/bdist.linux-x86_64/wheel/./pyexpint
+creating build/bdist.linux-x86_64/wheel/pyexpint/backends
+copying build/lib/pyexpint/backends/base.py -> build/bdist.linux-x86_64/wheel/./pyexpint/backends
+copying build/lib/pyexpint/backends/__init__.py -> build/bdist.linux-x86_64/wheel/./pyexpint/backends
+copying build/lib/pyexpint/backends/scipy_kiops.py -> build/bdist.linux-x86_64/wheel/./pyexpint/backends
+copying build/lib/pyexpint/backends/calibrated.py -> build/bdist.linux-x86_64/wheel/./pyexpint/backends
+copying build/lib/pyexpint/backends/leja.py -> build/bdist.linux-x86_64/wheel/./pyexpint/backends
+copying build/lib/pyexpint/backends/krylov.py -> build/bdist.linux-x86_64/wheel/./pyexpint/backends
+copying build/lib/pyexpint/backends/dense.py -> build/bdist.linux-x86_64/wheel/./pyexpint/backends
+copying build/lib/pyexpint/backends/_scipy_compat.py -> build/bdist.linux-x86_64/wheel/./pyexpint/backends
+copying build/lib/pyexpint/backends/diagonal.py -> build/bdist.linux-x86_64/wheel/./pyexpint/backends
+copying build/lib/pyexpint/backends/auto.py -> build/bdist.linux-x86_64/wheel/./pyexpint/backends
+copying build/lib/pyexpint/backends/kiops.py -> build/bdist.linux-x86_64/wheel/./pyexpint/backends
+copying build/lib/pyexpint/expressions.py -> build/bdist.linux-x86_64/wheel/./pyexpint
+warning: install_lib: byte-compiling is disabled, skipping.
+
+running install_egg_info
+Copying src/pyexpint.egg-info to build/bdist.linux-x86_64/wheel/./pyexpint-0.9.0-py3.11.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/pyexpint-0.9.0.dist-info/WHEEL
+creating '/tmp/tmp.fOP2OHZWDj/dist/.tmp-ia5_gwxv/pyexpint-0.9.0-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'pyexpint/__init__.py'
+adding 'pyexpint/adaptive.py'
+adding 'pyexpint/core.py'
+adding 'pyexpint/embedded.py'
+adding 'pyexpint/expressions.py'
+adding 'pyexpint/methods.py'
+adding 'pyexpint/metrics.py'
+adding 'pyexpint/solve.py'
+adding 'pyexpint/startup.py'
+adding 'pyexpint/backends/__init__.py'
+adding 'pyexpint/backends/_scipy_compat.py'
+adding 'pyexpint/backends/auto.py'
+adding 'pyexpint/backends/base.py'
+adding 'pyexpint/backends/calibrated.py'
+adding 'pyexpint/backends/dense.py'
+adding 'pyexpint/backends/diagonal.py'
+adding 'pyexpint/backends/kiops.py'
+adding 'pyexpint/backends/krylov.py'
+adding 'pyexpint/backends/leja.py'
+adding 'pyexpint/backends/scipy_kiops.py'
+adding 'pyexpint-0.9.0.dist-info/licenses/CONTENT-LICENSE.md'
+adding 'pyexpint-0.9.0.dist-info/licenses/LICENSE'
+adding 'pyexpint-0.9.0.dist-info/METADATA'
+adding 'pyexpint-0.9.0.dist-info/WHEEL'
+adding 'pyexpint-0.9.0.dist-info/top_level.txt'
+adding 'pyexpint-0.9.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built pyexpint-0.9.0.tar.gz and pyexpint-0.9.0-py3-none-any.whl

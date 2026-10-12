@@ -1,0 +1,154 @@
+\section{Software architecture and execution model}\label{sec:architecture}
+
+Figure~\ref{fig:architecture} summarizes the central design.  A
+\texttt{MethodSpec} and its analytic coefficient algebra are interpreted by one
+EGLM engine.  Numerical $\varphi$ and exponential actions are delegated through
+a backend boundary.  Startup, adaptivity, backend selection and instrumentation
+are orthogonal services around that path; they are not embedded in 47 separate
+method implementations.
+
+\begin{figure}[t]
+  \centering
+  \resizebox{\linewidth}{!}{\input{fig01_architecture_inline.tex}}
+  \caption{Release architecture of \pkg{}.  Mathematical method definitions
+  enter a common operator-coefficient algebra and explicit EGLM engine.  The
+  engine requests actions from interchangeable numerical backends, while
+  startup, adaptive control, dispatch and statistics remain separate layers.}
+  \Description{Block diagram in which MethodSpec feeds an operator-coefficient
+  algebra and a common EGLM engine.  The engine connects to dense, diagonal,
+  Arnoldi, KIOPS-type, Leja and hybrid action backends.  Startup, adaptive
+  control, automatic backend selection and statistics are shown as surrounding
+  services rather than method-specific branches.}
+  \label{fig:architecture}
+\end{figure}
+
+\subsection{Problem, state and solution objects}
+
+A \texttt{SemilinearProblem} contains $L$, $N(t,y)$, the initial vector, a time
+interval and, optionally, an exact solution used for validation or exact
+startup.  Its minimal contract intentionally does not impose a PDE mesh,
+Jacobian representation or spectral decomposition.  An \texttt{ExternalState}
+stores the time and the $r\times n$ external-state array required by the chosen
+GLM; its first row is always the physical state.  A \texttt{Solution} stores the
+sampled times and states together with the method and backend identifiers,
+step metadata and a statistics mapping.
+
+This separation prevents a common source of hidden coupling.  A method does
+not own an $L$ representation, and a backend does not own the nonlinear model.
+The only place where both meet is the action context created for a particular
+step size.
+
+\subsection{The common step function}
+
+The implementation of \texttt{step\_external} follows
+Eqs.~\eqref{eq:eglm-stage}--\eqref{eq:eglm-output} directly.  At each stage it
+first forms the action of the $U$ row on the external state and, for later
+stages, the action of the strict-lower $A$ row on previously computed nonlinear
+vectors.  It evaluates $N$ once at the stage node, stores $hN$, and then forms
+the external outputs from $V$ and $B$.
+
+The action-sum helper first asks the bound backend for an optional native
+fused-sum operation.  If that operation is not available, it falls back to
+individual analytic-expression actions.  Thus backend-specific fusion is
+optional without changing method semantics.  This same mechanism is responsible
+for the controlled fusion ablation in Section~\ref{sec:fusionexperiment}, where
+the unfused path of a backend is obtained by hiding the fused operation from
+its bound context.
+
+\subsection{History and startup}
+
+A one-step method has $r=1$ and needs no history.  For a method whose
+external layout stores nonlinear history, $r-1$ previous nonlinear values must
+be available before the main method can advance.  \pkg{} makes that
+initialization policy explicit.  \texttt{ExactStartup} uses the problem's exact
+solution and is intended primarily for validation.  \texttt{OneStepStartup}
+uses any one-step \texttt{MethodSpec}; HochOst4 is the default numerical starter
+when no exact solution is supplied.
+
+The numerical starter bounds the accuracy a history method can reach in
+general.  Each startup interval is advanced with a single step of the starter,
+so the starting values carry its local error $O(h^{q+1})$, $q$ the order of the
+starter.  Under the usual regularity and stability assumptions, and for a fixed
+spatial discretization, the end-to-end error of a method of order $p$ is then
+bounded by $C_1h^p+C_2h^{q+1}$.  This provides an order guarantee
+$\min(p,q+1)$, hence $\min(p,5)$ with HochOst4; it does not impose a
+universal upper bound on an observed order when leading terms cancel.  Section~\ref{sec:startup} measures this for the order six and seven
+entries of the catalogue.  Making startup visible therefore matters both for accuracy
+and for work comparisons: a benchmark that uses exact history isolates the
+asymptotic method body, and it must not present that cost, or that order, as a
+complete practical solve.  This distinction is stated explicitly for the
+fixed-window work--precision experiment in Section~\ref{sec:methodwp}.
+
+\subsection{Work accounting}
+
+A backend that supplies a matrix-vector counter reports its cumulative
+value in the top-level \texttt{matvecs} entry of its statistics.  Selectors that delegate to
+several engines report the sum there and keep per-engine breakdowns in nested
+entries, which the adaptive solvers never add to the total.  The work of an
+attempt is the increment of that counter; when a backend reports no counter,
+for example an exact diagonalization, the work is recorded as missing rather
+than replaced by another quantity.  Nonlinear evaluations are counted by
+wrapping the user's function, so that failed attempts are included.  These
+rules are what make the work observables of Section~\ref{sec:experiments}
+comparable across backends.
+
+\subsection{Interface usage fragment}\label{sec:example}
+
+The following fragment illustrates the solver interface once a semilinear
+\texttt{problem} and the listed PyEXPINT objects have been imported or
+constructed.  It is not a standalone program: the spatial grid, initial state
+and imports belong to the complete example in the software companion.  No
+exact solution is supplied for this use of numerical startup.
+\begin{verbatim}
+reference = solve_fixed(
+    problem, HOCHOST4, 2/512,
+    KiopsBackend(tol=1e-12)).y[-1]
+multistep = solve_fixed(
+    problem, ABNORSETT4, 2/128,
+    KiopsBackend(tol=1e-11))
+adaptive = solve_etd34(
+    problem, KiopsBackend(tol=1e-11),
+    options=ETD34Options(rtol=1e-8, atol=1e-10))
+print(adaptive.stats)
+\end{verbatim}
+The reference here is a numerical comparison, not an exact solution or a
+certified error bound.  The complete program is supplied as
+\path{reproducibility/no_exact_history.py}, byte-identical to
+\path{software/examples/no_exact_history.py} in the private companion.
+Its clean-installation log records a comparison difference of
+$6.53\times10^{-9}$ for ABNorsett4 and $7.39\times10^{-9}$ for ETD34,
+with 56 accepted and one rejected adaptive step, in the recorded environment.
+These are example-validation outputs, not a performance benchmark.
+
+A method is added by constructing a \texttt{MethodSpec} from its nodes and
+analytic coefficient arrays.  A backend provides \texttt{bind(L,h)}, returning
+an action context, and \texttt{stats()}, with an authoritative top-level
+\texttt{matvecs} total when that metric is available.  The adaptive interface
+also requests \texttt{with\_tolerance(tol)}.  A callable hook takes precedence over the built-in cloning cases and is
+responsible for preserving the required non-tolerance configuration.
+Independent mutable statistics are needed when a new stateful work backend
+is returned; the supplied protocol also permits a stateless realization to
+return itself.  Each solve resets available work counters.  The supplied
+\texttt{test\_c4\_cloning\_and\_startup.py} covers a minimal external
+realization and preservation of the calibrated selector's type, record and
+thresholds.  Unsupported external backends without the hook are rejected;
+built-in backends have explicit cloning branches.  Fixed-step execution uses
+the bound action context directly.
+
+\subsection{Release-facing API}
+
+The release distinguishes public availability from structural stability.  The
+stable core includes problem, solution and state objects; \texttt{MethodSpec}
+and catalogue accessors; fixed, generic adaptive and ETD34 solvers; startup
+policies; basic analytic-expression constructors; the principal action
+backends; calibrated selection; and workspace estimation.  External backends
+enter the adaptive solvers through the \texttt{with\_tolerance} hook described
+in Section~\ref{sec:adaptivity}.  Internal expression tree classes, the
+backend-statistics dictionary beyond the \texttt{matvecs} entry, and selector
+serialization remain public for research convenience but are not structurally
+frozen.  Variable-step multistep and general linear methods and distributed
+interfaces are explicitly outside the compatibility contract.
+
+This release boundary is relevant to reproducibility: benchmark scripts may
+inspect richer statistics, but the paper does not equate those internal keys
+with a permanent user API.

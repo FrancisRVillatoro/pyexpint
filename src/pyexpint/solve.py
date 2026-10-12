@@ -67,6 +67,14 @@ def _step_one_step(problem, method, t, y, h, backend):
     return step_external(problem, method, state, h, backend).y
 
 
+def _startup_evals_per_step(policy, policy_name):
+    """Nonlinear evaluations per startup interval of the policy actually used."""
+    if policy_name == "exact":
+        return 0
+    starter = getattr(policy, "starter", HOCHOST4)
+    return starter.nonlinear_evals_per_step or starter.stages
+
+
 def _select_startup(problem, method, startup):
     if method.outputs == 1:
         # No warm-up is actually needed; ExactStartup is convenient and exact at t0.
@@ -92,7 +100,8 @@ def solve_fixed(
 
     For r>1 methods, the default startup uses exact solution values when the
     problem supplies them and otherwise uses HochOst4.  A custom StartupPolicy
-    can be injected explicitly.
+    can be injected explicitly.  With the HochOst4 starter the end-to-end order of
+    a history method is at most five; see OneStepStartup.
     """
     if h <= 0:
         raise ValueError("h must be positive.")
@@ -149,7 +158,7 @@ def solve_fixed(
             "startup_steps": required,
             "startup_policy": init.policy,
             "starter_method": init.starter_method,
-            "nonlinear_evals_estimate": required * (0 if init.policy == "exact" else HOCHOST4.nonlinear_evals_per_step)
+            "nonlinear_evals_estimate": required * _startup_evals_per_step(policy, init.policy)
                 + main_steps * (method.nonlinear_evals_per_step or method.stages),
             "external_outputs": method.outputs,
             "backend_stats": getattr(backend, "stats", lambda: {})(),

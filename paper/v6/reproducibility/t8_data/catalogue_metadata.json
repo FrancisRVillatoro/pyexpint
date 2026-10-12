@@ -1,0 +1,915 @@
+{
+ "entries": [
+  {
+   "name": "LawsonEuler",
+   "family": "Lawson / integrating factor Runge-Kutta",
+   "classical_order": 1,
+   "stiff_order": 1,
+   "weak_stiff_order": null,
+   "stages": 1,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "lawsoneuler.m",
+   "comparator": false,
+   "references": [
+    "Lawson (1967)",
+    "EXPINT published documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ABLawson2",
+   "family": "Adams-Bashforth-Lawson",
+   "classical_order": 2,
+   "stiff_order": 1,
+   "weak_stiff_order": null,
+   "stages": 1,
+   "history": "nonlinear_history",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "ablawson2.m",
+   "comparator": false,
+   "references": [
+    "Classical Adams-Bashforth after Lawson transform",
+    "EXPINT published documentation"
+   ],
+   "crosscheck": "corrected file"
+  },
+  {
+   "name": "ABLawson3",
+   "family": "Adams-Bashforth-Lawson",
+   "classical_order": 3,
+   "stiff_order": 1,
+   "weak_stiff_order": null,
+   "stages": 1,
+   "history": "nonlinear_history",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "ablawson3.m",
+   "comparator": false,
+   "references": [
+    "Classical Adams-Bashforth after Lawson transform",
+    "EXPINT published documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ABLawson4",
+   "family": "Adams-Bashforth-Lawson",
+   "classical_order": 4,
+   "stiff_order": 1,
+   "weak_stiff_order": null,
+   "stages": 1,
+   "history": "nonlinear_history",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "ablawson4.m",
+   "comparator": false,
+   "references": [
+    "Classical Adams-Bashforth after Lawson transform",
+    "EXPINT published documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "Lawson2a",
+   "family": "Lawson / integrating factor Runge-Kutta",
+   "classical_order": 2,
+   "stiff_order": 1,
+   "weak_stiff_order": null,
+   "stages": 2,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "lawson2a.m",
+   "comparator": false,
+   "references": [
+    "Classical midpoint rule after Lawson transform",
+    "EXPINT published documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "Lawson2b",
+   "family": "Lawson / integrating factor Runge-Kutta",
+   "classical_order": 2,
+   "stiff_order": 1,
+   "weak_stiff_order": null,
+   "stages": 2,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "lawson2b.m",
+   "comparator": false,
+   "references": [
+    "Explicit trapezoidal/Heun rule after Lawson transform",
+    "EXPINT published documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "Lawson4",
+   "family": "Lawson / integrating factor Runge-Kutta",
+   "classical_order": 4,
+   "stiff_order": 1,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "lawson4.m",
+   "comparator": false,
+   "references": [
+    "Classical RK4 after Lawson transform",
+    "EXPINT published documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "NorsettEuler",
+   "family": "Exponential Euler",
+   "classical_order": 1,
+   "stiff_order": 1,
+   "weak_stiff_order": null,
+   "stages": 1,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": 1,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "norsetteuler.m",
+   "comparator": false,
+   "references": [
+    "Variation-of-constants exponential Euler; EXPINT documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ABNorsett2",
+   "family": "Exponential Adams-Bashforth",
+   "classical_order": 2,
+   "stiff_order": 2,
+   "weak_stiff_order": null,
+   "stages": 1,
+   "history": "nonlinear_history",
+   "stage_order": null,
+   "quadrature_order": 2,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "abnorsett2.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), exponential multistep subclass"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ABNorsett3",
+   "family": "Exponential Adams-Bashforth",
+   "classical_order": 3,
+   "stiff_order": 3,
+   "weak_stiff_order": null,
+   "stages": 1,
+   "history": "nonlinear_history",
+   "stage_order": null,
+   "quadrature_order": 3,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "abnorsett3.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), exponential multistep subclass"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ABNorsett4",
+   "family": "Exponential Adams-Bashforth",
+   "classical_order": 4,
+   "stiff_order": 4,
+   "weak_stiff_order": null,
+   "stages": 1,
+   "history": "nonlinear_history",
+   "stage_order": null,
+   "quadrature_order": 4,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "abnorsett4.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), exponential multistep subclass"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "PEC322",
+   "family": "Exponential GLM / PEC",
+   "classical_order": 3,
+   "stiff_order": 3,
+   "weak_stiff_order": null,
+   "stages": 2,
+   "history": "nonlinear_history",
+   "stage_order": 2,
+   "quadrature_order": 3,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "pec322.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), two-stage family and order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "PEC423",
+   "family": "Exponential GLM / PEC",
+   "classical_order": 4,
+   "stiff_order": 4,
+   "weak_stiff_order": null,
+   "stages": 2,
+   "history": "nonlinear_history",
+   "stage_order": 3,
+   "quadrature_order": 4,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "pec423.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), two-stage family and order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "PEC524",
+   "family": "Exponential GLM / PEC",
+   "classical_order": 5,
+   "stiff_order": 5,
+   "weak_stiff_order": null,
+   "stages": 2,
+   "history": "nonlinear_history",
+   "stage_order": 4,
+   "quadrature_order": 5,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "pec524.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), two-stage family and order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "PEC625",
+   "family": "Exponential GLM / PEC",
+   "classical_order": 6,
+   "stiff_order": 6,
+   "weak_stiff_order": null,
+   "stages": 2,
+   "history": "nonlinear_history",
+   "stage_order": 5,
+   "quadrature_order": 6,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "pec625.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), two-stage family and order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "PEC726",
+   "family": "Exponential GLM / PEC",
+   "classical_order": 7,
+   "stiff_order": 7,
+   "weak_stiff_order": null,
+   "stages": 2,
+   "history": "nonlinear_history",
+   "stage_order": 6,
+   "quadrature_order": 7,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "pec726.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), two-stage family and order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "PECEC332",
+   "family": "Exponential GLM / PECEC",
+   "classical_order": 3,
+   "stiff_order": 3,
+   "weak_stiff_order": null,
+   "stages": 3,
+   "history": "nonlinear_history",
+   "stage_order": 2,
+   "quadrature_order": 3,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "pecec332.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), two-stage family and order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "PECEC433",
+   "family": "Exponential GLM / PECEC",
+   "classical_order": 4,
+   "stiff_order": 4,
+   "weak_stiff_order": null,
+   "stages": 3,
+   "history": "nonlinear_history",
+   "stage_order": 3,
+   "quadrature_order": 4,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "pecec433.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), two-stage family and order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "PECEC534",
+   "family": "Exponential GLM / PECEC",
+   "classical_order": 5,
+   "stiff_order": 5,
+   "weak_stiff_order": null,
+   "stages": 3,
+   "history": "nonlinear_history",
+   "stage_order": 4,
+   "quadrature_order": 5,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "pecec534.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), two-stage family and order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "PECEC635",
+   "family": "Exponential GLM / PECEC",
+   "classical_order": 6,
+   "stiff_order": 6,
+   "weak_stiff_order": null,
+   "stages": 3,
+   "history": "nonlinear_history",
+   "stage_order": 5,
+   "quadrature_order": 6,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "pecec635.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), two-stage family and order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "PECEC736",
+   "family": "Exponential GLM / PECEC",
+   "classical_order": 7,
+   "stiff_order": 7,
+   "weak_stiff_order": null,
+   "stages": 3,
+   "history": "nonlinear_history",
+   "stage_order": 6,
+   "quadrature_order": 7,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "pecec736.m",
+   "comparator": false,
+   "references": [
+    "Ostermann, Thalhammer & Wright (2006), two-stage family and order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "EGLM332",
+   "family": "Exponential GLM",
+   "classical_order": 3,
+   "stiff_order": 3,
+   "weak_stiff_order": null,
+   "stages": 3,
+   "history": "nonlinear_history",
+   "stage_order": 2,
+   "quadrature_order": 4,
+   "weak_quadrature_order": null,
+   "provenance_status": "EXPINT-documentation",
+   "legacy_file": "eglm332.m",
+   "comparator": false,
+   "references": [
+    "EXPINT published mathematical documentation; OTW (2006) order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "EGLM433",
+   "family": "Exponential GLM",
+   "classical_order": 4,
+   "stiff_order": 4,
+   "weak_stiff_order": null,
+   "stages": 3,
+   "history": "nonlinear_history",
+   "stage_order": 3,
+   "quadrature_order": 5,
+   "weak_quadrature_order": null,
+   "provenance_status": "EXPINT-documentation",
+   "legacy_file": "eglm433.m",
+   "comparator": false,
+   "references": [
+    "EXPINT mathematical specification; OTW (2006) order conditions"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ETD2RK",
+   "family": "Exponential Runge-Kutta",
+   "classical_order": 2,
+   "stiff_order": 2,
+   "weak_stiff_order": null,
+   "stages": 2,
+   "history": "solution_only",
+   "stage_order": 1,
+   "quadrature_order": 2,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "etd2rk.m",
+   "comparator": false,
+   "references": [
+    "Cox & Matthews (2002), Eq. (22)"
+   ],
+   "crosscheck": "corrected file"
+  },
+  {
+   "name": "ETD3RK",
+   "family": "Exponential Runge-Kutta",
+   "classical_order": 3,
+   "stiff_order": 3,
+   "weak_stiff_order": null,
+   "stages": 3,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "etd3rk.m",
+   "comparator": false,
+   "references": [
+    "Friedli (1978); Cox & Matthews (2002), Eqs. (23)-(25)"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "EhleLawson",
+   "family": "Exponential Runge-Kutta",
+   "classical_order": 2,
+   "stiff_order": 2,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "ehlelawson.m",
+   "comparator": false,
+   "references": [
+    "Ehle & Lawson (1975); EXPINT documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ETD4RK",
+   "family": "Exponential Runge-Kutta",
+   "classical_order": 4,
+   "stiff_order": 2,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "solution_only",
+   "stage_order": 1,
+   "quadrature_order": 4,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "etd4rk.m",
+   "comparator": false,
+   "references": [
+    "Cox & Matthews (2002), Eqs. (26)-(29)"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "Krogstad",
+   "family": "Exponential Runge-Kutta",
+   "classical_order": 4,
+   "stiff_order": 3,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "solution_only",
+   "stage_order": 1,
+   "quadrature_order": 4,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "krogstad.m",
+   "comparator": false,
+   "references": [
+    "Krogstad (2005), Eq. (51), ETDRK4-B"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "StrehmelWeiner",
+   "family": "Exponential Runge-Kutta",
+   "classical_order": 4,
+   "stiff_order": 3,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "strehmelweiner.m",
+   "comparator": false,
+   "references": [
+    "Strehmel & Weiner (1992), Example 4.5.5; EXPINT documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "Friedli",
+   "family": "Exponential Runge-Kutta",
+   "classical_order": 4,
+   "stiff_order": 3,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "friedli.m",
+   "comparator": false,
+   "references": [
+    "Friedli (1978), Section 5; EXPINT documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "HochOst4",
+   "family": "Exponential Runge-Kutta",
+   "classical_order": 4,
+   "stiff_order": 4,
+   "weak_stiff_order": null,
+   "stages": 5,
+   "history": "solution_only",
+   "stage_order": 1,
+   "quadrature_order": 4,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "hochost4.m",
+   "comparator": false,
+   "references": [
+    "Hochbruck & Ostermann (2005), Section 5"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ETD5RKF",
+   "family": "Exponential Runge-Kutta (nonstiff order 5)",
+   "classical_order": 5,
+   "stiff_order": null,
+   "weak_stiff_order": null,
+   "stages": 6,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "EXPINT-documentation",
+   "legacy_file": "etd5rkf.m",
+   "comparator": false,
+   "references": [
+    "Berland, Owren & Skaflestad, B-series/order conditions; EXPINT documentation"
+   ],
+   "crosscheck": "corrected file"
+  },
+  {
+   "name": "RKMK2e",
+   "family": "Affine Lie-group",
+   "classical_order": 2,
+   "stiff_order": 1,
+   "weak_stiff_order": 2,
+   "stages": 2,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "rkmk2e.m",
+   "comparator": false,
+   "references": [
+    "Munthe-Kaas (1999), affine action; PASSA literature; EXPINT documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ETD2CF3",
+   "family": "Affine Lie-group / ETD",
+   "classical_order": 3,
+   "stiff_order": 3,
+   "weak_stiff_order": null,
+   "stages": 3,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "etd2cf3.m",
+   "comparator": false,
+   "references": [
+    "Hochbruck & Ostermann ETD construction; Celledoni, Marthinsen & Owren commutator-free lineage; EXPINT documentation"
+   ],
+   "crosscheck": "corrected file"
+  },
+  {
+   "name": "Cfree4",
+   "family": "Affine Lie-group / commutator-free",
+   "classical_order": 4,
+   "stiff_order": 2,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "cfree4.m",
+   "comparator": false,
+   "references": [
+    "Celledoni, Marthinsen & Owren (2003), Eq. (7), affine action; EXPINT documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "RKMK4t",
+   "family": "Affine Lie-group / RKMK",
+   "classical_order": 4,
+   "stiff_order": 1,
+   "weak_stiff_order": 2,
+   "stages": 4,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "published",
+   "legacy_file": "rkmk4t.m",
+   "comparator": false,
+   "references": [
+    "Munthe-Kaas (1999), truncated dexp^{-1}; EXPINT documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "GenLawson41",
+   "family": "Generalized Lawson / exponential GLM",
+   "classical_order": 4,
+   "stiff_order": 2,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "solution_only",
+   "stage_order": 1,
+   "quadrature_order": 1,
+   "weak_quadrature_order": 2,
+   "provenance_status": "derived-from-published-construction",
+   "legacy_file": "genlawson41.m",
+   "comparator": false,
+   "references": [
+    "Krogstad (2005), Section 3, ETDq/RK4 construction",
+    "OTW (2006) order framework"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "GenLawson42",
+   "family": "Generalized Lawson / exponential GLM",
+   "classical_order": 4,
+   "stiff_order": 3,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "nonlinear_history",
+   "stage_order": 2,
+   "quadrature_order": 2,
+   "weak_quadrature_order": 3,
+   "provenance_status": "derived-from-published-construction",
+   "legacy_file": "genlawson42.m",
+   "comparator": false,
+   "references": [
+    "Krogstad (2005), Section 3, ETDq/RK4 construction",
+    "OTW (2006) order framework"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "GenLawson43",
+   "family": "Generalized Lawson / exponential GLM",
+   "classical_order": 4,
+   "stiff_order": 4,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "nonlinear_history",
+   "stage_order": 3,
+   "quadrature_order": 3,
+   "weak_quadrature_order": 4,
+   "provenance_status": "derived-from-published-construction",
+   "legacy_file": "genlawson43.m",
+   "comparator": false,
+   "references": [
+    "Krogstad (2005), Section 3, ETDq/RK4 construction",
+    "OTW (2006) order framework"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "GenLawson44",
+   "family": "Generalized Lawson / exponential GLM",
+   "classical_order": 4,
+   "stiff_order": 4,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "nonlinear_history",
+   "stage_order": 4,
+   "quadrature_order": 4,
+   "weak_quadrature_order": null,
+   "provenance_status": "derived-from-published-construction",
+   "legacy_file": "genlawson44.m",
+   "comparator": false,
+   "references": [
+    "Krogstad (2005), Section 3, ETDq/RK4 construction",
+    "OTW (2006) order framework"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "GenLawson45",
+   "family": "Generalized Lawson / exponential GLM",
+   "classical_order": 5,
+   "stiff_order": 5,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "nonlinear_history",
+   "stage_order": 5,
+   "quadrature_order": 5,
+   "weak_quadrature_order": null,
+   "provenance_status": "derived-from-published-construction",
+   "legacy_file": "genlawson45.m",
+   "comparator": false,
+   "references": [
+    "Krogstad (2005), Section 3, ETDq/RK4 construction",
+    "OTW (2006) order framework"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ModGenLawson41",
+   "family": "Modified generalized Lawson / exponential GLM",
+   "classical_order": 4,
+   "stiff_order": 2,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "solution_only",
+   "stage_order": 1,
+   "quadrature_order": 2,
+   "weak_quadrature_order": null,
+   "provenance_status": "derived-from-published-construction",
+   "legacy_file": "modgenlawson41.m",
+   "comparator": false,
+   "references": [
+    "Krogstad (2005) internal stages; OTW quadrature conditions",
+    "EXPINT modified generalized Lawson documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ModGenLawson42",
+   "family": "Modified generalized Lawson / exponential GLM",
+   "classical_order": 4,
+   "stiff_order": 3,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "nonlinear_history",
+   "stage_order": 2,
+   "quadrature_order": 3,
+   "weak_quadrature_order": null,
+   "provenance_status": "derived-from-published-construction",
+   "legacy_file": "modgenlawson42.m",
+   "comparator": false,
+   "references": [
+    "Krogstad (2005) internal stages; OTW quadrature conditions",
+    "EXPINT modified generalized Lawson documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ModGenLawson43",
+   "family": "Modified generalized Lawson / exponential GLM",
+   "classical_order": 4,
+   "stiff_order": 4,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "nonlinear_history",
+   "stage_order": 3,
+   "quadrature_order": 4,
+   "weak_quadrature_order": null,
+   "provenance_status": "derived-from-published-construction",
+   "legacy_file": "modgenlawson43.m",
+   "comparator": false,
+   "references": [
+    "Krogstad (2005) internal stages; OTW quadrature conditions",
+    "EXPINT modified generalized Lawson documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ModGenLawson44",
+   "family": "Modified generalized Lawson / exponential GLM",
+   "classical_order": 5,
+   "stiff_order": 5,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "nonlinear_history",
+   "stage_order": 4,
+   "quadrature_order": 5,
+   "weak_quadrature_order": null,
+   "provenance_status": "derived-from-published-construction",
+   "legacy_file": "modgenlawson44.m",
+   "comparator": false,
+   "references": [
+    "Krogstad (2005) internal stages; OTW quadrature conditions",
+    "EXPINT modified generalized Lawson documentation"
+   ],
+   "crosscheck": "agrees"
+  },
+  {
+   "name": "ModGenLawson45",
+   "family": "Modified generalized Lawson / exponential GLM",
+   "classical_order": 6,
+   "stiff_order": 6,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "nonlinear_history",
+   "stage_order": 5,
+   "quadrature_order": 6,
+   "weak_quadrature_order": null,
+   "provenance_status": "derived-from-published-construction",
+   "legacy_file": "modgenlawson45.m",
+   "comparator": false,
+   "references": [
+    "Krogstad (2005) internal stages; OTW quadrature conditions",
+    "EXPINT modified generalized Lawson documentation"
+   ],
+   "crosscheck": "regenerated"
+  },
+  {
+   "name": "CrankNicolson",
+   "family": "Historical comparator / fixed-point Crank-Nicolson",
+   "classical_order": 2,
+   "stiff_order": null,
+   "weak_stiff_order": null,
+   "stages": 4,
+   "history": "solution_only",
+   "stage_order": null,
+   "quadrature_order": null,
+   "weak_quadrature_order": null,
+   "provenance_status": "EXPINT-documentation/source-description",
+   "legacy_file": "cranknicolson.m",
+   "comparator": true,
+   "references": [
+    "Classical Crank-Nicolson; EXPINT historical four-iteration comparator"
+   ],
+   "crosscheck": "agrees"
+  }
+ ],
+ "crosscheck_source": "tools/expint_crosscheck/results_2026-10-07/crosscheck_report.txt"
+}

@@ -1,0 +1,7 @@
+# Coverage index of the supplied private candidate
+
+This index was built by reading the supplied source and JUnit records, not by rerunning tests. Paths beginning `software/` refer to `pyexpint_review_package_20261011.zip`. The source-tree identifier is 9f62cbf6a6455868e358386ccff824507287aeb3. JUnit identifiers use Python module notation; replace dots by slashes and append `.py` to locate the test module. The XML is `evidence/c2c4_20261011_090542/C_suite_branch.xml` in that package.
+
+All 47 entries have a structural validation and a named classical-order regression. The 46 exponential entries share two loop-based linear tests; the rational comparator has its own second-order test. Explicit coefficient and moment tests are listed only when present and recorded as passed. No entry is granted a missing coefficient proof by analogy. `audit/phase0_symbolic_check.py` contains additional symbolic constructions, but no run of that script is inferred from the pytest log. Missing evidence is not encoded as failure.
+
+The `classical_order`/`stiff_order` metadata values are copied from the manuscript's catalogue; the index is an evidence map, not a new certification of all order assertions. In particular, the scalar regression uses the maximum eligible adjacent slope. Original EXPINT per-scheme outputs are now present, but the comparison with regenerated ModGenLawson45 coefficients remains distinguished from equality with the original implementation.

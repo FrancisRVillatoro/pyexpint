@@ -1,0 +1,9 @@
+backend,rtol,controller,error_inf,matvecs,nonlinear_evals,accepted,rejected,backend_failure_rejections
+kiops,0.0001,step-doubling,2.0104374104379374e-07,731,36,3,0,
+kiops,0.0001,embedded-accuracy,2.297432512995967e-06,334,13,3,0,
+kiops,1e-06,step-doubling,3.9932066167591707e-08,1191,48,4,0,
+kiops,1e-06,embedded-accuracy,5.0645825228068375e-08,718,33,7,1,
+leja,0.0001,step-doubling,2.6307227880675854e-05,3249,36,3,0,
+leja,0.0001,embedded-accuracy,1.1421816747070324e-05,1375,13,3,0,
+leja,1e-06,step-doubling,4.6016121205139093e-08,5387,48,4,0,
+leja,1e-06,embedded-accuracy,5.7094600117157945e-08,3447,33,7,1,

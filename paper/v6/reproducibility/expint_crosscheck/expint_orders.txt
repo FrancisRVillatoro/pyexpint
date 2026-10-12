@@ -1,0 +1,38 @@
+
+== y' = -1 y + y^2, y(0) = 0.4, T = 1.6, scalar L, exact startup; h = [0.2 0.1 0.05 0.025] ==
+etd4rk               errors  3.12e-07  1.96e-08  1.23e-09  7.68e-11  | slopes   3.99   4.00   4.00 
+etd2rk               errors  2.51e-02  2.39e-02  2.32e-02  2.29e-02  | slopes   0.07   0.04   0.02 
+etd2rk_corrected     errors  6.91e-04  1.80e-04  4.59e-05  1.16e-05  | slopes   1.94   1.97   1.98 
+etd2cf3              errors  4.18e-07  4.94e-08  6.02e-09  7.42e-10  | slopes   3.08   3.04   3.02 
+etd2cf3_corrected    errors  1.18e-07  8.65e-09  7.46e-10  7.39e-11  | slopes   3.78   3.53   3.34 
+etd5rkf              errors  2.58e-03  7.78e-04  2.56e-04  9.38e-05  | slopes   1.73   1.61   1.45 
+etd5rkf_corrected    errors  4.68e-06  1.56e-07  5.05e-09  1.60e-10  | slopes   4.90   4.95   4.98 
+ablawson2            errors  8.11e-03  4.09e-03  2.06e-03  1.04e-03  | slopes   0.99   0.99   0.99 
+ablawson2_corrected  errors  1.13e-04  3.27e-05  8.80e-06  2.28e-06  | slopes   1.79   1.89   1.95 
+modgenlawson45       errors  3.52e-10  4.15e-10  2.06e-11  7.65e-13  | slopes  -0.24   4.33   4.75 
+
+== y' = -5 y + y^2, y(0) = 0.4, T = 1.6, scalar L, exact startup; h = [0.2 0.1 0.05 0.025] ==
+etd4rk               errors  5.32e-08  3.32e-09  2.10e-10  1.33e-11  | slopes   4.00   3.98   3.99 
+etd2rk               errors  1.36e-05  9.35e-06  7.67e-06  6.87e-06  | slopes   0.55   0.28   0.16 
+etd2rk_corrected     errors  4.27e-06  1.05e-06  2.65e-07  6.66e-08  | slopes   2.02   1.99   1.99 
+etd2cf3              errors  5.04e-07  5.08e-08  5.75e-09  6.86e-10  | slopes   3.31   3.14   3.07 
+etd2cf3_corrected    errors  4.91e-07  4.97e-08  5.64e-09  6.73e-10  | slopes   3.30   3.14   3.07 
+etd5rkf              errors  1.10e-05  3.32e-06  9.19e-07  2.65e-07  | slopes   1.73   1.85   1.80 
+etd5rkf_corrected    errors  1.31e-06  5.08e-08  1.71e-09  5.52e-11  | slopes   4.69   4.89   4.96 
+ablawson2            errors  3.32e-05  9.12e-06  3.35e-06  1.42e-06  | slopes   1.86   1.45   1.24 
+ablawson2_corrected  errors  2.91e-06  8.56e-07  2.33e-07  6.07e-08  | slopes   1.76   1.88   1.94 
+modgenlawson45       errors  6.87e-07  7.15e-10  7.70e-11  3.19e-12  | slopes   9.91   3.21   4.59 
+
+== stiff diagonal system (vector L, 40 modes, max |h lambda| = 15.8 at h = 0.1), reference: etd2cf3_corrected at h = 1/2560 ==
+etd2cf3              errors  7.65e-08  1.13e-08  2.23e-09  4.01e-10  | slopes   2.76   2.34   2.48 
+etd2cf3_corrected    errors  6.72e-08  6.20e-09  4.78e-10  3.50e-11  | slopes   3.44   3.70   3.77 
+
+== etd5rkf, same problem (a = -1), identical decoupled components, h = 0.05: final value by storage of L ==
+etd5rkf              scalar 0.118885829874815  vector 0.118630308757824  matrix 0.118630308757824
+etd5rkf_corrected    scalar 0.118630308757824  vector 0.118630308757824  matrix 0.118630308757824
+
+== modgenlawson45 (original), a = -1, h = [0.1 0.05 0.025 0.0125 0.00625] ==
+modgenlawson45       errors  4.15e-10  2.06e-11  7.65e-13  2.44e-14  2.22e-16  | slopes   4.33   4.75   4.97   6.78 
+
+== modgenlawson45 (original), a = -5, h = [0.1 0.05 0.025 0.0125 0.00625] ==
+modgenlawson45       errors  7.15e-10  7.70e-11  3.19e-12  1.07e-13  3.45e-15  | slopes   3.21   4.59   4.89   4.96 

@@ -1,0 +1,54 @@
+{
+  "n": 512,
+  "T": 2.0,
+  "cases": [
+    {
+      "rtol": 0.0001,
+      "controller": "accuracy",
+      "error_inf": 4.736023039055015e-06,
+      "wall_seconds": 2.0438218479999932,
+      "matvecs": 3347,
+      "accepted": 4,
+      "rejected": 0,
+      "nonlinear_evals": 17,
+      "cost_limited_steps": 0,
+      "backend_failure_rejections": null
+    },
+    {
+      "rtol": 0.0001,
+      "controller": "cost",
+      "error_inf": 3.693761879728502e-06,
+      "wall_seconds": 2.2427529420000383,
+      "matvecs": 3079,
+      "accepted": 8,
+      "rejected": 0,
+      "nonlinear_evals": 33,
+      "cost_limited_steps": 7,
+      "backend_failure_rejections": null
+    },
+    {
+      "rtol": 1e-06,
+      "controller": "accuracy",
+      "error_inf": 4.294099758758718e-08,
+      "wall_seconds": 4.59220209800003,
+      "matvecs": 6469,
+      "accepted": 12,
+      "rejected": 2,
+      "nonlinear_evals": 57,
+      "cost_limited_steps": 0,
+      "backend_failure_rejections": null
+    },
+    {
+      "rtol": 1e-06,
+      "controller": "cost",
+      "error_inf": 2.5630507511503753e-08,
+      "wall_seconds": 4.767735997000045,
+      "matvecs": 5083,
+      "accepted": 24,
+      "rejected": 2,
+      "nonlinear_evals": 105,
+      "cost_limited_steps": 22,
+      "backend_failure_rejections": null
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "rows": [
+    {
+      "n": 256,
+      "method": "Krogstad",
+      "backend": "kiops",
+      "seconds": 0.01283377099991867
+    },
+    {
+      "n": 256,
+      "method": "Krogstad",
+      "backend": "leja",
+      "seconds": 0.054448306999915985
+    },
+    {
+      "n": 256,
+      "method": "Krogstad",
+      "backend": "hybrid",
+      "seconds": 0.020041020000007848
+    },
+    {
+      "n": 256,
+      "method": "HochOst4",
+      "backend": "kiops",
+      "seconds": 0.021466662999955588
+    },
+    {
+      "n": 256,
+      "method": "HochOst4",
+      "backend": "leja",
+      "seconds": 0.04862478999996256
+    },
+    {
+      "n": 256,
+      "method": "HochOst4",
+      "backend": "hybrid",
+      "seconds": 0.039068120000024464
+    },
+    {
+      "n": 1024,
+      "method": "Krogstad",
+      "backend": "kiops",
+      "seconds": 0.15202890600005503
+    },
+    {
+      "n": 1024,
+      "method": "Krogstad",
+      "backend": "leja",
+      "seconds": 0.09229941099999905
+    },
+    {
+      "n": 1024,
+      "method": "Krogstad",
+      "backend": "hybrid",
+      "seconds": 0.11409214399998291
+    },
+    {
+      "n": 1024,
+      "method": "HochOst4",
+      "backend": "kiops",
+      "seconds": 0.5083462210000107
+    },
+    {
+      "n": 1024,
+      "method": "HochOst4",
+      "backend": "leja",
+      "seconds": 0.04817252400005145
+    },
+    {
+      "n": 1024,
+      "method": "HochOst4",
+      "backend": "hybrid",
+      "seconds": 0.3128583840000374
+    }
+  ]
+}

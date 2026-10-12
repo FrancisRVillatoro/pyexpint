@@ -1,0 +1,12 @@
+{
+  "build_backend": "setuptools.build_meta",
+  "backend_version": "82.0.1",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "review_manifest_entries_checked": 317,
+  "review_tree_verified": "9f62cbf6a6455868e358386ccff824507287aeb3",
+  "wheel_python_files_byte_identical": 20,
+  "sdist_python_files_byte_identical": 20,
+  "wheel_import_smoke": "WHEEL_VERSION= 1.0.0\nMETHODS= 47\nIMPORT_PATH= /mnt/data/pyexpint_final_publication_work/wheel_smoke/pyexpint/__init__.py",
+  "new_test_suite_execution": false,
+  "new_integrations": 0
+}

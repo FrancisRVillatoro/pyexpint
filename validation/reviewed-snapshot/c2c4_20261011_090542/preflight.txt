@@ -1,0 +1,21 @@
+ROOT=/home/claude/pyx
+BRANCH=toms-revision
+HEAD=0ad4b3c4786086a04cf22be33375cc9997ff1344
+C1=6c9c1db
+
+Commits since C1:
+0ad4b3c Fusion and broadband experiments: records in the audited environment
+054fb2e Example as printed in the article; submission package without external zip
+b1d42fe Complete experimental records for the broadband and fusion drivers
+b907740 Review response: broadband experiment, submission package, Leja documentation
+3e11ee7 EXPINT cross-check: reproducible scripts, archived results and catalogue notes
+02cca1c C5: clean-install check, example without exact history, packaging fixes
+127a892 Cheap experiments: fully specified drivers and rerun against archived data
+49314c8 tools: compare canonical errors within the action tolerance
+3de0bad tools: validation scripts for C2-C4
+5aeab05 C4: backend cloning and numerical startup
+62c7658 C3: contract of the adaptive solvers
+e8f037d C2: authoritative work accounting in ETD34
+
+Uncommitted changes:
+IMPORT_BRANCH=/home/claude/pyx/src/pyexpint/__init__.py

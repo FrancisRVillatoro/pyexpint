@@ -73,6 +73,13 @@ class AutoBackend(Backend):
         return backend.bind(linear_operator, h)
 
     def stats(self):
+        """Cumulative statistics.
+
+        The top-level ``"matvecs"`` entry is the authoritative count of products
+        performed through this selector.  ``kiops_stats``, ``leja_stats`` and
+        ``selected_backend_stats`` are breakdowns of the same products and must not
+        be added to it.
+        """
         details = {}
         if self._last is not None and hasattr(self._last, "stats"):
             details = self._last.stats()

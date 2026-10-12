@@ -1,0 +1,84 @@
+--- expint-2005/schemes/etd2rk.m
++++ corrected/etd2rk_corrected.m
+@@ -1,8 +1,8 @@
+-function [u, v, a, b, c] = etd2rk(z, problem)
++function [u, v, a, b, c] = etd2rk_corrected(z, problem)
+ % ETD2RK - The ETD2RK coefficent functions of stiff order 2.
+ %     
+ % SYNOPSIS:
+-%   [u, v, a, b, c] = etd2rk(z, problem);
++%   [u, v, a, b, c] = etd2rk_corrected(z, problem);
+ %
+ % PARAMETERS:
+ %   z       - Evaluation point (h * linear operator)
+@@ -32,6 +32,6 @@
+ 
+ v = { ez };
+ 
+-b = { phi_1 - 2*phi_2,   phi_2 };    
++b = { phi_1 - phi_2,   phi_2 };    
+ 
+ c = [ 0; 1 ];
+--- expint-2005/schemes/etd2cf3.m
++++ corrected/etd2cf3_corrected.m
+@@ -1,4 +1,4 @@
+-function [u, v, a, b, c] = etd2cf3(z, problem)
++function [u, v, a, b, c] = etd2cf3_corrected(z, problem)
+ % ETD2CF3 - Coefficient for a third order ETD version based on a 
+ %           commutator-free scheme by Celledoni, Martinsen and Owren.
+ %     
+@@ -24,7 +24,7 @@
+ [one, ez2, ez, z] = oneez2(z);
+ 
+ [phi_1, phi_2, phi_3] = phipade(z, 3);
+- phi_12               = phipade(1/2*z, 1);
++ phi_12               = phipade(1/3*z, 1);
+ [phi_13, phi_23]      = phipade(2/3*z, 2);
+ 
+ %%% oneez2 is too specialized for this c-vector, so we copy out code
+--- expint-2005/schemes/etd5rkf.m
++++ corrected/etd5rkf_corrected.m
+@@ -1,10 +1,10 @@
+-function [u, v, a, b, c] = etd5rkf(z, problem)
++function [u, v, a, b, c] = etd5rkf_corrected(z, problem)
+ % ETD5RKF
+ % Exponential integrator version based on the fifth order scheme of
+ % Fehlberg. Six stages.
+ %
+ % SYNOPSIS:
+-%   [u, v, a, b, c] = etd5rkf(z, problem);
++%   [u, v, a, b, c] = etd5rkf_corrected(z, problem);
+ %
+ % PARAMETERS:
+ %   z       - Evaluation point (h * linear operator)
+@@ -33,7 +33,7 @@
+    if m == 1,   %% Scalar case. Simple.
+       ez29 = exp(2 * z / 9);
+       ez13 = exp(    z / 3);
+-      ez34 = exp(3 * z / 5);
++      ez34 = exp(3 * z / 4);
+       ez56 = exp(5 * z / 6);
+       one = 1;
+       ez = exp(z);
+--- expint-2005/schemes/ablawson2.m
++++ corrected/ablawson2_corrected.m
+@@ -1,8 +1,8 @@
+-function [u, v, a, b, c] = ablawson2(z, problem)
++function [u, v, a, b, c] = ablawson2_corrected(z, problem)
+ % ABLAWSON2 - Adams-Bashforth-Lawson scheme of stiff order 1.
+ % 
+ % SYNOPSIS:
+-%   [u, v, a, b, c] = ablawson2(z, problem);
++%   [u, v, a, b, c] = ablawson2_corrected(z, problem);
+ %
+ % PARMETERS:
+ %   z       - Evaluation point (h * linear operator)
+@@ -30,7 +30,7 @@
+ a = {      [],  []; ...
+        3/2*ez,  [] };
+ 
+-v = {  ez, -1/2*ez2; ...
++v = {  ez, -1/2*e2z; ...
+        [],       [] }; 
+ 
+ b = { 3/2*ez, []; ... 

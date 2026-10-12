@@ -1,0 +1,15 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{Numerical realizations of the common action contract. Workspace estimates concern dominant algorithmic storage for fixed maximum $\varphi$-index, excluding the problem, sparse matrix, Python objects and uncounted library temporaries. Auto is a dispatch policy, not another matrix-function algorithm.}\label{tab:backends}
+\begin{tabularx}{\linewidth}{@{}p{2.05cm}X X p{1.35cm}p{2.05cm}X@{}}\toprule
+Realization & Operator form & Spectral information & Distinct-RHS fusion & Dominant workspace & Work observable\\\midrule
+Diagonal & Given diagonal & Eigenvalues supplied & Trivial & $O(n)$ & Direct scalar-function work.\\\addlinespace
+Dense & Materialized matrix & None required & Limited & $O(n^2)$ & Dense augmented exponentials; reference, not exact arithmetic.\\\addlinespace
+Full Arnoldi & Sparse or matrix-free & None required & Yes & $O(nm+m^2)$ & Matvecs, orthogonalization and projected work.\\\addlinespace
+KIOPS-type & Sparse or matrix-free & None required & Yes & $O(nm+m^2)$ & Matvecs, incomplete orthogonalization and adaptive substeps.\\\addlinespace
+Real Leja & Sparse or matrix-free & Reliable real interval & No, currently & $O(n+d)$ & Polynomial recurrence and stopping tests.\\\addlinespace
+SciPy/\allowbreak KIOPS hybrid & Sparse or matrix-free & None required & Partial & Realization-dependent & KIOPS counts omit internal SciPy matvecs.\\\bottomrule
+\end{tabularx}
+\par\smallskip\footnotesize
+For one projection, full Arnoldi adds $O(nm^2)$ orthogonalization work; incomplete orthogonalization of fixed length $\ell$ adds $O(\ell nm)$. Small projected matrix-function work is additional. A Leja recurrence of degree $d$ requires polynomial matvecs and $O(nd)$ vector work. Substeps and distinct right-hand sides multiply these costs. These are cost descriptions, not measured RSS or universal runtime rankings.
+\end{table}

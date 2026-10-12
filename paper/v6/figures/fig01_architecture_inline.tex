@@ -1,0 +1,16 @@
+\begin{tikzpicture}[font=\footnotesize,arr/.style={-{Latex[length=2mm]},semithick},core/.style={draw,rounded corners=2pt,text width=6.0cm,align=center,minimum height=1.0cm},side/.style={draw,dashed,text width=2.5cm,align=center,minimum height=.9cm}]
+\node[core] (method) at (0,0) {\textbf{Validated method specification}\\$M=(c,U,A,V,B)$; orders and provenance};
+\node[core] (algebra) at (0,-1.55) {\textbf{Operator-coefficient algebra}\\$\varphi_k(\sigma z)$, sums and compositions};
+\node[core] (engine) at (0,-3.1) {\textbf{One generic EGLM engine}\\$X_n\longmapsto Y_i\longmapsto G_i\longmapsto X_{n+1}$};
+\node[core] (contract) at (0,-4.8) {\textbf{Matrix-function-action contract}\\$Q(hL)v$, optional fused $\sum_jQ_j(hL)v_j$};
+\node[draw,rounded corners=2pt,text width=9.5cm,align=center,minimum height=1.35cm] (realizations) at (0,-6.7) {\textbf{Interchangeable numerical realizations}\\[3pt]Diagonal \quad Dense \quad Full Arnoldi\\KIOPS-type \quad Real Leja \quad SciPy/KIOPS hybrid};
+\draw[arr] (method)--(algebra);\draw[arr] (algebra)--(engine);
+\draw[arr] (engine)--node[right,font=\footnotesize]{action requests}(contract);
+\draw[arr] (contract)--(realizations);
+\node[side] (startup) at (-5.05,-3.1) {Startup policy\\initial state $X_0$};
+\node[side] (adaptive) at (5.05,-3.1) {Adaptive controller\\$h$, action tolerance};
+\node[side] (metrics) at (5.05,-4.8) {Work statistics\\and diagnostics};
+\node[side] (auto) at (-5.05,-4.8) {Optional selector\\Auto / calibration};
+\draw[arr] (startup)--(engine);\draw[arr] (adaptive)--(engine);
+\draw[arr] (contract)--(metrics);\draw[arr] (auto.south)|-(realizations.west);
+\end{tikzpicture}

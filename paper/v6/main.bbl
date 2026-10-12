@@ -1,0 +1,410 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{27}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{} and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showURL}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showURL #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[Al-Mohy and Higham(2011)]%
+        {AlMohyHigham2011}
+\bibfield{author}{\bibinfo{person}{Awad~H. Al-Mohy} {and}
+  \bibinfo{person}{Nicholas~J. Higham}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Computing the Action of the Matrix Exponential,
+  with an Application to Exponential Integrators}.
+\newblock \bibinfo{journal}{\emph{SIAM Journal on Scientific Computing}}
+  \bibinfo{volume}{33}, \bibinfo{number}{2} (\bibinfo{year}{2011}),
+  \bibinfo{pages}{488--511}.
+\newblock
+\href{https://doi.org/10.1137/100788860}{doi:\nolinkurl{10.1137/100788860}}
+
+
+\bibitem[Berland et~al\mbox{.}(2005)]%
+        {BerlandOwrenSkaflestad2005}
+\bibfield{author}{\bibinfo{person}{H{\aa}vard Berland},
+  \bibinfo{person}{Brynjulf Owren}, {and} \bibinfo{person}{B{\aa}rd
+  Skaflestad}.} \bibinfo{year}{2005}\natexlab{}.
+\newblock \showarticletitle{{B}-Series and Order Conditions for Exponential
+  Integrators}.
+\newblock \bibinfo{journal}{\emph{SIAM J. Numer. Anal.}} \bibinfo{volume}{43},
+  \bibinfo{number}{4} (\bibinfo{year}{2005}), \bibinfo{pages}{1715--1727}.
+\newblock
+\href{https://doi.org/10.1137/040612683}{doi:\nolinkurl{10.1137/040612683}}
+
+
+\bibitem[Berland et~al\mbox{.}(2007)]%
+        {BerlandSkaflestadWright2007}
+\bibfield{author}{\bibinfo{person}{H{\aa}vard Berland},
+  \bibinfo{person}{B{\aa}rd Skaflestad}, {and} \bibinfo{person}{Will~M.
+  Wright}.} \bibinfo{year}{2007}\natexlab{}.
+\newblock \showarticletitle{{EXPINT}---A {MATLAB} Package for Exponential
+  Integrators}.
+\newblock \bibinfo{journal}{\emph{ACM Trans. Math. Software}}
+  \bibinfo{volume}{33}, \bibinfo{number}{1}, Article \bibinfo{articleno}{4}
+  (\bibinfo{year}{2007}), \bibinfo{numpages}{17}~pages.
+\newblock
+\href{https://doi.org/10.1145/1206040.1206044}{doi:\nolinkurl{10.1145/1206040.1206044}}
+
+
+\bibitem[Caliari et~al\mbox{.}(2016)]%
+        {CaliariKandolfOstermannRainer2016}
+\bibfield{author}{\bibinfo{person}{Marco Caliari}, \bibinfo{person}{Peter
+  Kandolf}, \bibinfo{person}{Alexander Ostermann}, {and}
+  \bibinfo{person}{Stefan Rainer}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{The {Leja} Method Revisited: Backward Error
+  Analysis for the Matrix Exponential}.
+\newblock \bibinfo{journal}{\emph{SIAM Journal on Scientific Computing}}
+  \bibinfo{volume}{38}, \bibinfo{number}{3} (\bibinfo{year}{2016}),
+  \bibinfo{pages}{A1639--A1661}.
+\newblock
+\href{https://doi.org/10.1137/15M1027620}{doi:\nolinkurl{10.1137/15M1027620}}
+
+
+\bibitem[Caliari et~al\mbox{.}(2004)]%
+        {CaliariVianelloBergamaschi2004}
+\bibfield{author}{\bibinfo{person}{Marco Caliari}, \bibinfo{person}{Marco
+  Vianello}, {and} \bibinfo{person}{Luca Bergamaschi}.}
+  \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{Interpolating Discrete Advection--Diffusion
+  Propagators at {Leja} Sequences}.
+\newblock \bibinfo{journal}{\emph{J. Comput. Appl. Math.}}
+  \bibinfo{volume}{172}, \bibinfo{number}{1} (\bibinfo{year}{2004}),
+  \bibinfo{pages}{79--99}.
+\newblock
+\href{https://doi.org/10.1016/j.cam.2003.11.015}{doi:\nolinkurl{10.1016/j.cam.2003.11.015}}
+
+
+\bibitem[Cox and Matthews(2002)]%
+        {CoxMatthews2002}
+\bibfield{author}{\bibinfo{person}{S.~M. Cox} {and} \bibinfo{person}{P.~C.
+  Matthews}.} \bibinfo{year}{2002}\natexlab{}.
+\newblock \showarticletitle{Exponential Time Differencing for Stiff Systems}.
+\newblock \bibinfo{journal}{\emph{J. Comput. Phys.}} \bibinfo{volume}{176},
+  \bibinfo{number}{2} (\bibinfo{year}{2002}), \bibinfo{pages}{430--455}.
+\newblock
+\href{https://doi.org/10.1006/jcph.2002.6995}{doi:\nolinkurl{10.1006/jcph.2002.6995}}
+
+
+\bibitem[Deka et~al\mbox{.}(2023a)]%
+        {DekaEinkemmerTokman2023}
+\bibfield{author}{\bibinfo{person}{Pranab~J. Deka}, \bibinfo{person}{Lukas
+  Einkemmer}, {and} \bibinfo{person}{Mayya Tokman}.}
+  \bibinfo{year}{2023}\natexlab{a}.
+\newblock \showarticletitle{{LeXInt}: Package for Exponential Integrators
+  Employing Leja Interpolation}.
+\newblock \bibinfo{journal}{\emph{SoftwareX}}  \bibinfo{volume}{21}
+  (\bibinfo{year}{2023}), \bibinfo{pages}{101302}.
+\newblock
+\href{https://doi.org/10.1016/j.softx.2022.101302}{doi:\nolinkurl{10.1016/j.softx.2022.101302}}
+
+
+\bibitem[Deka et~al\mbox{.}(2023b)]%
+        {DekaMorigglEinkemmer2023}
+\bibfield{author}{\bibinfo{person}{Pranab~J. Deka}, \bibinfo{person}{Alexander
+  Moriggl}, {and} \bibinfo{person}{Lukas Einkemmer}.}
+  \bibinfo{year}{2023}\natexlab{b}.
+\newblock \bibinfo{title}{{LeXInt}: {GPU}-Accelerated Exponential Integrators
+  Package}.
+\newblock
+\showeprint[arxiv]{2310.08344}~[math.NA]
+
+
+\bibitem[Gaudreault et~al\mbox{.}(2018)]%
+        {GaudreaultRainwaterTokman2018}
+\bibfield{author}{\bibinfo{person}{St{\'e}phane Gaudreault},
+  \bibinfo{person}{Greg Rainwater}, {and} \bibinfo{person}{Mayya Tokman}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{{KIOPS}: A Fast Adaptive Krylov Subspace Solver for
+  Exponential Integrators}.
+\newblock \bibinfo{journal}{\emph{J. Comput. Phys.}}  \bibinfo{volume}{372}
+  (\bibinfo{year}{2018}), \bibinfo{pages}{236--255}.
+\newblock
+\href{https://doi.org/10.1016/j.jcp.2018.06.026}{doi:\nolinkurl{10.1016/j.jcp.2018.06.026}}
+
+
+\bibitem[Harris et~al\mbox{.}(2020)]%
+        {HarrisEtAl2020}
+\bibfield{author}{\bibinfo{person}{Charles~R. Harris},
+  \bibinfo{person}{K.~Jarrod Millman}, \bibinfo{person}{St{\'e}fan~J. van~der
+  Walt}, \bibinfo{person}{Ralf Gommers}, \bibinfo{person}{Pauli Virtanen},
+  \bibinfo{person}{David Cournapeau}, \bibinfo{person}{Eric Wieser},
+  \bibinfo{person}{Julian Taylor}, \bibinfo{person}{Sebastian Berg},
+  \bibinfo{person}{Nathaniel~J. Smith}, \bibinfo{person}{Robert Kern},
+  \bibinfo{person}{Matti Picus}, \bibinfo{person}{Stephan Hoyer},
+  \bibinfo{person}{Marten~H. van Kerkwijk}, \bibinfo{person}{Matthew Brett},
+  \bibinfo{person}{Allan Haldane}, \bibinfo{person}{Jaime Fern{\'a}ndez~del
+  R{\'i}o}, \bibinfo{person}{Mark Wiebe}, \bibinfo{person}{Pearu Peterson},
+  \bibinfo{person}{Pierre G{\'e}rard-Marchant}, \bibinfo{person}{Kevin
+  Sheppard}, \bibinfo{person}{Tyler Reddy}, \bibinfo{person}{Warren Weckesser},
+  \bibinfo{person}{Hameer Abbasi}, \bibinfo{person}{Christoph Gohlke}, {and}
+  \bibinfo{person}{Travis~E. Oliphant}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{Array Programming with {NumPy}}.
+\newblock \bibinfo{journal}{\emph{Nature}}  \bibinfo{volume}{585}
+  (\bibinfo{year}{2020}), \bibinfo{pages}{357--362}.
+\newblock
+\href{https://doi.org/10.1038/s41586-020-2649-2}{doi:\nolinkurl{10.1038/s41586-020-2649-2}}
+
+
+\bibitem[Hochbruck and Ostermann(2005)]%
+        {HochbruckOstermann2005}
+\bibfield{author}{\bibinfo{person}{Marlis Hochbruck} {and}
+  \bibinfo{person}{Alexander Ostermann}.} \bibinfo{year}{2005}\natexlab{}.
+\newblock \showarticletitle{Explicit Exponential {Runge--Kutta} Methods for
+  Semilinear Parabolic Problems}.
+\newblock \bibinfo{journal}{\emph{SIAM J. Numer. Anal.}} \bibinfo{volume}{43},
+  \bibinfo{number}{3} (\bibinfo{year}{2005}), \bibinfo{pages}{1069--1090}.
+\newblock
+\href{https://doi.org/10.1137/040611434}{doi:\nolinkurl{10.1137/040611434}}
+
+
+\bibitem[Hochbruck and Ostermann(2010)]%
+        {HochbruckOstermann2010}
+\bibfield{author}{\bibinfo{person}{Marlis Hochbruck} {and}
+  \bibinfo{person}{Alexander Ostermann}.} \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Exponential Integrators}.
+\newblock \bibinfo{journal}{\emph{Acta Numerica}}  \bibinfo{volume}{19}
+  (\bibinfo{year}{2010}), \bibinfo{pages}{209--286}.
+\newblock
+\href{https://doi.org/10.1017/S0962492910000048}{doi:\nolinkurl{10.1017/S0962492910000048}}
+
+
+\bibitem[Hochbruck and Ostermann(2011)]%
+        {HochbruckOstermann2011}
+\bibfield{author}{\bibinfo{person}{Marlis Hochbruck} {and}
+  \bibinfo{person}{Alexander Ostermann}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Exponential Multistep Methods of {Adams}-Type}.
+\newblock \bibinfo{journal}{\emph{BIT Numerical Mathematics}}
+  \bibinfo{volume}{51}, \bibinfo{number}{4} (\bibinfo{year}{2011}),
+  \bibinfo{pages}{889--908}.
+\newblock
+\href{https://doi.org/10.1007/s10543-011-0332-6}{doi:\nolinkurl{10.1007/s10543-011-0332-6}}
+
+
+\bibitem[Jansing(2014)]%
+        {Jansing2014}
+\bibfield{author}{\bibinfo{person}{Georg Jansing}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \bibinfo{title}{{EXPODE}---Advanced Exponential Time Integration
+  Toolbox for {MATLAB}}.
+\newblock \bibinfo{howpublished}{arXiv:1404.4580}.
+\newblock
+\showeprint[arxiv]{1404.4580}~[math.NA]
+
+
+\bibitem[Krogstad(2005)]%
+        {Krogstad2005}
+\bibfield{author}{\bibinfo{person}{Stein Krogstad}.}
+  \bibinfo{year}{2005}\natexlab{}.
+\newblock \showarticletitle{Generalized Integrating Factor Methods for Stiff
+  {PDEs}}.
+\newblock \bibinfo{journal}{\emph{J. Comput. Phys.}} \bibinfo{volume}{203},
+  \bibinfo{number}{1} (\bibinfo{year}{2005}), \bibinfo{pages}{72--88}.
+\newblock
+\href{https://doi.org/10.1016/j.jcp.2004.08.006}{doi:\nolinkurl{10.1016/j.jcp.2004.08.006}}
+
+
+\bibitem[Lawson(1967)]%
+        {Lawson1967}
+\bibfield{author}{\bibinfo{person}{J.~Douglas Lawson}.}
+  \bibinfo{year}{1967}\natexlab{}.
+\newblock \showarticletitle{Generalized {Runge--Kutta} Processes for Stable
+  Systems with Large {Lipschitz} Constants}.
+\newblock \bibinfo{journal}{\emph{SIAM J. Numer. Anal.}} \bibinfo{volume}{4},
+  \bibinfo{number}{3} (\bibinfo{year}{1967}), \bibinfo{pages}{372--380}.
+\newblock
+\href{https://doi.org/10.1137/0704033}{doi:\nolinkurl{10.1137/0704033}}
+
+
+\bibitem[Niesen and Wright(2012)]%
+        {NiesenWright2012}
+\bibfield{author}{\bibinfo{person}{Jitse Niesen} {and} \bibinfo{person}{Will~M.
+  Wright}.} \bibinfo{year}{2012}\natexlab{}.
+\newblock \showarticletitle{Algorithm 919: A Krylov Subspace Algorithm for
+  Evaluating the $\varphi$-Functions Appearing in Exponential Integrators}.
+\newblock \bibinfo{journal}{\emph{ACM Trans. Math. Software}}
+  \bibinfo{volume}{38}, \bibinfo{number}{3}, Article \bibinfo{articleno}{22}
+  (\bibinfo{year}{2012}), \bibinfo{numpages}{19}~pages.
+\newblock
+\href{https://doi.org/10.1145/2168773.2168781}{doi:\nolinkurl{10.1145/2168773.2168781}}
+
+
+\bibitem[Ostermann et~al\mbox{.}(2006)]%
+        {OstermannThalhammerWright2006}
+\bibfield{author}{\bibinfo{person}{Alexander Ostermann},
+  \bibinfo{person}{Mechthild Thalhammer}, {and} \bibinfo{person}{Will~M.
+  Wright}.} \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{A Class of Explicit Exponential General Linear
+  Methods}.
+\newblock \bibinfo{journal}{\emph{BIT Numerical Mathematics}}
+  \bibinfo{volume}{46} (\bibinfo{year}{2006}), \bibinfo{pages}{409--431}.
+\newblock
+\href{https://doi.org/10.1007/s10543-006-0054-3}{doi:\nolinkurl{10.1007/s10543-006-0054-3}}
+
+
+\bibitem[{PyEXPINT developers}(2026)]%
+        {VillatoroPyEXPINT090}
+\bibfield{author}{\bibinfo{person}{{PyEXPINT developers}}.}
+  \bibinfo{year}{2026}\natexlab{}.
+\newblock \bibinfo{title}{{PyEXPINT}: Backend-Independent Exponential
+  Integrators in Python}.
+\newblock
+\href{https://doi.org/10.5281/zenodo.22820595}{doi:\nolinkurl{10.5281/zenodo.22820595}}
+\newblock
+\shownote{Version 0.9.0; concept DOI 10.5281/zenodo.22820009}.
+
+
+\bibitem[{SciML contributors}({[n.\,d.]})]%
+        {OrdinaryDiffEqExponential}
+\bibfield{author}{\bibinfo{person}{{SciML contributors}}.}
+  \bibinfo{year}{[n.\,d.]}\natexlab{}.
+\newblock \bibinfo{title}{{OrdinaryDiffEq.jl}: Exponential {Runge--Kutta}
+  Methods}.
+\newblock \bibinfo{howpublished}{Software documentation}.
+\newblock
+\urldef\tempurl%
+\url{https://docs.sciml.ai/OrdinaryDiffEq/stable/semilinear/ExponentialRK/}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed October 2026}.
+
+
+\bibitem[{SciML contributors}(2026)]%
+        {ExponentialUtilities2026}
+\bibfield{author}{\bibinfo{person}{{SciML contributors}}.}
+  \bibinfo{year}{2026}\natexlab{}.
+\newblock \bibinfo{title}{ExponentialUtilities.jl: Utilities for Matrix
+  Exponentials and $\varphi$-Functions}.
+\newblock \bibinfo{howpublished}{Software repository}.
+\newblock
+\urldef\tempurl%
+\url{https://github.com/SciML/ExponentialUtilities.jl}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed 2026-09-25}.
+
+
+\bibitem[Sidje(1998)]%
+        {Sidje1998}
+\bibfield{author}{\bibinfo{person}{Roger~B. Sidje}.}
+  \bibinfo{year}{1998}\natexlab{}.
+\newblock \showarticletitle{{Expokit}: A Software Package for Computing Matrix
+  Exponentials}.
+\newblock \bibinfo{journal}{\emph{ACM Trans. Math. Software}}
+  \bibinfo{volume}{24}, \bibinfo{number}{1} (\bibinfo{year}{1998}),
+  \bibinfo{pages}{130--156}.
+\newblock
+\href{https://doi.org/10.1145/285861.285868}{doi:\nolinkurl{10.1145/285861.285868}}
+
+
+\bibitem[Skaflestad and Wright(2009)]%
+        {SkaflestadWright2009}
+\bibfield{author}{\bibinfo{person}{B{\aa}rd Skaflestad} {and}
+  \bibinfo{person}{Will~M. Wright}.} \bibinfo{year}{2009}\natexlab{}.
+\newblock \showarticletitle{The Scaling and Modified Squaring Method for Matrix
+  Functions Related to the Exponential}.
+\newblock \bibinfo{journal}{\emph{Applied Numerical Mathematics}}
+  \bibinfo{volume}{59}, \bibinfo{number}{3--4} (\bibinfo{year}{2009}),
+  \bibinfo{pages}{783--799}.
+\newblock
+\href{https://doi.org/10.1016/j.apnum.2008.03.035}{doi:\nolinkurl{10.1016/j.apnum.2008.03.035}}
+
+
+\bibitem[Virtanen et~al\mbox{.}(2020)]%
+        {VirtanenEtAl2020}
+\bibfield{author}{\bibinfo{person}{Pauli Virtanen}, \bibinfo{person}{Ralf
+  Gommers}, \bibinfo{person}{Travis~E. Oliphant}, \bibinfo{person}{Matt
+  Haberland}, \bibinfo{person}{Tyler Reddy}, \bibinfo{person}{David
+  Cournapeau}, \bibinfo{person}{Evgeni Burovski}, \bibinfo{person}{Pearu
+  Peterson}, \bibinfo{person}{Warren Weckesser}, \bibinfo{person}{Jonathan
+  Bright}, \bibinfo{person}{St{\'e}fan~J. van~der Walt},
+  \bibinfo{person}{Matthew Brett}, \bibinfo{person}{Joshua Wilson},
+  \bibinfo{person}{K.~Jarrod Millman}, \bibinfo{person}{Nikolay Mayorov},
+  \bibinfo{person}{Andrew R.~J. Nelson}, \bibinfo{person}{Eric Jones},
+  \bibinfo{person}{Robert Kern}, \bibinfo{person}{Eric Larson},
+  \bibinfo{person}{C.~J. Carey}, \bibinfo{person}{{\.{I}}lhan Polat},
+  \bibinfo{person}{Yu Feng}, \bibinfo{person}{Eric~W. Moore},
+  \bibinfo{person}{Jake VanderPlas}, \bibinfo{person}{Denis Laxalde},
+  \bibinfo{person}{Josef Perktold}, \bibinfo{person}{Robert Cimrman},
+  \bibinfo{person}{Ian Henriksen}, \bibinfo{person}{E.~A. Quintero},
+  \bibinfo{person}{Charles~R. Harris}, \bibinfo{person}{Anne~M. Archibald},
+  \bibinfo{person}{Ant{\^o}nio~H. Ribeiro}, \bibinfo{person}{Fabian Pedregosa},
+  \bibinfo{person}{Paul van Mulbregt}, {and} \bibinfo{person}{SciPy~1.0
+  Contributors}.} \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{{SciPy} 1.0: Fundamental Algorithms for Scientific
+  Computing in Python}.
+\newblock \bibinfo{journal}{\emph{Nature Methods}}  \bibinfo{volume}{17}
+  (\bibinfo{year}{2020}), \bibinfo{pages}{261--272}.
+\newblock
+\href{https://doi.org/10.1038/s41592-019-0686-2}{doi:\nolinkurl{10.1038/s41592-019-0686-2}}
+
+
+\bibitem[Whalen({[n.\,d.]})]%
+        {rkstiff}
+\bibfield{author}{\bibinfo{person}{Patrick Whalen}.}
+  \bibinfo{year}{[n.\,d.]}\natexlab{}.
+\newblock \bibinfo{title}{rkstiff: {Runge--Kutta} Adaptive-Step Solvers for
+  Stiff {PDEs}, Version 1.0.2}.
+\newblock \bibinfo{howpublished}{Python package}.
+\newblock
+\urldef\tempurl%
+\url{https://pypi.org/project/rkstiff/}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Accessed October 2026}.
+
+
+\bibitem[Whalen et~al\mbox{.}(2015)]%
+        {WhalenBrioMoloney2015}
+\bibfield{author}{\bibinfo{person}{P. Whalen}, \bibinfo{person}{M. Brio}, {and}
+  \bibinfo{person}{J.~V. Moloney}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{Exponential Time-Differencing with Embedded
+  {Runge--Kutta} Adaptive Step Control}.
+\newblock \bibinfo{journal}{\emph{J. Comput. Phys.}}  \bibinfo{volume}{280}
+  (\bibinfo{year}{2015}), \bibinfo{pages}{579--601}.
+\newblock
+\href{https://doi.org/10.1016/j.jcp.2014.09.038}{doi:\nolinkurl{10.1016/j.jcp.2014.09.038}}
+
+
+\bibitem[Zoto and Bowman(2023)]%
+        {ZotoBowman2023}
+\bibfield{author}{\bibinfo{person}{Thoma Zoto} {and} \bibinfo{person}{John~C.
+  Bowman}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \bibinfo{title}{Robust Exponential {Runge--Kutta} Embedded Pairs}.
+\newblock
+\showeprint[arxiv]{2303.12139}~[physics.comp-ph]
+
+
+\end{thebibliography}

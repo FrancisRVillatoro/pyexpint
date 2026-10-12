@@ -1,0 +1,19 @@
+{
+  "source_archive": "pyexpint_review_package_20261011.zip",
+  "source_archive_sha256": "84982a576f0fc694ae665a504af38aa302d2992794dee0c270b527e0fb2b9cb6",
+  "tree": "9f62cbf6a6455868e358386ccff824507287aeb3",
+  "source_version_metadata": "0.9.0",
+  "reported_preparation_commit": "0ad4b3c4786086a04cf22be33375cc9997ff1344",
+  "manuscript_baseline": "previously delivered split-source v5, not the differently composed nested v5",
+  "primary_record_paths": {
+    "allen_cahn": "records/broadband_allen_cahn.json",
+    "candidate_suite": "evidence/c2c4_20261011_090542/C_suite_branch.xml",
+    "installed_wheel_suite": "evidence/c5_20261011_090904/suite_wheel.xml",
+    "differential": "evidence/c2c4_20261011_090542/E_differential.json",
+    "crosscheck": "evidence/expint_crosscheck_20261011_091303",
+    "complete_example": "software/examples/no_exact_history.py"
+  },
+  "no_new_integrations": true,
+  "no_test_suite_rerun": true,
+  "no_remote_write": true
+}
